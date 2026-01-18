@@ -144,7 +144,7 @@
         pointer-events: none;
       }
       
-      /* ストーリーパネル番号 */
+      /* ストーリーパネル番号 - アニメーション削除 */
       .story-number {
         position: absolute;
         top: -20px;
@@ -163,13 +163,6 @@
         text-shadow: 2px 2px 0px #000;
         box-shadow: 4px 4px 0px #000;
         z-index: 10;
-        animation: bounce 2s infinite;
-      }
-      
-      @keyframes bounce {
-        0%, 100% { transform: translateY(0) rotate(0deg); }
-        25% { transform: translateY(-10px) rotate(-5deg); }
-        75% { transform: translateY(-5px) rotate(5deg); }
       }
       
       /* 漫画風ボタン */
@@ -199,29 +192,9 @@
         box-shadow: 0px 0px 0px #000;
       }
       
-      .manga-button::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(
-          45deg,
-          transparent 30%,
-          rgba(255, 255, 255, 0.5) 50%,
-          transparent 70%
-        );
-        transform: rotate(45deg);
-        animation: shine 3s infinite;
-      }
+      /* シャイン効果削除 - チカチカ防止 */
       
-      @keyframes shine {
-        0% { transform: translateX(-100%) rotate(45deg); }
-        100% { transform: translateX(100%) rotate(45deg); }
-      }
-      
-      /* 集中線効果 */
+      /* 集中線効果 - アニメーション削除 */
       .focus-lines {
         position: absolute;
         top: 50%;
@@ -233,15 +206,10 @@
           repeating-conic-gradient(
             from 0deg at 50% 50%,
             transparent 0deg 2deg,
-            rgba(0,0,0,0.05) 2deg 4deg
+            rgba(0,0,0,0.03) 2deg 4deg
           );
         pointer-events: none;
-        animation: focusRotate 30s linear infinite;
-      }
-      
-      @keyframes focusRotate {
-        from { transform: translate(-50%, -50%) rotate(0deg); }
-        to { transform: translate(-50%, -50%) rotate(360deg); }
+        opacity: 0.5;
       }
       
       /* 漫画風カード */
@@ -285,15 +253,9 @@
         pointer-events: none;
       }
       
-      /* テキスト強調エフェクト */
+      /* テキスト強調エフェクト - アニメーション削除 */
       .impact-text {
         display: inline-block;
-        animation: impact 2s infinite;
-      }
-      
-      @keyframes impact {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.1); }
       }
       
       /* スクロール表示アニメーション */
@@ -335,7 +297,7 @@
         pointer-events: none;
       }
       
-      /* 雨漏り効果 */
+      /* 雨漏り効果 - アニメーション削除 */
       .rain-effect {
         position: absolute;
         top: 0;
@@ -347,32 +309,120 @@
             180deg,
             transparent,
             transparent 20px,
-            rgba(100, 150, 255, 0.3) 20px,
-            rgba(100, 150, 255, 0.3) 40px
+            rgba(100, 150, 255, 0.1) 20px,
+            rgba(100, 150, 255, 0.1) 40px
           );
-        animation: rain 1.5s linear infinite;
         pointer-events: none;
+        opacity: 0.5;
       }
       
-      @keyframes rain {
-        0% { transform: translateY(-100%); }
-        100% { transform: translateY(100%); }
-      }
-      
-      /* 診断CTAボタンのパルス */
+      /* CTAボタンのパルス - 控えめに */
       .cta-pulse {
-        animation: ctaPulse 1.5s infinite;
+        animation: ctaPulse 3s ease-in-out infinite;
       }
       
       @keyframes ctaPulse {
         0%, 100% {
           transform: scale(1);
-          box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.7);
+          box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.4);
         }
         50% {
-          transform: scale(1.05);
-          box-shadow: 0 0 0 20px rgba(255, 68, 68, 0);
+          transform: scale(1.02);
+          box-shadow: 0 0 0 10px rgba(255, 68, 68, 0);
         }
+      }
+      
+      /* ホバー効果を控えめに */
+      .manga-panel:hover {
+        transform: translateY(-5px);
+        box-shadow: 10px 10px 0px rgba(0,0,0,0.8),
+                    inset 0 0 0 4px #fff;
+      }
+      
+      .manga-card:hover {
+        transform: rotate(0deg) translateY(-8px) scale(1.02);
+        box-shadow: 8px 8px 0px #000;
+        z-index: 10;
+      }
+      
+      /* レスポンシブ対応強化 */
+      @media (max-width: 768px) {
+        .manga-title {
+          font-size: 2.5rem;
+          letter-spacing: 1px;
+        }
+        
+        .manga-button {
+          padding: 15px 30px;
+          font-size: 18px;
+        }
+        
+        .speech-bubble {
+          padding: 20px;
+          font-size: 16px;
+        }
+        
+        .manga-panel {
+          border: 4px solid #000;
+          box-shadow: 5px 5px 0px rgba(0,0,0,0.8);
+        }
+        
+        .story-number {
+          width: 50px;
+          height: 50px;
+          font-size: 24px;
+          top: -15px;
+          left: -15px;
+        }
+      }
+      
+      /* タブレット対応 */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .manga-title {
+          font-size: 3.5rem;
+        }
+        
+        .manga-button {
+          padding: 18px 35px;
+          font-size: 20px;
+        }
+      }
+      
+      /* アクセシビリティ向上 */
+      .manga-button:focus,
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: 3px solid #FF4444;
+        outline-offset: 2px;
+      }
+      
+      /* 読みやすさ向上 */
+      body {
+        line-height: 1.7;
+        font-size: 16px;
+      }
+      
+      h1, h2, h3, h4 {
+        line-height: 1.3;
+        margin-bottom: 1rem;
+      }
+      
+      p {
+        margin-bottom: 0.5rem;
+      }
+      
+      /* CTAボタンをより目立たせる */
+      .cta-primary {
+        background: linear-gradient(135deg, #FF4444 0%, #CC0000 100%);
+        box-shadow: 0 8px 0px #000, 0 10px 20px rgba(0,0,0,0.3);
+        transform: translateY(-2px);
+      }
+      
+      .cta-primary:hover {
+        background: linear-gradient(135deg, #FF6666 0%, #FF0000 100%);
+        transform: translateY(0px);
+        box-shadow: 0 4px 0px #000, 0 6px 15px rgba(0,0,0,0.3);
       }
     </style>
 </head>
@@ -413,9 +463,9 @@
             </div>
             
             <div class="mt-16">
-                <a href="#diagnosis" class="manga-button inline-block cta-pulse">
+                <a href="#diagnosis" class="manga-button inline-block cta-pulse cta-primary">
                     <span class="relative z-10">
-                        <i class="fas fa-exclamation-triangle mr-3"></i>今すぐ無料診断 →
+                        <i class="fas fa-exclamation-triangle mr-3"></i>今すぐ無料診断
                     </span>
                 </a>
                 <p class="text-black text-lg mt-6 font-bold">完全無料・しつこい営業なし</p>
@@ -487,7 +537,7 @@
             </div>
             
             <div class="text-center reveal-manga mb-12">
-                <a href="#diagnosis" class="manga-button inline-block cta-pulse">
+                <a href="#diagnosis" class="manga-button inline-block cta-pulse cta-primary">
                     <span class="relative z-10">
                         <i class="fas fa-search mr-2"></i>我が家の状態を診断する
                     </span>
@@ -577,7 +627,7 @@
                     </p>
                 </div>
                 <div class="mt-8">
-                    <a href="#diagnosis" class="manga-button inline-block cta-pulse">
+                    <a href="#diagnosis" class="manga-button inline-block cta-pulse cta-primary">
                         <span class="relative z-10">
                             <i class="fas fa-home mr-2"></i>今すぐ無料診断を受ける
                         </span>
@@ -662,7 +712,7 @@
             </div>
             
             <div class="text-center reveal-manga">
-                <a href="#diagnosis" class="manga-button inline-block cta-pulse">
+                <a href="#diagnosis" class="manga-button inline-block cta-pulse cta-primary">
                     <span class="relative z-10">
                         <i class="fas fa-tools mr-2"></i>コーキング状態を無料診断
                     </span>
@@ -777,7 +827,7 @@
             </div>
             
             <div class="text-center reveal-manga">
-                <a href="#diagnosis" class="manga-button inline-block cta-pulse">
+                <a href="#diagnosis" class="manga-button inline-block cta-pulse cta-primary">
                     <span class="relative z-10">
                         <i class="fas fa-paint-roller mr-2"></i>最適な塗料を診断する
                     </span>
@@ -902,7 +952,7 @@
                         でも家の状態は一軒一軒違います
                     </p>
                 </div>
-                <a href="#diagnosis" class="manga-button inline-block cta-pulse">
+                <a href="#diagnosis" class="manga-button inline-block cta-pulse cta-primary">
                     <span class="relative z-10">
                         <i class="fas fa-calendar-check mr-2"></i>我が家の塗り替え時期を診断
                     </span>
@@ -1062,7 +1112,7 @@
                             <p class="text-lg">24時間以内に診断結果をお届け</p>
                         </div>
                     </div>
-                    <a href="https://line.me/R/ti/p/@example" target="_blank" class="manga-button w-full text-2xl py-6 block text-center cta-pulse bg-green-500">
+                    <a href="https://line.me/R/ti/p/@example" target="_blank" class="manga-button w-full text-2xl py-6 block text-center cta-pulse cta-primary bg-green-500" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
                         <span class="relative z-10">
                             <i class="fab fa-line mr-3"></i>LINEで診断開始
                         </span>
@@ -1169,7 +1219,7 @@
                                       class="w-full px-4 py-3 text-lg border-4 border-black rounded-lg focus:border-red-600 focus:outline-none transition"></textarea>
                         </div>
                         
-                        <button type="submit" class="manga-button w-full text-2xl py-6 cta-pulse">
+                        <button type="submit" class="manga-button w-full text-2xl py-6 cta-pulse cta-primary">
                             <span class="relative z-10">
                                 <i class="fas fa-paper-plane mr-3"></i>診断を依頼する
                             </span>
@@ -1346,7 +1396,7 @@
                     </p>
                 </div>
                 
-                <a href="#diagnosis" class="manga-button inline-block mb-8 cta-pulse">
+                <a href="#diagnosis" class="manga-button inline-block mb-8 cta-pulse cta-primary">
                     <span class="relative z-10 text-3xl">
                         <i class="fas fa-shield-alt mr-3"></i>今すぐ無料診断！
                     </span>

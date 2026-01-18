@@ -657,7 +657,12 @@
                 <a href="#diagnosis" class="mega-cta mb-6">
                     ⚡ 今すぐ無料診断 ⚡
                 </a>
-
+                <div class="mt-6">
+                    <p class="text-xl font-bold mb-4">または、LINEで簡単診断</p>
+                    <a href="https://line.me/R/ti/p/@example" target="_blank" class="inline-block px-8 py-4 text-xl font-black bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full border-4 border-black shadow-lg hover:scale-105 transition">
+                        <i class="fab fa-line mr-2"></i>LINE診断＋ガイドブックGET
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -750,13 +755,13 @@
                 </p>
             </div>
             
-            <!-- 診断CTA -->
+            <!-- LINE CTA -->
             <div class="text-center mt-8">
-                <div class="bg-gradient-to-r from-orange-100 to-red-50 p-6 rounded-lg border-4 border-red-500">
-                    <p class="text-xl font-black mb-3">今すぐ無料診断で現状をチェック</p>
-                    <p class="text-sm text-gray-700 mb-4">✅ たった30秒 ✅ ガイドブック付き ✅ 自動返信</p>
-                    <a href="#diagnosis" class="inline-block px-8 py-4 text-xl font-black bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full border-4 border-black shadow-lg hover:scale-105 transition">
-                        <i class="fas fa-clipboard-list mr-2"></i>無料診断を受ける
+                <div class="bg-gradient-to-r from-green-100 to-green-50 p-6 rounded-lg border-4 border-green-500">
+                    <p class="text-xl font-black mb-3">今すぐLINE診断で現状をチェック</p>
+                    <p class="text-sm text-gray-700 mb-4">✅ たった30秒 ✅ ガイドブック付き</p>
+                    <a href="https://line.me/R/ti/p/@example" target="_blank" class="inline-block px-8 py-4 text-xl font-black bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full border-4 border-black shadow-lg hover:scale-105 transition">
+                        <i class="fab fa-line mr-2"></i>LINE診断を受ける
                     </a>
                 </div>
             </div>
@@ -779,13 +784,13 @@
                 </div>
             </div>
             
-            <!-- 診断CTA -->
+            <!-- LINE CTA -->
             <div class="text-center mb-8">
                 <div class="bg-gradient-to-r from-yellow-100 to-orange-50 p-6 rounded-lg border-4 border-orange-400">
-                    <p class="text-xl font-black mb-3">💡 どの塗料が最適？無料診断</p>
-                    <p class="text-sm text-gray-700 mb-4">✅ 無料 ✅ 予算に合わせて提案 ✅ ガイドブック付き</p>
-                    <a href="#diagnosis" class="inline-block px-8 py-4 text-xl font-black bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full border-4 border-black shadow-lg hover:scale-105 transition">
-                        <i class="fas fa-clipboard-list mr-2"></i>最適な塗料を診断
+                    <p class="text-xl font-black mb-3">💡 どの塗料が最適？LINEで診断</p>
+                    <p class="text-sm text-gray-700 mb-4">✅ 無料 ✅ 予算に合わせて提案</p>
+                    <a href="https://line.me/R/ti/p/@example" target="_blank" class="inline-block px-8 py-4 text-xl font-black bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full border-4 border-black shadow-lg hover:scale-105 transition">
+                        <i class="fab fa-line mr-2"></i>最適な塗料を診断
                     </a>
                 </div>
             </div>
@@ -857,8 +862,8 @@
             <div class="mb-8">
                 <div class="image-placeholder">
                     <i class="fas fa-tools text-6xl mb-4 text-gray-400"></i>
-                    <p class="text-xl font-bold mb-2">施工中の様子（メール報告例）</p>
-                    <p class="text-sm">※実際のメール報告画面のスクリーンショットを追加予定</p>
+                    <p class="text-xl font-bold mb-2">施工中の様子（LINE報告例）</p>
+                    <p class="text-sm">※実際のLINE報告画面のスクリーンショットを追加予定</p>
                 </div>
             </div>
             
@@ -866,7 +871,7 @@
                 <div class="step-card">
                     <div class="huge-badge mb-6 mx-auto">1</div>
                     <h3 class="text-xl md:text-2xl font-black mb-4">
-                        毎日メールで<br>現場写真報告
+                        毎日LINEで<br>現場写真報告
                     </h3>
                     <p class="text-gray-700 leading-relaxed">
                         「今日はどこまで？」の不安ゼロ。工事の様子を毎日写真付きで報告します。仕事中でも進捗がわかって安心。
@@ -894,13 +899,13 @@
                 </div>
             </div>
             
-            <!-- 診断CTA -->
+            <!-- LINE CTA -->
             <div class="text-center mb-12">
                 <div class="bg-gradient-to-r from-blue-100 to-purple-50 p-6 rounded-lg border-4 border-blue-500">
-                    <p class="text-xl font-black mb-3">📧 まずは無料診断から始めましょう</p>
-                    <p class="text-sm text-gray-700 mb-4">✅ 診断後すぐにガイドブック送付 ✅ しつこい営業なし</p>
-                    <a href="#diagnosis" class="inline-block px-8 py-4 text-xl font-black bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full border-4 border-black shadow-lg hover:scale-105 transition">
-                        <i class="fas fa-clipboard-list mr-2"></i>無料診断を始める
+                    <p class="text-xl font-black mb-3">📱 毎日LINE報告をあなたも体験</p>
+                    <p class="text-sm text-gray-700 mb-4">✅ まずは無料診断から ✅ しつこい営業なし</p>
+                    <a href="https://line.me/R/ti/p/@example" target="_blank" class="inline-block px-8 py-4 text-xl font-black bg-gradient-to-r from-green-500 to-green-600 text-white rounded-full border-4 border-black shadow-lg hover:scale-105 transition">
+                        <i class="fab fa-line mr-2"></i>LINE診断を始める
                     </a>
                 </div>
             </div>
@@ -918,7 +923,7 @@
                             </div>
                         </div>
                         <p class="text-gray-700 leading-relaxed">
-                            「毎日メールで写真が届くから安心。仕事中でも進捗がわかって良かった。職人さんの丁寧な仕事ぶりも見えて信頼できました」
+                            「毎日LINEで写真が届くから安心。仕事中でも進捗がわかって良かった。職人さんの丁寧な仕事ぶりも見えて信頼できました」
                         </p>
                     </div>
                     <div class="bg-white p-6 rounded-lg border-4 border-gray-300">
@@ -999,30 +1004,62 @@
                         <p class="text-center text-xs text-gray-500 mt-4">※残り6項目も収録（助成金・保証・工事の流れなど）</p>
                     </div>
                     <p class="text-sm text-gray-600">
-                        ※診断フォーム送信後、自動でメール送信されます
+                        ※LINE・フォームどちらからでも受け取れます
                     </p>
                 </div>
             </div>
             
-            <!-- フォーム診断 -->
-            <div class="max-w-2xl mx-auto">
-                <div class="impact-box">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- LINE診断 -->
+                <div class="impact-box bg-green-50 border-green-600">
                     <div class="text-center mb-6">
-                        <div class="inline-block bg-red-600 text-white px-6 py-2 rounded-full font-black text-lg">
-                            最速30秒！今すぐ診断
+                        <div class="inline-block bg-green-600 text-white px-6 py-2 rounded-full font-black text-lg">
+                            おすすめ！最速30秒
                         </div>
                     </div>
-                    <h3 class="text-2xl md:text-3xl font-black text-center mb-6">📧 無料診断フォーム</h3>
+                    <h3 class="text-2xl md:text-3xl font-black text-center mb-6">📱 LINE診断</h3>
                     
-                    <!-- 特典強調 -->
+                    <!-- LINEの特典強調 -->
                     <div class="bg-yellow-100 border-4 border-yellow-400 rounded-lg p-4 mb-6 text-center">
                         <p class="font-black text-lg text-red-600 mb-2">
-                            👇 送信後すぐにガイドブックをメール送付！ 👇
+                            👇 LINE追加で即プレゼント！ 👇
                         </p>
                         <p class="text-sm font-bold">
-                            診断結果とガイドブックが自動で届きます
+                            ガイドブック＋診断が同時に受けられます
                         </p>
                     </div>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="huge-badge mr-4">1</div>
+                            <div>
+                                <p class="text-xl font-black">LINEで友達追加</p>
+                                <p class="text-sm text-gray-600">タップ1回でOK</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="huge-badge mr-4">2</div>
+                            <div>
+                                <p class="text-xl font-black">外壁・屋根の写真を送信</p>
+                                <p class="text-sm text-gray-600">スマホで撮って送るだけ</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="huge-badge mr-4">3</div>
+                            <div>
+                                <p class="text-xl font-black">24時間以内に診断結果</p>
+                                <p class="text-sm text-gray-600">プロが詳しく診断します</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://line.me/R/ti/p/@example" target="_blank" class="block w-full text-center py-6 text-2xl font-black bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg border-4 border-black shadow-lg hover:scale-105 transition">
+                        <i class="fab fa-line mr-2"></i>LINEで診断＋ガイドブックGET
+                    </a>
+                </div>
+                
+                <!-- フォーム診断 -->
+                <div class="impact-box">
+                    <h3 class="text-2xl md:text-3xl font-black text-center mb-8">📧 フォーム診断</h3>
                     <form id="diagnosisForm" class="space-y-6">
                         <div>
                             <label class="block font-black text-lg mb-3">
@@ -1079,7 +1116,7 @@
                         </div>
                         
                         <button type="submit" class="w-full py-6 text-2xl font-black bg-gradient-to-r from-red-600 to-red-700 text-white rounded-lg border-4 border-black shadow-lg hover:scale-105 transition">
-                            <i class="fas fa-paper-plane mr-2"></i>診断を依頼する（ガイドブック自動送付）
+                            <i class="fas fa-paper-plane mr-2"></i>診断を依頼する
                         </button>
                     </form>
                 </div>
@@ -1101,8 +1138,8 @@
             <div class="mt-8 bg-white p-6 rounded-lg border-4 border-green-500">
                 <p class="text-center text-lg font-bold">
                     🔒 個人情報は厳重に管理します<br>
-                    📧 診断結果とガイドブックは自動でメール送付<br>
-                    ⚡ 24時間以内にプロから詳しい診断結果をお送りします
+                    📱 診断結果はLINE・メール・お電話でお送りします<br>
+                    ⚡ 24時間以内に必ず返信します
                 </p>
             </div>
         </div>
@@ -1124,7 +1161,7 @@
                 </div>
                 <div class="text-center">
                     <h4 class="font-black text-lg mb-3">特徴</h4>
-                    <p class="text-gray-400">営業なし<br>正直な診断<br>毎日メール報告</p>
+                    <p class="text-gray-400">営業なし<br>正直な診断<br>毎日LINE報告</p>
                 </div>
             </div>
             <p class="text-gray-500 text-center text-sm">© 2026 外壁塗装の真実 All rights reserved.</p>
@@ -1169,7 +1206,7 @@
         if (form) {
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
-                alert('✅ 診断依頼を受け付けました！\n\n📧 ご入力いただいたメールアドレスに\n「外壁塗装ガイドブック（PDF）」を自動送信しました。\n\n⚡ 24時間以内にプロから詳しい診断結果をお送りします。\n\nしばらくお待ちください。');
+                alert('✅ 診断依頼を受け付けました！\n\n📱 24時間以内にご連絡いたします。\n🎁「外壁塗装ガイドブック」もお送りします。\n\nしばらくお待ちください。');
                 form.reset();
             });
         }

@@ -1167,10 +1167,56 @@
         // フォーム送信
         const form = document.getElementById('diagnosisForm');
         if (form) {
-            form.addEventListener('submit', function(e) {
+            form.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                alert('✅ 診断依頼を受け付けました！\n\n📧 ご入力いただいたメールアドレスに\n「外壁塗装ガイドブック（PDF）」を自動送信しました。\n\n⚡ 24時間以内にプロから詳しい診断結果をお送りします。\n\nしばらくお待ちください。');
-                form.reset();
+                
+                // フォームデータ取得
+                const formData = {
+                    name: form.name.value,
+                    location: form.location.value,
+                    age: form.age.value,
+                    phone: form.phone.value,
+                    email: form.email.value
+                };
+                
+                // Google Apps Script URL（SETUP_GUIDE.mdを参照して設定してください）
+                // TODO: デプロイ後、以下のURLを実際のGoogle Apps Script URLに変更してください
+                const scriptUrl = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+                
+                try {
+                    // ローディング表示
+                    const button = form.querySelector('button[type="submit"]');
+                    const originalText = button.innerHTML;
+                    button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>送信中...';
+                    button.disabled = true;
+                    
+                    // 実際の環境では、Google Apps Scriptに送信
+                    if (scriptUrl !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                        await fetch(scriptUrl, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(formData)
+                        });
+                    }
+                    
+                    // 成功メッセージ
+                    alert('✅ 診断依頼を受け付けました！\n\n📧 ご入力いただいたメールアドレスに\n「外壁塗装ガイドブック（PDF）」を自動送信しました。\n\n⚡ 24時間以内にプロから詳しい診断結果をお送りします。\n\nしばらくお待ちください。');
+                    form.reset();
+                    
+                    // ボタンを元に戻す
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    
+                } catch (error) {
+                    alert('❌ 送信エラーが発生しました。\nお手数ですが、もう一度お試しください。');
+                    console.error('Error:', error);
+                    
+                    // ボタンを元に戻す
+                    const button = form.querySelector('button[type="submit"]');
+                    button.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>診断を依頼する（ガイドブック自動送付）';
+                    button.disabled = false;
+                }
             });
         }
     </script>

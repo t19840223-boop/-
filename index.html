@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>外壁塗装の真実 | 10年に一度の命を守る塗り替え | 東京多摩・町田・立川</title>
+    <meta name="description" content="クラック・チョーキング・コケの危険から家を守る。雨漏り・カビが起こす健康被害を防ぐ外壁塗装の重要性を漫画で解説">
+    <meta name="keywords" content="外壁塗装,屋根塗装,クラック,チョーキング,雨漏り,コーキング,東京,多摩,町田,立川">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Permanent+Marker&family=Noto+Sans+JP:wght@400;700;900&display=swap');
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        font-family: 'Noto Sans JP', sans-serif;
+        overflow-x: hidden;
+        background: #fff;
+      }
+      
+      /* 漫画風フォント */
+      .manga-title {
+        font-family: 'Bangers', 'Noto Sans JP', cursive;
+        letter-spacing: 3px;
+        text-shadow: 4px 4px 0px #000, 
+                     -2px -2px 0px #fff,
+                     2px -2px 0px #000,
+                     -2px 2px 0px #000;
+      }
+      
+      /* 漫画風パネル効果 */
+      .manga-panel {
+        position: relative;
+        border: 6px solid #000;
+        box-shadow: 8px 8px 0px rgba(0,0,0,0.8),
+                    inset 0 0 0 4px #fff;
+        background: #fff;
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+      
+      .manga-panel:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 12px 12px 0px rgba(0,0,0,0.8),
+                    inset 0 0 0 4px #fff;
+        border-color: #FF4444;
+      }
+      
+      /* 吹き出し効果 */
+      .speech-bubble {
+        position: relative;
+        background: #fff;
+        border: 5px solid #000;
+        border-radius: 30px;
+        padding: 25px;
+        box-shadow: 5px 5px 0px #000;
+        transition: all 0.3s ease;
+      }
+      
+      .speech-bubble:hover {
+        transform: scale(1.05) translateY(-5px);
+        box-shadow: 8px 8px 0px #000;
+      }
+      
+      .speech-bubble::before {
+        content: "";
+        position: absolute;
+        bottom: -30px;
+        left: 50px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 30px 30px 0 0;
+        border-color: #000 transparent transparent transparent;
+      }
+      
+      .speech-bubble::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 55px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 25px 25px 0 0;
+        border-color: #fff transparent transparent transparent;
+      }
+      
+      /* 漫画風効果線 */
+      .speed-lines {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 10px,
+          rgba(255, 255, 255, 0.1) 10px,
+          rgba(255, 255, 255, 0.1) 20px
+        );
+        pointer-events: none;
+      }
+      
+      /* 危機感を煽る背景 */
+      .danger-bg {
+        background: 
+          radial-gradient(circle at 30% 50%, #FF4444 0%, transparent 50%),
+          radial-gradient(circle at 70% 50%, #FF6B00 0%, transparent 50%),
+          radial-gradient(circle at 50% 30%, #990000 0%, transparent 50%),
+          #FFE5E5;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .warning-bg {
+        background: 
+          repeating-linear-gradient(
+            45deg,
+            #FFD700,
+            #FFD700 20px,
+            #000 20px,
+            #000 40px
+          );
+        opacity: 0.3;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+      }
+      
+      /* ストーリーパネル番号 */
+      .story-number {
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        width: 60px;
+        height: 60px;
+        background: #FF4444;
+        border: 5px solid #000;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 28px;
+        color: #fff;
+        text-shadow: 2px 2px 0px #000;
+        box-shadow: 4px 4px 0px #000;
+        z-index: 10;
+        animation: bounce 2s infinite;
+      }
+      
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        25% { transform: translateY(-10px) rotate(-5deg); }
+        75% { transform: translateY(-5px) rotate(5deg); }
+      }
+      
+      /* 漫画風ボタン */
+      .manga-button {
+        position: relative;
+        background: #FF4444;
+        border: 5px solid #000;
+        padding: 20px 40px;
+        font-size: 24px;
+        font-weight: 900;
+        color: #fff;
+        text-transform: uppercase;
+        box-shadow: 6px 6px 0px #000;
+        transition: all 0.1s ease;
+        cursor: pointer;
+        overflow: hidden;
+      }
+      
+      .manga-button:hover {
+        transform: translate(3px, 3px);
+        box-shadow: 3px 3px 0px #000;
+        background: #FF6666;
+      }
+      
+      .manga-button:active {
+        transform: translate(6px, 6px);
+        box-shadow: 0px 0px 0px #000;
+      }
+      
+      .manga-button::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.5) 50%,
+          transparent 70%
+        );
+        transform: rotate(45deg);
+        animation: shine 3s infinite;
+      }
+      
+      @keyframes shine {
+        0% { transform: translateX(-100%) rotate(45deg); }
+        100% { transform: translateX(100%) rotate(45deg); }
+      }
+      
+      /* 集中線効果 */
+      .focus-lines {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 120%;
+        height: 120%;
+        transform: translate(-50%, -50%);
+        background: 
+          repeating-conic-gradient(
+            from 0deg at 50% 50%,
+            transparent 0deg 2deg,
+            rgba(0,0,0,0.05) 2deg 4deg
+          );
+        pointer-events: none;
+        animation: focusRotate 30s linear infinite;
+      }
+      
+      @keyframes focusRotate {
+        from { transform: translate(-50%, -50%) rotate(0deg); }
+        to { transform: translate(-50%, -50%) rotate(360deg); }
+      }
+      
+      /* 漫画風カード */
+      .manga-card {
+        position: relative;
+        background: #fff;
+        border: 4px solid #000;
+        padding: 25px;
+        transform: rotate(-1deg);
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        box-shadow: 5px 5px 0px #000;
+      }
+      
+      .manga-card:nth-child(even) {
+        transform: rotate(1deg);
+      }
+      
+      .manga-card:hover {
+        transform: rotate(0deg) translateY(-10px) scale(1.05);
+        box-shadow: 10px 10px 0px #000;
+        z-index: 10;
+      }
+      
+      /* ハーフトーン効果 */
+      .halftone {
+        position: relative;
+      }
+      
+      .halftone::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: 
+          radial-gradient(circle, transparent 30%, rgba(0,0,0,0.05) 30%),
+          radial-gradient(circle, transparent 30%, rgba(0,0,0,0.05) 30%);
+        background-size: 4px 4px;
+        background-position: 0 0, 2px 2px;
+        pointer-events: none;
+      }
+      
+      /* テキスト強調エフェクト */
+      .impact-text {
+        display: inline-block;
+        animation: impact 2s infinite;
+      }
+      
+      @keyframes impact {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+      }
+      
+      /* スクロール表示アニメーション */
+      .reveal-manga {
+        opacity: 0;
+        transform: translateY(100px) rotate(-10deg);
+        transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+      
+      .reveal-manga.active {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+      }
+      
+      /* 背景ドット効果 */
+      .dot-bg {
+        background-color: #fff;
+        background-image: 
+          radial-gradient(circle, #000 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+      
+      /* クラック表現 */
+      .crack-effect {
+        position: relative;
+        background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+      }
+      
+      .crack-effect::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+          repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(0,0,0,0.3) 10px, rgba(0,0,0,0.3) 12px),
+          repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0,0,0,0.2) 20px, rgba(0,0,0,0.2) 22px);
+        pointer-events: none;
+      }
+      
+      /* 雨漏り効果 */
+      .rain-effect {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+          repeating-linear-gradient(
+            180deg,
+            transparent,
+            transparent 20px,
+            rgba(100, 150, 255, 0.3) 20px,
+            rgba(100, 150, 255, 0.3) 40px
+          );
+        animation: rain 1.5s linear infinite;
+        pointer-events: none;
+      }
+      
+      @keyframes rain {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(100%); }
+      }
+      
+      /* 診断CTAボタンのパルス */
+      .cta-pulse {
+        animation: ctaPulse 1.5s infinite;
+      }
+      
+      @keyframes ctaPulse {
+        0%, 100% {
+          transform: scale(1);
+          box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.7);
+        }
+        50% {
+          transform: scale(1.05);
+          box-shadow: 0 0 0 20px rgba(255, 68, 68, 0);
+        }
+      }
+    </style>
+</head>
+<body class="dot-bg">
+    <!-- プロローグ: 衝撃のタイトル -->
+    <section class="danger-bg text-white py-24 px-4 relative min-h-screen flex items-center">
+        <div class="warning-bg"></div>
+        <div class="speed-lines"></div>
+        <div class="focus-lines"></div>
+        <div class="max-w-6xl mx-auto text-center relative z-10">
+            <div class="reveal-manga active">
+                <div class="text-sm font-bold mb-4 tracking-widest text-black">【衝撃の真実】</div>
+                <h1 class="manga-title text-6xl md:text-9xl text-black mb-8 impact-text">
+                    あなたの家<br>
+                    <span class="text-red-600">危険</span>です
+                </h1>
+                <div class="speech-bubble inline-block mb-12 text-black text-left max-w-2xl">
+                    <p class="text-2xl md:text-3xl font-bold mb-4">
+                        「10年に一度の<br class="md:hidden">塗り替え、<br>
+                        してますか？」
+                    </p>
+                    <p class="text-xl">
+                        放置すると<span class="text-red-600 text-3xl font-black">命に関わる</span>危険が...
+                    </p>
+                </div>
+            </div>
+            
+            <div class="manga-panel bg-yellow-100 p-8 rounded-3xl inline-block mb-12">
+                <div class="text-black">
+                    <h2 class="text-3xl md:text-4xl font-black mb-4">⚠️ こんな症状ありませんか？</h2>
+                    <div class="text-left text-xl space-y-2">
+                        <p>✓ 壁を触ると白い粉がつく（チョーキング）</p>
+                        <p>✓ 壁にヒビ割れがある（クラック）</p>
+                        <p>✓ 壁や屋根にコケが生えている</p>
+                        <p>✓ 最後の塗装から10年以上経過</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16">
+                <a href="#diagnosis" class="manga-button inline-block cta-pulse">
+                    <span class="relative z-10">
+                        <i class="fas fa-exclamation-triangle mr-3"></i>今すぐ無料診断 →
+                    </span>
+                </a>
+                <p class="text-black text-lg mt-6 font-bold">完全無料・しつこい営業なし</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第1話: 恐怖のクラック -->
+    <section class="py-20 px-4 bg-gradient-to-b from-red-100 to-white relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal-manga">
+                <div class="text-sm font-bold mb-4 tracking-widest">【第1話】静かなる破壊者</div>
+                <h2 class="text-5xl md:text-7xl font-black mb-4">
+                    <span class="bg-red-600 text-white px-6 py-2 inline-block transform -rotate-2 border-4 border-black">
+                        クラック・チョーキング・コケ
+                    </span>
+                </h2>
+                <p class="text-2xl mt-6 font-bold">放置すると起こる恐怖の連鎖...</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="manga-card reveal-manga manga-shadow halftone">
+                    <div class="story-number">1</div>
+                    <div class="text-6xl mb-6">⚡</div>
+                    <h3 class="text-3xl font-black mb-4 border-b-4 border-black pb-2">
+                        クラック<br>（ヒビ割れ）
+                    </h3>
+                    <div class="speech-bubble text-lg leading-relaxed mt-6">
+                        「たった1mmのヒビから<br>
+                        雨水が侵入！<br>
+                        <span class="text-red-600 font-black">家の骨組みが腐る</span>」
+                    </div>
+                    <div class="mt-4 p-4 bg-red-50 border-2 border-red-600 rounded">
+                        <p class="font-bold text-sm">危険度: ★★★★★</p>
+                    </div>
+                </div>
+                
+                <div class="manga-card reveal-manga manga-shadow halftone">
+                    <div class="story-number">2</div>
+                    <div class="text-6xl mb-6">💨</div>
+                    <h3 class="text-3xl font-black mb-4 border-b-4 border-black pb-2">
+                        チョーキング<br>（白い粉）
+                    </h3>
+                    <div class="speech-bubble text-lg leading-relaxed mt-6">
+                        「塗膜が劣化した証拠！<br>
+                        防水機能が<br>
+                        <span class="text-red-600 font-black">完全に失われている</span>」
+                    </div>
+                    <div class="mt-4 p-4 bg-yellow-50 border-2 border-yellow-600 rounded">
+                        <p class="font-bold text-sm">危険度: ★★★★☆</p>
+                    </div>
+                </div>
+                
+                <div class="manga-card reveal-manga manga-shadow halftone">
+                    <div class="story-number">3</div>
+                    <div class="text-6xl mb-6">🦠</div>
+                    <h3 class="text-3xl font-black mb-4 border-b-4 border-black pb-2">
+                        コケ・カビ<br>（緑・黒の汚れ）
+                    </h3>
+                    <div class="speech-bubble text-lg leading-relaxed mt-6">
+                        「湿気が溜まっている証拠！<br>
+                        <span class="text-red-600 font-black">健康被害</span>の危険も<br>
+                        外壁の寿命も激減」
+                    </div>
+                    <div class="mt-4 p-4 bg-green-50 border-2 border-green-600 rounded">
+                        <p class="font-bold text-sm">危険度: ★★★☆☆</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center reveal-manga mb-12">
+                <a href="#diagnosis" class="manga-button inline-block cta-pulse">
+                    <span class="relative z-10">
+                        <i class="fas fa-search mr-2"></i>我が家の状態を診断する
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第2話: 雨漏りの恐怖 -->
+    <section class="py-20 px-4 crack-effect text-white relative">
+        <div class="rain-effect"></div>
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-16 reveal-manga">
+                <div class="text-sm font-bold mb-4 tracking-widest">【第2話】見えない敵</div>
+                <h2 class="text-5xl md:text-7xl font-black mb-4 manga-title">
+                    雨漏りが起こす<br>
+                    <span class="text-red-400">悲劇</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="manga-panel bg-white text-black p-8 reveal-manga">
+                    <h3 class="text-3xl font-black mb-6 border-b-4 border-red-600 pb-3">
+                        🏠 家への被害
+                    </h3>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-start">
+                            <span class="text-3xl mr-3">💧</span>
+                            <div>
+                                <p class="font-bold">屋根のクラックから雨水侵入</p>
+                                <p class="text-sm text-gray-600">→ 野地板が腐り始める</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-3xl mr-3">⚠️</span>
+                            <div>
+                                <p class="font-bold">板金の隙間から水が侵入</p>
+                                <p class="text-sm text-gray-600">→ 釘が錆びて抜ける危険</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-3xl mr-3">🌀</span>
+                            <div>
+                                <p class="font-bold">台風で屋根が飛ぶ可能性</p>
+                                <p class="text-sm text-gray-600">→ 修理費用は数百万円</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="manga-panel bg-white text-black p-8 reveal-manga">
+                    <h3 class="text-3xl font-black mb-6 border-b-4 border-red-600 pb-3">
+                        👨‍👩‍👧‍👦 健康への被害
+                    </h3>
+                    <ul class="space-y-4 text-lg">
+                        <li class="flex items-start">
+                            <span class="text-3xl mr-3">🦠</span>
+                            <div>
+                                <p class="font-bold">カビ・ダニの大量発生</p>
+                                <p class="text-sm text-gray-600">→ アレルギー、喘息の原因</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-3xl mr-3">😷</span>
+                            <div>
+                                <p class="font-bold">室内の湿度上昇</p>
+                                <p class="text-sm text-gray-600">→ 呼吸器系疾患のリスク</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-3xl mr-3">👶</span>
+                            <div>
+                                <p class="font-bold">子供・高齢者は特に危険</p>
+                                <p class="text-sm text-gray-600">→ 免疫力が低いため重症化</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center reveal-manga">
+                <div class="speech-bubble inline-block bg-white text-black max-w-2xl">
+                    <p class="text-3xl font-black mb-4">気づいた時には手遅れ...</p>
+                    <p class="text-xl">
+                        見えない場所で進行する劣化。<br>
+                        早期発見が家族を守る唯一の方法！
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <a href="#diagnosis" class="manga-button inline-block cta-pulse">
+                        <span class="relative z-10">
+                            <i class="fas fa-home mr-2"></i>今すぐ無料診断を受ける
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第3話: コーキングの真実 -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal-manga">
+                <div class="text-sm font-bold mb-4 tracking-widest">【第3話】目地の叫び</div>
+                <h2 class="text-5xl md:text-7xl font-black mb-4">
+                    <span class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 inline-block border-4 border-black manga-title">
+                        コーキングの危険
+                    </span>
+                </h2>
+            </div>
+            
+            <div class="mb-16 reveal-manga">
+                <div class="manga-panel bg-gradient-to-br from-yellow-50 to-orange-50 p-10">
+                    <h3 class="text-4xl font-black mb-8 text-center border-b-4 border-black pb-4">
+                        コーキングとは？
+                    </h3>
+                    <p class="text-xl leading-relaxed mb-6">
+                        外壁のサイディングボード間を埋めるゴム状の材料。<br>
+                        防水の最前線として家を守る<span class="text-red-600 font-black text-2xl">超重要部材</span>です。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="reveal-manga">
+                    <div class="manga-card halftone">
+                        <h3 class="text-3xl font-black mb-6 border-b-4 border-black pb-3">
+                            ⚠️ こんな症状は危険信号
+                        </h3>
+                        <ul class="space-y-4 text-lg">
+                            <li class="p-4 bg-red-50 border-l-4 border-red-600">
+                                <p class="font-bold">🔴 ヒビ割れ</p>
+                                <p class="text-sm">→ 即座に雨水が侵入開始</p>
+                            </li>
+                            <li class="p-4 bg-orange-50 border-l-4 border-orange-600">
+                                <p class="font-bold">🟠 剥がれ</p>
+                                <p class="text-sm">→ 隙間から水が入り続ける</p>
+                            </li>
+                            <li class="p-4 bg-yellow-50 border-l-4 border-yellow-600">
+                                <p class="font-bold">🟡 痩せ・縮み</p>
+                                <p class="text-sm">→ 密着力が失われている</p>
+                            </li>
+                            <li class="p-4 bg-gray-50 border-l-4 border-gray-600">
+                                <p class="font-bold">⚫ 変色・硬化</p>
+                                <p class="text-sm">→ 弾力性がなくなり機能喪失</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="reveal-manga">
+                    <div class="manga-card halftone">
+                        <h3 class="text-3xl font-black mb-6 border-b-4 border-black pb-3">
+                            ✅ 正しい対処法
+                        </h3>
+                        <div class="space-y-6">
+                            <div class="speech-bubble">
+                                <p class="text-xl font-bold mb-2">1️⃣ 早期発見</p>
+                                <p>定期的な目視チェック（年1回）</p>
+                            </div>
+                            <div class="speech-bubble">
+                                <p class="text-xl font-bold mb-2">2️⃣ 打ち替え</p>
+                                <p>古いコーキングを完全除去して新規充填</p>
+                            </div>
+                            <div class="speech-bubble">
+                                <p class="text-xl font-bold mb-2">3️⃣ 予防保全</p>
+                                <p>塗装と同時に交換するのが最も経済的</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center reveal-manga">
+                <a href="#diagnosis" class="manga-button inline-block cta-pulse">
+                    <span class="relative z-10">
+                        <i class="fas fa-tools mr-2"></i>コーキング状態を無料診断
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第4話: 塗料の選び方 -->
+    <section class="py-20 px-4 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal-manga">
+                <div class="text-sm font-bold mb-4 tracking-widest">【第4話】最強の盾を選べ</div>
+                <h2 class="text-5xl md:text-7xl font-black mb-4">
+                    <span class="bg-gradient-to-r from-green-500 to-blue-500 text-white px-8 py-4 inline-block border-4 border-black manga-title">
+                        塗料の真実
+                    </span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div class="manga-card reveal-manga halftone bg-gradient-to-br from-purple-50 to-purple-100">
+                    <div class="story-number" style="background: #9333ea;">1</div>
+                    <h3 class="text-2xl font-black mb-4 border-b-4 border-black pb-2">
+                        🏆 無機塗料
+                    </h3>
+                    <div class="space-y-3 text-sm">
+                        <p class="font-bold text-lg">最高級グレード</p>
+                        <p><span class="font-bold">耐久年数:</span> 20〜25年</p>
+                        <p><span class="font-bold">特徴:</span> 紫外線に最強</p>
+                        <p><span class="font-bold">価格:</span> ★★★★★</p>
+                        <p><span class="font-bold">用途:</span> 高級住宅、長期保護</p>
+                    </div>
+                    <div class="mt-4 p-3 bg-purple-200 border-2 border-purple-600 rounded">
+                        <p class="font-black text-center">コスパ最強！</p>
+                    </div>
+                </div>
+                
+                <div class="manga-card reveal-manga halftone bg-gradient-to-br from-blue-50 to-blue-100">
+                    <div class="story-number" style="background: #3b82f6;">2</div>
+                    <h3 class="text-2xl font-black mb-4 border-b-4 border-black pb-2">
+                        ⚡ ラジカル塗料
+                    </h3>
+                    <div class="space-y-3 text-sm">
+                        <p class="font-bold text-lg">次世代技術</p>
+                        <p><span class="font-bold">耐久年数:</span> 15〜18年</p>
+                        <p><span class="font-bold">特徴:</span> チョーキング抑制</p>
+                        <p><span class="font-bold">価格:</span> ★★★★☆</p>
+                        <p><span class="font-bold">用途:</span> バランス重視</p>
+                    </div>
+                    <div class="mt-4 p-3 bg-blue-200 border-2 border-blue-600 rounded">
+                        <p class="font-black text-center">人気No.1</p>
+                    </div>
+                </div>
+                
+                <div class="manga-card reveal-manga halftone bg-gradient-to-br from-green-50 to-green-100">
+                    <div class="story-number" style="background: #10b981;">3</div>
+                    <h3 class="text-2xl font-black mb-4 border-b-4 border-black pb-2">
+                        💎 シリコン塗料
+                    </h3>
+                    <div class="space-y-3 text-sm">
+                        <p class="font-bold text-lg">定番グレード</p>
+                        <p><span class="font-bold">耐久年数:</span> 10〜15年</p>
+                        <p><span class="font-bold">特徴:</span> コスパ良好</p>
+                        <p><span class="font-bold">価格:</span> ★★★☆☆</p>
+                        <p><span class="font-bold">用途:</span> 一般住宅向け</p>
+                    </div>
+                    <div class="mt-4 p-3 bg-green-200 border-2 border-green-600 rounded">
+                        <p class="font-black text-center">定番！</p>
+                    </div>
+                </div>
+                
+                <div class="manga-card reveal-manga halftone bg-gradient-to-br from-yellow-50 to-yellow-100">
+                    <div class="story-number" style="background: #f59e0b;">4</div>
+                    <h3 class="text-2xl font-black mb-4 border-b-4 border-black pb-2">
+                        💰 ウレタン塗料
+                    </h3>
+                    <div class="space-y-3 text-sm">
+                        <p class="font-bold text-lg">エコノミー</p>
+                        <p><span class="font-bold">耐久年数:</span> 7〜10年</p>
+                        <p><span class="font-bold">特徴:</span> 低価格</p>
+                        <p><span class="font-bold">価格:</span> ★★☆☆☆</p>
+                        <p><span class="font-bold">用途:</span> 予算重視、賃貸</p>
+                    </div>
+                    <div class="mt-4 p-3 bg-yellow-200 border-2 border-yellow-600 rounded">
+                        <p class="font-black text-center">予算重視</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="manga-panel bg-white p-10 reveal-manga mb-12">
+                <h3 class="text-4xl font-black text-center mb-8 border-b-4 border-black pb-4">
+                    💡 プロが教える選び方
+                </h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="speech-bubble">
+                        <p class="font-bold text-xl mb-2">長期保護派</p>
+                        <p>→ <span class="text-purple-600 font-black">無機塗料</span></p>
+                        <p class="text-sm mt-2">20年以上住む予定なら断然お得</p>
+                    </div>
+                    <div class="speech-bubble">
+                        <p class="font-bold text-xl mb-2">バランス派</p>
+                        <p>→ <span class="text-blue-600 font-black">ラジカル塗料</span></p>
+                        <p class="text-sm mt-2">性能と価格のベストバランス</p>
+                    </div>
+                    <div class="speech-bubble">
+                        <p class="font-bold text-xl mb-2">予算重視派</p>
+                        <p>→ <span class="text-green-600 font-black">シリコン塗料</span></p>
+                        <p class="text-sm mt-2">定番の安心感</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center reveal-manga">
+                <a href="#diagnosis" class="manga-button inline-block cta-pulse">
+                    <span class="relative z-10">
+                        <i class="fas fa-paint-roller mr-2"></i>最適な塗料を診断する
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第5話: 塗り替え時期 -->
+    <section class="py-20 px-4 bg-gradient-to-br from-red-50 to-orange-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal-manga">
+                <div class="text-sm font-bold mb-4 tracking-widest">【第5話】Xデーは突然に</div>
+                <h2 class="text-5xl md:text-7xl font-black mb-4">
+                    <span class="bg-red-600 text-white px-8 py-4 inline-block border-4 border-black manga-title">
+                        塗り替え時期
+                    </span>
+                </h2>
+            </div>
+            
+            <div class="mb-16 reveal-manga">
+                <div class="manga-panel bg-white p-10">
+                    <h3 class="text-4xl font-black text-center mb-8 border-b-4 border-black pb-4">
+                        ⏰ これが見えたら即行動！
+                    </h3>
+                    
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="border-4 border-red-600 p-6 rounded-lg bg-red-50">
+                            <div class="text-5xl mb-4">🚨</div>
+                            <h4 class="text-2xl font-black mb-3">緊急レベル</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li>✓ クラック（ヒビ）がある</li>
+                                <li>✓ 雨漏りしている</li>
+                                <li>✓ コーキングが剥がれている</li>
+                                <li>✓ 屋根材が浮いている</li>
+                            </ul>
+                            <p class="mt-4 font-black text-red-600">今すぐ対処必須！</p>
+                        </div>
+                        
+                        <div class="border-4 border-yellow-600 p-6 rounded-lg bg-yellow-50">
+                            <div class="text-5xl mb-4">⚠️</div>
+                            <h4 class="text-2xl font-black mb-3">警告レベル</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li>✓ チョーキングが発生</li>
+                                <li>✓ 塗膜が剥がれている</li>
+                                <li>✓ コケ・カビが広がっている</li>
+                                <li>✓ 色褪せが目立つ</li>
+                            </ul>
+                            <p class="mt-4 font-black text-yellow-600">半年以内に検討を</p>
+                        </div>
+                        
+                        <div class="border-4 border-blue-600 p-6 rounded-lg bg-blue-50">
+                            <div class="text-5xl mb-4">📅</div>
+                            <h4 class="text-2xl font-black mb-3">予防レベル</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li>✓ 前回塗装から10年経過</li>
+                                <li>✓ 軽微な汚れ</li>
+                                <li>✓ 軽い色褪せ</li>
+                                <li>✓ 特に問題なし</li>
+                            </ul>
+                            <p class="mt-4 font-black text-blue-600">計画的に準備</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="manga-card reveal-manga halftone">
+                    <h3 class="text-3xl font-black mb-6 border-b-4 border-black pb-3">
+                        💀 塗膜が消えた壁・屋根の末路
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-red-50 border-l-4 border-red-600">
+                            <p class="font-bold mb-2">1. 防水機能の完全喪失</p>
+                            <p class="text-sm">→ 雨水が外壁材に直接浸透</p>
+                        </div>
+                        <div class="p-4 bg-orange-50 border-l-4 border-orange-600">
+                            <p class="font-bold mb-2">2. 外壁材の劣化加速</p>
+                            <p class="text-sm">→ ボロボロに崩れ始める</p>
+                        </div>
+                        <div class="p-4 bg-yellow-50 border-l-4 border-yellow-600">
+                            <p class="font-bold mb-2">3. 内部構造へのダメージ</p>
+                            <p class="text-sm">→ 柱・梁が腐食、耐震性低下</p>
+                        </div>
+                        <div class="p-4 bg-red-100 border-l-4 border-red-800">
+                            <p class="font-bold mb-2">4. 家の崩壊リスク</p>
+                            <p class="text-sm">→ 修復不可能、建て替えしかない</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="manga-card reveal-manga halftone">
+                    <h3 class="text-3xl font-black mb-6 border-b-4 border-black pb-3">
+                        ⚡ 屋根の危機連鎖
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-blue-50 border-l-4 border-blue-600">
+                            <p class="font-bold mb-2">Step 1: クラック発生</p>
+                            <p class="text-sm">→ 雨水が野地板に到達</p>
+                        </div>
+                        <div class="p-4 bg-indigo-50 border-l-4 border-indigo-600">
+                            <p class="font-bold mb-2">Step 2: 野地板の腐食</p>
+                            <p class="text-sm">→ 釘の保持力が低下</p>
+                        </div>
+                        <div class="p-4 bg-purple-50 border-l-4 border-purple-600">
+                            <p class="font-bold mb-2">Step 3: 釘抜け開始</p>
+                            <p class="text-sm">→ 屋根材が浮き上がる</p>
+                        </div>
+                        <div class="p-4 bg-red-100 border-l-4 border-red-800">
+                            <p class="font-bold mb-2">Step 4: 台風で飛散</p>
+                            <p class="text-sm">→ 隣家を破壊、損害賠償リスク</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center reveal-manga">
+                <div class="speech-bubble inline-block bg-white text-black max-w-2xl mb-8">
+                    <p class="text-3xl font-black mb-4">手遅れになる前に...</p>
+                    <p class="text-xl">
+                        <span class="text-red-600 font-black text-3xl">10年</span>が塗り替えの目安！<br>
+                        でも家の状態は一軒一軒違います
+                    </p>
+                </div>
+                <a href="#diagnosis" class="manga-button inline-block cta-pulse">
+                    <span class="relative z-10">
+                        <i class="fas fa-calendar-check mr-2"></i>我が家の塗り替え時期を診断
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 私たちの強み -->
+    <section class="py-20 px-4 bg-gradient-to-br from-green-50 to-blue-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal-manga">
+                <div class="text-sm font-bold mb-4 tracking-widest">【他社との違い】</div>
+                <h2 class="text-5xl md:text-7xl font-black mb-4">
+                    <span class="bg-gradient-to-r from-green-500 to-blue-500 text-white px-8 py-4 inline-block border-4 border-black manga-title">
+                        私たちの強み
+                    </span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="manga-panel bg-white p-10 reveal-manga">
+                    <div class="text-center mb-6">
+                        <div class="inline-block bg-green-500 text-white px-6 py-3 rounded-full border-4 border-black text-2xl font-black mb-4">
+                            No.1 強み
+                        </div>
+                    </div>
+                    <div class="text-7xl text-center mb-6">📱💬</div>
+                    <h3 class="text-4xl font-black text-center mb-6 border-b-4 border-green-500 pb-4">
+                        毎日LINEで<br>現場写真報告
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="speech-bubble text-lg">
+                            工事の様子が<span class="text-green-600 font-black text-2xl">毎日</span>見える！<br>
+                            「今日はどこまで進んだ？」<br>
+                            不安ゼロで安心
+                        </div>
+                        <div class="p-4 bg-green-50 border-l-4 border-green-600">
+                            <p class="font-bold mb-2">✓ リアルタイムで進捗確認</p>
+                            <p class="text-sm">→ 写真付きで詳しく報告</p>
+                        </div>
+                        <div class="p-4 bg-green-50 border-l-4 border-green-600">
+                            <p class="font-bold mb-2">✓ 質問もLINEで即対応</p>
+                            <p class="text-sm">→ 気になることはすぐ聞ける</p>
+                        </div>
+                        <div class="p-4 bg-green-50 border-l-4 border-green-600">
+                            <p class="font-bold mb-2">✓ 完全オンライン対応</p>
+                            <p class="text-sm">→ 在宅不要で楽々</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="manga-panel bg-white p-10 reveal-manga">
+                    <div class="text-center mb-6">
+                        <div class="inline-block bg-blue-500 text-white px-6 py-3 rounded-full border-4 border-black text-2xl font-black mb-4">
+                            No.2 強み
+                        </div>
+                    </div>
+                    <div class="text-7xl text-center mb-6">📹🏠</div>
+                    <h3 class="text-4xl font-black text-center mb-6 border-b-4 border-blue-500 pb-4">
+                        オンライン<br>完結診断
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="speech-bubble text-lg">
+                            写真を送るだけで<br>
+                            <span class="text-blue-600 font-black text-2xl">プロが診断</span>！<br>
+                            訪問なしで全て完結
+                        </div>
+                        <div class="p-4 bg-blue-50 border-l-4 border-blue-600">
+                            <p class="font-bold mb-2">✓ スマホで撮影＆送信</p>
+                            <p class="text-sm">→ 外壁・屋根の写真を撮るだけ</p>
+                        </div>
+                        <div class="p-4 bg-blue-50 border-l-4 border-blue-600">
+                            <p class="font-bold mb-2">✓ 24時間以内に診断結果</p>
+                            <p class="text-sm">→ 詳細レポートをLINEで送付</p>
+                        </div>
+                        <div class="p-4 bg-blue-50 border-l-4 border-blue-600">
+                            <p class="font-bold mb-2">✓ しつこい営業一切なし</p>
+                            <p class="text-sm">→ 必要な情報だけお届け</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center reveal-manga">
+                <div class="manga-panel bg-yellow-100 p-8 inline-block">
+                    <p class="text-3xl font-black mb-4">📸 こんな写真を送ってください</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
+                        <div class="p-3 bg-white border-2 border-black rounded">
+                            <p class="font-bold">1️⃣ 外壁全体</p>
+                            <p class="text-sm">遠目から全景</p>
+                        </div>
+                        <div class="p-3 bg-white border-2 border-black rounded">
+                            <p class="font-bold">2️⃣ 気になる箇所</p>
+                            <p class="text-sm">クラック・剥がれ等</p>
+                        </div>
+                        <div class="p-3 bg-white border-2 border-black rounded">
+                            <p class="font-bold">3️⃣ 屋根</p>
+                            <p class="text-sm">2階窓から撮影</p>
+                        </div>
+                        <div class="p-3 bg-white border-2 border-black rounded">
+                            <p class="font-bold">4️⃣ コーキング</p>
+                            <p class="text-sm">目地部分アップ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- オンライン診断フォーム -->
+    <section id="diagnosis" class="py-20 px-4 danger-bg relative min-h-screen flex items-center">
+        <div class="warning-bg"></div>
+        <div class="speed-lines"></div>
+        <div class="max-w-5xl mx-auto relative z-10 w-full">
+            <div class="text-center mb-16 reveal-manga">
+                <div class="text-sm font-bold mb-4 tracking-widest text-black">【最終話】運命の診断</div>
+                <h2 class="text-5xl md:text-7xl font-black mb-8 text-black manga-title impact-text">
+                    オンライン<br>
+                    <span class="text-red-600">無料診断</span>
+                </h2>
+                <p class="text-3xl font-bold text-black mb-4">
+                    写真を送るだけで<br class="md:hidden">プロが診断
+                </p>
+                <p class="text-xl text-black">
+                    訪問なし・しつこい営業なし・完全無料
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div class="manga-panel bg-gradient-to-br from-green-100 to-green-200 p-8 reveal-manga">
+                    <div class="text-center mb-6">
+                        <div class="inline-block bg-green-600 text-white px-6 py-3 rounded-full border-4 border-black text-xl font-black">
+                            おすすめ！
+                        </div>
+                    </div>
+                    <div class="text-6xl text-center mb-4">📱</div>
+                    <h3 class="text-3xl font-black text-center mb-6 border-b-4 border-black pb-3">
+                        LINE診断<br>
+                        <span class="text-xl">(30秒で完了)</span>
+                    </h3>
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start">
+                            <span class="text-2xl mr-3">1️⃣</span>
+                            <p class="text-lg">LINEで友達追加</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-2xl mr-3">2️⃣</span>
+                            <p class="text-lg">外壁・屋根の写真を送信</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-2xl mr-3">3️⃣</span>
+                            <p class="text-lg">簡単な質問に回答</p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="text-2xl mr-3">4️⃣</span>
+                            <p class="text-lg">24時間以内に診断結果をお届け</p>
+                        </div>
+                    </div>
+                    <a href="https://line.me/R/ti/p/@example" target="_blank" class="manga-button w-full text-2xl py-6 block text-center cta-pulse bg-green-500">
+                        <span class="relative z-10">
+                            <i class="fab fa-line mr-3"></i>LINEで診断開始
+                        </span>
+                    </a>
+                    <p class="text-center text-sm mt-4 font-bold">
+                        ※ LINE友達追加で<br>「外壁塗装ガイドブック」プレゼント🎁
+                    </p>
+                </div>
+                
+                <div class="manga-panel bg-white p-8 reveal-manga">
+                    <div class="text-6xl text-center mb-4">📧</div>
+                    <h3 class="text-3xl font-black text-center mb-6 border-b-4 border-black pb-3">
+                        フォーム診断<br>
+                        <span class="text-xl">(詳しく相談したい方)</span>
+                    </h3>
+                    <form id="diagnosisForm" class="space-y-6">
+                        <div>
+                            <label class="block text-xl font-black mb-3 border-b-2 border-black pb-1">
+                                📍 お住まいの地域
+                            </label>
+                            <input type="text" name="location" placeholder="例: 東京都町田市" 
+                                   class="w-full px-4 py-3 text-lg border-4 border-black rounded-lg focus:border-red-600 focus:outline-none transition" 
+                                   required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-xl font-black mb-3 border-b-2 border-black pb-1">
+                                🏠 築年数
+                            </label>
+                            <select name="age" class="w-full px-4 py-3 text-lg border-4 border-black rounded-lg focus:border-red-600 focus:outline-none transition" required>
+                                <option value="">選択してください</option>
+                                <option value="0-5">5年未満</option>
+                                <option value="5-10">5〜10年</option>
+                                <option value="10-15">10〜15年</option>
+                                <option value="15-20">15〜20年</option>
+                                <option value="20+">20年以上</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-xl font-black mb-3 border-b-2 border-black pb-1">
+                                📅 前回の塗装時期
+                            </label>
+                            <select name="lastPaint" class="w-full px-4 py-3 text-lg border-4 border-black rounded-lg focus:border-red-600 focus:outline-none transition" required>
+                                <option value="">選択してください</option>
+                                <option value="never">一度もしていない</option>
+                                <option value="0-5">5年以内</option>
+                                <option value="5-10">5〜10年前</option>
+                                <option value="10+">10年以上前</option>
+                                <option value="unknown">わからない</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-xl font-black mb-3 border-b-2 border-black pb-1">
+                                ⚠️ 気になる症状（複数選択可）
+                            </label>
+                            <div class="space-y-2">
+                                <label class="flex items-center p-3 border-2 border-black rounded hover:bg-red-50 cursor-pointer transition">
+                                    <input type="checkbox" name="symptoms" value="chalking" class="w-5 h-5 mr-3">
+                                    <span class="text-base">チョーキング（白い粉）</span>
+                                </label>
+                                <label class="flex items-center p-3 border-2 border-black rounded hover:bg-red-50 cursor-pointer transition">
+                                    <input type="checkbox" name="symptoms" value="crack" class="w-5 h-5 mr-3">
+                                    <span class="text-base">クラック（ヒビ割れ）</span>
+                                </label>
+                                <label class="flex items-center p-3 border-2 border-black rounded hover:bg-red-50 cursor-pointer transition">
+                                    <input type="checkbox" name="symptoms" value="mold" class="w-5 h-5 mr-3">
+                                    <span class="text-base">コケ・カビ</span>
+                                </label>
+                                <label class="flex items-center p-3 border-2 border-black rounded hover:bg-red-50 cursor-pointer transition">
+                                    <input type="checkbox" name="symptoms" value="caulking" class="w-5 h-5 mr-3">
+                                    <span class="text-base">コーキングの劣化</span>
+                                </label>
+                                <label class="flex items-center p-3 border-2 border-black rounded hover:bg-red-50 cursor-pointer transition">
+                                    <input type="checkbox" name="symptoms" value="leak" class="w-5 h-5 mr-3">
+                                    <span class="text-base">雨漏り</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-xl font-black mb-3 border-b-2 border-black pb-1">
+                                📞 連絡先
+                            </label>
+                            <input type="tel" name="phone" placeholder="090-1234-5678" 
+                                   class="w-full px-4 py-3 text-lg border-4 border-black rounded-lg focus:border-red-600 focus:outline-none transition" 
+                                   required>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-xl font-black mb-3 border-b-2 border-black pb-1">
+                                📧 メールアドレス（任意）
+                            </label>
+                            <input type="email" name="email" placeholder="example@email.com" 
+                                   class="w-full px-4 py-3 text-lg border-4 border-black rounded-lg focus:border-red-600 focus:outline-none transition">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-xl font-black mb-3 border-b-2 border-black pb-1">
+                                📝 その他気になること（任意）
+                            </label>
+                            <textarea name="message" rows="4" placeholder="例: 特に北側の壁が気になります..." 
+                                      class="w-full px-4 py-3 text-lg border-4 border-black rounded-lg focus:border-red-600 focus:outline-none transition"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="manga-button w-full text-2xl py-6 cta-pulse">
+                            <span class="relative z-10">
+                                <i class="fas fa-paper-plane mr-3"></i>診断を依頼する
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="manga-panel bg-white p-8 reveal-manga">
+                <h3 class="text-3xl font-black text-center mb-6 border-b-4 border-black pb-4">
+                    🎁 診断後の特典
+                </h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-6 bg-yellow-50 border-4 border-yellow-600 rounded-lg text-center">
+                        <div class="text-5xl mb-4">📊</div>
+                        <p class="font-black text-xl mb-2">詳細診断レポート</p>
+                        <p class="text-sm">家の健康状態を写真付きで解説</p>
+                    </div>
+                    <div class="p-6 bg-green-50 border-4 border-green-600 rounded-lg text-center">
+                        <div class="text-5xl mb-4">💰</div>
+                        <p class="font-black text-xl mb-2">正確な見積もり</p>
+                        <p class="text-sm">塗料別の価格比較表をお渡し</p>
+                    </div>
+                    <div class="p-6 bg-blue-50 border-4 border-blue-600 rounded-lg text-center">
+                        <div class="text-5xl mb-4">📖</div>
+                        <p class="font-black text-xl mb-2">無料ガイドブック</p>
+                        <p class="text-sm">塗装の全てがわかる完全版</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 p-6 bg-yellow-50 border-4 border-yellow-600 rounded-lg reveal-manga">
+                <p class="text-center text-lg font-bold">
+                    🔒 個人情報厳守・しつこい営業は一切ありません<br>
+                    📱 診断結果はLINEまたはメールでお送りします<br>
+                    ⚡ 24時間以内に必ず返信いたします
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- お客様の声 -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal-manga">
+                <div class="text-sm font-bold mb-4 tracking-widest">【実録】</div>
+                <h2 class="text-5xl md:text-7xl font-black">
+                    <span class="bg-gradient-to-r from-green-500 to-blue-500 text-white px-8 py-4 inline-block border-4 border-black manga-title">
+                        お客様の声
+                    </span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-10 mb-16">
+                <div class="manga-card reveal-manga halftone bg-blue-50">
+                    <div class="flex items-center mb-6">
+                        <div class="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-4xl font-black text-white border-4 border-black mr-4">
+                            田
+                        </div>
+                        <div>
+                            <p class="text-2xl font-black">田中様</p>
+                            <p class="text-sm">町田市・築12年</p>
+                        </div>
+                    </div>
+                    <div class="text-4xl mb-4">
+                        ★★★★★
+                    </div>
+                    <div class="speech-bubble text-lg">
+                        <span class="text-green-600 font-black">毎日LINEで写真が届く</span>から<br>
+                        工事の様子が丸わかり！<br>
+                        在宅しなくても安心でした。<br>
+                        仕事が忙しい私にピッタリ！
+                    </div>
+                </div>
+                
+                <div class="manga-card reveal-manga halftone bg-green-50">
+                    <div class="flex items-center mb-6">
+                        <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-4xl font-black text-white border-4 border-black mr-4">
+                            佐
+                        </div>
+                        <div>
+                            <p class="text-2xl font-black">佐藤様</p>
+                            <p class="text-sm">立川市・築15年</p>
+                        </div>
+                    </div>
+                    <div class="text-4xl mb-4">
+                        ★★★★★
+                    </div>
+                    <div class="speech-bubble text-lg">
+                        <span class="text-blue-600 font-black">オンライン診断だけで</span><br>
+                        見積もりまで完結！<br>
+                        訪問営業が苦手な私でも<br>
+                        気軽に相談できました
+                    </div>
+                </div>
+                
+                <div class="manga-card reveal-manga halftone bg-purple-50">
+                    <div class="flex items-center mb-6">
+                        <div class="w-24 h-24 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-4xl font-black text-white border-4 border-black mr-4">
+                            鈴
+                        </div>
+                        <div>
+                            <p class="text-2xl font-black">鈴木様</p>
+                            <p class="text-sm">八王子市・築18年</p>
+                        </div>
+                    </div>
+                    <div class="text-4xl mb-4">
+                        ★★★★★
+                    </div>
+                    <div class="speech-bubble text-lg">
+                        気になることを<br>
+                        <span class="text-purple-600 font-black">LINEで即質問</span>できて<br>
+                        すぐ返信が来る！<br>
+                        不安がゼロでした
+                    </div>
+                </div>
+            </div>
+            
+            <!-- LINEレポートのサンプル画像説明 -->
+            <div class="reveal-manga">
+                <div class="manga-panel bg-gradient-to-br from-green-50 to-blue-50 p-10">
+                    <h3 class="text-4xl font-black text-center mb-8 border-b-4 border-black pb-4">
+                        📱 毎日届くLINE報告の例
+                    </h3>
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <div class="bg-white border-4 border-black rounded-lg p-6 text-center">
+                            <div class="text-5xl mb-4">📸</div>
+                            <p class="font-black text-xl mb-2">朝の作業開始</p>
+                            <p class="text-sm">「本日の作業内容」<br>と現場写真</p>
+                        </div>
+                        <div class="bg-white border-4 border-black rounded-lg p-6 text-center">
+                            <div class="text-5xl mb-4">🎨</div>
+                            <p class="font-black text-xl mb-2">作業中の様子</p>
+                            <p class="text-sm">塗装の進捗状況を<br>リアルタイム報告</p>
+                        </div>
+                        <div class="bg-white border-4 border-black rounded-lg p-6 text-center">
+                            <div class="text-5xl mb-4">✅</div>
+                            <p class="font-black text-xl mb-2">作業完了報告</p>
+                            <p class="text-sm">「本日の完了箇所」<br>ビフォーアフター</p>
+                        </div>
+                        <div class="bg-white border-4 border-black rounded-lg p-6 text-center">
+                            <div class="text-5xl mb-4">💬</div>
+                            <p class="font-black text-xl mb-2">質問対応</p>
+                            <p class="text-sm">気になることは<br>いつでも質問OK</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 px-4 danger-bg relative min-h-screen flex items-center">
+        <div class="warning-bg"></div>
+        <div class="speed-lines"></div>
+        <div class="focus-lines"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="reveal-manga">
+                <div class="text-sm font-bold mb-4 tracking-widest text-black">【決断の時】</div>
+                <h2 class="text-5xl md:text-8xl font-black mb-12 text-black manga-title impact-text">
+                    家族を<br>
+                    守れるのは<br>
+                    <span class="text-red-600">あなただけ</span>
+                </h2>
+                
+                <div class="speech-bubble inline-block mb-12 text-black text-left max-w-2xl">
+                    <p class="text-3xl font-black mb-6">
+                        気づいた時には<br>
+                        手遅れかもしれない...
+                    </p>
+                    <p class="text-2xl">
+                        無料診断で<br>
+                        今すぐ家の健康状態をチェック！
+                    </p>
+                </div>
+                
+                <a href="#diagnosis" class="manga-button inline-block mb-8 cta-pulse">
+                    <span class="relative z-10 text-3xl">
+                        <i class="fas fa-shield-alt mr-3"></i>今すぐ無料診断！
+                    </span>
+                </a>
+                
+                <p class="text-2xl font-bold text-black">
+                    完全無料・30秒で完了・しつこい営業なし
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 px-4 border-t-8 border-red-600">
+        <div class="max-w-6xl mx-auto text-center">
+            <h3 class="text-4xl font-black mb-6 manga-title">外壁塗装の真実</h3>
+            <p class="text-xl mb-8">家族を守る、家を守る</p>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="text-2xl font-bold mb-3 text-red-400">対応エリア</h4>
+                    <p>東京都全域<br>町田・立川・調布<br>八王子・多摩・府中</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-2xl font-bold mb-3 text-yellow-400">サービス</h4>
+                    <p>無料診断・見積もり<br>外壁塗装・屋根塗装<br>コーキング工事</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-2xl font-bold mb-3 text-blue-400">特徴</h4>
+                    <p>しつこい営業なし<br>正直な診断<br>10年保証</p>
+                </div>
+            </div>
+            
+            <div class="border-t-2 border-gray-700 pt-8">
+                <p class="text-gray-500">© 2026 外壁塗装の真実 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // スクロール表示アニメーション
+        function revealManga() {
+            const reveals = document.querySelectorAll('.reveal-manga');
+            
+            reveals.forEach((element, index) => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 100;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    setTimeout(() => {
+                        element.classList.add('active');
+                    }, index * 100);
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', revealManga);
+        window.addEventListener('load', revealManga);
+        
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // フォーム送信時の処理
+        const diagnosisForm = document.getElementById('diagnosisForm');
+        if (diagnosisForm) {
+            diagnosisForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // フォームデータを収集
+                const formData = new FormData(diagnosisForm);
+                const data = {};
+                for (let [key, value] of formData.entries()) {
+                    if (key === 'symptoms') {
+                        if (!data[key]) data[key] = [];
+                        data[key].push(value);
+                    } else {
+                        data[key] = value;
+                    }
+                }
+                
+                console.log('診断依頼データ:', data);
+                
+                // 成功メッセージを表示
+                alert('✅ 診断依頼を受け付けました！\n\n📱 24時間以内にLINEまたはお電話で診断結果をお送りします。\n\n🎁 特典の「外壁塗装ガイドブック」も一緒にお届けします。\n\nしばらくお待ちください。');
+                
+                // フォームをリセット
+                diagnosisForm.reset();
+                
+                // 実際の運用では、ここでバックエンドAPIにデータを送信
+                // fetch('/api/diagnosis', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify(data)
+                // });
+            });
+        }
+        
+        console.log('🏠 外壁塗装の真実 - オンライン診断サイト完成！');
+    </script>
+</body>
+</html>

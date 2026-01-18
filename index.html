@@ -95,7 +95,7 @@
         text-align: center;
       }
       
-      /* チェックリスト */
+      /* チェックリスト - クリック可能 */
       .checklist-item {
         display: flex;
         align-items: flex-start;
@@ -104,12 +104,57 @@
         background: white;
         border: 2px solid #e2e8f0;
         border-radius: 8px;
-        transition: all 0.2s ease;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
       }
       
       .checklist-item:hover {
         border-color: #e53e3e;
         background: #fff5f5;
+        transform: translateX(5px);
+      }
+      
+      .checklist-item.active {
+        border-color: #e53e3e;
+        background: #fff5f5;
+      }
+      
+      /* 展開コンテンツ */
+      .detail-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+        margin-top: 1rem;
+        padding: 0;
+      }
+      
+      .detail-content.open {
+        max-height: 2000px;
+        padding: 1.5rem;
+        border-top: 2px solid #e2e8f0;
+      }
+      
+      /* 展開アイコン */
+      .expand-icon {
+        margin-left: auto;
+        transition: transform 0.3s ease;
+        color: #e53e3e;
+        font-size: 1.5rem;
+      }
+      
+      .checklist-item.active .expand-icon {
+        transform: rotate(180deg);
+      }
+      
+      /* 画像スタイル */
+      .symptom-image {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        border-radius: 8px;
+        margin: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       }
       
       /* 数字バッジ */
@@ -217,37 +262,230 @@
                 </p>
             </div>
             
-            <!-- チェックリスト - 気づきを促す -->
+            <!-- チェックリスト - クリックで詳細表示 -->
             <div class="simple-card">
-                <h2 class="text-2xl font-bold mb-6 text-center">こんな症状、ありませんか？</h2>
+                <h2 class="text-2xl font-bold mb-6 text-center">こんな症状、ありませんか？<br><span class="text-base text-gray-600">（クリックで詳しく見る）</span></h2>
                 <div class="space-y-3">
-                    <div class="checklist-item">
+                    <!-- チョーキング -->
+                    <div class="checklist-item" data-symptom="chalking">
                         <span class="text-2xl mr-3">⚠️</span>
-                        <div>
+                        <div class="flex-1">
                             <p class="font-bold text-lg">壁を触ると白い粉がつく</p>
                             <p class="text-sm text-gray-600">→ 塗膜が劣化、防水機能ゼロの状態です</p>
+                            
+                            <div class="detail-content">
+                                <h3 class="text-xl font-bold mb-3 text-red-600">⚠️ チョーキング現象の恐怖</h3>
+                                
+                                <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                                    <p class="text-center text-sm text-gray-600 mb-2">【チョーキングの例】</p>
+                                    <div class="bg-white h-48 flex items-center justify-center rounded">
+                                        <p class="text-gray-400">📷 壁を触ると白い粉がつく様子<br>（画像イメージ）</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-3">
+                                    <div class="bg-red-50 p-4 rounded-lg">
+                                        <p class="font-bold mb-2">🚨 今起きていること</p>
+                                        <ul class="list-disc list-inside space-y-1 text-sm">
+                                            <li>塗料の樹脂が紫外線で分解</li>
+                                            <li>防水機能が完全に失われている</li>
+                                            <li>壁材に直接雨水が当たっている</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-orange-50 p-4 rounded-lg">
+                                        <p class="font-bold mb-2">⏰ これから起こること</p>
+                                        <ul class="list-disc list-inside space-y-1 text-sm">
+                                            <li>6ヶ月後：壁材が水を吸い始める</li>
+                                            <li>1年後：内部に湿気が侵入</li>
+                                            <li>2年後：カビ・腐食が始まる</li>
+                                            <li>3年後：修理費が10倍に</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-yellow-50 p-4 rounded-lg">
+                                        <p class="font-bold mb-2">💰 放置した場合の費用</p>
+                                        <p class="text-2xl font-black text-red-600">200万円〜350万円</p>
+                                        <p class="text-sm text-gray-600">今なら80万円で済みます</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <span class="expand-icon">▼</span>
                     </div>
-                    <div class="checklist-item">
+                    
+                    <!-- クラック -->
+                    <div class="checklist-item" data-symptom="crack">
                         <span class="text-2xl mr-3">💥</span>
-                        <div>
+                        <div class="flex-1">
                             <p class="font-bold text-lg">壁や屋根にヒビ割れがある</p>
                             <p class="text-sm text-gray-600">→ 雨水が侵入、家の骨組みが腐り始めています</p>
+                            
+                            <div class="detail-content">
+                                <h3 class="text-xl font-bold mb-3 text-red-600">💥 クラック（ヒビ割れ）の危険</h3>
+                                
+                                <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                                    <p class="text-center text-sm text-gray-600 mb-2">【クラックの例】</p>
+                                    <div class="bg-white h-48 flex items-center justify-center rounded">
+                                        <p class="text-gray-400">📷 壁のヒビ割れの様子<br>（画像イメージ）</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-3">
+                                    <div class="bg-red-50 p-4 rounded-lg">
+                                        <p class="font-bold mb-2">🚨 たった0.3mmのヒビでも危険</p>
+                                        <ul class="list-disc list-inside space-y-1 text-sm">
+                                            <li>髪の毛より細いヒビから雨水が侵入</li>
+                                            <li>壁の中で水が広がり続ける</li>
+                                            <li>木材や鉄骨が腐食・錆びる</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-orange-50 p-4 rounded-lg">
+                                        <p class="font-bold mb-2">⚡ 連鎖的に起こる被害</p>
+                                        <p class="text-sm mb-2">1. ヒビから雨水侵入 →</p>
+                                        <p class="text-sm mb-2">2. 内部の断熱材が濡れる →</p>
+                                        <p class="text-sm mb-2">3. カビ・腐食が始まる →</p>
+                                        <p class="text-sm mb-2">4. 柱・梁が弱くなる →</p>
+                                        <p class="text-sm font-bold text-red-600">5. 耐震性が低下（地震で倒壊リスク）</p>
+                                    </div>
+                                    
+                                    <div class="bg-yellow-50 p-4 rounded-lg">
+                                        <p class="font-bold mb-2">💰 放置した場合の費用</p>
+                                        <p class="text-2xl font-black text-red-600">300万円〜500万円</p>
+                                        <p class="text-sm text-gray-600">構造補強が必要になります</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <span class="expand-icon">▼</span>
                     </div>
-                    <div class="checklist-item">
+                    
+                    <!-- コケ・カビ -->
+                    <div class="checklist-item" data-symptom="mold">
                         <span class="text-2xl mr-3">🦠</span>
-                        <div>
+                        <div class="flex-1">
                             <p class="font-bold text-lg">コケ・カビが生えている</p>
                             <p class="text-sm text-gray-600">→ 湿気が溜まり、健康被害のリスク大</p>
+                            
+                            <div class="detail-content">
+                                <h3 class="text-xl font-bold mb-3 text-red-600">🦠 コケ・カビの健康被害</h3>
+                                
+                                <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                                    <p class="text-center text-sm text-gray-600 mb-2">【コケ・カビの例】</p>
+                                    <div class="bg-white h-48 flex items-center justify-center rounded">
+                                        <p class="text-gray-400">📷 外壁のコケ・カビの様子<br>（画像イメージ）</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-3">
+                                    <div class="bg-red-50 p-4 rounded-lg">
+                                        <p class="font-bold mb-2">😷 家族の健康への影響</p>
+                                        <ul class="list-disc list-inside space-y-1 text-sm">
+                                            <li>アレルギー症状（鼻水、くしゃみ）</li>
+                                            <li>喘息の悪化・発症</li>
+                                            <li>皮膚炎・アトピーの悪化</li>
+                                            <li>免疫力の低下</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-orange-50 p-4 rounded-lg">
+                                        <p class="font-bold mb-2">👶 特に危険な人</p>
+                                        <ul class="list-disc list-inside space-y-1 text-sm">
+                                            <li>乳幼児・子供（免疫が未発達）</li>
+                                            <li>高齢者（免疫力が低下）</li>
+                                            <li>妊婦（胎児への影響）</li>
+                                            <li>持病のある方</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-purple-50 p-4 rounded-lg">
+                                        <p class="font-bold mb-2">🏠 家への被害</p>
+                                        <ul class="list-disc list-inside space-y-1 text-sm">
+                                            <li>外壁材の劣化を加速</li>
+                                            <li>美観の大幅な低下</li>
+                                            <li>塗膜をさらに破壊</li>
+                                            <li>湿気で断熱性能が低下</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-yellow-50 p-4 rounded-lg">
+                                        <p class="font-bold mb-2">💰 今すぐ対策すべき理由</p>
+                                        <p class="text-sm mb-2">高圧洗浄＋塗装：70万円〜</p>
+                                        <p class="text-sm text-red-600 font-bold">放置すると健康被害は取り戻せません</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <span class="expand-icon">▼</span>
                     </div>
-                    <div class="checklist-item">
+                    
+                    <!-- 10年以上 -->
+                    <div class="checklist-item" data-symptom="old">
                         <span class="text-2xl mr-3">📅</span>
-                        <div>
+                        <div class="flex-1">
                             <p class="font-bold text-lg">最後の塗装から10年以上</p>
                             <p class="text-sm text-gray-600">→ 塗膜の寿命は過ぎています、今すぐ点検を</p>
+                            
+                            <div class="detail-content">
+                                <h3 class="text-xl font-bold mb-3 text-red-600">📅 10年は「臨界点」です</h3>
+                                
+                                <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                                    <p class="text-center text-sm text-gray-600 mb-2">【塗膜の劣化推移】</p>
+                                    <div class="bg-white p-4 rounded">
+                                        <div class="space-y-3">
+                                            <div class="flex items-center">
+                                                <span class="font-bold mr-3 text-green-600">0-5年:</span>
+                                                <div class="flex-1 bg-green-200 h-4 rounded"></div>
+                                                <span class="ml-3 text-sm">良好</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="font-bold mr-3 text-yellow-600">5-8年:</span>
+                                                <div class="flex-1 bg-yellow-200 h-4 rounded"></div>
+                                                <span class="ml-3 text-sm">劣化開始</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="font-bold mr-3 text-orange-600">8-10年:</span>
+                                                <div class="flex-1 bg-orange-200 h-4 rounded"></div>
+                                                <span class="ml-3 text-sm">要点検</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <span class="font-bold mr-3 text-red-600">10年〜:</span>
+                                                <div class="flex-1 bg-red-200 h-4 rounded"></div>
+                                                <span class="ml-3 text-sm font-bold">危険</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-3">
+                                    <div class="bg-red-50 p-4 rounded-lg">
+                                        <p class="font-bold mb-2">⚠️ 10年経過後に起こること</p>
+                                        <ul class="list-disc list-inside space-y-1 text-sm">
+                                            <li>チョーキングが始まる</li>
+                                            <li>小さなクラックが発生</li>
+                                            <li>コーキングが硬化・割れる</li>
+                                            <li>雨水が侵入し始める</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-orange-50 p-4 rounded-lg">
+                                        <p class="font-bold mb-2">💡 車検と同じです</p>
+                                        <p class="text-sm leading-relaxed">
+                                            車は2年ごとに車検、家は10年ごとに「塗装」。
+                                            メンテナンスしないと、<span class="font-bold text-red-600">命に関わる故障</span>が起きます。
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="bg-yellow-50 p-4 rounded-lg">
+                                        <p class="font-bold mb-2">📊 統計データ</p>
+                                        <p class="text-sm mb-2">10年ごとに塗装した家：<span class="font-bold text-green-600">築50年でも健在</span></p>
+                                        <p class="text-sm">放置した家：<span class="font-bold text-red-600">築25年で大規模修繕</span></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <span class="expand-icon">▼</span>
                     </div>
                 </div>
             </div>
@@ -592,6 +830,29 @@
     </footer>
 
     <script>
+        // チェックリストのクリック展開機能
+        document.querySelectorAll('.checklist-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // 他の開いているアイテムを閉じる
+                document.querySelectorAll('.checklist-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        const otherContent = otherItem.querySelector('.detail-content');
+                        if (otherContent) {
+                            otherContent.classList.remove('open');
+                        }
+                    }
+                });
+                
+                // 現在のアイテムをトグル
+                this.classList.toggle('active');
+                const content = this.querySelector('.detail-content');
+                if (content) {
+                    content.classList.toggle('open');
+                }
+            });
+        });
+        
         // フェードイン効果
         const fadeElements = document.querySelectorAll('.fade-in');
         

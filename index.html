@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>【衝撃】放置すると300万円超！外壁塗装の真実 | 東京多摩・町田</title>
-    <meta name="description" content="10年放置で修理費3倍！早期発見なら100万円、放置で300万円以上。クラック・チョーキング・コケの危険から家族を守る">
+    <title>【警告】放置は危険！外壁塗装の真実 | 東京多摩・町田</title>
+    <meta name="description" content="10年放置で大規模修繕に。クラック・チョーキング・コケの危険から家族を守る外壁塗装の重要性">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
@@ -110,43 +110,6 @@
         border-color: #dc3545;
       }
       
-      /* タイムライン */
-      .timeline {
-        position: relative;
-        padding-left: 3rem;
-      }
-      
-      .timeline::before {
-        content: '';
-        position: absolute;
-        left: 1rem;
-        top: 0;
-        bottom: 0;
-        width: 4px;
-        background: linear-gradient(to bottom, #28a745, #ffc107, #dc3545);
-      }
-      
-      .timeline-item {
-        position: relative;
-        margin-bottom: 2rem;
-        padding: 1rem;
-        background: white;
-        border: 3px solid #000;
-        border-radius: 8px;
-      }
-      
-      .timeline-item::before {
-        content: '';
-        position: absolute;
-        left: -2.5rem;
-        top: 1rem;
-        width: 1.5rem;
-        height: 1.5rem;
-        background: #dc3545;
-        border: 3px solid #000;
-        border-radius: 50%;
-      }
-      
       /* 展開コンテンツ */
       .expandable {
         cursor: pointer;
@@ -208,6 +171,16 @@
         box-shadow: 0 8px 16px rgba(0,0,0,0.1);
       }
       
+      /* 画像プレースホルダー */
+      .image-placeholder {
+        background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+        border: 3px dashed #999;
+        border-radius: 12px;
+        padding: 3rem 2rem;
+        text-align: center;
+        color: #666;
+      }
+      
       /* レスポンシブ */
       @media (max-width: 768px) {
         .mega-cta {
@@ -251,11 +224,20 @@
                 </div>
                 <h1 class="text-3xl md:text-6xl font-black mb-6 leading-tight">
                     <span class="text-red-600">10年放置</span>で<br>
-                    修理費が<span class="text-red-600 ultra-highlight">3倍以上</span>に
+                    <span class="text-red-600 ultra-highlight">取り返しのつかない</span>状態に
                 </h1>
                 <p class="text-xl md:text-3xl font-bold text-gray-800 mb-4">
-                    早期発見：100万円 → 放置：300万円超
+                    早期発見が家族と家を守ります
                 </p>
+            </div>
+            
+            <!-- ヒーロー画像エリア -->
+            <div class="mb-8">
+                <div class="image-placeholder">
+                    <i class="fas fa-home text-6xl mb-4 text-gray-400"></i>
+                    <p class="text-xl font-bold mb-2">外壁劣化のビフォーアフター</p>
+                    <p class="text-sm">※実際の施工事例写真を追加予定</p>
+                </div>
             </div>
             
             <!-- 緊急チェックリスト -->
@@ -281,8 +263,10 @@
                             
                             <div class="expand-content mt-6">
                                 <div class="bg-gray-100 p-4 rounded-lg mb-4">
-                                    <div class="bg-white h-40 flex items-center justify-center rounded-lg border-4 border-dashed border-gray-300">
-                                        <p class="text-gray-500 text-center">📷 チョーキング現象の実例<br><span class="text-sm">(※画像は後で追加)</span></p>
+                                    <div class="image-placeholder">
+                                        <i class="fas fa-hand-sparkles text-4xl mb-3 text-gray-400"></i>
+                                        <p class="font-bold mb-2">チョーキング現象の実例</p>
+                                        <p class="text-sm">※実際の劣化写真を追加予定</p>
                                     </div>
                                 </div>
                                 
@@ -302,18 +286,9 @@
                                             <li>→ 6ヶ月後：壁材が水を吸収</li>
                                             <li>→ 1年後：内部に湿気侵入</li>
                                             <li>→ 2年後：カビ・腐食開始</li>
-                                            <li>→ 3年後：<span class="text-red-600 font-bold">修理費10倍</span></li>
+                                            <li>→ 3年後：<span class="text-red-600 font-bold">大規模修繕が必要に</span></li>
                                         </ul>
                                     </div>
-                                </div>
-                                
-                                <div class="bg-yellow-50 p-6 rounded-lg border-4 border-yellow-400">
-                                    <p class="text-center">
-                                        <span class="text-sm font-bold">今塗装すれば</span><br>
-                                        <span class="mega-number text-green-600">80万円</span><br>
-                                        <span class="text-sm font-bold">放置すると</span><br>
-                                        <span class="mega-number text-red-600">350万円</span>
-                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -333,8 +308,10 @@
                             
                             <div class="expand-content mt-6">
                                 <div class="bg-gray-100 p-4 rounded-lg mb-4">
-                                    <div class="bg-white h-40 flex items-center justify-center rounded-lg border-4 border-dashed border-gray-300">
-                                        <p class="text-gray-500 text-center">📷 クラックの実例<br><span class="text-sm">(※画像は後で追加)</span></p>
+                                    <div class="image-placeholder">
+                                        <i class="fas fa-exclamation-triangle text-4xl mb-3 text-gray-400"></i>
+                                        <p class="font-bold mb-2">クラック（ヒビ割れ）の実例</p>
+                                        <p class="text-sm">※実際の劣化写真を追加予定</p>
                                     </div>
                                 </div>
                                 
@@ -367,16 +344,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <div class="bg-yellow-50 p-6 rounded-lg border-4 border-yellow-400">
-                                    <p class="text-center">
-                                        <span class="text-sm font-bold">早期対応</span><br>
-                                        <span class="text-4xl font-black text-green-600">100万円</span><br>
-                                        <span class="text-sm font-bold">放置すると</span><br>
-                                        <span class="mega-number text-red-600">500万円</span><br>
-                                        <span class="text-xs">※構造補強が必要に</span>
-                                    </p>
-                                </div>
                             </div>
                         </div>
                         
@@ -395,8 +362,10 @@
                             
                             <div class="expand-content mt-6">
                                 <div class="bg-gray-100 p-4 rounded-lg mb-4">
-                                    <div class="bg-white h-40 flex items-center justify-center rounded-lg border-4 border-dashed border-gray-300">
-                                        <p class="text-gray-500 text-center">📷 コケ・カビの実例<br><span class="text-sm">(※画像は後で追加)</span></p>
+                                    <div class="image-placeholder">
+                                        <i class="fas fa-bacterium text-4xl mb-3 text-gray-400"></i>
+                                        <p class="font-bold mb-2">コケ・カビの実例</p>
+                                        <p class="text-sm">※実際の劣化写真を追加予定</p>
                                     </div>
                                 </div>
                                 
@@ -424,17 +393,8 @@
                                 
                                 <div class="bg-purple-50 p-4 rounded-lg border-4 border-purple-400 mb-4">
                                     <p class="font-black text-center text-lg mb-2">⚠️ 重要な事実</p>
-                                    <p class="text-center font-bold text-red-600">
-                                        健康被害は<span class="text-2xl">取り戻せません</span><br>
-                                        <span class="text-sm text-gray-700">お金で解決できない問題です</span>
-                                    </p>
-                                </div>
-                                
-                                <div class="bg-yellow-50 p-6 rounded-lg border-4 border-yellow-400">
-                                    <p class="text-center">
-                                        <span class="text-sm font-bold">高圧洗浄＋塗装</span><br>
-                                        <span class="text-5xl font-black text-green-600">70万円〜</span><br>
-                                        <span class="text-xs text-gray-600">今すぐ対策すれば家族を守れます</span>
+                                    <p class="text-center font-bold text-red-600 text-xl">
+                                        健康被害は取り戻せません
                                     </p>
                                 </div>
                             </div>
@@ -487,11 +447,13 @@
                                 <div class="grid md:grid-cols-2 gap-4">
                                     <div class="bg-green-50 p-4 rounded-lg border-4 border-green-500">
                                         <p class="font-bold text-center mb-2">✅ 10年ごとに塗装</p>
-                                        <p class="text-3xl font-black text-green-600 text-center">築50年でも健在</p>
+                                        <p class="text-2xl font-black text-green-600 text-center">家が長持ち</p>
+                                        <p class="text-sm text-center text-gray-600 mt-2">資産価値を維持</p>
                                     </div>
                                     <div class="bg-red-50 p-4 rounded-lg border-4 border-red-500">
                                         <p class="font-bold text-center mb-2">❌ 放置した家</p>
-                                        <p class="text-3xl font-black text-red-600 text-center">築25年で大規模修繕</p>
+                                        <p class="text-2xl font-black text-red-600 text-center">大規模修繕</p>
+                                        <p class="text-sm text-center text-gray-600 mt-2">資産価値激減</p>
                                     </div>
                                 </div>
                             </div>
@@ -520,6 +482,15 @@
                     ⚠️ すべて実話です
                 </div>
                 <h2 class="text-3xl md:text-5xl font-black">放置した人の末路</h2>
+            </div>
+            
+            <!-- 事例画像エリア -->
+            <div class="mb-8">
+                <div class="image-placeholder">
+                    <i class="fas fa-images text-6xl mb-4 text-gray-400"></i>
+                    <p class="text-xl font-bold mb-2">実際の劣化事例（ビフォーアフター）</p>
+                    <p class="text-sm">※実際の施工前・施工後の写真を追加予定</p>
+                </div>
             </div>
             
             <div class="grid md:grid-cols-2 gap-6 mb-12">
@@ -553,10 +524,8 @@
                     </div>
                     <div class="danger-stripe">
                         <div class="bg-white p-5 text-center">
-                            <p class="font-bold mb-2 text-green-700">早期対応なら</p>
-                            <p class="text-4xl md:text-5xl font-black text-green-600 mb-2">100万円</p>
-                            <p class="text-sm text-gray-600 mb-2">↓ 放置した結果 ↓</p>
-                            <p class="text-4xl md:text-5xl font-black text-red-600">250万円</p>
+                            <p class="font-black text-red-600 text-2xl">早期発見していれば...</p>
+                            <p class="text-lg mt-2">小規模な塗装で済んだケースです</p>
                         </div>
                     </div>
                 </div>
@@ -591,11 +560,8 @@
                     </div>
                     <div class="danger-stripe">
                         <div class="bg-white p-5 text-center">
-                            <p class="font-bold mb-2 text-red-700">損害賠償</p>
-                            <p class="text-4xl md:text-5xl font-black text-red-600 mb-2">150万円</p>
-                            <p class="text-sm font-bold text-gray-700 mb-2">+ 自宅の修理費</p>
-                            <p class="text-4xl md:text-5xl font-black text-red-600">200万円</p>
-                            <p class="text-xs mt-3 text-gray-600">合計350万円の出費...</p>
+                            <p class="font-black text-red-600 text-2xl">定期点検していれば...</p>
+                            <p class="text-lg mt-2">損害賠償も自宅修理も不要でした</p>
                         </div>
                     </div>
                 </div>
@@ -630,10 +596,8 @@
                     </div>
                     <div class="danger-stripe">
                         <div class="bg-white p-5 text-center">
-                            <p class="font-bold mb-2 text-green-700">早期発見なら</p>
-                            <p class="text-4xl md:text-5xl font-black text-green-600 mb-2">100万円以下</p>
-                            <p class="text-sm text-gray-600 mb-2">↓ 放置した結果 ↓</p>
-                            <p class="text-4xl md:text-5xl font-black text-red-600">450万円</p>
+                            <p class="font-black text-red-600 text-2xl">早期対応していれば...</p>
+                            <p class="text-lg mt-2">コーキング補修だけで済んだケースです</p>
                         </div>
                     </div>
                 </div>
@@ -671,7 +635,7 @@
                             健康被害は
                         </p>
                         <p class="font-black text-center text-red-600 text-3xl mb-3">
-                            お金で取り戻せません
+                            取り戻せません
                         </p>
                         <p class="text-center text-sm text-gray-700">
                             医療費・通院時間・子供の苦しみ...
@@ -712,28 +676,26 @@
                 <div class="compare-card good-card">
                     <div class="mb-6">
                         <p class="text-lg font-bold text-green-700 mb-2">✅ 早期発見・対応</p>
-                        <div class="mega-number text-green-600">100〜150</div>
-                        <p class="text-2xl font-black">万円</p>
-                        <p class="text-sm text-gray-600 mt-2">※30坪程度の場合</p>
-                        <p class="text-lg font-bold mt-4">10年ごとに塗装</p>
+                        <p class="text-4xl font-black text-green-600 mb-2">10年ごとに塗装</p>
+                        <p class="text-lg font-bold mt-4">家が長持ち</p>
                     </div>
                     
                     <div class="space-y-4 text-left">
                         <div class="bg-white p-4 rounded-lg border-3 border-green-500">
-                            <p class="font-black text-lg mb-2">✅ 家が長持ち</p>
-                            <p class="text-sm">築50年以上でも健在。資産として残せます。</p>
+                            <p class="font-black text-lg mb-2">✅ 資産として残せる</p>
+                            <p class="text-sm">定期的なメンテナンスで家の寿命が延びます</p>
                         </div>
                         <div class="bg-white p-4 rounded-lg border-3 border-green-500">
                             <p class="font-black text-lg mb-2">✅ 健康被害なし</p>
-                            <p class="text-sm">カビ・ダニから家族を守れます。</p>
+                            <p class="text-sm">カビ・ダニから家族を守れます</p>
                         </div>
                         <div class="bg-white p-4 rounded-lg border-3 border-green-500">
                             <p class="font-black text-lg mb-2">✅ 資産価値を維持</p>
-                            <p class="text-sm">売却時も高値で売れます。</p>
+                            <p class="text-sm">売却時も高値で売れます</p>
                         </div>
                         <div class="bg-white p-4 rounded-lg border-3 border-green-500">
                             <p class="font-black text-lg mb-2">✅ 工事期間が短い</p>
-                            <p class="text-sm">1〜2週間で終了。生活への影響が少ない。</p>
+                            <p class="text-sm">1〜2週間で終了。生活への影響が少ない</p>
                         </div>
                     </div>
                 </div>
@@ -742,28 +704,26 @@
                 <div class="compare-card bad-card">
                     <div class="mb-6">
                         <p class="text-lg font-bold text-red-700 mb-2">❌ 放置した結果</p>
-                        <div class="mega-number text-red-600">300</div>
-                        <p class="text-2xl font-black">万円〜</p>
-                        <p class="text-sm text-gray-600 mt-2">場合によっては500万円超</p>
+                        <p class="text-4xl font-black text-red-600 mb-2">10年以上放置</p>
                         <p class="text-lg font-bold mt-4">大規模修繕が必要</p>
                     </div>
                     
                     <div class="space-y-4 text-left">
                         <div class="bg-white p-4 rounded-lg border-3 border-red-500">
                             <p class="font-black text-lg mb-2">❌ 家の寿命短縮</p>
-                            <p class="text-sm">築25年で建て替えが必要になる場合も。</p>
+                            <p class="text-sm">早期に大規模修繕が必要になる場合も</p>
                         </div>
                         <div class="bg-white p-4 rounded-lg border-3 border-red-500">
                             <p class="font-black text-lg mb-2">❌ カビで健康被害</p>
-                            <p class="text-sm">喘息・アレルギー。健康は取り戻せません。</p>
+                            <p class="text-sm">喘息・アレルギー。健康は取り戻せません</p>
                         </div>
                         <div class="bg-white p-4 rounded-lg border-3 border-red-500">
                             <p class="font-black text-lg mb-2">❌ 資産価値激減</p>
-                            <p class="text-sm">売るにも売れない。負債化する恐れも。</p>
+                            <p class="text-sm">売るにも売れない。負債化する恐れも</p>
                         </div>
                         <div class="bg-white p-4 rounded-lg border-3 border-red-500">
                             <p class="font-black text-lg mb-2">❌ 工事期間が長い</p>
-                            <p class="text-sm">1〜3ヶ月。仮住まいが必要になる場合も。</p>
+                            <p class="text-sm">1〜3ヶ月。仮住まいが必要になる場合も</p>
                         </div>
                     </div>
                 </div>
@@ -773,10 +733,10 @@
             <div class="danger-stripe mb-8">
                 <div class="danger-content text-center">
                     <p class="text-2xl md:text-4xl font-black mb-4">
-                        早期発見なら<span class="text-green-600">100万円以下</span>で済むケースが<br class="md:hidden">ほとんどです！
+                        早期発見なら<span class="text-green-600">小規模な工事</span>で済みます！
                     </p>
                     <p class="text-xl font-bold">
-                        「後で」「いつか」が<span class="text-red-600">数百万円の後悔</span>に変わります
+                        「後で」「いつか」が<span class="text-red-600">取り返しのつかない後悔</span>に変わります
                     </p>
                 </div>
             </div>
@@ -791,12 +751,93 @@
         </div>
     </section>
 
-    <!-- 当社の強み -->
+    <!-- 塗料の種類 -->
     <section class="py-12 md:py-20 px-4 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-black text-center mb-12">
+                塗料の種類と特徴
+            </h2>
+            
+            <!-- 塗料比較画像エリア -->
+            <div class="mb-8">
+                <div class="image-placeholder">
+                    <i class="fas fa-paint-roller text-6xl mb-4 text-gray-400"></i>
+                    <p class="text-xl font-bold mb-2">各塗料の仕上がり比較</p>
+                    <p class="text-sm">※実際の塗装サンプル写真を追加予定</p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 無機塗料 -->
+                <div class="step-card">
+                    <div class="huge-badge mb-6 mx-auto bg-purple-600">1</div>
+                    <h3 class="text-xl font-black mb-3">無機塗料</h3>
+                    <p class="text-3xl font-black text-purple-600 mb-2">20-25年</p>
+                    <p class="text-sm text-gray-700 mb-4">最高級グレード<br>コストパフォーマンス◎</p>
+                    <ul class="text-sm text-left space-y-1">
+                        <li>✓ 超耐久性</li>
+                        <li>✓ カビ・汚れに強い</li>
+                        <li>✓ 長期的に経済的</li>
+                    </ul>
+                </div>
+                
+                <!-- ラジカル塗料 -->
+                <div class="step-card">
+                    <div class="huge-badge mb-6 mx-auto bg-blue-600">2</div>
+                    <h3 class="text-xl font-black mb-3">ラジカル塗料</h3>
+                    <p class="text-3xl font-black text-blue-600 mb-2">15-18年</p>
+                    <p class="text-sm text-gray-700 mb-4">次世代技術<br>人気No.1</p>
+                    <ul class="text-sm text-left space-y-1">
+                        <li>✓ 高耐候性</li>
+                        <li>✓ チョーキング防止</li>
+                        <li>✓ バランス◎</li>
+                    </ul>
+                </div>
+                
+                <!-- シリコン塗料 -->
+                <div class="step-card">
+                    <div class="huge-badge mb-6 mx-auto bg-green-600">3</div>
+                    <h3 class="text-xl font-black mb-3">シリコン塗料</h3>
+                    <p class="text-3xl font-black text-green-600 mb-2">10-15年</p>
+                    <p class="text-sm text-gray-700 mb-4">定番グレード<br>一般住宅向け</p>
+                    <ul class="text-sm text-left space-y-1">
+                        <li>✓ 実績豊富</li>
+                        <li>✓ 価格と性能のバランス</li>
+                        <li>✓ 安心の定番</li>
+                    </ul>
+                </div>
+                
+                <!-- ウレタン塗料 -->
+                <div class="step-card">
+                    <div class="huge-badge mb-6 mx-auto bg-yellow-600">4</div>
+                    <h3 class="text-xl font-black mb-3">ウレタン塗料</h3>
+                    <p class="text-3xl font-black text-yellow-600 mb-2">7-10年</p>
+                    <p class="text-sm text-gray-700 mb-4">低価格<br>予算重視</p>
+                    <ul class="text-sm text-left space-y-1">
+                        <li>✓ 初期費用安</li>
+                        <li>✓ 部分補修向け</li>
+                        <li>✓ 短期向け</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 当社の強み -->
+    <section class="py-12 md:py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-3xl md:text-5xl font-black text-center mb-12">
                 なぜ、私たちが選ばれるのか？
             </h2>
+            
+            <!-- 施工事例画像エリア -->
+            <div class="mb-8">
+                <div class="image-placeholder">
+                    <i class="fas fa-tools text-6xl mb-4 text-gray-400"></i>
+                    <p class="text-xl font-bold mb-2">施工中の様子（LINE報告例）</p>
+                    <p class="text-sm">※実際のLINE報告画面のスクリーンショットを追加予定</p>
+                </div>
+            </div>
             
             <div class="grid md:grid-cols-3 gap-6 mb-12">
                 <div class="step-card">

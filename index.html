@@ -6233,10 +6233,11 @@ nNTaAP/Z" alt="塗料選びの様子 - カラーサンプルと工事前の写�
                     <!-- 対応エリア告知 -->
                     <div class="bg-gradient-to-r from-blue-50 to-green-50 border-4 border-blue-400 rounded-lg p-6 mb-6 text-center">
                         <p class="text-xl font-black text-blue-700 mb-2">
-                            🏠 対応エリア: 神奈川全域
+                            🏠 対応エリア: 神奈川全域・東京都全域
                         </p>
                         <p class="text-sm text-gray-700">
-                            横浜市・川崎市・相模原市・横須賀市・平塚市・鎌倉市・藤沢市・小田原市・茅ヶ崎市・逗子市・三浦市・秦野市・厚木市・大和市・伊勢原市・海老名市・座間市・南足柄市・綾瀬市 ほか神奈川県全域
+                            <strong>神奈川県：</strong>横浜市・川崎市・相模原市・横須賀市・平塚市・鎌倉市・藤沢市・小田原市・茅ヶ崎市・逗子市・三浦市・秦野市・厚木市・大和市・伊勢原市・海老名市・座間市・南足柄市・綾瀬市 ほか神奈川県全域<br>
+                            <strong>東京都：</strong>町田市・八王子市・立川市・調布市・多摩市・日野市・国立市・国分寺市・府中市・稲城市 ほか東京都全域
                         </p>
                     </div>
                     
@@ -6475,7 +6476,7 @@ nNTaAP/Z" alt="塗料選びの様子 - カラーサンプルと工事前の写�
             <div class="grid md:grid-cols-3 gap-8 mb-8">
                 <div class="text-center">
                     <h4 class="font-black text-lg mb-3">対応エリア</h4>
-                    <p class="text-gray-400">神奈川県全域<br>横浜・川崎・相模原<br>その他全市町村</p>
+                    <p class="text-gray-400">神奈川県全域・東京都全域<br>横浜・川崎・町田・八王子<br>その他全市町村</p>
                 </div>
                 <div class="text-center">
                     <h4 class="font-black text-lg mb-3">サービス</h4>
@@ -6637,11 +6638,11 @@ nNTaAP/Z" alt="塗料選びの様子 - カラーサンプルと工事前の写�
                             const fullAddress = result.address1 + result.address2 + result.address3;
                             addressInput.value = fullAddress;
                             
-                            // 神奈川県かチェック
-                            if (result.address1 === '神奈川県') {
+                            // 神奈川県・東京都かチェック
+                            if (result.address1 === '神奈川県' || result.address1 === '東京都') {
                                 alert('✅ 対応エリアです！住所が自動入力されました。');
                             } else {
-                                alert('⚠️ 申し訳ございません。現在の対応エリアは神奈川県全域となっております。\n住所は自動入力されましたが、対応エリア外の可能性がございます。');
+                                alert('⚠️ 申し訳ございません。現在の対応エリアは神奈川県・東京都全域となっております。\n住所は自動入力されましたが、対応エリア外の可能性がございます。');
                             }
                         } else {
                             alert('郵便番号が見つかりませんでした。もう一度確認してください。');

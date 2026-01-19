@@ -1078,6 +1078,50 @@
                             <p class="text-sm text-gray-600 mt-2">※診断レポートの送付に使用します</p>
                         </div>
                         
+                        <!-- オンライン診断希望日時 -->
+                        <div>
+                            <label class="block font-black text-lg mb-3">
+                                📹 オンライン診断希望日時 <span class="text-red-600 text-xl">（必須）</span>
+                            </label>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-bold mb-2">📅 第1希望日</label>
+                                    <input type="date" name="preferredDate1" id="preferredDate1"
+                                           class="w-full px-4 py-4 text-lg border-4 border-gray-300 rounded-lg focus:border-red-600 focus:outline-none" 
+                                           required>
+                                    <select name="preferredTime1" class="w-full px-4 py-3 text-lg border-4 border-gray-300 rounded-lg focus:border-red-600 focus:outline-none mt-2" required>
+                                        <option value="">時間帯を選択</option>
+                                        <option value="09:00-10:00">09:00 - 10:00</option>
+                                        <option value="10:00-11:00">10:00 - 11:00</option>
+                                        <option value="11:00-12:00">11:00 - 12:00</option>
+                                        <option value="13:00-14:00">13:00 - 14:00</option>
+                                        <option value="14:00-15:00">14:00 - 15:00</option>
+                                        <option value="15:00-16:00">15:00 - 16:00</option>
+                                        <option value="16:00-17:00">16:00 - 17:00</option>
+                                        <option value="17:00-18:00">17:00 - 18:00</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold mb-2">📅 第2希望日（任意）</label>
+                                    <input type="date" name="preferredDate2" id="preferredDate2"
+                                           class="w-full px-4 py-4 text-lg border-4 border-gray-300 rounded-lg focus:border-red-600 focus:outline-none">
+                                    <select name="preferredTime2" class="w-full px-4 py-3 text-lg border-4 border-gray-300 rounded-lg focus:border-red-600 focus:outline-none mt-2">
+                                        <option value="">時間帯を選択</option>
+                                        <option value="09:00-10:00">09:00 - 10:00</option>
+                                        <option value="10:00-11:00">10:00 - 11:00</option>
+                                        <option value="11:00-12:00">11:00 - 12:00</option>
+                                        <option value="13:00-14:00">13:00 - 14:00</option>
+                                        <option value="14:00-15:00">14:00 - 15:00</option>
+                                        <option value="15:00-16:00">15:00 - 16:00</option>
+                                        <option value="16:00-17:00">16:00 - 17:00</option>
+                                        <option value="17:00-18:00">17:00 - 18:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-2">※営業時間: 月～金 9:00-18:00（土日祝日除く）</p>
+                            <p class="text-sm text-gray-600">※オンライン診断は30分程度を予定しています</p>
+                        </div>
+                        
                         <button type="submit" class="w-full py-6 text-2xl font-black bg-gradient-to-r from-red-600 to-red-700 text-white rounded-lg border-4 border-black shadow-lg hover:scale-105 transition">
                             <i class="fas fa-paper-plane mr-2"></i>診断を依頼する（ガイドブック自動送付）
                         </button>
@@ -1104,6 +1148,81 @@
                     📧 診断結果とガイドブックは自動でメール送付<br>
                     ⚡ 24時間以内にプロから詳しい診断結果をお送りします
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- オンライン診断予約セクション -->
+    <section class="py-12 md:py-20 px-4 bg-gradient-to-b from-blue-50 to-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="inline-block bg-blue-600 text-white px-8 py-4 text-2xl md:text-3xl font-black mb-4">
+                    📹 オンライン診断予約
+                </div>
+                <h2 class="text-3xl md:text-5xl font-black mb-6">
+                    スマホで簡単！30分で完了
+                </h2>
+                <p class="text-xl text-gray-700">
+                    外壁の写真を送るだけで、プロが詳しく診断します
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="bg-white p-6 rounded-lg border-4 border-blue-300 text-center">
+                    <div class="text-5xl mb-4">📱</div>
+                    <h3 class="text-xl font-black mb-2">STEP 1</h3>
+                    <p class="text-gray-700">スマホで外壁・屋根を<br>撮影</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg border-4 border-green-300 text-center">
+                    <div class="text-5xl mb-4">💬</div>
+                    <h3 class="text-xl font-black mb-2">STEP 2</h3>
+                    <p class="text-gray-700">希望日時を選んで<br>オンライン面談</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg border-4 border-purple-300 text-center">
+                    <div class="text-5xl mb-4">✅</div>
+                    <h3 class="text-xl font-black mb-2">STEP 3</h3>
+                    <p class="text-gray-700">30分で詳しい診断結果<br>＋見積もり</p>
+                </div>
+            </div>
+            
+            <div class="impact-box bg-yellow-50 border-yellow-400">
+                <h3 class="text-2xl font-black mb-4 text-center">🎁 オンライン診断の特典</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="flex items-start">
+                        <span class="text-2xl mr-3">✅</span>
+                        <div>
+                            <p class="font-black text-lg">完全無料</p>
+                            <p class="text-sm text-gray-600">診断料・相談料は一切かかりません</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-2xl mr-3">✅</span>
+                        <div>
+                            <p class="font-black text-lg">営業なし</p>
+                            <p class="text-sm text-gray-600">しつこいセールスは一切ありません</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-2xl mr-3">✅</span>
+                        <div>
+                            <p class="font-black text-lg">在宅でOK</p>
+                            <p class="text-sm text-gray-600">移動時間ゼロ、スマホだけで完結</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-2xl mr-3">✅</span>
+                        <div>
+                            <p class="font-black text-lg">即日対応</p>
+                            <p class="text-sm text-gray-600">最短で翌日から予約可能</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#diagnosis" class="mega-cta">
+                    📹 オンライン診断を予約する
+                </a>
             </div>
         </div>
     </section>
@@ -1164,6 +1283,13 @@
             });
         });
         
+        // 日付フィールドの最小値を設定（翌日から選択可能）
+        const today = new Date();
+        today.setDate(today.getDate() + 1); // 翌日
+        const minDate = today.toISOString().split('T')[0];
+        document.getElementById('preferredDate1').setAttribute('min', minDate);
+        document.getElementById('preferredDate2').setAttribute('min', minDate);
+        
         // フォーム送信
         const form = document.getElementById('diagnosisForm');
         if (form) {
@@ -1176,7 +1302,11 @@
                     location: form.location.value,
                     age: form.age.value,
                     phone: form.phone.value,
-                    email: form.email.value
+                    email: form.email.value,
+                    preferredDate1: form.preferredDate1.value,
+                    preferredTime1: form.preferredTime1.value,
+                    preferredDate2: form.preferredDate2.value || '',
+                    preferredTime2: form.preferredTime2.value || ''
                 };
                 
                 // Google Apps Script URL（SETUP_GUIDE.mdを参照して設定してください）
@@ -1200,13 +1330,19 @@
                         });
                     }
                     
-                    // 成功メッセージ
-                    alert('✅ 診断依頼を受け付けました！\n\n📧 ご入力いただいたメールアドレスに\n「外壁塗装ガイドブック（PDF）」を自動送信しました。\n\n⚡ 24時間以内にプロから詳しい診断結果をお送りします。\n\nしばらくお待ちください。');
-                    form.reset();
-                    
-                    // ボタンを元に戻す
-                    button.innerHTML = originalText;
-                    button.disabled = false;
+                    // 診断結果ページへリダイレクト
+                    const params = new URLSearchParams({
+                        name: formData.name,
+                        location: formData.location,
+                        age: formData.age,
+                        phone: formData.phone,
+                        email: formData.email,
+                        date1: formData.preferredDate1,
+                        time1: formData.preferredTime1,
+                        date2: formData.preferredDate2,
+                        time2: formData.preferredTime2
+                    });
+                    window.location.href = 'thankyou.html?' + params.toString();
                     
                 } catch (error) {
                     alert('❌ 送信エラーが発生しました。\nお手数ですが、もう一度お試しください。');

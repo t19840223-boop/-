@@ -93,7 +93,7 @@ function saveToSpreadsheet(data) {
   
   // ヘッダー行がない場合は追加
   if (sheet.getLastRow() === 0) {
-    sheet.appendRow(['受付日時', 'お名前', '地域', '築年数', '電話番号', 'メールアドレス', 'ステータス']);
+    sheet.appendRow(['受付日時', 'お名前', '地域', '築年数', '電話番号', 'メールアドレス', '第1希望日', '第1希望時間', '第2希望日', '第2希望時間', 'ステータス']);
   }
   
   // データ追加
@@ -104,6 +104,10 @@ function saveToSpreadsheet(data) {
     data.age,
     data.phone,
     data.email,
+    data.preferredDate1 || '',
+    data.preferredTime1 || '',
+    data.preferredDate2 || '',
+    data.preferredTime2 || '',
     '未対応'
   ]);
 }
@@ -208,6 +212,18 @@ function sendThankYouEmail(data) {
           <td style="padding: 10px; border: 1px solid #ddd;">メールアドレス</td>
           <td style="padding: 10px; border: 1px solid #ddd;">${data.email}</td>
         </tr>
+        ${data.preferredDate1 ? `
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;">オンライン診断<br>第1希望日</td>
+          <td style="padding: 10px; border: 1px solid #ddd;"><strong>${data.preferredDate1} ${data.preferredTime1}</strong></td>
+        </tr>
+        ` : ''}
+        ${data.preferredDate2 ? `
+        <tr style="background: #f0f0f0;">
+          <td style="padding: 10px; border: 1px solid #ddd;">オンライン診断<br>第2希望日</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">${data.preferredDate2} ${data.preferredTime2}</td>
+        </tr>
+        ` : ''}
       </table>
       
       <p style="margin-top: 30px; text-align: center;">
@@ -283,6 +299,8 @@ ${data.name} 様
 築年数: ${data.age}
 電話番号: ${data.phone}
 メールアドレス: ${data.email}
+${data.preferredDate1 ? `オンライン診断 第1希望日: ${data.preferredDate1} ${data.preferredTime1}` : ''}
+${data.preferredDate2 ? `オンライン診断 第2希望日: ${data.preferredDate2} ${data.preferredTime2}` : ''}
 
 ━━━━━━━━━━━━━━━━━━━━
 💡 安心ポイント
@@ -336,6 +354,8 @@ function sendNotificationToAdmin(data) {
 築年数: ${data.age}
 電話番号: ${data.phone}
 メールアドレス: ${data.email}
+${data.preferredDate1 ? `\nオンライン診断 第1希望日: ${data.preferredDate1} ${data.preferredTime1}` : ''}
+${data.preferredDate2 ? `オンライン診断 第2希望日: ${data.preferredDate2} ${data.preferredTime2}` : ''}
 
 受付日時: ${new Date().toLocaleString('ja-JP')}
 

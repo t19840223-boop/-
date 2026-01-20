@@ -6881,11 +6881,10 @@ nNTaAP/Z" alt="塗料選びの様子 - カラーサンプルと工事前の写�
 
     <!-- 💬 社会的証明: リアルタイム通知 -->
     <div id="notification" class="fixed bottom-4 left-4 bg-white shadow-2xl rounded-lg p-4 border-l-4 border-green-500 max-w-sm transform translate-x-[-120%] transition-transform duration-500 z-50">
-        <div class="flex items-start gap-3">
-            <div class="text-2xl">✅</div>
+        <div class="flex items-center gap-3">
+            <div class="text-3xl">✅</div>
             <div>
-                <p class="font-bold text-gray-800 text-sm" id="notif-text">横浜市 T様が診断を申し込みました</p>
-                <p class="text-xs text-gray-500" id="notif-time">2分前</p>
+                <p class="font-bold text-gray-800 text-base" id="notif-text">横浜市 T様が診断を申し込みました</p>
             </div>
         </div>
     </div>
@@ -6933,17 +6932,9 @@ nNTaAP/Z" alt="塗料選びの様子 - カラーサンプルと工事前の写�
     function showNotification() {
         const notif = notifications[notifIndex % notifications.length];
         const textElem = document.getElementById('notif-text');
-        const timeElem = document.getElementById('notif-time');
         
-        if (textElem && timeElem) {
-            // リアルタイムの時刻を取得
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const timeString = `${hours}:${minutes}`;
-            
+        if (textElem) {
             textElem.textContent = `${notif.city} ${notif.initial}様が診断を申し込みました`;
-            timeElem.textContent = `${timeString} に申込`;
             
             const elem = document.getElementById('notification');
             if (elem) {

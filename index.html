@@ -6914,14 +6914,18 @@ nNTaAP/Z" alt="塗料選びの様子 - カラーサンプルと工事前の写�
     
     // リアルタイム通知のシミュレーション
     const notifications = [
-        {city: "横浜市", initial: "T", time: "2分前"},
-        {city: "川崎市", initial: "S", time: "5分前"},
-        {city: "町田市", initial: "K", time: "8分前"},
-        {city: "相模原市", initial: "M", time: "12分前"},
-        {city: "藤沢市", initial: "Y", time: "15分前"},
-        {city: "鎌倉市", initial: "H", time: "18分前"},
-        {city: "厚木市", initial: "N", time: "23分前"},
-        {city: "平塚市", initial: "A", time: "27分前"}
+        {city: "横浜市", initial: "T"},
+        {city: "川崎市", initial: "S"},
+        {city: "町田市", initial: "K"},
+        {city: "相模原市", initial: "M"},
+        {city: "藤沢市", initial: "Y"},
+        {city: "鎌倉市", initial: "H"},
+        {city: "厚木市", initial: "N"},
+        {city: "平塚市", initial: "A"},
+        {city: "横須賀市", initial: "R"},
+        {city: "茅ヶ崎市", initial: "W"},
+        {city: "大和市", initial: "I"},
+        {city: "海老名市", initial: "O"}
     ];
     
     let notifIndex = 0;
@@ -6932,8 +6936,14 @@ nNTaAP/Z" alt="塗料選びの様子 - カラーサンプルと工事前の写�
         const timeElem = document.getElementById('notif-time');
         
         if (textElem && timeElem) {
+            // リアルタイムの時刻を取得
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}`;
+            
             textElem.textContent = `${notif.city} ${notif.initial}様が診断を申し込みました`;
-            timeElem.textContent = notif.time;
+            timeElem.textContent = `${timeString} に申込`;
             
             const elem = document.getElementById('notification');
             if (elem) {

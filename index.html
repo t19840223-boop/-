@@ -6947,12 +6947,14 @@ nNTaAP/Z" alt="塗料選びの様子 - カラーサンプルと工事前の写�
         }
         
         notifIndex++;
+        
+        // 次回表示を15秒〜30秒のランダムな間隔で設定
+        const nextDelay = Math.floor(Math.random() * (30000 - 15000 + 1)) + 15000;
+        setTimeout(showNotification, nextDelay);
     }
     
     // 初回表示を遅延
     setTimeout(showNotification, 3000);
-    // その後15秒ごとに表示
-    setInterval(showNotification, 15000);
     </script>
     
     </body>

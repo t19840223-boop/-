@@ -1,0 +1,378 @@
+    <!-- 無料診断フォーム: 雨漏り特化 -->
+    <section id="diagnosis" class="py-12 md:py-20 px-4 bg-gradient-to-b from-red-100 via-orange-50 to-yellow-50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="inline-block bg-red-600 text-white px-8 py-4 text-2xl md:text-4xl font-black mb-6 transform -rotate-1 animate-pulse">
+                    🚨 雨漏りを今すぐ診断
+                </div>
+                <h2 class="text-3xl md:text-5xl font-black mb-6">
+                    その雨漏り、<br>
+                    <span class="text-red-600">放置すると危険です</span>
+                </h2>
+                <div class="inline-block bg-white px-8 py-6 rounded-lg border-5 border-red-600 shadow-lg">
+                    <p class="text-xl md:text-2xl font-black">
+                        ✅ 完全無料<br class="md:hidden"> ✅ 写真で簡単診断<br class="md:hidden"> ✅ 24時間以内に返信
+                    </p>
+                </div>
+            </div>
+            
+            <!-- 緊急度選択 -->
+            <div class="mb-8 bg-white rounded-2xl shadow-2xl p-6 md:p-10 border-4 border-red-500">
+                <h3 class="text-2xl md:text-3xl font-black text-center mb-6 text-gray-800">
+                    ⚡ あなたの状況を選んでください
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- 緊急対応 -->
+                    <div class="bg-gradient-to-br from-red-600 to-red-700 text-white rounded-xl p-6 cursor-pointer hover:scale-105 transition-transform" onclick="selectUrgency('emergency')">
+                        <div class="text-center">
+                            <div class="text-5xl mb-3">🚨</div>
+                            <h4 class="text-2xl font-black mb-3">緊急対応</h4>
+                            <p class="text-lg mb-2">今すぐ雨漏りを止めたい</p>
+                            <ul class="text-sm text-left space-y-1 mt-4">
+                                <li>• 天井から水が落ちている</li>
+                                <li>• 雨の日に音がする</li>
+                                <li>• 今すぐ対応が必要</li>
+                            </ul>
+                            <div class="mt-4 bg-yellow-400 text-red-900 px-4 py-2 rounded-full font-black">
+                                📞 電話で即対応
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- オンライン診断 -->
+                    <div class="bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-xl p-6 cursor-pointer hover:scale-105 transition-transform" onclick="selectUrgency('online')">
+                        <div class="text-center">
+                            <div class="text-5xl mb-3">📱</div>
+                            <h4 class="text-2xl font-black mb-3">オンライン診断</h4>
+                            <p class="text-lg mb-2">写真を送って診断したい</p>
+                            <ul class="text-sm text-left space-y-1 mt-4">
+                                <li>• シミや変色がある</li>
+                                <li>• 予防のために確認したい</li>
+                                <li>• じっくり相談したい</li>
+                            </ul>
+                            <div class="mt-4 bg-yellow-400 text-blue-900 px-4 py-2 rounded-full font-black">
+                                📸 写真で診断
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center text-sm text-gray-600 mt-4">※どちらも完全無料・営業なし</p>
+            </div>
+            
+            <!-- 雨漏りガイドブック特典 -->
+            <div class="mb-8 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 p-2 rounded-lg">
+                <div class="bg-white p-6 rounded-lg text-center">
+                    <div class="inline-block bg-red-600 text-white px-6 py-3 rounded-full font-black text-xl mb-4 animate-pulse">
+                        🎁 今だけ！無料プレゼント
+                    </div>
+                    <p class="text-3xl md:text-4xl font-black mb-3">
+                        雨漏り対策完全ガイド
+                    </p>
+                    <p class="text-lg font-bold text-gray-700 mb-4">
+                        放置すると危険！雨漏りの全知識
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg border-2 border-gray-300 mb-6">
+                        <p class="text-lg font-black mb-4 text-center text-gray-800">📖 ガイドブックの内容</p>
+                        <div class="grid md:grid-cols-2 gap-3 text-sm">
+                            <div class="bg-white p-3 rounded border-l-4 border-red-500">
+                                <p class="font-bold mb-1">⚠️ 1. 雨漏りの危険サイン</p>
+                                <p class="text-gray-600 text-xs">見逃してはいけない10の兆候</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-orange-500">
+                                <p class="font-bold mb-1">🏠 2. 放置するとどうなる？</p>
+                                <p class="text-gray-600 text-xs">実際の被害事例と費用</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-yellow-500">
+                                <p class="font-bold mb-1">💰 3. 雨漏り修理の相場</p>
+                                <p class="text-gray-600 text-xs">症状別の費用目安と内訳</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-green-500">
+                                <p class="font-bold mb-1">🔧 4. 応急処置の方法</p>
+                                <p class="text-gray-600 text-xs">業者が来るまでにできること</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-blue-500">
+                                <p class="font-bold mb-1">🕵️ 5. 悪徳業者の見分け方</p>
+                                <p class="text-gray-600 text-xs">訪問販売の嘘を見抜く</p>
+                            </div>
+                            <div class="bg-white p-3 rounded border-l-4 border-purple-500">
+                                <p class="font-bold mb-1">📋 6. 業者選びのポイント</p>
+                                <p class="text-gray-600 text-xs">失敗しない10のチェック項目</p>
+                            </div>
+                        </div>
+                        <p class="text-center text-xs text-gray-500 mt-4">※残り6項目も収録（保険・助成金・防水工事など）</p>
+                    </div>
+                    <p class="text-sm text-gray-600">
+                        ※診断フォーム送信後、自動でメール送付
+                    </p>
+                </div>
+            </div>
+            
+            <!-- 診断フォーム -->
+            <div class="max-w-2xl mx-auto" id="diagnosisFormContainer">
+                <div class="bg-white rounded-2xl shadow-2xl p-6 md:p-10 border-4 border-blue-500">
+                    <div class="text-center mb-6">
+                        <div class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full font-black text-lg">
+                            📱 30秒で完了！無料診断
+                        </div>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-black text-center mb-6">雨漏り診断フォーム</h3>
+                    
+                    <!-- 対応エリア告知 -->
+                    <div class="bg-gradient-to-r from-blue-50 to-green-50 border-4 border-blue-400 rounded-lg p-6 mb-6 text-center">
+                        <p class="text-xl font-black text-blue-700 mb-2">
+                            🏠 対応エリア
+                        </p>
+                        <p class="text-sm text-gray-700">
+                            <strong>神奈川県：</strong>相模原市・横浜市（青葉区・都筑区・港北区・旭区・緑区・保土ヶ谷区）・川崎市（多摩区・麻生区・高津区）<br>
+                            <strong>東京都：</strong>町田市・八王子市・調布市・日野市・多摩市・稲城市・国立市
+                        </p>
+                    </div>
+                    
+                    <form id="diagnosisForm" class="space-y-6">
+                        <!-- 緊急度（隠しフィールド）-->
+                        <input type="hidden" id="urgency" name="urgency" value="online">
+                        
+                        <!-- お名前 -->
+                        <div>
+                            <label class="block font-black text-lg mb-3">
+                                👤 お名前 <span class="text-red-600 text-xl">（必須）</span>
+                            </label>
+                            <input type="text" id="name" name="name" required 
+                                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none text-lg"
+                                   placeholder="例：山田 太郎">
+                        </div>
+                        
+                        <!-- 雨漏りの状況 -->
+                        <div>
+                            <label class="block font-black text-lg mb-3">
+                                🏠 雨漏りの状況 <span class="text-red-600 text-xl">（必須）</span>
+                            </label>
+                            <select id="situation" name="situation" required
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none text-lg">
+                                <option value="">選択してください</option>
+                                <option value="すでに雨漏りしている">🚨 すでに雨漏りしている（緊急）</option>
+                                <option value="天井にシミがある">⚠️ 天井にシミ・変色がある</option>
+                                <option value="壁にカビが生えている">🦠 壁にカビが生えている</option>
+                                <option value="外壁にひび割れ">🔍 外壁にひび割れ（クラック）がある</option>
+                                <option value="訪問販売に指摘された">👨‍💼 訪問販売に「雨漏りする」と言われた</option>
+                                <option value="予防のため確認したい">🛡️ 予防のため確認したい</option>
+                                <option value="その他">その他</option>
+                            </select>
+                        </div>
+                        
+                        <!-- 建物の築年数 -->
+                        <div>
+                            <label class="block font-black text-lg mb-3">
+                                🏗️ 建物の築年数 <span class="text-red-600 text-xl">（必須）</span>
+                            </label>
+                            <select id="buildingAge" name="buildingAge" required
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none text-lg">
+                                <option value="">選択してください</option>
+                                <option value="5年未満">5年未満</option>
+                                <option value="5～10年">5～10年</option>
+                                <option value="10～15年">10～15年</option>
+                                <option value="15～20年">15～20年</option>
+                                <option value="20年以上">20年以上</option>
+                                <option value="わからない">わからない</option>
+                            </select>
+                        </div>
+                        
+                        <!-- 郵便番号 -->
+                        <div>
+                            <label class="block font-black text-lg mb-3">
+                                📮 郵便番号 <span class="text-red-600 text-xl">（必須）</span>
+                            </label>
+                            <div class="flex gap-2">
+                                <input type="text" id="postalCode" name="postalCode" required
+                                       inputmode="numeric"
+                                       class="flex-1 px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none text-lg"
+                                       placeholder="例: 123-4567"
+                                       maxlength="8">
+                                <button type="button" id="searchAddressBtn" 
+                                        class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-bold whitespace-nowrap">
+                                    🔍 住所検索
+                                </button>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2">
+                                郵便番号を入力して住所検索ボタンを押すと自動で住所が入力されます
+                            </p>
+                        </div>
+                        
+                        <!-- 住所 -->
+                        <div>
+                            <label class="block font-black text-lg mb-3">
+                                🏠 お住まいの住所 <span class="text-gray-500 text-base">（任意）</span>
+                            </label>
+                            <input type="text" id="address" name="address"
+                                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none text-lg"
+                                   placeholder="郵便番号から自動入力されます">
+                        </div>
+                        
+                        <!-- 電話番号 -->
+                        <div>
+                            <label class="block font-black text-lg mb-3">
+                                📞 電話番号 <span class="text-red-600 text-xl">（必須）</span>
+                            </label>
+                            <input type="tel" id="phone" name="phone" required
+                                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none text-lg"
+                                   placeholder="例: 090-1234-5678">
+                            <p class="text-sm text-gray-500 mt-2">
+                                ※緊急時の連絡用。営業電話は一切ありません
+                            </p>
+                        </div>
+                        
+                        <!-- メールアドレス -->
+                        <div>
+                            <label class="block font-black text-lg mb-3">
+                                📧 メールアドレス <span class="text-red-600 text-xl">（必須）</span>
+                            </label>
+                            <input type="email" id="email" name="email" required
+                                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none text-lg"
+                                   placeholder="例: example@example.com">
+                            <p class="text-sm text-gray-500 mt-2">
+                                ※診断結果とガイドブックを自動送信します
+                            </p>
+                        </div>
+                        
+                        <!-- 写真アップロード -->
+                        <div>
+                            <label class="block font-black text-lg mb-3">
+                                📸 雨漏り箇所の写真 <span class="text-gray-500 text-base">（任意・推奨）</span>
+                            </label>
+                            <div class="border-4 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-500 transition-colors cursor-pointer">
+                                <input type="file" id="photos" name="photos" accept="image/*" multiple class="hidden">
+                                <label for="photos" class="cursor-pointer">
+                                    <div class="text-5xl mb-3">📱</div>
+                                    <p class="font-bold text-lg mb-2">写真をアップロード</p>
+                                    <p class="text-sm text-gray-600">スマホで撮影した写真を選択してください<br>（複数枚OK）</p>
+                                </label>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2">
+                                ※写真があると、より正確な診断が可能です
+                            </p>
+                        </div>
+                        
+                        <!-- オンライン相談 -->
+                        <div>
+                            <label class="block font-black text-lg mb-3">
+                                💬 オンライン相談（Zoom/LINE） <span class="text-gray-500 text-base">（任意）</span>
+                            </label>
+                            <p class="text-sm text-gray-600 mb-3">
+                                専門スタッフとオンラインで相談できます（無料・30分程度）
+                            </p>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="text-sm font-bold">第1希望日時</label>
+                                    <div class="grid grid-cols-2 gap-2 mt-2">
+                                        <input type="date" id="onlineDate1" name="onlineDate1"
+                                               class="px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none">
+                                        <select id="onlineTime1" name="onlineTime1"
+                                                class="px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none">
+                                            <option value="">時間を選択</option>
+                                            <option value="10:00">10:00〜</option>
+                                            <option value="11:00">11:00〜</option>
+                                            <option value="13:00">13:00〜</option>
+                                            <option value="14:00">14:00〜</option>
+                                            <option value="15:00">15:00〜</option>
+                                            <option value="16:00">16:00〜</option>
+                                            <option value="17:00">17:00〜</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="text-sm font-bold">第2希望日時</label>
+                                    <div class="grid grid-cols-2 gap-2 mt-2">
+                                        <input type="date" id="onlineDate2" name="onlineDate2"
+                                               class="px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none">
+                                        <select id="onlineTime2" name="onlineTime2"
+                                                class="px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none">
+                                            <option value="">時間を選択</option>
+                                            <option value="10:00">10:00〜</option>
+                                            <option value="11:00">11:00〜</option>
+                                            <option value="13:00">13:00〜</option>
+                                            <option value="14:00">14:00〜</option>
+                                            <option value="15:00">15:00〜</option>
+                                            <option value="16:00">16:00〜</option>
+                                            <option value="17:00">17:00〜</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 備考 -->
+                        <div>
+                            <label class="block font-black text-lg mb-3">
+                                💭 その他、気になることがあればご記入ください <span class="text-gray-500 text-base">（任意）</span>
+                            </label>
+                            <textarea id="remarks" name="remarks" rows="4"
+                                      class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none text-lg"
+                                      placeholder="例：雨の日に音がする、カビの臭いがする、など"></textarea>
+                        </div>
+                        
+                        <!-- プライバシーポリシー -->
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" id="privacy" name="privacy" required
+                                       class="mt-1 w-5 h-5">
+                                <span class="text-sm text-gray-700">
+                                    <a href="privacy.html" target="_blank" class="text-blue-600 underline font-bold">プライバシーポリシー</a>に同意します
+                                </span>
+                            </label>
+                        </div>
+                        
+                        <!-- 送信ボタン -->
+                        <div class="text-center">
+                            <button type="submit" 
+                                    class="w-full bg-gradient-to-r from-red-600 to-orange-600 text-white text-2xl font-black px-12 py-6 rounded-full hover:from-red-700 hover:to-orange-700 transition-all shadow-2xl hover:scale-105 animate-pulse">
+                                🔍 今すぐ無料診断を受ける
+                            </button>
+                            <p class="text-sm text-gray-600 mt-4">
+                                ※送信後、24時間以内に診断結果をメールでお送りします<br>
+                                ※ガイドブックは自動で即時送信されます
+                            </p>
+                        </div>
+                    </form>
+                    
+                    <!-- 安心メッセージ -->
+                    <div class="mt-8 bg-blue-50 border-2 border-blue-300 rounded-lg p-6">
+                        <p class="text-center font-black text-lg text-blue-800 mb-3">
+                            ✅ 3つの安心
+                        </p>
+                        <div class="grid md:grid-cols-3 gap-4 text-sm text-center">
+                            <div>
+                                <p class="font-bold mb-1">💰 完全無料</p>
+                                <p class="text-gray-600">診断・相談は一切費用がかかりません</p>
+                            </div>
+                            <div>
+                                <p class="font-bold mb-1">🚫 営業なし</p>
+                                <p class="text-gray-600">しつこい営業電話は一切ありません</p>
+                            </div>
+                            <div>
+                                <p class="font-bold mb-1">🔒 個人情報保護</p>
+                                <p class="text-gray-600">SSL暗号化で安全に送信されます</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+    // 緊急度選択
+    function selectUrgency(type) {
+        if (type === 'emergency') {
+            // 緊急対応の場合は電話を促す
+            if (confirm('🚨 緊急対応をご希望ですか？\n\n今すぐお電話いただくと、最短1時間で駆けつけます。\n\n「OK」を押すと電話アプリが起動します。\n「キャンセル」を押すとフォーム入力に進みます。')) {
+                window.location.href = 'tel:0120773743';
+            } else {
+                document.getElementById('urgency').value = 'emergency';
+                document.getElementById('diagnosisFormContainer').scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            document.getElementById('urgency').value = 'online';
+            document.getElementById('diagnosisFormContainer').scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+    </script>

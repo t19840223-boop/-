@@ -352,10 +352,7 @@
             <div class="grid md:grid-cols-2 gap-6 md:gap-8 mb-10">
                 <!-- ① カビ・健康被害 -->
                 <div class="bg-white p-6 md:p-8 rounded-xl shadow-2xl border-l-8 border-green-600">
-                    <!-- カビ被害の実例写真 -->
-                    <div class="mb-4 rounded-lg overflow-hidden">
-                        <img src="images/damage/mold-info.jpg" alt="カビ被害の実例：横浜市T様の事例" class="w-full h-auto">
-                    </div>
+                    <!-- カビ被害の実物写真 -->
                     <div class="mb-4 rounded-lg overflow-hidden aspect-video">
                         <img src="images/damage/mold-damage.jpg" alt="実際のカビ被害写真" class="w-full h-full object-cover">
                     </div>
@@ -550,10 +547,18 @@
     </section>
 
     <!-- 🏠 施工事例4件（社会的証明・信頼構築）-->
-    <section class="bg-gradient-to-b from-white to-blue-50 py-12 md:py-16 px-4">
+    <section id="jirei-section" class="bg-gradient-to-b from-white to-blue-50 py-12 md:py-16 px-4">
         <div class="max-w-6xl mx-auto">
+            <!-- 超目立つクリックボタン（導入） -->
+            <div class="mb-12 text-center">
+                <a href="#jirei-cases" class="inline-block bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-black text-xl md:text-3xl px-8 md:px-16 py-6 md:py-8 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300 animate-pulse">
+                    📸 実際の施工事例を見る
+                    <div class="text-sm md:text-base font-normal mt-2">↓ クリックして全4件を確認</div>
+                </a>
+            </div>
+            
             <!-- 心理的導入: 共感 -->
-            <div class="text-center mb-10">
+            <div id="jirei-cases" class="text-center mb-10">
                 <p class="text-lg md:text-xl text-gray-600 mb-3">
                     「本当に直るのか？」「費用は適正なのか？」
                 </p>
@@ -573,7 +578,7 @@
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-1 gap-8 md:gap-10 mb-10">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-10 mb-10">
                 <!-- 事例1: 緊急対応で大規模改修を防いだケース -->
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="grid md:grid-cols-2 gap-6 p-6 md:p-8">
@@ -649,6 +654,13 @@
                                 <div class="bg-green-50 border-2 border-green-400 p-4 rounded-lg">
                                     <p class="text-sm font-bold text-green-700 mb-1">✨ 屋根全体を完全新設</p>
                                     <p class="text-xs text-gray-600">古い屋根材を全て撤去し、下地から作り直すことで、30年以上の耐久性を実現。</p>
+                                </div>
+                                
+                                <!-- 詳しく見るボタン -->
+                                <div class="mt-6">
+                                    <a href="#case1-detail" class="block w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white text-center font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
+                                        📸 この事例を詳しく見る
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -741,6 +753,13 @@
                                     <p class="text-sm font-bold text-red-700 mb-1">⚠️ 訪問販売の不要な工事を除外</p>
                                     <p class="text-xs text-gray-600">訪問販売では必要のない外壁全面塗装も含まれていました。必要な部分だけ施工して220万円削減。</p>
                                 </div>
+                                
+                                <!-- 詳しく見るボタン -->
+                                <div class="mt-6">
+                                    <a href="#case2-detail" class="block w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white text-center font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
+                                        📸 この事例を詳しく見る
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -822,6 +841,101 @@
                                     <p class="text-sm font-bold text-green-700 mb-1">✨ オンライン診断で訪問なし</p>
                                     <p class="text-xs text-gray-600">写真と動画で事前診断。訪問販売のようなしつこい営業は一切なし。</p>
                                 </div>
+                                
+                                <!-- 詳しく見るボタン -->
+                                <div class="mt-6">
+                                    <a href="#case3-detail" class="block w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white text-center font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
+                                        📸 この事例を詳しく見る
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 事例4: 緊急対応・屋根からの雨漏り -->
+                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+                    <div class="grid md:grid-cols-2 gap-6 p-6 md:p-8">
+                        <!-- 左: 画像エリア -->
+                        <div>
+                            <div class="mb-4">
+                                <span class="bg-purple-500 text-white px-4 py-2 rounded-full text-sm font-bold inline-block">急な対応</span>
+                                <span class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold inline-block ml-2">町田市</span>
+                            </div>
+                            <!-- Before/After画像 -->
+                            <div class="grid grid-cols-2 gap-3 mb-4">
+                                <div class="bg-gray-200 rounded-lg overflow-hidden aspect-[4/3]">
+                                    <img src="images/case4/01-before-roof.jpg" alt="施工前：屋根一部雨漏り" class="w-full h-full object-cover">
+                                </div>
+                                <div class="bg-gray-200 rounded-lg overflow-hidden aspect-[4/3]">
+                                    <img src="images/case4/02-after-roof.jpg" alt="施工後：屋根部分張替完成" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                            <!-- 施工過程の画像ギャラリー（3枚表示） -->
+                            <div class="grid grid-cols-3 gap-2 mb-4">
+                                <img src="images/case4/03-ceiling-before.jpg" alt="天井雨漏り" class="w-full rounded aspect-video object-cover">
+                                <img src="images/case4/04-work.jpg" alt="天井補修作業" class="w-full rounded aspect-video object-cover">
+                                <img src="images/case4/05-ceiling-after.jpg" alt="天井補修完成" class="w-full rounded aspect-video object-cover">
+                            </div>
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <p class="text-sm font-bold text-blue-700">
+                                    💬 お客様の声
+                                </p>
+                                <p class="text-sm text-gray-700 mt-2">
+                                    「急な対応にもかかわらず、すぐに施工していただき有難うございます。」
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- 右: 詳細情報 -->
+                        <div>
+                            <h3 class="text-2xl md:text-3xl font-black text-gray-800 mb-4">
+                                事例4: 屋根からの雨漏り
+                            </h3>
+                            <p class="text-lg text-gray-600 mb-6">
+                                町田市 I様
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="border-l-4 border-red-500 pl-4">
+                                    <p class="font-bold text-red-600 mb-1">❌ 症状</p>
+                                    <p class="text-gray-700">屋根の劣化で雨漏りが発生</p>
+                                </div>
+                                
+                                <div class="border-l-4 border-blue-500 pl-4">
+                                    <p class="font-bold text-blue-600 mb-1">🔍 原因</p>
+                                    <p class="text-gray-700">屋根の劣化</p>
+                                </div>
+                                
+                                <div class="border-l-4 border-green-500 pl-4">
+                                    <p class="font-bold text-green-600 mb-1">✅ 工事内容</p>
+                                    <p class="text-gray-700">屋根部分張替・天井部分補修</p>
+                                </div>
+                                
+                                <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-4 rounded-lg">
+                                    <div class="flex items-center justify-between flex-wrap gap-4">
+                                        <div>
+                                            <p class="text-sm text-gray-600 mb-1">💴 費用</p>
+                                            <p class="text-3xl md:text-4xl font-black text-orange-600">78万円</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm text-gray-600 mb-1">⏰ 工期</p>
+                                            <p class="text-2xl md:text-3xl font-black text-purple-600">5日間</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-purple-50 border-2 border-purple-400 p-4 rounded-lg">
+                                    <p class="text-sm font-bold text-purple-700 mb-1">✨ 急な対応でもすぐ施工</p>
+                                    <p class="text-xs text-gray-600">緊急の雨漏りにも迅速対応。最短当日で応急処置、翌日から本格工事が可能です。</p>
+                                </div>
+                                
+                                <!-- 詳しく見るボタン -->
+                                <div class="mt-6">
+                                    <a href="#case4-detail" class="block w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white text-center font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
+                                        📸 この事例を詳しく見る
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -852,14 +966,18 @@
                 </div>
             </div>
 
-            <!-- もっと見るリンク -->
-            <div class="text-center space-y-4">
-                <a href="jirei.html" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-full text-lg md:text-xl font-black hover:bg-blue-700 transition-all shadow-xl">
-                    📸 施工事例をもっと見る（全10件）
-                </a>
+            <!-- もっと見るリンク：超目立つデザイン -->
+            <div class="text-center space-y-6 mt-12">
+                <div class="bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 p-1 rounded-3xl inline-block shadow-2xl">
+                    <a href="jirei.html" class="block bg-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-800 text-blue-600 hover:text-white px-12 py-6 rounded-3xl text-xl md:text-3xl font-black transition-all duration-300 transform hover:scale-105">
+                        📸 施工事例をもっと見る（全10件）
+                        <div class="text-sm md:text-base font-normal mt-2">✨ Before/After写真多数掲載</div>
+                    </a>
+                </div>
                 <div>
-                    <a href="voice.html" class="inline-block bg-green-600 text-white px-8 py-4 rounded-full text-lg md:text-xl font-black hover:bg-green-700 transition-all shadow-xl">
+                    <a href="voice.html" class="inline-block bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white px-12 py-6 rounded-3xl text-xl md:text-3xl font-black transition-all shadow-xl transform hover:scale-105">
                         💬 お客様の声を見る（全15件）
+                        <div class="text-sm md:text-base font-normal mt-2">⭐ 実際に依頼したお客様の感想</div>
                     </a>
                 </div>
             </div>

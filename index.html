@@ -553,7 +553,7 @@
             <div class="mb-12 text-center">
                 <a href="#jirei-cases" class="inline-block bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-black text-xl md:text-3xl px-8 md:px-16 py-6 md:py-8 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300 animate-pulse">
                     📸 実際の施工事例を見る
-                    <div class="text-sm md:text-base font-normal mt-2">↓ クリックして全4件を確認</div>
+                    <div class="text-sm md:text-base font-normal mt-2">↓ クリックして全3件を確認</div>
                 </a>
             </div>
             
@@ -578,90 +578,84 @@
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8 md:gap-10 mb-10">
+            <div class="space-y-8 mb-10">
                 <!-- 事例1: 緊急対応で大規模改修を防いだケース -->
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
-                    <div class="grid md:grid-cols-2 gap-6 p-6 md:p-8">
-                        <!-- 左: 画像エリア -->
-                        <div>
-                            <div class="mb-4">
-                                <span class="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold inline-block">緊急対応</span>
-                                <span class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold inline-block ml-2">築12年</span>
+                    <div class="p-6 md:p-8">
+                        <!-- ヘッダー: タイトルとバッジ -->
+                        <div class="flex flex-wrap items-center justify-between mb-6">
+                            <div class="flex-1">
+                                <h3 class="text-2xl md:text-3xl font-black text-gray-800 mb-2">
+                                    事例1: 天井のシミ→屋根板金劣化
+                                </h3>
+                                <p class="text-lg text-gray-600">
+                                    横浜市青葉区 T様
+                                </p>
                             </div>
-                            <!-- Before/After画像 -->
-                            <div class="grid grid-cols-2 gap-3 mb-4">
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold">緊急対応</span>
+                                <span class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold">築12年</span>
+                            </div>
+                        </div>
+
+                        <!-- Before/After画像 -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+                            <div class="col-span-1">
+                                <p class="text-xs font-bold text-gray-600 mb-2">施工前</p>
                                 <div class="bg-gray-200 rounded-lg overflow-hidden aspect-[4/3]">
                                     <img src="images/case1/02-before-old.jpg" alt="施工前：古い屋根の劣化状態" class="w-full h-full object-cover">
                                 </div>
+                            </div>
+                            <div class="col-span-1">
+                                <p class="text-xs font-bold text-gray-600 mb-2">施工後</p>
                                 <div class="bg-gray-200 rounded-lg overflow-hidden aspect-[4/3]">
                                     <img src="images/case1/07-completed.jpg" alt="施工後：新しい屋根完成" class="w-full h-full object-cover">
                                 </div>
                             </div>
-                            <!-- 施工過程の画像ギャラリー（3枚表示） -->
-                            <div class="grid grid-cols-3 gap-2 mb-4">
-                                <img src="images/case1/01-framework.jpg" alt="下地工事" class="w-full rounded aspect-video object-cover">
-                                <img src="images/case1/05-waterproof.jpg" alt="防水シート施工" class="w-full rounded aspect-video object-cover">
-                                <img src="images/case1/10-gutter.jpg" alt="雨樋設置" class="w-full rounded aspect-video object-cover">
-                            </div>
-                            <div class="bg-blue-50 p-4 rounded-lg">
-                                <p class="text-sm font-bold text-blue-700">
-                                    💬 お客様の声
-                                </p>
-                                <p class="text-sm text-gray-700 mt-2">
-                                    「屋根全体の劣化が進んでいたため、完全新設に。丁寧な工事で安心しました。」
-                                </p>
+                            <div class="col-span-2">
+                                <p class="text-xs font-bold text-gray-600 mb-2">施工過程</p>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <img src="images/case1/01-framework.jpg" alt="下地工事" class="w-full rounded aspect-video object-cover">
+                                    <img src="images/case1/05-waterproof.jpg" alt="防水シート施工" class="w-full rounded aspect-video object-cover">
+                                    <img src="images/case1/10-gutter.jpg" alt="雨樋設置" class="w-full rounded aspect-video object-cover">
+                                </div>
                             </div>
                         </div>
-                        
-                        <!-- 右: 詳細情報 -->
-                        <div>
-                            <h3 class="text-2xl md:text-3xl font-black text-gray-800 mb-4">
-                                事例1: 天井のシミ→屋根板金劣化
-                            </h3>
-                            <p class="text-lg text-gray-600 mb-6">
-                                横浜市青葉区 T様
-                            </p>
+
+                        <!-- 詳細情報 -->
+                        <div class="grid md:grid-cols-3 gap-4 mb-6">
+                            <div class="border-l-4 border-red-500 pl-4">
+                                <p class="font-bold text-red-600 mb-1 text-sm">❌ 症状</p>
+                                <p class="text-gray-700 text-sm">2階天井にコーヒー色のシミ。雨の日にポタポタ音。</p>
+                            </div>
                             
-                            <div class="space-y-4">
-                                <div class="border-l-4 border-red-500 pl-4">
-                                    <p class="font-bold text-red-600 mb-1">❌ 症状</p>
-                                    <p class="text-gray-700">2階天井にコーヒー色のシミ。雨の日にポタポタ音。</p>
-                                </div>
-                                
-                                <div class="border-l-4 border-blue-500 pl-4">
-                                    <p class="font-bold text-blue-600 mb-1">🔍 原因</p>
-                                    <p class="text-gray-700">屋根の棟板金の釘が浮いて隙間から雨水侵入。</p>
-                                </div>
-                                
-                                <div class="border-l-4 border-green-500 pl-4">
-                                    <p class="font-bold text-green-600 mb-1">✅ 工事内容</p>
-                                    <p class="text-gray-700">屋根新設工事・下地新設・防水シート貼り直し・破風・軒・樋工事</p>
-                                </div>
-                                
-                                <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-4 rounded-lg">
-                                    <div class="flex items-center justify-between flex-wrap gap-4">
-                                        <div>
-                                            <p class="text-sm text-gray-600 mb-1">💴 費用</p>
-                                            <p class="text-3xl md:text-4xl font-black text-orange-600">420万円</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm text-gray-600 mb-1">⏰ 工期</p>
-                                            <p class="text-2xl md:text-3xl font-black text-purple-600">15日間</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="bg-green-50 border-2 border-green-400 p-4 rounded-lg">
-                                    <p class="text-sm font-bold text-green-700 mb-1">✨ 屋根全体を完全新設</p>
-                                    <p class="text-xs text-gray-600">古い屋根材を全て撤去し、下地から作り直すことで、30年以上の耐久性を実現。</p>
-                                </div>
-                                
-                                <!-- 詳しく見るボタン -->
-                                <div class="mt-6">
-                                    <a href="#case1-detail" class="block w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white text-center font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
-                                        📸 この事例を詳しく見る
-                                    </a>
-                                </div>
+                            <div class="border-l-4 border-blue-500 pl-4">
+                                <p class="font-bold text-blue-600 mb-1 text-sm">🔍 原因</p>
+                                <p class="text-gray-700 text-sm">屋根の棟板金の釘が浮いて隙間から雨水侵入。</p>
+                            </div>
+                            
+                            <div class="border-l-4 border-green-500 pl-4">
+                                <p class="font-bold text-green-600 mb-1 text-sm">✅ 工事内容</p>
+                                <p class="text-gray-700 text-sm">屋根新設工事・下地新設・防水シート貼り直し</p>
+                            </div>
+                        </div>
+
+                        <!-- 費用・工期・お客様の声 -->
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-4 rounded-lg">
+                                <p class="text-xs text-gray-600 mb-1">💴 費用</p>
+                                <p class="text-2xl md:text-3xl font-black text-orange-600">420万円</p>
+                                <p class="text-xs text-gray-600 mt-1">⏰ 工期: 15日間</p>
+                            </div>
+                            
+                            <div class="bg-green-50 border-2 border-green-400 p-4 rounded-lg">
+                                <p class="text-xs font-bold text-green-700 mb-1">✨ ポイント</p>
+                                <p class="text-xs text-gray-600">屋根全体を完全新設。30年以上の耐久性を実現。</p>
+                            </div>
+
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <p class="text-xs font-bold text-blue-700 mb-1">💬 お客様の声</p>
+                                <p class="text-xs text-gray-700">「屋根全体の劣化が進んでいたため、完全新設に。丁寧な工事で安心しました。」</p>
                             </div>
                         </div>
                     </div>
@@ -674,268 +668,165 @@
                             ⚡ 訪問販売 480万円 → 当社 260万円（220万円削減！）
                         </p>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-6 p-6 md:p-8">
-                        <!-- 左: 画像エリア -->
-                        <div>
-                            <div class="mb-4">
-                                <span class="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold inline-block">訪問販売と比較</span>
-                                <span class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold inline-block ml-2">築23年</span>
+                    <div class="p-6 md:p-8">
+                        <!-- ヘッダー: タイトルとバッジ -->
+                        <div class="flex flex-wrap items-center justify-between mb-6">
+                            <div class="flex-1">
+                                <h3 class="text-2xl md:text-3xl font-black text-gray-800 mb-2">
+                                    事例2: 瓦のずれ・漆喰劣化
+                                </h3>
+                                <p class="text-lg text-gray-600">
+                                    川崎市麻生区 M様
+                                </p>
                             </div>
-                            <!-- Before/After画像 -->
-                            <div class="grid grid-cols-2 gap-3 mb-4">
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold">訪問販売と比較</span>
+                                <span class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold">築23年</span>
+                            </div>
+                        </div>
+
+                        <!-- Before/After画像 -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+                            <div class="col-span-1">
+                                <p class="text-xs font-bold text-gray-600 mb-2">施工前</p>
                                 <div class="bg-gray-200 rounded-lg overflow-hidden aspect-[4/3]">
                                     <img src="images/case2/01-before-tarp.jpg" alt="施工前：ブルーシートで応急処置" class="w-full h-full object-cover">
                                 </div>
+                            </div>
+                            <div class="col-span-1">
+                                <p class="text-xs font-bold text-gray-600 mb-2">施工後</p>
                                 <div class="bg-gray-200 rounded-lg overflow-hidden aspect-[4/3]">
                                     <img src="images/case2/05-completed.jpg" alt="施工後：新しい屋根完成" class="w-full h-full object-cover">
                                 </div>
                             </div>
-                            <!-- 施工過程の画像ギャラリー（3枚表示） -->
-                            <div class="grid grid-cols-3 gap-2 mb-4">
-                                <img src="images/case2/02-base-exposed.jpg" alt="下地露出" class="w-full rounded aspect-video object-cover">
-                                <img src="images/case2/03-waterproof.jpg" alt="防水シート" class="w-full rounded aspect-video object-cover">
-                                <img src="images/case2/04-membrane.jpg" alt="ルーフィング施工" class="w-full rounded aspect-video object-cover">
-                            </div>
-                            <div class="bg-blue-50 p-4 rounded-lg">
-                                <p class="text-sm font-bold text-blue-700">
-                                    💬 お客様の声
-                                </p>
-                                <p class="text-sm text-gray-700 mt-2">
-                                    「訪問販売と比較して220万円も安く、適正価格で安心できた。毎日写真付き報告があり、透明性が高かった。」
-                                </p>
+                            <div class="col-span-2">
+                                <p class="text-xs font-bold text-gray-600 mb-2">施工過程</p>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <img src="images/case2/02-base-exposed.jpg" alt="下地露出" class="w-full rounded aspect-video object-cover">
+                                    <img src="images/case2/03-waterproof.jpg" alt="防水シート" class="w-full rounded aspect-video object-cover">
+                                    <img src="images/case2/04-membrane.jpg" alt="ルーフィング施工" class="w-full rounded aspect-video object-cover">
+                                </div>
                             </div>
                         </div>
-                        
-                        <!-- 右: 詳細情報 -->
-                        <div>
-                            <h3 class="text-2xl md:text-3xl font-black text-gray-800 mb-4">
-                                事例2: 瓦のずれ・漆喰劣化
-                            </h3>
-                            <p class="text-lg text-gray-600 mb-6">
-                                川崎市麻生区 M様
-                            </p>
+
+                        <!-- 詳細情報 -->
+                        <div class="grid md:grid-cols-3 gap-4 mb-6">
+                            <div class="border-l-4 border-red-500 pl-4">
+                                <p class="font-bold text-red-600 mb-1 text-sm">❌ 症状</p>
+                                <p class="text-gray-700 text-sm">瓦のずれと漆喰の劣化で雨漏り</p>
+                            </div>
                             
-                            <div class="space-y-4">
-                                <div class="border-l-4 border-red-500 pl-4">
-                                    <p class="font-bold text-red-600 mb-1">❌ 症状</p>
-                                    <p class="text-gray-700">瓦のずれと漆喰の劣化で雨漏り</p>
-                                </div>
-                                
-                                <div class="border-l-4 border-blue-500 pl-4">
-                                    <p class="font-bold text-blue-600 mb-1">🔍 原因</p>
-                                    <p class="text-gray-700">長期の点検をしていなかった</p>
-                                </div>
-                                
-                                <div class="border-l-4 border-green-500 pl-4">
-                                    <p class="font-bold text-green-600 mb-1">✅ 工事内容</p>
-                                    <p class="text-gray-700">屋根壁塗り替え</p>
-                                </div>
-                                
-                                <div class="bg-gradient-to-r from-red-50 to-blue-50 p-4 rounded-lg border-2 border-red-300">
-                                    <div class="mb-3">
-                                        <p class="text-sm text-gray-600 mb-1">訪問販売の見積もり</p>
-                                        <p class="text-2xl font-black text-red-600 line-through">480万円</p>
-                                    </div>
-                                    <div class="flex items-center justify-between flex-wrap gap-4">
-                                        <div>
-                                            <p class="text-sm text-gray-600 mb-1">💴 適正価格</p>
-                                            <p class="text-3xl md:text-4xl font-black text-blue-600">260万円</p>
-                                            <p class="text-sm font-bold text-green-600 mt-1">220万円削減！</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm text-gray-600 mb-1">⏰ 工期</p>
-                                            <p class="text-2xl md:text-3xl font-black text-purple-600">11日間</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="bg-red-50 border-2 border-red-400 p-4 rounded-lg">
-                                    <p class="text-sm font-bold text-red-700 mb-1">⚠️ 訪問販売の不要な工事を除外</p>
-                                    <p class="text-xs text-gray-600">訪問販売では必要のない外壁全面塗装も含まれていました。必要な部分だけ施工して220万円削減。</p>
-                                </div>
-                                
-                                <!-- 詳しく見るボタン -->
-                                <div class="mt-6">
-                                    <a href="#case2-detail" class="block w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white text-center font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
-                                        📸 この事例を詳しく見る
-                                    </a>
-                                </div>
+                            <div class="border-l-4 border-blue-500 pl-4">
+                                <p class="font-bold text-blue-600 mb-1 text-sm">🔍 原因</p>
+                                <p class="text-gray-700 text-sm">長期の点検をしていなかった</p>
+                            </div>
+                            
+                            <div class="border-l-4 border-green-500 pl-4">
+                                <p class="font-bold text-green-600 mb-1 text-sm">✅ 工事内容</p>
+                                <p class="text-gray-700 text-sm">屋根壁塗り替え</p>
+                            </div>
+                        </div>
+
+                        <!-- 費用・工期・お客様の声 -->
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-gradient-to-r from-red-50 to-blue-50 p-4 rounded-lg border-2 border-red-300">
+                                <p class="text-xs text-gray-600 mb-1">訪問販売の見積もり</p>
+                                <p class="text-xl font-black text-red-600 line-through">480万円</p>
+                                <p class="text-xs text-gray-600 mb-1 mt-2">💴 適正価格</p>
+                                <p class="text-2xl md:text-3xl font-black text-blue-600">260万円</p>
+                                <p class="text-xs font-bold text-green-600 mt-1">220万円削減！ ⏰ 工期: 11日間</p>
+                            </div>
+                            
+                            <div class="bg-red-50 border-2 border-red-400 p-4 rounded-lg">
+                                <p class="text-xs font-bold text-red-700 mb-1">⚠️ ポイント</p>
+                                <p class="text-xs text-gray-600">訪問販売では不要な外壁全面塗装も含まれていました。必要な部分だけ施工。</p>
+                            </div>
+
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <p class="text-xs font-bold text-blue-700 mb-1">💬 お客様の声</p>
+                                <p class="text-xs text-gray-700">「訪問販売と比較して220万円も安く、適正価格で安心できた。」</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 事例4: オンライン診断で安心 -->
+                <!-- 事例3: サイディングからの雨漏り -->
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
-                    <div class="grid md:grid-cols-2 gap-6 p-6 md:p-8">
-                        <!-- 左: 画像エリア -->
-                        <div>
-                            <div class="mb-4">
-                                <span class="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold inline-block">オンライン診断</span>
-                                <span class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold inline-block ml-2">相模原市</span>
+                    <div class="p-6 md:p-8">
+                        <!-- ヘッダー: タイトルとバッジ -->
+                        <div class="flex flex-wrap items-center justify-between mb-6">
+                            <div class="flex-1">
+                                <h3 class="text-2xl md:text-3xl font-black text-gray-800 mb-2">
+                                    事例3: サイディングからの雨漏り
+                                </h3>
+                                <p class="text-lg text-gray-600">
+                                    相模原市南区 K様
+                                </p>
                             </div>
-                            <!-- Before/After画像 -->
-                            <div class="grid grid-cols-2 gap-3 mb-4">
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold">オンライン診断</span>
+                                <span class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold">相模原市</span>
+                            </div>
+                        </div>
+
+                        <!-- Before/After画像 -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+                            <div class="col-span-1">
+                                <p class="text-xs font-bold text-gray-600 mb-2">施工前</p>
                                 <div class="bg-gray-200 rounded-lg overflow-hidden aspect-[4/3]">
                                     <img src="images/case3/01-before-exterior.jpg" alt="施工前：サイディング劣化" class="w-full h-full object-cover">
                                 </div>
+                            </div>
+                            <div class="col-span-1">
+                                <p class="text-xs font-bold text-gray-600 mb-2">施工後</p>
                                 <div class="bg-gray-200 rounded-lg overflow-hidden aspect-[4/3]">
                                     <img src="images/case3/05-completed.jpg" alt="施工後：サイディング完成" class="w-full h-full object-cover">
                                 </div>
                             </div>
-                            <!-- 施工過程の画像ギャラリー（3枚表示） -->
-                            <div class="grid grid-cols-3 gap-2 mb-4">
-                                <img src="images/case3/02-damage.jpg" alt="内部のカビ被害" class="w-full rounded aspect-video object-cover">
-                                <img src="images/case3/03-work.jpg" alt="サイディング施工中" class="w-full rounded aspect-video object-cover">
-                                <img src="images/case3/04-detail.jpg" alt="コーキング処理" class="w-full rounded aspect-video object-cover">
-                            </div>
-                            <div class="bg-blue-50 p-4 rounded-lg">
-                                <p class="text-sm font-bold text-blue-700">
-                                    💬 お客様の声
-                                </p>
-                                <p class="text-sm text-gray-700 mt-2">
-                                    「オンライン診断で事前に原因がわかり、安心して依頼できた。訪問なしで見積もりが出るのが良かった。」
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <!-- 右: 詳細情報 -->
-                        <div>
-                            <h3 class="text-2xl md:text-3xl font-black text-gray-800 mb-4">
-                                事例4: サイディングからの雨漏り
-                            </h3>
-                            <p class="text-lg text-gray-600 mb-6">
-                                相模原市南区 K様
-                            </p>
-                            
-                            <div class="space-y-4">
-                                <div class="border-l-4 border-red-500 pl-4">
-                                    <p class="font-bold text-red-600 mb-1">❌ 症状</p>
-                                    <p class="text-gray-700">サイディングが水を含み、内部にカビや雨漏りが発生</p>
-                                </div>
-                                
-                                <div class="border-l-4 border-blue-500 pl-4">
-                                    <p class="font-bold text-blue-600 mb-1">🔍 原因</p>
-                                    <p class="text-gray-700">サイディングとコーキング劣化</p>
-                                </div>
-                                
-                                <div class="border-l-4 border-green-500 pl-4">
-                                    <p class="font-bold text-green-600 mb-1">✅ 工事内容</p>
-                                    <p class="text-gray-700">サイディング張替え・コーキング</p>
-                                </div>
-                                
-                                <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-4 rounded-lg">
-                                    <div class="flex items-center justify-between flex-wrap gap-4">
-                                        <div>
-                                            <p class="text-sm text-gray-600 mb-1">💴 費用</p>
-                                            <p class="text-3xl md:text-4xl font-black text-orange-600">81万円</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm text-gray-600 mb-1">⏰ 工期</p>
-                                            <p class="text-2xl md:text-3xl font-black text-purple-600">7日間</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="bg-green-50 border-2 border-green-400 p-4 rounded-lg">
-                                    <p class="text-sm font-bold text-green-700 mb-1">✨ オンライン診断で訪問なし</p>
-                                    <p class="text-xs text-gray-600">写真と動画で事前診断。訪問販売のようなしつこい営業は一切なし。</p>
-                                </div>
-                                
-                                <!-- 詳しく見るボタン -->
-                                <div class="mt-6">
-                                    <a href="#case3-detail" class="block w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white text-center font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
-                                        📸 この事例を詳しく見る
-                                    </a>
+                            <div class="col-span-2">
+                                <p class="text-xs font-bold text-gray-600 mb-2">施工過程</p>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <img src="images/case3/02-damage.jpg" alt="内部のカビ被害" class="w-full rounded aspect-video object-cover">
+                                    <img src="images/case3/03-work.jpg" alt="サイディング施工中" class="w-full rounded aspect-video object-cover">
+                                    <img src="images/case3/04-detail.jpg" alt="コーキング処理" class="w-full rounded aspect-video object-cover">
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- 事例4: 緊急対応・屋根からの雨漏り -->
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
-                    <div class="grid md:grid-cols-2 gap-6 p-6 md:p-8">
-                        <!-- 左: 画像エリア -->
-                        <div>
-                            <div class="mb-4">
-                                <span class="bg-purple-500 text-white px-4 py-2 rounded-full text-sm font-bold inline-block">急な対応</span>
-                                <span class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold inline-block ml-2">町田市</span>
+                        <!-- 詳細情報 -->
+                        <div class="grid md:grid-cols-3 gap-4 mb-6">
+                            <div class="border-l-4 border-red-500 pl-4">
+                                <p class="font-bold text-red-600 mb-1 text-sm">❌ 症状</p>
+                                <p class="text-gray-700 text-sm">サイディングが水を含み、内部にカビや雨漏りが発生</p>
                             </div>
-                            <!-- Before/After画像 -->
-                            <div class="grid grid-cols-2 gap-3 mb-4">
-                                <div class="bg-gray-200 rounded-lg overflow-hidden aspect-[4/3]">
-                                    <img src="images/case4/01-before-roof.jpg" alt="施工前：屋根一部雨漏り" class="w-full h-full object-cover">
-                                </div>
-                                <div class="bg-gray-200 rounded-lg overflow-hidden aspect-[4/3]">
-                                    <img src="images/case4/02-after-roof.jpg" alt="施工後：屋根部分張替完成" class="w-full h-full object-cover">
-                                </div>
+                            
+                            <div class="border-l-4 border-blue-500 pl-4">
+                                <p class="font-bold text-blue-600 mb-1 text-sm">🔍 原因</p>
+                                <p class="text-gray-700 text-sm">サイディングとコーキング劣化</p>
                             </div>
-                            <!-- 施工過程の画像ギャラリー（3枚表示） -->
-                            <div class="grid grid-cols-3 gap-2 mb-4">
-                                <img src="images/case4/03-ceiling-before.jpg" alt="天井雨漏り" class="w-full rounded aspect-video object-cover">
-                                <img src="images/case4/04-work.jpg" alt="天井補修作業" class="w-full rounded aspect-video object-cover">
-                                <img src="images/case4/05-ceiling-after.jpg" alt="天井補修完成" class="w-full rounded aspect-video object-cover">
-                            </div>
-                            <div class="bg-blue-50 p-4 rounded-lg">
-                                <p class="text-sm font-bold text-blue-700">
-                                    💬 お客様の声
-                                </p>
-                                <p class="text-sm text-gray-700 mt-2">
-                                    「急な対応にもかかわらず、すぐに施工していただき有難うございます。」
-                                </p>
+                            
+                            <div class="border-l-4 border-green-500 pl-4">
+                                <p class="font-bold text-green-600 mb-1 text-sm">✅ 工事内容</p>
+                                <p class="text-gray-700 text-sm">サイディング張替え・コーキング</p>
                             </div>
                         </div>
-                        
-                        <!-- 右: 詳細情報 -->
-                        <div>
-                            <h3 class="text-2xl md:text-3xl font-black text-gray-800 mb-4">
-                                事例4: 屋根からの雨漏り
-                            </h3>
-                            <p class="text-lg text-gray-600 mb-6">
-                                町田市 I様
-                            </p>
+
+                        <!-- 費用・工期・お客様の声 -->
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-4 rounded-lg">
+                                <p class="text-xs text-gray-600 mb-1">💴 費用</p>
+                                <p class="text-2xl md:text-3xl font-black text-orange-600">81万円</p>
+                                <p class="text-xs text-gray-600 mt-1">⏰ 工期: 7日間</p>
+                            </div>
                             
-                            <div class="space-y-4">
-                                <div class="border-l-4 border-red-500 pl-4">
-                                    <p class="font-bold text-red-600 mb-1">❌ 症状</p>
-                                    <p class="text-gray-700">屋根の劣化で雨漏りが発生</p>
-                                </div>
-                                
-                                <div class="border-l-4 border-blue-500 pl-4">
-                                    <p class="font-bold text-blue-600 mb-1">🔍 原因</p>
-                                    <p class="text-gray-700">屋根の劣化</p>
-                                </div>
-                                
-                                <div class="border-l-4 border-green-500 pl-4">
-                                    <p class="font-bold text-green-600 mb-1">✅ 工事内容</p>
-                                    <p class="text-gray-700">屋根部分張替・天井部分補修</p>
-                                </div>
-                                
-                                <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-4 rounded-lg">
-                                    <div class="flex items-center justify-between flex-wrap gap-4">
-                                        <div>
-                                            <p class="text-sm text-gray-600 mb-1">💴 費用</p>
-                                            <p class="text-3xl md:text-4xl font-black text-orange-600">78万円</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm text-gray-600 mb-1">⏰ 工期</p>
-                                            <p class="text-2xl md:text-3xl font-black text-purple-600">5日間</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="bg-purple-50 border-2 border-purple-400 p-4 rounded-lg">
-                                    <p class="text-sm font-bold text-purple-700 mb-1">✨ 急な対応でもすぐ施工</p>
-                                    <p class="text-xs text-gray-600">緊急の雨漏りにも迅速対応。最短当日で応急処置、翌日から本格工事が可能です。</p>
-                                </div>
-                                
-                                <!-- 詳しく見るボタン -->
-                                <div class="mt-6">
-                                    <a href="#case4-detail" class="block w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white text-center font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
-                                        📸 この事例を詳しく見る
-                                    </a>
-                                </div>
+                            <div class="bg-green-50 border-2 border-green-400 p-4 rounded-lg">
+                                <p class="text-xs font-bold text-green-700 mb-1">✨ ポイント</p>
+                                <p class="text-xs text-gray-600">オンライン診断で訪問なし。写真と動画で事前診断。</p>
+                            </div>
+
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <p class="text-xs font-bold text-blue-700 mb-1">💬 お客様の声</p>
+                                <p class="text-xs text-gray-700">「オンライン診断で事前に原因がわかり、安心して依頼できた。」</p>
                             </div>
                         </div>
                     </div>

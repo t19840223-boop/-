@@ -151,336 +151,53 @@
 
     <script>
         // ブログ記事データ（35記事）
-        const blogPosts = [
-            // カテゴリ1: 🔍 雨漏りの原因（5記事）
-            {
-                id: 1,
-                category: 'cause',
-                categoryName: '🔍 原因',
-                title: '雨漏りの原因トップ5と見分け方｜プロが徹底解説',
-                date: '2026年2月1日',
-                excerpt: '雨漏りの原因で最も多いのは屋根の劣化です。棟板金の浮き、瓦のずれ、防水シートの破損など、見逃しやすいポイントを写真付きで解説します。',
-                slug: 'cause-top5'
-            },
-            {
-                id: 2,
-                category: 'cause',
-                categoryName: '🔍 原因',
-                title: '屋根から雨漏りする3つのサインと緊急対処法',
-                date: '2026年1月30日',
-                excerpt: '天井のシミ、雨音、カビ臭い匂い。これらは雨漏りの危険サインです。早期発見で大規模修繕を回避する方法をお伝えします。',
-                slug: 'roof-leak-signs'
-            },
-            {
-                id: 3,
-                category: 'cause',
-                categoryName: '🔍 原因',
-                title: '天井のシミは雨漏り？症状別チェックリスト完全版',
-                date: '2026年1月28日',
-                excerpt: 'コーヒー色のシミ、白いシミ、黒いシミ。色や形状で原因が異なります。自分でできる診断方法と、プロに依頼すべきタイミングを解説。',
-                slug: 'ceiling-stain-check'
-            },
-            {
-                id: 4,
-                category: 'cause',
-                categoryName: '🔍 原因',
-                title: '築年数別｜雨漏りが起きやすい箇所と原因',
-                date: '2026年1月25日',
-                excerpt: '築10年、20年、30年で雨漏りの原因は異なります。築年数別に起きやすい劣化箇所と、事前に確認すべきポイントを紹介。',
-                slug: 'age-based-causes'
-            },
-            {
-                id: 5,
-                category: 'cause',
-                categoryName: '🔍 原因',
-                title: '台風・大雨後の雨漏り｜緊急チェックポイント7選',
-                date: '2026年1月22日',
-                excerpt: '台風や大雨の後は雨漏りリスクが急増。屋根、雨樋、外壁など、素人でも確認できる緊急チェックポイントを専門家が解説。',
-                slug: 'storm-damage-check'
-            },
-
-            // カテゴリ2: 🔧 修理方法の解説（5記事）
-            {
-                id: 6,
-                category: 'repair',
-                categoryName: '🔧 修理方法',
-                title: '屋根カバー工法とは？メリット・デメリットを徹底解説',
-                date: '2026年1月20日',
-                excerpt: '既存の屋根の上に新しい屋根を重ねる「カバー工法」。葺き替えと比較して費用を抑えられますが、注意点も。プロが詳しく解説します。',
-                slug: 'cover-method-guide'
-            },
-            {
-                id: 7,
-                category: 'repair',
-                categoryName: '🔧 修理方法',
-                title: '屋根葺き替えとカバー工法の違い｜どちらを選ぶべき？',
-                date: '2026年1月18日',
-                excerpt: '葺き替えとカバー工法、どちらが適しているかは屋根の状態次第。費用、工期、耐用年数の違いを比較表で分かりやすく説明。',
-                slug: 'replace-vs-cover'
-            },
-            {
-                id: 8,
-                category: 'repair',
-                categoryName: '🔧 修理方法',
-                title: '瓦屋根の部分補修｜費用を抑える修理方法',
-                date: '2026年1月15日',
-                excerpt: '瓦の割れや漆喰の劣化は、部分補修で対応可能。全面葺き替えが不要なケースと、3万円〜で修理できる方法を実例付きで紹介。',
-                slug: 'partial-tile-repair'
-            },
-            {
-                id: 9,
-                category: 'repair',
-                categoryName: '🔧 修理方法',
-                title: '雨樋修理の方法と費用｜自分でできる？プロに依頼すべき？',
-                date: '2026年1月12日',
-                excerpt: '雨樋の詰まりや勾配不良は雨漏りの原因に。DIYで対応できる範囲と、プロに依頼すべき修理内容を詳しく解説します。',
-                slug: 'gutter-repair-guide'
-            },
-            {
-                id: 10,
-                category: 'repair',
-                categoryName: '🔧 修理方法',
-                title: '防水シート（ルーフィング）交換のタイミングと費用',
-                date: '2026年1月10日',
-                excerpt: '見えない部分の防水シートは雨漏り防止の要。交換時期の見極め方と、工事費用の相場をプロが解説します。',
-                slug: 'roofing-replacement'
-            },
-
-            // カテゴリ3: 💰 費用・相場情報（5記事）
-            {
-                id: 11,
-                category: 'cost',
-                categoryName: '💰 費用相場',
-                title: '雨漏り修理の費用相場【2026年版】適正価格を公開',
-                date: '2026年1月8日',
-                excerpt: '部分補修3万円〜、屋根カバー工法100万円〜、全面葺き替え200万円〜。工事内容別の適正価格と、高額見積もりの見分け方。',
-                slug: 'cost-guide-2026'
-            },
-            {
-                id: 12,
-                category: 'cost',
-                categoryName: '💰 費用相場',
-                title: '訪問販売の見積もりが高額な理由｜適正価格との比較',
-                date: '2026年1月5日',
-                excerpt: '訪問販売の見積もりは適正価格の2〜3倍が常識。不要な工事を含めた見積もりの見分け方と、実際の価格差を実例で公開。',
-                slug: 'sales-visit-price'
-            },
-            {
-                id: 13,
-                category: 'cost',
-                categoryName: '💰 費用相場',
-                title: '屋根修理で損しないための見積もりチェックポイント',
-                date: '2026年1月3日',
-                excerpt: '見積もりの「一式」表示は要注意。材料費、人件費、足場代など、項目別にチェックすべきポイントをプロが伝授。',
-                slug: 'estimate-check-points'
-            },
-            {
-                id: 14,
-                category: 'cost',
-                categoryName: '💰 費用相場',
-                title: '雨漏り修理の補助金・助成金｜2026年最新情報',
-                date: '2025年12月30日',
-                excerpt: '自治体によっては屋根修理に補助金が出ることも。申請方法と、対象となる工事内容を地域別に解説します。',
-                slug: 'subsidy-guide-2026'
-            },
-            {
-                id: 15,
-                category: 'cost',
-                categoryName: '💰 費用相場',
-                title: '火災保険で雨漏り修理はできる？適用条件を徹底解説',
-                date: '2025年12月28日',
-                excerpt: '台風や強風による雨漏りは火災保険の対象になる可能性が。申請の流れと、保険適用される条件を詳しく説明します。',
-                slug: 'insurance-coverage'
-            },
-
-            // カテゴリ4: 🏠 施工事例の詳細解説（5記事）
-            {
-                id: 16,
-                category: 'case',
-                categoryName: '🏠 施工事例',
-                title: '【実例】横浜市の雨漏り修理｜420万円で屋根を全面新設',
-                date: '2025年12月25日',
-                excerpt: '築12年で天井にコーヒー色のシミ。緊急対応で屋根新設工事を実施。Before/After写真と、工事の詳細を公開します。',
-                slug: 'case-yokohama-420'
-            },
-            {
-                id: 17,
-                category: 'case',
-                categoryName: '🏠 施工事例',
-                title: '訪問販売480万円→当社260万円｜220万円削減の実例',
-                date: '2025年12月22日',
-                excerpt: '川崎市の事例。訪問販売の不要な外壁工事を除外し、必要な屋根修理のみで220万円削減。価格の内訳を詳しく解説。',
-                slug: 'case-kawasaki-220'
-            },
-            {
-                id: 18,
-                category: 'case',
-                categoryName: '🏠 施工事例',
-                title: 'たった3万円で解決｜瓦差し替えの事例【八王子市】',
-                date: '2025年12月20日',
-                excerpt: '訪問販売に高額見積もりを提示されたが、実際は瓦の部分交換で解決。雨漏りなしで1日完了した事例を紹介。',
-                slug: 'case-hachioji-3'
-            },
-            {
-                id: 19,
-                category: 'case',
-                categoryName: '🏠 施工事例',
-                title: 'オンライン診断で訪問なし｜サイディング雨漏り修理',
-                date: '2025年12月18日',
-                excerpt: '相模原市の事例。オンライン診断で原因を特定し、訪問なしで見積もり。サイディング張替えとコーキングで81万円。',
-                slug: 'case-sagamihara-online'
-            },
-            {
-                id: 20,
-                category: 'case',
-                categoryName: '🏠 施工事例',
-                title: '屋根カバー工法で費用を抑えた事例｜横浜市青葉区',
-                date: '2025年12月15日',
-                excerpt: '築27年の瓦屋根。カバー工法で既存屋根を残し、168万円で施工完了。工期7日間の詳細レポート。',
-                slug: 'case-aoba-cover'
-            },
-
-            // カテゴリ5: 🛡️ 予防・メンテナンス（5記事）
-            {
-                id: 21,
-                category: 'prevention',
-                categoryName: '🛡️ 予防',
-                title: '雨漏りを防ぐ！屋根の定期点検チェックリスト',
-                date: '2025年12月12日',
-                excerpt: '年2回の点検で雨漏りを予防。屋根、雨樋、外壁など、自分でチェックできるポイントをリスト化。プロに依頼すべきタイミングも解説。',
-                slug: 'prevention-checklist'
-            },
-            {
-                id: 22,
-                category: 'prevention',
-                categoryName: '🛡️ 予防',
-                title: '築10年・20年・30年で必要な屋根メンテナンス',
-                date: '2025年12月10日',
-                excerpt: '築年数に応じて必要なメンテナンスは異なります。築10年は点検、築20年は部分補修、築30年は葺き替え検討。詳しく解説。',
-                slug: 'maintenance-by-age'
-            },
-            {
-                id: 23,
-                category: 'prevention',
-                categoryName: '🛡️ 予防',
-                title: 'DIYで雨漏り修理は可能？プロが解説する危険性',
-                date: '2025年12月8日',
-                excerpt: '応急処置はDIY可能ですが、本格的な修理は危険。高所作業のリスクと、DIYで悪化させた実例を紹介します。',
-                slug: 'diy-repair-risks'
-            },
-            {
-                id: 24,
-                category: 'prevention',
-                categoryName: '🛡️ 予防',
-                title: '雨樋の掃除方法と頻度｜詰まりを防ぐコツ',
-                date: '2025年12月5日',
-                excerpt: '雨樋の詰まりは雨漏りの原因に。落ち葉や泥の掃除方法と、プロに依頼すべきケースを写真付きで解説します。',
-                slug: 'gutter-cleaning-guide'
-            },
-            {
-                id: 25,
-                category: 'prevention',
-                categoryName: '🛡️ 予防',
-                title: '台風前にやるべき雨漏り予防対策7選',
-                date: '2025年12月3日',
-                excerpt: '台風シーズン前の点検は必須。屋根、雨樋、外壁のチェックポイントと、簡単にできる応急処置を紹介。',
-                slug: 'typhoon-prevention'
-            },
-
-            // カテゴリ6: ⚠️ よくある失敗例（5記事）
-            {
-                id: 26,
-                category: 'failure',
-                categoryName: '⚠️ 失敗例',
-                title: '雨漏り放置の危険性｜カビ・腐食・健康被害のリスク',
-                date: '2025年12月1日',
-                excerpt: '雨漏りを放置すると、カビ、木材の腐食、シロアリ発生のリスクが。健康被害や修理費用の増大を実例で解説。',
-                slug: 'neglect-risks'
-            },
-            {
-                id: 27,
-                category: 'failure',
-                categoryName: '⚠️ 失敗例',
-                title: '訪問販売で失敗した方の相談事例3選',
-                date: '2025年11月28日',
-                excerpt: '不要な外壁塗装、高額な屋根工事、手抜き施工。訪問販売で被害に遭った方の実例と、対処法を紹介します。',
-                slug: 'sales-visit-failures'
-            },
-            {
-                id: 28,
-                category: 'failure',
-                categoryName: '⚠️ 失敗例',
-                title: '応急処置で悪化させた雨漏りの実例',
-                date: '2025年11月25日',
-                excerpt: 'ブルーシートの固定不良、コーキングの誤った使用で雨漏りが悪化。DIYの失敗例とプロの修理事例を比較。',
-                slug: 'diy-failures'
-            },
-            {
-                id: 29,
-                category: 'failure',
-                categoryName: '⚠️ 失敗例',
-                title: '安い業者に依頼して後悔した事例｜手抜き工事の見分け方',
-                date: '2025年11月22日',
-                excerpt: '相場より安すぎる見積もりは要注意。防水シートの省略、釘の使い回しなど、手抜き工事の実例を公開。',
-                slug: 'cheap-contractor-failures'
-            },
-            {
-                id: 30,
-                category: 'failure',
-                categoryName: '⚠️ 失敗例',
-                title: '見積もりと違う追加費用｜トラブル事例と対処法',
-                date: '2025年11月20日',
-                excerpt: '工事後に高額な追加請求。契約前に確認すべきポイントと、トラブルを避けるための書面の取り方を解説。',
-                slug: 'additional-cost-troubles'
-            },
-
-            // カテゴリ7: 📞 お客様からのQ&A（5記事）
-            {
-                id: 31,
-                category: 'qa',
-                categoryName: '📞 Q&A',
-                title: '雨漏り修理でよくある質問10選｜プロが回答',
-                date: '2025年11月18日',
-                excerpt: '「修理期間は？」「住みながら工事できる？」「保証はある？」など、よくある質問にプロが詳しく回答します。',
-                slug: 'faq-top10'
-            },
-            {
-                id: 32,
-                category: 'qa',
-                categoryName: '📞 Q&A',
-                title: 'オンライン診断とは？訪問なしで見積もりできる理由',
-                date: '2025年11月15日',
-                excerpt: '写真を送るだけで原因と費用が分かる。オンライン診断の流れと、精度の高い診断をするためのポイントを解説。',
-                slug: 'online-diagnosis-guide'
-            },
-            {
-                id: 33,
-                category: 'qa',
-                categoryName: '📞 Q&A',
-                title: '緊急対応は可能？当日・翌日対応の実例',
-                date: '2025年11月12日',
-                excerpt: '雨漏りが発生したら最短1時間で駆けつけ。緊急対応の流れと、応急処置の内容を実例付きで紹介します。',
-                slug: 'emergency-response'
-            },
-            {
-                id: 34,
-                category: 'qa',
-                categoryName: '📞 Q&A',
-                title: '見積もりは無料？訪問診断の費用について',
-                date: '2025年11月10日',
-                excerpt: '見積もりは完全無料。訪問診断も無料で対応します。ただし、一部有料になるケースも。詳しく解説します。',
-                slug: 'free-estimate-guide'
-            },
-            {
-                id: 35,
-                category: 'qa',
-                categoryName: '📞 Q&A',
-                title: '工事後の保証内容｜アフターサービスについて',
-                date: '2025年11月8日',
-                excerpt: '工事後の保証期間は？定期点検はある？アフターサービスの内容と、保証が適用される条件を詳しく説明。',
-                slug: 'warranty-guide'
-            }
-        ];
+const blogPosts = [
+  { slug: 'age-based-causes', title: '築年数別で分かる雨漏りの原因と対策', categoryName: '原因', category: 'cause', date: '2026-01-24' },
+  { slug: 'balcony-waterproof', title: 'ベランダ防水層の劣化サイン', categoryName: '修理方法', category: 'repair', date: '2026-01-25' },
+  { slug: 'case-comparison-480', title: '訪問販売480万円→260万円の実例', categoryName: '施工事例', category: 'case', date: '2026-01-30' },
+  { slug: 'case-cover-method', title: 'カバー工法で費用を半分に抑えた事例', categoryName: '施工事例', category: 'case', date: '2026-02-26' },
+  { slug: 'case-old-house', title: '築35年の屋根全面葺き替え事例', categoryName: '施工事例', category: 'case', date: '2026-01-19' },
+  { slug: 'case-tile-30k', title: 'たった3万円で解決：瓦差し替えの成功事例', categoryName: '施工事例', category: 'case', date: '2026-02-16' },
+  { slug: 'case-yokohama-420', title: '', categoryName: '施工事例', category: 'case', date: '2026-01-05' },
+  { slug: 'cause-top5', title: '雨漏りの原因トップ5と見分け方', categoryName: '原因', category: 'cause', date: '2026-02-11' },
+  { slug: 'ceiling-stain-check', title: '天井のシミ発見！雨漏りのセルフチェック方法と緊急対処法', categoryName: '原因', category: 'cause', date: '2026-02-30' },
+  { slug: 'ceiling-stain-checklist', title: '天井のシミは雨漏り？症状別チェックリスト', categoryName: '原因', category: 'cause', date: '2026-02-24' },
+  { slug: 'cheap-contractor', title: '安かろう悪かろうの業者選びミス', categoryName: '失敗例', category: 'failure', date: '2026-02-16' },
+  { slug: 'cost-guide-2026', title: '雨漏り修理の費用相場適正価格を公開', categoryName: '費用相場', category: 'cost', date: '2026-02-07' },
+  { slug: 'cover-vs-replacement', title: '屋根カバー工法と葺き替えの違い', categoryName: '修理方法', category: 'repair', date: '2026-01-26' },
+  { slug: 'diy-failure-cases', title: 'DIY修理の失敗事例集', categoryName: '施工事例', category: 'case', date: '2026-02-08' },
+  { slug: 'diy-repair-risks', title: 'DIYで雨漏り修理は可能？プロが解説する危険性と失敗事例', categoryName: '修理方法', category: 'repair', date: '2026-01-10' },
+  { slug: 'door-to-door-comparison', title: '訪問販売の見積もりが高額な理由', categoryName: '訪問販売対策', category: 'risk', date: '2026-02-14' },
+  { slug: 'emergency-failure', title: '応急処置で悪化した実例', categoryName: '失敗例', category: 'failure', date: '2026-01-08' },
+  { slug: 'emergency-response', title: '緊急対応は可能？当日・翌日対応の実例', categoryName: '失敗例', category: 'failure', date: '2026-02-15' },
+  { slug: 'estimate-checklist', title: '見積もりチェックポイント10選', categoryName: '費用相場', category: 'cost', date: '2026-02-24' },
+  { slug: 'faq-top10', title: 'よくある質問10選：費用・工期・保証について', categoryName: 'Q&A', category: 'qa', date: '2026-01-16' },
+  { slug: 'free-estimate', title: '見積もりは無料？訪問診断の費用について', categoryName: '費用相場', category: 'cost', date: '2026-02-13' },
+  { slug: 'gutter-maintenance', title: '雨樋の清掃・メンテナンス方法', categoryName: '修理方法', category: 'repair', date: '2026-02-26' },
+  { slug: 'gutter-overflow', title: '雨樋のオーバーフロー原因と対策', categoryName: '修理方法', category: 'repair', date: '2026-02-13' },
+  { slug: 'insurance-claim', title: '火災保険（風災補償）の申請方法', categoryName: '訪問販売対策', category: 'risk', date: '2026-01-06' },
+  { slug: 'insurance-mistakes', title: '保険申請の失敗例', categoryName: '失敗例', category: 'failure', date: '2026-02-20' },
+  { slug: 'maintenance-schedule', title: '築年数別メンテナンススケジュール', categoryName: '予防', category: 'prevention', date: '2026-01-25' },
+  { slug: 'material-specific-repair', title: '屋根材別の修理方法', categoryName: '修理方法', category: 'repair', date: '2026-02-23' },
+  { slug: 'neglect-cost', title: '放置期間と修理費用の関係', categoryName: '費用相場', category: 'cost', date: '2026-02-26' },
+  { slug: 'neglect-risks', title: '雨漏り放置の危険性', categoryName: '修理方法', category: 'repair', date: '2026-02-01' },
+  { slug: 'online-diagnosis-flow', title: 'オンライン診断の流れと精度', categoryName: 'Q&A', category: 'qa', date: '2026-02-26' },
+  { slug: 'payment-options', title: '分割払い・ローンの選び方', categoryName: '費用相場', category: 'cost', date: '2026-01-01' },
+  { slug: 'prevention-inspection', title: '雨漏りを防ぐ定期点検の重要性', categoryName: '予防', category: 'prevention', date: '2026-02-01' },
+  { slug: 'repair-timeline', title: '雨漏り修理の工期と工程', categoryName: '修理方法', category: 'repair', date: '2026-02-14' },
+  { slug: 'roof-damage-response', title: '強風で屋根材が飛散した時の対応', categoryName: '原因', category: 'cause', date: '2026-02-15' },
+  { slug: 'roof-leak-signs', title: '屋根から雨漏りする3つのサインと緊急対処法', categoryName: '原因', category: 'cause', date: '2026-01-10' },
+  { slug: 'roof-lifespan', title: '屋根材の寿命と交換時期', categoryName: '修理方法', category: 'repair', date: '2026-01-30' },
+  { slug: 'roof-material-types', title: '屋根材別の修理方法：瓦・スレート・金属屋根', categoryName: '修理方法', category: 'repair', date: '2026-02-24' },
+  { slug: 'subsidy-guide', title: '補助金・助成金の活用方法', categoryName: '費用相場', category: 'cost', date: '2026-02-21' },
+  { slug: 'tile-repair-partial', title: '瓦屋根の部分補修方法', categoryName: '修理方法', category: 'repair', date: '2026-01-24' },
+  { slug: 'tile-roof-repair', title: '瓦屋根の部分補修方法', categoryName: '修理方法', category: 'repair', date: '2026-01-10' },
+  { slug: 'typhoon-checklist', title: '台風後の緊急点検チェックリスト', categoryName: '原因', category: 'cause', date: '2026-02-01' },
+  { slug: 'typhoon-prevention', title: '台風による雨漏り被害を防ぐ！事前準備と緊急対応マニュアル', categoryName: '予防', category: 'prevention', date: '2026-01-26' },
+  { slug: 'typhoon-season-prep', title: '台風シーズン前の準備ガイド', categoryName: '予防', category: 'prevention', date: '2026-02-29' },
+  { slug: 'wall-repair-timing', title: '外壁の補修タイミング', categoryName: '修理方法', category: 'repair', date: '2026-02-25' },
+  { slug: 'warranty-service', title: '工事後の保証内容', categoryName: 'Q&A', category: 'qa', date: '2026-02-29' },
+];
 
         // 記事一覧を表示
         function displayPosts(posts) {

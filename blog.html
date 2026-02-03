@@ -492,13 +492,20 @@
                 article.className = 'bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 blog-post';
                 article.setAttribute('data-category', post.category);
                 
-                // 費用相場カテゴリの場合は画像を表示、それ以外は絵文字アイコン
-                const isCostCategory = post.category === 'cost';
-                const thumbnailHTML = isCostCategory 
-                    ? `<img src="images/cost-card-icon.jpg" alt="費用相場" class="w-full h-32 md:h-full object-cover rounded-lg">`
-                    : `<div class="bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg h-32 md:h-full flex items-center justify-center">
-                        <span class="text-4xl">${post.categoryName.split(' ')[0]}</span>
-                       </div>`;
+                // カテゴリごとに色とグラデーションを設定
+                const categoryStyles = {
+                    'cause': { gradient: 'from-blue-100 to-blue-200', emoji: '🔍' },
+                    'repair': { gradient: 'from-green-100 to-green-200', emoji: '🔧' },
+                    'cost': { gradient: 'from-orange-100 to-orange-200', emoji: '💰' },
+                    'case': { gradient: 'from-purple-100 to-purple-200', emoji: '🏠' },
+                    'prevention': { gradient: 'from-teal-100 to-teal-200', emoji: '🛡️' },
+                    'risk': { gradient: 'from-red-100 to-red-200', emoji: '⚠️' }
+                };
+                
+                const style = categoryStyles[post.category] || categoryStyles['cause'];
+                const thumbnailHTML = `<div class="bg-gradient-to-br ${style.gradient} rounded-lg h-32 md:h-full flex items-center justify-center">
+                    <span class="text-5xl">${style.emoji}</span>
+                </div>`;
                 
                 article.innerHTML = `
                     <a href="blog/${post.slug}.html" class="flex flex-col md:flex-row gap-4 p-6">

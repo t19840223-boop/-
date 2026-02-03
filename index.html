@@ -34,6 +34,27 @@
         font-family: 'Noto Sans JP', sans-serif;
         line-height: 1.8;
         color: #1a1a1a;
+        overflow-x: hidden; /* 横スクロール防止 */
+      }
+      
+      /* 📱 モバイル最適化 */
+      @media (max-width: 768px) {
+        /* タッチターゲットの拡大（最低44px×44px） */
+        a, button {
+          min-height: 44px;
+          min-width: 44px;
+        }
+        
+        /* フォントサイズの最小値設定（iOSのzoom防止） */
+        body {
+          font-size: 16px;
+        }
+        
+        /* 画像の最適化 */
+        img {
+          height: auto;
+          max-width: 100%;
+        }
       }
       
       /* アコーディオンスタイル */
@@ -198,7 +219,7 @@
                     </a>
                 </div>
                 
-                <p class="text-sm md:text-base mt-6 opacity-90">
+                <p class="text-base md:text-lg mt-6 opacity-90">
                     📍 対応エリア：相模原・町田・横浜・川崎・八王子、他、神奈川、東京、埼玉南部<br>
                     ✅ オンライン相談可能 ✅ 営業なし ✅ 毎日LINE報告（写真付き）
                 </p>
@@ -215,25 +236,25 @@
     <nav class="sticky top-0 z-50 bg-white shadow-lg border-b-4 border-blue-600">
         <div class="max-w-6xl mx-auto px-4 py-3">
             <div class="flex items-center justify-between overflow-x-auto gap-2">
-                <a href="#jirei" class="whitespace-nowrap px-3 py-2 rounded-lg text-sm font-bold text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-all">
+                <a href="#jirei" class="whitespace-nowrap px-4 py-3 rounded-lg text-base font-bold text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-all">
                     <i class="fas fa-images"></i> 施工事例
                 </a>
-                <a href="#senmon" class="whitespace-nowrap px-3 py-2 rounded-lg text-sm font-bold text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-all">
+                <a href="#senmon" class="whitespace-nowrap px-4 py-3 rounded-lg text-base font-bold text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-all">
                     <i class="fas fa-trophy"></i> 専門性
                 </a>
-                <a href="#hoken" class="whitespace-nowrap px-3 py-2 rounded-lg text-sm font-bold text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-all">
+                <a href="#hoken" class="whitespace-nowrap px-4 py-3 rounded-lg text-base font-bold text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-all">
                     <i class="fas fa-fire"></i> 火災保険
                 </a>
-                <a href="#loan" class="whitespace-nowrap px-3 py-2 rounded-lg text-sm font-bold text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-all">
+                <a href="#loan" class="whitespace-nowrap px-4 py-3 rounded-lg text-base font-bold text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-all">
                     <i class="fas fa-credit-card"></i> ローン
                 </a>
-                <a href="#hikaku" class="whitespace-nowrap px-3 py-2 rounded-lg text-sm font-bold text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-all">
+                <a href="#hikaku" class="whitespace-nowrap px-4 py-3 rounded-lg text-base font-bold text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-all">
                     <i class="fas fa-balance-scale"></i> 比較
                 </a>
-                <a href="#hoshou" class="whitespace-nowrap px-3 py-2 rounded-lg text-sm font-bold text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-all">
+                <a href="#hoshou" class="whitespace-nowrap px-4 py-3 rounded-lg text-base font-bold text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-all">
                     <i class="fas fa-shield-alt"></i> 保証
                 </a>
-                <a href="#faq" class="whitespace-nowrap px-3 py-2 rounded-lg text-sm font-bold text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-all">
+                <a href="#faq" class="whitespace-nowrap px-4 py-3 rounded-lg text-base font-bold text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition-all">
                     <i class="fas fa-question-circle"></i> FAQ
                 </a>
             </div>

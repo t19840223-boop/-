@@ -1,0 +1,306 @@
+<!-- 施工事例テンプレート -->
+<!-- このテンプレートをコピーして jirei.html に追加してください -->
+
+<!-- ========================================
+     パターン1: 通常の施工事例
+     ======================================== -->
+<div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+    <div class="p-6 md:p-8">
+        <!-- ヘッダー: タイトルとバッジ -->
+        <div class="flex flex-wrap items-center justify-between mb-6">
+            <div class="flex-1">
+                <h3 class="text-2xl md:text-3xl font-black text-gray-800 mb-2">
+                    事例XX: [工事タイトル]
+                </h3>
+                <p class="text-lg text-gray-600">
+                    [市区町村] [お客様イニシャル]様
+                </p>
+            </div>
+            <div class="flex gap-2 flex-wrap">
+                <span class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold">築XX年</span>
+                <!-- オプション: 緊急対応の場合 -->
+                <!-- <span class="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold">緊急対応</span> -->
+                <!-- オプション: 部分修理の場合 -->
+                <!-- <span class="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold">部分修理</span> -->
+            </div>
+        </div>
+
+        <!-- Before/After画像 -->
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
+            <div class="col-span-1">
+                <p class="text-xs font-bold text-gray-600 mb-2">施工前</p>
+                <div class="bg-gray-200 rounded-lg overflow-hidden aspect-[4/3]">
+                    <img src="images/caseXX/before.jpg" alt="施工前：[説明]" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="col-span-1">
+                <p class="text-xs font-bold text-gray-600 mb-2">施工後</p>
+                <div class="bg-gray-200 rounded-lg overflow-hidden aspect-[4/3]">
+                    <img src="images/caseXX/after.jpg" alt="施工後：[説明]" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="col-span-2 md:col-span-3">
+                <p class="text-xs font-bold text-gray-600 mb-2">施工過程</p>
+                <div class="grid grid-cols-3 gap-2">
+                    <img src="images/caseXX/process1.jpg" alt="[工程1の説明]" class="w-full rounded aspect-video object-cover">
+                    <img src="images/caseXX/process2.jpg" alt="[工程2の説明]" class="w-full rounded aspect-video object-cover">
+                    <img src="images/caseXX/process3.jpg" alt="[工程3の説明]" class="w-full rounded aspect-video object-cover">
+                </div>
+            </div>
+        </div>
+
+        <!-- 詳細情報 -->
+        <div class="grid md:grid-cols-3 gap-4 mb-6">
+            <div class="border-l-4 border-red-500 pl-4 bg-red-50 p-3 rounded">
+                <p class="font-bold text-red-600 mb-1 text-sm">❌ 症状</p>
+                <p class="text-gray-700 text-sm">[症状の詳細説明]</p>
+            </div>
+            
+            <div class="border-l-4 border-blue-500 pl-4 bg-blue-50 p-3 rounded">
+                <p class="font-bold text-blue-600 mb-1 text-sm">🔍 原因</p>
+                <p class="text-gray-700 text-sm">[雨漏りの原因]</p>
+            </div>
+            
+            <div class="border-l-4 border-green-500 pl-4 bg-green-50 p-3 rounded">
+                <p class="font-bold text-green-600 mb-1 text-sm">✅ 工事内容</p>
+                <p class="text-gray-700 text-sm">[実施した工事内容]</p>
+            </div>
+        </div>
+
+        <!-- 費用・工期・お客様の声 -->
+        <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border-2 border-orange-200">
+                <p class="text-xs text-gray-600 mb-1">💴 費用</p>
+                <p class="text-3xl font-black text-orange-600">XX万円</p>
+                <p class="text-xs text-gray-600 mt-2">⏰ 工期: X日間</p>
+            </div>
+            
+            <div class="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-400 p-4 rounded-lg">
+                <p class="text-xs font-bold text-green-700 mb-1">✨ ポイント</p>
+                <p class="text-xs text-gray-700">[工事の特徴やポイント]</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border-2 border-blue-200">
+                <p class="text-xs font-bold text-blue-700 mb-1">💬 お客様の声</p>
+                <p class="text-xs text-gray-700">「[お客様のコメント]」</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ========================================
+     パターン2: 訪問販売比較の施工事例
+     （価格差が大きい場合に使用）
+     ======================================== -->
+<div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all border-4 border-yellow-400">
+    <!-- 価格比較バナー -->
+    <div class="bg-yellow-400 px-6 py-3 text-center">
+        <p class="font-black text-gray-800 text-lg">
+            ⚡ 訪問販売 XXX万円 → 当社 XXX万円（XXX万円削減！）
+        </p>
+    </div>
+    
+    <div class="p-6 md:p-8">
+        <!-- ヘッダー: タイトルとバッジ -->
+        <div class="flex flex-wrap items-center justify-between mb-6">
+            <div class="flex-1">
+                <h3 class="text-2xl md:text-3xl font-black text-gray-800 mb-2">
+                    事例XX: [工事タイトル]
+                </h3>
+                <p class="text-lg text-gray-600">
+                    [市区町村] [お客様イニシャル]様
+                </p>
+            </div>
+            <div class="flex gap-2 flex-wrap">
+                <span class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold">築XX年</span>
+                <span class="bg-yellow-500 text-white px-4 py-2 rounded-full text-sm font-bold">訪問販売比較</span>
+            </div>
+        </div>
+
+        <!-- Before/After画像 -->
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
+            <div class="col-span-1">
+                <p class="text-xs font-bold text-gray-600 mb-2">施工前</p>
+                <div class="bg-gray-200 rounded-lg overflow-hidden aspect-[4/3]">
+                    <img src="images/caseXX/before.jpg" alt="施工前：[説明]" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="col-span-1">
+                <p class="text-xs font-bold text-gray-600 mb-2">施工後</p>
+                <div class="bg-gray-200 rounded-lg overflow-hidden aspect-[4/3]">
+                    <img src="images/caseXX/after.jpg" alt="施工後：[説明]" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="col-span-2 md:col-span-3">
+                <p class="text-xs font-bold text-gray-600 mb-2">施工過程</p>
+                <div class="grid grid-cols-3 gap-2">
+                    <img src="images/caseXX/process1.jpg" alt="[工程1の説明]" class="w-full rounded aspect-video object-cover">
+                    <img src="images/caseXX/process2.jpg" alt="[工程2の説明]" class="w-full rounded aspect-video object-cover">
+                    <img src="images/caseXX/process3.jpg" alt="[工程3の説明]" class="w-full rounded aspect-video object-cover">
+                </div>
+            </div>
+        </div>
+
+        <!-- 詳細情報 -->
+        <div class="grid md:grid-cols-3 gap-4 mb-6">
+            <div class="border-l-4 border-red-500 pl-4 bg-red-50 p-3 rounded">
+                <p class="font-bold text-red-600 mb-1 text-sm">❌ 症状</p>
+                <p class="text-gray-700 text-sm">[症状の詳細説明]</p>
+            </div>
+            
+            <div class="border-l-4 border-blue-500 pl-4 bg-blue-50 p-3 rounded">
+                <p class="font-bold text-blue-600 mb-1 text-sm">🔍 原因</p>
+                <p class="text-gray-700 text-sm">[雨漏りの原因]</p>
+            </div>
+            
+            <div class="border-l-4 border-green-500 pl-4 bg-green-50 p-3 rounded">
+                <p class="font-bold text-green-600 mb-1 text-sm">✅ 工事内容</p>
+                <p class="text-gray-700 text-sm">[実施した工事内容]</p>
+            </div>
+        </div>
+
+        <!-- 費用・工期・お客様の声 -->
+        <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border-2 border-orange-200">
+                <p class="text-xs text-gray-600 mb-1">💴 費用</p>
+                <p class="text-3xl font-black text-orange-600">XX万円</p>
+                <p class="text-xs text-red-500 line-through mt-1">訪問販売: XXX万円</p>
+                <p class="text-xs text-gray-600 mt-2">⏰ 工期: X日間</p>
+            </div>
+            
+            <div class="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-400 p-4 rounded-lg">
+                <p class="text-xs font-bold text-green-700 mb-1">✨ ポイント</p>
+                <p class="text-xs text-gray-700">[工事の特徴やポイント]</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border-2 border-blue-200">
+                <p class="text-xs font-bold text-blue-700 mb-1">💬 お客様の声</p>
+                <p class="text-xs text-gray-700">「[お客様のコメント。訪問販売との比較を含める]」</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ========================================
+     画像ファイルの準備
+     ======================================== -->
+<!-- 
+各事例用のフォルダ構成:
+images/caseXX/
+  ├── before.jpg      (施工前の写真)
+  ├── after.jpg       (施工後の写真)
+  ├── process1.jpg    (施工過程1: 例: 下地工事)
+  ├── process2.jpg    (施工過程2: 例: 防水シート)
+  └── process3.jpg    (施工過程3: 例: 完成間近)
+-->
+
+
+<!-- ========================================
+     バッジの種類
+     ======================================== -->
+<!-- 
+築年数:
+<span class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold">築XX年</span>
+
+緊急対応:
+<span class="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold">緊急対応</span>
+
+部分修理:
+<span class="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold">部分修理</span>
+
+訪問販売比較:
+<span class="bg-yellow-500 text-white px-4 py-2 rounded-full text-sm font-bold">訪問販売比較</span>
+
+大規模工事:
+<span class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-bold">大規模工事</span>
+
+低予算:
+<span class="bg-teal-500 text-white px-4 py-2 rounded-full text-sm font-bold">低予算</span>
+-->
+
+
+<!-- ========================================
+     記入例（実際の事例）
+     ======================================== -->
+<div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+    <div class="p-6 md:p-8">
+        <!-- ヘッダー: タイトルとバッジ -->
+        <div class="flex flex-wrap items-center justify-between mb-6">
+            <div class="flex-1">
+                <h3 class="text-2xl md:text-3xl font-black text-gray-800 mb-2">
+                    事例11: 瓦の部分修理・漆喰補修
+                </h3>
+                <p class="text-lg text-gray-600">
+                    相模原市南区 K様
+                </p>
+            </div>
+            <div class="flex gap-2 flex-wrap">
+                <span class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold">築25年</span>
+                <span class="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold">部分修理</span>
+            </div>
+        </div>
+
+        <!-- Before/After画像 -->
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
+            <div class="col-span-1">
+                <p class="text-xs font-bold text-gray-600 mb-2">施工前</p>
+                <div class="bg-gray-200 rounded-lg overflow-hidden aspect-[4/3]">
+                    <img src="images/case11/before.jpg" alt="施工前：瓦がずれている状態" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="col-span-1">
+                <p class="text-xs font-bold text-gray-600 mb-2">施工後</p>
+                <div class="bg-gray-200 rounded-lg overflow-hidden aspect-[4/3]">
+                    <img src="images/case11/after.jpg" alt="施工後：瓦を修理完了" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="col-span-2 md:col-span-3">
+                <p class="text-xs font-bold text-gray-600 mb-2">施工過程</p>
+                <div class="grid grid-cols-3 gap-2">
+                    <img src="images/case11/process1.jpg" alt="瓦の撤去" class="w-full rounded aspect-video object-cover">
+                    <img src="images/case11/process2.jpg" alt="漆喰の補修" class="w-full rounded aspect-video object-cover">
+                    <img src="images/case11/process3.jpg" alt="瓦の設置完了" class="w-full rounded aspect-video object-cover">
+                </div>
+            </div>
+        </div>
+
+        <!-- 詳細情報 -->
+        <div class="grid md:grid-cols-3 gap-4 mb-6">
+            <div class="border-l-4 border-red-500 pl-4 bg-red-50 p-3 rounded">
+                <p class="font-bold text-red-600 mb-1 text-sm">❌ 症状</p>
+                <p class="text-gray-700 text-sm">台風後に瓦が3枚ずれて雨漏り発生。天井に水染みができた。</p>
+            </div>
+            
+            <div class="border-l-4 border-blue-500 pl-4 bg-blue-50 p-3 rounded">
+                <p class="font-bold text-blue-600 mb-1 text-sm">🔍 原因</p>
+                <p class="text-gray-700 text-sm">経年劣化により瓦を固定していた漆喰が剥がれ、強風で瓦が動いた。</p>
+            </div>
+            
+            <div class="border-l-4 border-green-500 pl-4 bg-green-50 p-3 rounded">
+                <p class="font-bold text-green-600 mb-1 text-sm">✅ 工事内容</p>
+                <p class="text-gray-700 text-sm">瓦3枚差し替え・漆喰補修・棟板金交換</p>
+            </div>
+        </div>
+
+        <!-- 費用・工期・お客様の声 -->
+        <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border-2 border-orange-200">
+                <p class="text-xs text-gray-600 mb-1">💴 費用</p>
+                <p class="text-3xl font-black text-orange-600">35万円</p>
+                <p class="text-xs text-gray-600 mt-2">⏰ 工期: 3日間</p>
+            </div>
+            
+            <div class="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-400 p-4 rounded-lg">
+                <p class="text-xs font-bold text-green-700 mb-1">✨ ポイント</p>
+                <p class="text-xs text-gray-700">部分修理で費用を抑えながら確実に修理。全面葺き替えは不要だった。</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border-2 border-blue-200">
+                <p class="text-xs font-bold text-blue-700 mb-1">💬 お客様の声</p>
+                <p class="text-xs text-gray-700">「訪問販売では150万円と言われましたが、35万円で済んで本当に助かりました。」</p>
+            </div>
+        </div>
+    </div>
+</div>

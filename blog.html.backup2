@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO最適化 -->
+    <title>雨漏り修理ブログ｜原因・費用・施工事例を専門家が解説｜横浜・相模原・町田</title>
+    <meta name="description" content="雨漏り修理の専門家が、原因・費用相場・修理方法・予防策を徹底解説。訪問販売との価格比較や実際の施工事例も公開。神奈川・東京エリア対応。">
+    <meta name="keywords" content="雨漏り修理,雨漏り 原因,雨漏り 費用,屋根修理,訪問販売,施工事例,雨漏り ブログ">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        font-family: 'Noto Sans JP', sans-serif;
+        line-height: 1.8;
+        color: #1a1a1a;
+        background: linear-gradient(to bottom, #f0f9ff, #ffffff);
+      }
+      
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+      }
+      
+      .pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <!-- ロゴ -->
+                <a href="index.html" class="text-xl md:text-2xl font-black text-blue-600">
+                    🏠 雨漏り修理専門
+                </a>
+                
+                <!-- ナビゲーション -->
+                <nav class="hidden md:flex items-center gap-6">
+                    <a href="index.html#online-shindan" class="text-sm font-bold text-gray-700 hover:text-blue-600">オンライン診断</a>
+                    <a href="jirei.html" class="text-sm font-bold text-gray-700 hover:text-blue-600">施工事例</a>
+                    <a href="blog.html" class="text-sm font-bold text-blue-600 border-b-2 border-blue-600">ブログ</a>
+                    <a href="voice.html" class="text-sm font-bold text-gray-700 hover:text-blue-600">お客様の声</a>
+                    <a href="https://line.me/ti/p/R7yL_9_ZP5" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded-lg font-bold hover:bg-green-600">LINE相談</a>
+                    <a href="tel:0120773743" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-700">📞 0120-773-743</a>
+                </nav>
+                
+                <!-- モバイルメニュー -->
+                <div class="md:hidden">
+                    <a href="https://line.me/ti/p/R7yL_9_ZP5" target="_blank" class="bg-green-500 text-white px-3 py-2 rounded text-sm font-bold">LINE相談</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="py-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <!-- ヘッダー -->
+            <div class="text-center mb-12">
+                <p class="text-sm text-blue-600 font-bold mb-2">
+                    💡 雨漏り修理の専門知識を発信
+                </p>
+                <h1 class="text-3xl md:text-5xl font-black text-gray-800 mb-4">
+                    📝 雨漏り修理ブログ
+                </h1>
+                <p class="text-base md:text-lg text-gray-700 max-w-3xl mx-auto">
+                    雨漏りの原因・費用相場・修理方法・予防策など、専門家が徹底解説。<br>
+                    実際の施工事例や訪問販売との価格比較も公開しています。
+                </p>
+            </div>
+
+            <!-- カテゴリフィルター -->
+            <div class="mb-8 flex flex-wrap gap-3 justify-center">
+                <button onclick="filterCategory('all')" class="category-btn bg-blue-600 text-white px-4 py-2 rounded-lg font-bold hover:bg-blue-700">
+                    全て
+                </button>
+                <button onclick="filterCategory('cause')" class="category-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-bold hover:bg-gray-300">
+                    🔍 原因
+                </button>
+                <button onclick="filterCategory('repair')" class="category-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-bold hover:bg-gray-300">
+                    🔧 修理方法
+                </button>
+                <button onclick="filterCategory('cost')" class="category-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-bold hover:bg-gray-300">
+                    💰 費用相場
+                </button>
+                <button onclick="filterCategory('case')" class="category-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-bold hover:bg-gray-300">
+                    🏠 施工事例
+                </button>
+                <button onclick="filterCategory('prevention')" class="category-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-bold hover:bg-gray-300">
+                    🛡️ 予防
+                </button>
+                <button onclick="filterCategory('failure')" class="category-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-bold hover:bg-gray-300">
+                    ⚠️ 失敗例
+                </button>
+                <button onclick="filterCategory('qa')" class="category-btn bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-bold hover:bg-gray-300">
+                    📞 Q&A
+                </button>
+            </div>
+
+            <!-- ブログ記事リスト -->
+            <div class="space-y-6" id="blog-list">
+                <!-- 記事はJavaScriptで動的に生成 -->
+            </div>
+        </div>
+    </main>
+
+    <!-- CTA -->
+    <section class="py-12 bg-gradient-to-r from-blue-600 to-blue-800">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h2 class="text-2xl md:text-3xl font-black text-white mb-4">
+                まずは無料オンライン診断から
+            </h2>
+            <p class="text-lg text-white mb-6">
+                写真を送るだけで、専門家が原因と費用を診断します。
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="https://line.me/ti/p/R7yL_9_ZP5" target="_blank" class="bg-green-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-600 shadow-lg">
+                    📱 LINE無料相談（24時間受付）
+                </a>
+                <a href="tel:0120773743" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 shadow-lg">
+                    📞 0120-773-743（平日9-18時）
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-sm">&copy; 2026 雨漏り修理専門. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ブログ記事データ（35記事）
+        const blogPosts = [
+            // カテゴリ1: 🔍 雨漏りの原因（5記事）
+            {
+                id: 1,
+                category: 'cause',
+                categoryName: '🔍 原因',
+                title: '雨漏りの原因トップ5と見分け方｜プロが徹底解説',
+                date: '2026年2月1日',
+                excerpt: '雨漏りの原因で最も多いのは屋根の劣化です。棟板金の浮き、瓦のずれ、防水シートの破損など、見逃しやすいポイントを写真付きで解説します。',
+                slug: 'cause-top5'
+            },
+            {
+                id: 2,
+                category: 'cause',
+                categoryName: '🔍 原因',
+                title: '屋根から雨漏りする3つのサインと緊急対処法',
+                date: '2026年1月30日',
+                excerpt: '天井のシミ、雨音、カビ臭い匂い。これらは雨漏りの危険サインです。早期発見で大規模修繕を回避する方法をお伝えします。',
+                slug: 'roof-leak-signs'
+            },
+            {
+                id: 3,
+                category: 'cause',
+                categoryName: '🔍 原因',
+                title: '天井のシミは雨漏り？症状別チェックリスト完全版',
+                date: '2026年1月28日',
+                excerpt: 'コーヒー色のシミ、白いシミ、黒いシミ。色や形状で原因が異なります。自分でできる診断方法と、プロに依頼すべきタイミングを解説。',
+                slug: 'ceiling-stain-check'
+            },
+            {
+                id: 4,
+                category: 'cause',
+                categoryName: '🔍 原因',
+                title: '築年数別｜雨漏りが起きやすい箇所と原因',
+                date: '2026年1月25日',
+                excerpt: '築10年、20年、30年で雨漏りの原因は異なります。築年数別に起きやすい劣化箇所と、事前に確認すべきポイントを紹介。',
+                slug: 'age-based-causes'
+            },
+            {
+                id: 5,
+                category: 'cause',
+                categoryName: '🔍 原因',
+                title: '台風・大雨後の雨漏り｜緊急チェックポイント7選',
+                date: '2026年1月22日',
+                excerpt: '台風や大雨の後は雨漏りリスクが急増。屋根、雨樋、外壁など、素人でも確認できる緊急チェックポイントを専門家が解説。',
+                slug: 'storm-damage-check'
+            },
+
+            // カテゴリ2: 🔧 修理方法の解説（5記事）
+            {
+                id: 6,
+                category: 'repair',
+                categoryName: '🔧 修理方法',
+                title: '屋根カバー工法とは？メリット・デメリットを徹底解説',
+                date: '2026年1月20日',
+                excerpt: '既存の屋根の上に新しい屋根を重ねる「カバー工法」。葺き替えと比較して費用を抑えられますが、注意点も。プロが詳しく解説します。',
+                slug: 'cover-method-guide'
+            },
+            {
+                id: 7,
+                category: 'repair',
+                categoryName: '🔧 修理方法',
+                title: '屋根葺き替えとカバー工法の違い｜どちらを選ぶべき？',
+                date: '2026年1月18日',
+                excerpt: '葺き替えとカバー工法、どちらが適しているかは屋根の状態次第。費用、工期、耐用年数の違いを比較表で分かりやすく説明。',
+                slug: 'replace-vs-cover'
+            },
+            {
+                id: 8,
+                category: 'repair',
+                categoryName: '🔧 修理方法',
+                title: '瓦屋根の部分補修｜費用を抑える修理方法',
+                date: '2026年1月15日',
+                excerpt: '瓦の割れや漆喰の劣化は、部分補修で対応可能。全面葺き替えが不要なケースと、3万円〜で修理できる方法を実例付きで紹介。',
+                slug: 'partial-tile-repair'
+            },
+            {
+                id: 9,
+                category: 'repair',
+                categoryName: '🔧 修理方法',
+                title: '雨樋修理の方法と費用｜自分でできる？プロに依頼すべき？',
+                date: '2026年1月12日',
+                excerpt: '雨樋の詰まりや勾配不良は雨漏りの原因に。DIYで対応できる範囲と、プロに依頼すべき修理内容を詳しく解説します。',
+                slug: 'gutter-repair-guide'
+            },
+            {
+                id: 10,
+                category: 'repair',
+                categoryName: '🔧 修理方法',
+                title: '防水シート（ルーフィング）交換のタイミングと費用',
+                date: '2026年1月10日',
+                excerpt: '見えない部分の防水シートは雨漏り防止の要。交換時期の見極め方と、工事費用の相場をプロが解説します。',
+                slug: 'roofing-replacement'
+            },
+
+            // カテゴリ3: 💰 費用・相場情報（5記事）
+            {
+                id: 11,
+                category: 'cost',
+                categoryName: '💰 費用相場',
+                title: '雨漏り修理の費用相場【2026年版】適正価格を公開',
+                date: '2026年1月8日',
+                excerpt: '部分補修3万円〜、屋根カバー工法100万円〜、全面葺き替え200万円〜。工事内容別の適正価格と、高額見積もりの見分け方。',
+                slug: 'cost-guide-2026'
+            },
+            {
+                id: 12,
+                category: 'cost',
+                categoryName: '💰 費用相場',
+                title: '訪問販売の見積もりが高額な理由｜適正価格との比較',
+                date: '2026年1月5日',
+                excerpt: '訪問販売の見積もりは適正価格の2〜3倍が常識。不要な工事を含めた見積もりの見分け方と、実際の価格差を実例で公開。',
+                slug: 'sales-visit-price'
+            },
+            {
+                id: 13,
+                category: 'cost',
+                categoryName: '💰 費用相場',
+                title: '屋根修理で損しないための見積もりチェックポイント',
+                date: '2026年1月3日',
+                excerpt: '見積もりの「一式」表示は要注意。材料費、人件費、足場代など、項目別にチェックすべきポイントをプロが伝授。',
+                slug: 'estimate-check-points'
+            },
+            {
+                id: 14,
+                category: 'cost',
+                categoryName: '💰 費用相場',
+                title: '雨漏り修理の補助金・助成金｜2026年最新情報',
+                date: '2025年12月30日',
+                excerpt: '自治体によっては屋根修理に補助金が出ることも。申請方法と、対象となる工事内容を地域別に解説します。',
+                slug: 'subsidy-guide-2026'
+            },
+            {
+                id: 15,
+                category: 'cost',
+                categoryName: '💰 費用相場',
+                title: '火災保険で雨漏り修理はできる？適用条件を徹底解説',
+                date: '2025年12月28日',
+                excerpt: '台風や強風による雨漏りは火災保険の対象になる可能性が。申請の流れと、保険適用される条件を詳しく説明します。',
+                slug: 'insurance-coverage'
+            },
+
+            // カテゴリ4: 🏠 施工事例の詳細解説（5記事）
+            {
+                id: 16,
+                category: 'case',
+                categoryName: '🏠 施工事例',
+                title: '【実例】横浜市の雨漏り修理｜420万円で屋根を全面新設',
+                date: '2025年12月25日',
+                excerpt: '築12年で天井にコーヒー色のシミ。緊急対応で屋根新設工事を実施。Before/After写真と、工事の詳細を公開します。',
+                slug: 'case-yokohama-420'
+            },
+            {
+                id: 17,
+                category: 'case',
+                categoryName: '🏠 施工事例',
+                title: '訪問販売480万円→当社260万円｜220万円削減の実例',
+                date: '2025年12月22日',
+                excerpt: '川崎市の事例。訪問販売の不要な外壁工事を除外し、必要な屋根修理のみで220万円削減。価格の内訳を詳しく解説。',
+                slug: 'case-kawasaki-220'
+            },
+            {
+                id: 18,
+                category: 'case',
+                categoryName: '🏠 施工事例',
+                title: 'たった3万円で解決｜瓦差し替えの事例【八王子市】',
+                date: '2025年12月20日',
+                excerpt: '訪問販売に高額見積もりを提示されたが、実際は瓦の部分交換で解決。雨漏りなしで1日完了した事例を紹介。',
+                slug: 'case-hachioji-3'
+            },
+            {
+                id: 19,
+                category: 'case',
+                categoryName: '🏠 施工事例',
+                title: 'オンライン診断で訪問なし｜サイディング雨漏り修理',
+                date: '2025年12月18日',
+                excerpt: '相模原市の事例。オンライン診断で原因を特定し、訪問なしで見積もり。サイディング張替えとコーキングで81万円。',
+                slug: 'case-sagamihara-online'
+            },
+            {
+                id: 20,
+                category: 'case',
+                categoryName: '🏠 施工事例',
+                title: '屋根カバー工法で費用を抑えた事例｜横浜市青葉区',
+                date: '2025年12月15日',
+                excerpt: '築27年の瓦屋根。カバー工法で既存屋根を残し、168万円で施工完了。工期7日間の詳細レポート。',
+                slug: 'case-aoba-cover'
+            },
+
+            // カテゴリ5: 🛡️ 予防・メンテナンス（5記事）
+            {
+                id: 21,
+                category: 'prevention',
+                categoryName: '🛡️ 予防',
+                title: '雨漏りを防ぐ！屋根の定期点検チェックリスト',
+                date: '2025年12月12日',
+                excerpt: '年2回の点検で雨漏りを予防。屋根、雨樋、外壁など、自分でチェックできるポイントをリスト化。プロに依頼すべきタイミングも解説。',
+                slug: 'prevention-checklist'
+            },
+            {
+                id: 22,
+                category: 'prevention',
+                categoryName: '🛡️ 予防',
+                title: '築10年・20年・30年で必要な屋根メンテナンス',
+                date: '2025年12月10日',
+                excerpt: '築年数に応じて必要なメンテナンスは異なります。築10年は点検、築20年は部分補修、築30年は葺き替え検討。詳しく解説。',
+                slug: 'maintenance-by-age'
+            },
+            {
+                id: 23,
+                category: 'prevention',
+                categoryName: '🛡️ 予防',
+                title: 'DIYで雨漏り修理は可能？プロが解説する危険性',
+                date: '2025年12月8日',
+                excerpt: '応急処置はDIY可能ですが、本格的な修理は危険。高所作業のリスクと、DIYで悪化させた実例を紹介します。',
+                slug: 'diy-repair-risks'
+            },
+            {
+                id: 24,
+                category: 'prevention',
+                categoryName: '🛡️ 予防',
+                title: '雨樋の掃除方法と頻度｜詰まりを防ぐコツ',
+                date: '2025年12月5日',
+                excerpt: '雨樋の詰まりは雨漏りの原因に。落ち葉や泥の掃除方法と、プロに依頼すべきケースを写真付きで解説します。',
+                slug: 'gutter-cleaning-guide'
+            },
+            {
+                id: 25,
+                category: 'prevention',
+                categoryName: '🛡️ 予防',
+                title: '台風前にやるべき雨漏り予防対策7選',
+                date: '2025年12月3日',
+                excerpt: '台風シーズン前の点検は必須。屋根、雨樋、外壁のチェックポイントと、簡単にできる応急処置を紹介。',
+                slug: 'typhoon-prevention'
+            },
+
+            // カテゴリ6: ⚠️ よくある失敗例（5記事）
+            {
+                id: 26,
+                category: 'failure',
+                categoryName: '⚠️ 失敗例',
+                title: '雨漏り放置の危険性｜カビ・腐食・健康被害のリスク',
+                date: '2025年12月1日',
+                excerpt: '雨漏りを放置すると、カビ、木材の腐食、シロアリ発生のリスクが。健康被害や修理費用の増大を実例で解説。',
+                slug: 'neglect-risks'
+            },
+            {
+                id: 27,
+                category: 'failure',
+                categoryName: '⚠️ 失敗例',
+                title: '訪問販売で失敗した方の相談事例3選',
+                date: '2025年11月28日',
+                excerpt: '不要な外壁塗装、高額な屋根工事、手抜き施工。訪問販売で被害に遭った方の実例と、対処法を紹介します。',
+                slug: 'sales-visit-failures'
+            },
+            {
+                id: 28,
+                category: 'failure',
+                categoryName: '⚠️ 失敗例',
+                title: '応急処置で悪化させた雨漏りの実例',
+                date: '2025年11月25日',
+                excerpt: 'ブルーシートの固定不良、コーキングの誤った使用で雨漏りが悪化。DIYの失敗例とプロの修理事例を比較。',
+                slug: 'diy-failures'
+            },
+            {
+                id: 29,
+                category: 'failure',
+                categoryName: '⚠️ 失敗例',
+                title: '安い業者に依頼して後悔した事例｜手抜き工事の見分け方',
+                date: '2025年11月22日',
+                excerpt: '相場より安すぎる見積もりは要注意。防水シートの省略、釘の使い回しなど、手抜き工事の実例を公開。',
+                slug: 'cheap-contractor-failures'
+            },
+            {
+                id: 30,
+                category: 'failure',
+                categoryName: '⚠️ 失敗例',
+                title: '見積もりと違う追加費用｜トラブル事例と対処法',
+                date: '2025年11月20日',
+                excerpt: '工事後に高額な追加請求。契約前に確認すべきポイントと、トラブルを避けるための書面の取り方を解説。',
+                slug: 'additional-cost-troubles'
+            },
+
+            // カテゴリ7: 📞 お客様からのQ&A（5記事）
+            {
+                id: 31,
+                category: 'qa',
+                categoryName: '📞 Q&A',
+                title: '雨漏り修理でよくある質問10選｜プロが回答',
+                date: '2025年11月18日',
+                excerpt: '「修理期間は？」「住みながら工事できる？」「保証はある？」など、よくある質問にプロが詳しく回答します。',
+                slug: 'faq-top10'
+            },
+            {
+                id: 32,
+                category: 'qa',
+                categoryName: '📞 Q&A',
+                title: 'オンライン診断とは？訪問なしで見積もりできる理由',
+                date: '2025年11月15日',
+                excerpt: '写真を送るだけで原因と費用が分かる。オンライン診断の流れと、精度の高い診断をするためのポイントを解説。',
+                slug: 'online-diagnosis-guide'
+            },
+            {
+                id: 33,
+                category: 'qa',
+                categoryName: '📞 Q&A',
+                title: '緊急対応は可能？当日・翌日対応の実例',
+                date: '2025年11月12日',
+                excerpt: '雨漏りが発生したら最短1時間で駆けつけ。緊急対応の流れと、応急処置の内容を実例付きで紹介します。',
+                slug: 'emergency-response'
+            },
+            {
+                id: 34,
+                category: 'qa',
+                categoryName: '📞 Q&A',
+                title: '見積もりは無料？訪問診断の費用について',
+                date: '2025年11月10日',
+                excerpt: '見積もりは完全無料。訪問診断も無料で対応します。ただし、一部有料になるケースも。詳しく解説します。',
+                slug: 'free-estimate-guide'
+            },
+            {
+                id: 35,
+                category: 'qa',
+                categoryName: '📞 Q&A',
+                title: '工事後の保証内容｜アフターサービスについて',
+                date: '2025年11月8日',
+                excerpt: '工事後の保証期間は？定期点検はある？アフターサービスの内容と、保証が適用される条件を詳しく説明。',
+                slug: 'warranty-guide'
+            }
+        ];
+
+        // 記事一覧を表示
+        function displayPosts(posts) {
+            const blogList = document.getElementById('blog-list');
+            blogList.innerHTML = '';
+
+            posts.forEach(post => {
+                const article = document.createElement('div');
+                article.className = 'bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 blog-post';
+                article.setAttribute('data-category', post.category);
+                
+                // カテゴリごとに色とグラデーションを設定
+                const categoryStyles = {
+                    'cause': { gradient: 'from-blue-100 to-blue-200', emoji: '🔍' },
+                    'repair': { gradient: 'from-green-100 to-green-200', emoji: '🔧' },
+                    'cost': { gradient: 'from-orange-100 to-orange-200', emoji: '💰' },
+                    'case': { gradient: 'from-purple-100 to-purple-200', emoji: '🏠' },
+                    'prevention': { gradient: 'from-teal-100 to-teal-200', emoji: '🛡️' },
+                    'risk': { gradient: 'from-red-100 to-red-200', emoji: '⚠️' }
+                };
+                
+                const style = categoryStyles[post.category] || categoryStyles['cause'];
+                const thumbnailHTML = `<div class="bg-gradient-to-br ${style.gradient} rounded-lg h-32 md:h-full flex items-center justify-center">
+                    <span class="text-5xl">${style.emoji}</span>
+                </div>`;
+                
+                article.innerHTML = `
+                    <a href="blog/${post.slug}.html" class="flex flex-col md:flex-row gap-4 p-6">
+                        <div class="flex-shrink-0 md:w-48">
+                            ${thumbnailHTML}
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded">
+                                    ${post.categoryName}
+                                </span>
+                                <span class="text-xs text-gray-500">
+                                    📅 ${post.date}
+                                </span>
+                            </div>
+                            <h2 class="text-xl font-bold text-gray-900 mb-2 hover:text-blue-600">
+                                ${post.title}
+                            </h2>
+                            <p class="text-sm text-gray-600 mb-3">
+                                ${post.excerpt}
+                            </p>
+                            <span class="inline-flex items-center text-blue-600 font-bold text-sm hover:text-blue-800">
+                                続きを読む →
+                            </span>
+                        </div>
+                    </a>
+                `;
+                
+                blogList.appendChild(article);
+            });
+        }
+
+        // カテゴリフィルター
+        function filterCategory(category) {
+            const buttons = document.querySelectorAll('.category-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            
+            event.target.classList.remove('bg-gray-200', 'text-gray-700');
+            event.target.classList.add('bg-blue-600', 'text-white');
+
+            if (category === 'all') {
+                displayPosts(blogPosts);
+            } else {
+                const filtered = blogPosts.filter(post => post.category === category);
+                displayPosts(filtered);
+            }
+        }
+
+        // 初期表示
+        displayPosts(blogPosts);
+    </script>
+</body>
+</html>

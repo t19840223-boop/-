@@ -92,9 +92,37 @@
                 </p>
             </div>
 
+            <!-- カテゴリフィルタ -->
+            <div class="mb-8">
+                <p class="text-center text-lg font-bold text-gray-700 mb-4">🏷️ カテゴリで絞り込む</p>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <button onclick="filterCategory('all')" class="category-btn active px-6 py-3 rounded-full font-bold transition-all shadow-lg hover:scale-105" data-category="all">
+                        ✨ 全て <span class="text-sm">(12)</span>
+                    </button>
+                    <button onclick="filterCategory('roof')" class="category-btn px-6 py-3 rounded-full font-bold transition-all shadow-lg hover:scale-105" data-category="roof">
+                        🏠 屋根 <span class="text-sm">(6)</span>
+                    </button>
+                    <button onclick="filterCategory('wall')" class="category-btn px-6 py-3 rounded-full font-bold transition-all shadow-lg hover:scale-105" data-category="wall">
+                        🧱 外壁系 <span class="text-sm">(3)</span>
+                    </button>
+                    <button onclick="filterCategory('veranda')" class="category-btn px-6 py-3 rounded-full font-bold transition-all shadow-lg hover:scale-105" data-category="veranda">
+                        🏡 ベランダ <span class="text-sm">(0)</span>
+                    </button>
+                    <button onclick="filterCategory('gutter')" class="category-btn px-6 py-3 rounded-full font-bold transition-all shadow-lg hover:scale-105" data-category="gutter">
+                        💧 雨樋 <span class="text-sm">(1)</span>
+                    </button>
+                    <button onclick="filterCategory('complex')" class="category-btn px-6 py-3 rounded-full font-bold transition-all shadow-lg hover:scale-105" data-category="complex">
+                        🔧 複合 <span class="text-sm">(2)</span>
+                    </button>
+                    <button onclick="filterCategory('emergency')" class="category-btn px-6 py-3 rounded-full font-bold transition-all shadow-lg hover:scale-105" data-category="emergency">
+                        ⚡ 緊急 <span class="text-sm">(2)</span>
+                    </button>
+                </div>
+            </div>
+
             <div id="cases-container" class="space-y-8 mb-10">
                 <!-- 事例1: 緊急対応で大規模改修を防いだケース -->
-                <div class="case-item" data-page="1">
+                <div class="case-item" data-page="1" data-categories='["roof","emergency"]'>
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -178,7 +206,7 @@
                 </div>
 
                 <!-- 事例2: 訪問販売と比較して220万円削減 -->
-                <div class="case-item" data-page="1">
+                <div class="case-item" data-page="1" data-categories=\'["roof"]\'>
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all border-4 border-yellow-400">
                     <div class="bg-yellow-400 px-6 py-3 text-center">
                         <p class="font-black text-gray-800 text-lg">
@@ -269,7 +297,7 @@
                 </div>
 
                 <!-- 事例3: サイディングからの雨漏り -->
-                <div class="case-item" data-page="1">
+                <div class="case-item" data-page="1" data-categories=\'["wall"]\'>
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -353,7 +381,7 @@
                 </div>
 
                 <!-- 事例4: 緊急対応・屋根からの雨漏り -->
-                <div class="case-item" data-page="2">
+                <div class="case-item" data-page="2" data-categories=\'["roof","emergency"]\'>
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -437,7 +465,7 @@
                 </div>
 
                 <!-- 事例5: サイディング張替（日野市） -->
-                <div class="case-item" data-page="2">
+                <div class="case-item" data-page="2" data-categories=\'["wall"]\'>
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -521,7 +549,7 @@
                 </div>
 
                 <!-- 事例6: 雨樋新設（町田市） -->
-                <div class="case-item" data-page="2">
+                <div class="case-item" data-page="2" data-categories=\'["gutter"]\'>
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -606,7 +634,7 @@
                 </div>
 
                 <!-- 事例7: 屋根カバー工法（横浜市青葉区） -->
-            <div class="max-w-6xl mx-auto mb-10">
+            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["roof"]'>
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー部分 -->
@@ -698,7 +726,7 @@
                 </div>
 
                 <!-- 事例8: 屋根カバー工法・天井張り替え（稲城市） -->
-            <div class="max-w-6xl mx-auto mb-10">
+            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["complex"]'>
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー部分 -->
@@ -954,7 +982,7 @@
                 </div>
 
                 <!-- 事例12: コーキング撤去打ち替え（東京都多摩市） -->
-                <div class="case-item" data-page="3">
+                <div class="case-item" data-page="3" data-categories=\'["wall"]\' data-categories=\'["complex"]\' data-categories=\'["roof"]\'>
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -1248,7 +1276,53 @@
         document.addEventListener('DOMContentLoaded', function() {
             showPage(1);
         });
+
+        // カテゴリフィルタ機能
+        function filterCategory(category) {
+            const allCases = document.querySelectorAll('.case-item');
+            const buttons = document.querySelectorAll('.category-btn');
+            
+            // ボタンのアクティブ状態を更新
+            buttons.forEach(btn => {
+                if (btn.dataset.category === category) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // 事例の表示/非表示を切り替え
+            allCases.forEach(caseItem => {
+                const categories = JSON.parse(caseItem.dataset.categories || '[]');
+                
+                if (category === 'all' || categories.includes(category)) {
+                    caseItem.style.display = 'block';
+                } else {
+                    caseItem.style.display = 'none';
+                }
+            });
+        }
     </script>
+
+    <style>
+        /* カテゴリボタンのスタイル */
+        .category-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: 2px solid transparent;
+        }
+        
+        .category-btn:hover {
+            transform: scale(1.05);
+            border-color: #667eea;
+        }
+        
+        .category-btn.active {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-color: #f5576c;
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+        }
+    </style>
 
 </body>
 </html>

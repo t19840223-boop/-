@@ -94,28 +94,28 @@
 
             <!-- カテゴリフィルタ -->
             <div class="mb-8">
-                <p class="text-center text-lg font-bold text-gray-700 mb-4">🏷️ カテゴリで絞り込む</p>
-                <div class="flex flex-wrap justify-center gap-3">
-                    <button onclick="filterCategory('all')" class="category-btn active px-4 py-2 md:px-6 md:py-3 rounded-full font-bold transition-colors shadow-md hover:shadow-lg" data-category="all">
-                        ✨ 全て <span class="text-sm">(21)</span>
+                <p class="text-center text-base md:text-lg font-bold text-gray-700 mb-3">🏷️ カテゴリで絞り込む</p>
+                <div class="flex flex-wrap justify-center gap-2 max-w-2xl mx-auto">
+                    <button onclick="filterCategory('all')" class="category-btn active px-3 py-1.5 md:px-4 md:py-2 rounded-full text-sm md:text-base font-bold transition-colors shadow-sm" data-category="all">
+                        ✨ 全て <span class="text-xs md:text-sm">(21)</span>
                     </button>
-                    <button onclick="filterCategory('roof')" class="category-btn px-4 py-2 md:px-6 md:py-3 rounded-full font-bold transition-colors shadow-md hover:shadow-lg" data-category="roof">
-                        🏠 屋根 <span class="text-sm">(12)</span>
+                    <button onclick="filterCategory('roof')" class="category-btn px-3 py-1.5 md:px-4 md:py-2 rounded-full text-sm md:text-base font-bold transition-colors shadow-sm" data-category="roof">
+                        🏠 屋根 <span class="text-xs md:text-sm">(12)</span>
                     </button>
-                    <button onclick="filterCategory('wall')" class="category-btn px-4 py-2 md:px-6 md:py-3 rounded-full font-bold transition-colors shadow-md hover:shadow-lg" data-category="wall">
-                        🧱 外壁系 <span class="text-sm">(9)</span>
+                    <button onclick="filterCategory('wall')" class="category-btn px-3 py-1.5 md:px-4 md:py-2 rounded-full text-sm md:text-base font-bold transition-colors shadow-sm" data-category="wall">
+                        🧱 外壁系 <span class="text-xs md:text-sm">(9)</span>
                     </button>
-                    <button onclick="filterCategory('veranda')" class="category-btn px-4 py-2 md:px-6 md:py-3 rounded-full font-bold transition-colors shadow-md hover:shadow-lg" data-category="veranda">
-                        🏡 ベランダ <span class="text-sm">(1)</span>
+                    <button onclick="filterCategory('veranda')" class="category-btn px-3 py-1.5 md:px-4 md:py-2 rounded-full text-sm md:text-base font-bold transition-colors shadow-sm" data-category="veranda">
+                        🏡 ベランダ <span class="text-xs md:text-sm">(1)</span>
                     </button>
-                    <button onclick="filterCategory('gutter')" class="category-btn px-4 py-2 md:px-6 md:py-3 rounded-full font-bold transition-colors shadow-md hover:shadow-lg" data-category="gutter">
-                        💧 雨樋 <span class="text-sm">(2)</span>
+                    <button onclick="filterCategory('gutter')" class="category-btn px-3 py-1.5 md:px-4 md:py-2 rounded-full text-sm md:text-base font-bold transition-colors shadow-sm" data-category="gutter">
+                        💧 雨樋 <span class="text-xs md:text-sm">(2)</span>
                     </button>
-                    <button onclick="filterCategory('complex')" class="category-btn px-4 py-2 md:px-6 md:py-3 rounded-full font-bold transition-colors shadow-md hover:shadow-lg" data-category="complex">
-                        🔧 複合 <span class="text-sm">(11)</span>
+                    <button onclick="filterCategory('complex')" class="category-btn px-3 py-1.5 md:px-4 md:py-2 rounded-full text-sm md:text-base font-bold transition-colors shadow-sm" data-category="complex">
+                        🔧 複合 <span class="text-xs md:text-sm">(11)</span>
                     </button>
-                    <button onclick="filterCategory('emergency')" class="category-btn px-4 py-2 md:px-6 md:py-3 rounded-full font-bold transition-colors shadow-md hover:shadow-lg" data-category="emergency">
-                        ⚡ 緊急 <span class="text-sm">(4)</span>
+                    <button onclick="filterCategory('emergency')" class="category-btn px-3 py-1.5 md:px-4 md:py-2 rounded-full text-sm md:text-base font-bold transition-colors shadow-sm" data-category="emergency">
+                        ⚡ 緊急 <span class="text-xs md:text-sm">(4)</span>
                     </button>
                 </div>
             </div>
@@ -123,7 +123,7 @@
 
                 <!-- 事例21: 窓周りコーキング打ち替え（築18年・マンション雨漏り）（神奈川県川崎市多摩区） -->
                 <div class="case-item" data-page="4" data-categories='["wall", "complex"]'>
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -280,7 +280,7 @@
             <div id="cases-container" class="space-y-8 mb-10">
                 <!-- 事例1: 緊急対応で大規模改修を防いだケース -->
                 <div class="case-item" data-page="1" data-categories='["roof","emergency"]'>
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -364,7 +364,7 @@
 
                 <!-- 事例2: 訪問販売と比較して220万円削減 -->
                 <div class="case-item" data-page="1" data-categories='["roof"]\'>
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all border-4 border-yellow-400">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border-4 border-yellow-400">
                     <div class="bg-yellow-400 px-6 py-3 text-center">
                         <p class="font-black text-gray-800 text-lg">
                             ⚡ 訪問販売 480万円 → 当社 260万円（220万円削減！）
@@ -455,7 +455,7 @@
 
                 <!-- 事例3: サイディングからの雨漏り -->
                 <div class="case-item" data-page="1" data-categories='["wall"]\'>
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -539,7 +539,7 @@
 
                 <!-- 事例4: 緊急対応・屋根からの雨漏り -->
                 <div class="case-item" data-page="1" data-categories='["roof","emergency"]\'>
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -623,7 +623,7 @@
 
                 <!-- 事例5: サイディング張替（日野市） -->
                 <div class="case-item" data-page="1" data-categories='["wall"]\'>
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -707,7 +707,7 @@
 
                 <!-- 事例6: 雨樋新設（町田市） -->
                 <div class="case-item" data-page="1" data-categories='["gutter"]\'>
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -791,7 +791,7 @@
 
                 <!-- 事例7: 屋根カバー工法（横浜市青葉区） -->
             <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["roof"]'>
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー部分 -->
                         <div class="flex flex-wrap items-center gap-3 mb-6">
@@ -882,7 +882,7 @@
                 </div>
                 <!-- 事例8: 屋根カバー工法・天井張り替え（稲城市） -->
             <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["complex"]'>
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー部分 -->
                         <div class="flex flex-wrap items-center gap-3 mb-6">
@@ -968,7 +968,7 @@
 
                 <!-- 事例9: 瓦差し替え（八王子市） -->
             <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["roof"]'>
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー部分 -->
                         <div class="flex flex-wrap items-center gap-3 mb-6">
@@ -1042,7 +1042,7 @@
 
                 <!-- 事例10: 柱継ぎ工事（横浜市青葉区） -->
             <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["complex","emergency"]'>
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 border-4 border-yellow-400">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border-4 border-yellow-400">
                     <div class="bg-yellow-400 px-6 py-3 text-center">
                         <p class="font-black text-gray-800 text-lg">
                             ⚡ 訪問販売 380万円 → 当社 58万円（322万円削減！）
@@ -1132,7 +1132,7 @@
 
                 <!-- 事例11: 屋根・外壁塗装（築30年メンテナンス）（東京都日野市） -->
                 <div class="case-item" data-page="2" data-categories='["roof","wall","complex"]'>
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -1216,7 +1216,7 @@
 
                 <!-- 事例12: コーキング撤去打ち替え（東京都多摩市） -->
                 <div class="case-item" data-page="2" data-categories='["wall","complex","roof"]'>
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -1300,7 +1300,7 @@
 
                 <!-- 事例13: 築20年の屋根全面葺き替え（東京都町田市） -->
                 <div class="case-item" data-page="3" data-categories='["roof"]'>
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -1384,7 +1384,7 @@
 
                 <!-- 事例14: 屋根・外壁塗装工事（築36年・予防メンテナンス）（東京都稲城市） -->
                 <div class="case-item" data-page="3" data-categories='["roof","wall","complex"]'>
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -1469,7 +1469,7 @@
 
                 <!-- 事例15: 屋根・外壁塗装工事（築25年・コーキング劣化対応）（東京都調布市） -->
                 <div class="case-item" data-page="3" data-categories='["roof","wall","complex"]'>
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -1554,7 +1554,7 @@
 
                 <!-- 事例16: 屋根・外壁塗装工事（築27年・訪問販売比較で230万円削減）（東京都町田市） -->
                 <div class="case-item" data-page="3" data-categories='["roof","wall","complex"]'>
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -1656,7 +1656,7 @@
 
                 <!-- 事例17: ベランダ防水改修工事（築18年・ひび割れ補修）（神奈川県横浜市港北区） -->
                 <div class="case-item" data-page="3" data-categories='["veranda"]'>
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -1727,7 +1727,7 @@
 
                 <!-- 事例18: 軒交換（築37年・老朽化対応）（神奈川県横浜市青葉区） -->
                 <div class="case-item" data-page="3" data-categories='["complex"]'>
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -1860,7 +1860,7 @@
 
                 <!-- 事例19: 雨樋・軒交換（築31年・老朽化対応）（神奈川県川崎市麻生区） -->
                 <div class="case-item" data-page="4" data-categories='["gutter", "complex"]'>
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -1997,7 +1997,7 @@
 
                 <!-- 事例20: 棟板金交換（築11年・釘抜け対応）（神奈川県横浜市都筑区） -->
                 <div class="case-item" data-page="4" data-categories='["roof", "complex"]'>
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -2135,7 +2135,7 @@
 
                 <!-- 事例21: 下屋からの雨漏り・床全面改修（築38年）（東京都町田市） -->
                 <div class="case-item" data-page="4" data-categories='["roof","emergency","complex"]'>
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -2234,7 +2234,7 @@
 
                 <!-- 事例22: 瓦葺き直し（築48年・下地全面改修）（神奈川県横浜市青葉区） -->
                 <div class="case-item" data-page="5" data-categories='["roof"]'>
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-2xl transition-all">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>携帯テスト版</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .category-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: 2px solid transparent;
+        }
+        
+        .category-btn.active {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-color: #f5576c;
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-4">
+    <h1 class="text-2xl font-bold text-center mb-6">📱 携帯表示テスト</h1>
+    
+    <!-- カテゴリフィルタ -->
+    <div class="mb-8 px-2">
+        <p class="text-center text-sm font-bold text-gray-700 mb-2">🏷️ カテゴリで絞り込む</p>
+        <div class="flex flex-wrap justify-center gap-1.5 max-w-xl mx-auto">
+            <button class="category-btn active px-2.5 py-1 rounded-full text-xs font-bold">
+                ✨ 全て <span class="text-xs">(21)</span>
+            </button>
+            <button class="category-btn px-2.5 py-1 rounded-full text-xs font-bold">
+                🏠 屋根 <span class="text-xs">(12)</span>
+            </button>
+            <button class="category-btn px-2.5 py-1 rounded-full text-xs font-bold">
+                🧱 外壁系 <span class="text-xs">(9)</span>
+            </button>
+            <button class="category-btn px-2.5 py-1 rounded-full text-xs font-bold">
+                🏡 ベランダ <span class="text-xs">(1)</span>
+            </button>
+            <button class="category-btn px-2.5 py-1 rounded-full text-xs font-bold">
+                💧 雨樋 <span class="text-xs">(2)</span>
+            </button>
+            <button class="category-btn px-2.5 py-1 rounded-full text-xs font-bold">
+                🔧 複合 <span class="text-xs">(11)</span>
+            </button>
+            <button class="category-btn px-2.5 py-1 rounded-full text-xs font-bold">
+                ⚡ 緊急 <span class="text-xs">(4)</span>
+            </button>
+        </div>
+    </div>
+    
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-lg font-bold mb-4">✅ 修正内容:</h2>
+        <ul class="space-y-2 text-sm">
+            <li>✓ ボタンサイズ: px-2.5 py-1 text-xs（小さく）</li>
+            <li>✓ gap: 1.5（間隔を詰める）</li>
+            <li>✓ max-w: xl（画面幅に収める）</li>
+            <li>✓ hover効果: 完全削除（揺れない）</li>
+        </ul>
+        
+        <div class="mt-6 p-4 bg-blue-50 rounded">
+            <p class="font-bold text-blue-800">📝 確認ポイント:</p>
+            <ul class="mt-2 space-y-1 text-sm text-blue-700">
+                <li>• ボタンが画面からはみ出していないか？</li>
+                <li>• ボタンをタップしても揺れないか？</li>
+                <li>• 全てのボタンが見えているか？</li>
+            </ul>
+        </div>
+        
+        <div class="mt-4 text-center">
+            <a href="/jirei.html" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full font-bold">
+                📸 実際の施工事例ページへ
+            </a>
+        </div>
+    </div>
+</body>
+</html>

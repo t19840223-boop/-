@@ -2248,6 +2248,7 @@
         const totalPages = 5; // Page 1: 6件, Page 2: 6件, Page 3: 6件, Page 4: 3件, Page 5: 1件（全22件）
 
         function showPage(page) {
+            console.log('📄 showPage called with page:', page);
             currentPage = page;
             
             // Hide all cases
@@ -2268,6 +2269,7 @@
         }
 
         function updatePagination() {
+            console.log('📄 updatePagination called - currentPage:', currentPage, 'totalPages:', totalPages);
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
             const pageNumbers = document.getElementById('page-numbers');
@@ -2280,6 +2282,7 @@
             
             // Generate page number buttons
             pageNumbers.innerHTML = '';
+            console.log('📄 Generating', totalPages, 'page buttons');
             for (let i = 1; i <= totalPages; i++) {
                 const btn = document.createElement('button');
                 btn.textContent = i;

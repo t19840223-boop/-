@@ -2430,10 +2430,10 @@
                 const btn = document.createElement('button');
                 btn.textContent = i;
                 btn.onclick = () => showPage(i);
-                btn.className = `px-4 py-2 rounded-lg font-bold transition-all text-lg shadow-md ${
+                btn.className = `px-8 py-5 rounded-lg font-bold transition-all text-2xl shadow-lg border-4 ${
                     i === currentPage 
-                        ? 'bg-blue-600 text-white' 
-                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                        ? 'bg-blue-600 text-white border-blue-800' 
+                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300 border-gray-400'
                 }`;
                 pageNumbers.appendChild(btn);
             }

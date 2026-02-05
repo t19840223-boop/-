@@ -2089,15 +2089,20 @@
         const totalPages = 4; // Page 1: 6件, Page 2: 6件, Page 3: 6件, Page 4: 3件（全21件）
 
         function showPage(page) {
+            console.log(`🔄 showPage(${page}) called`);
             currentPage = page;
             
             // Hide all cases
-            document.querySelectorAll('.case-item').forEach(item => {
+            const allItems = document.querySelectorAll('.case-item');
+            console.log(`  Hiding ${allItems.length} items...`);
+            allItems.forEach(item => {
                 item.style.display = 'none';
             });
             
             // Show cases for current page
-            document.querySelectorAll(`.case-item[data-page="${page}"]`).forEach(item => {
+            const pageItems = document.querySelectorAll(`.case-item[data-page="${page}"]`);
+            console.log(`  Showing ${pageItems.length} items for page ${page}`);
+            pageItems.forEach(item => {
                 item.style.display = 'block';
             });
             
@@ -2142,7 +2147,16 @@
 
         // Initialize: Show page 1 on load
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 DOM loaded - initializing pagination');
+            console.log('📊 Total pages:', totalPages);
+            const allItems = document.querySelectorAll('.case-item');
+            console.log('📋 Total case-item elements:', allItems.length);
+            allItems.forEach((item, idx) => {
+                const page = item.getAttribute('data-page');
+                console.log(`  Item ${idx+1}: data-page="${page}"`);
+            });
             showPage(1);
+            console.log('✅ Pagination initialized');
         });
 
         // カテゴリフィルタ機能

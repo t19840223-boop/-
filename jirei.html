@@ -92,6 +92,58 @@
                 </p>
             </div>
 
+            <!-- 地域検索機能 -->
+            <div class="max-w-4xl mx-auto mb-8">
+                <div class="bg-white rounded-2xl shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">🔍 地域で探す</h3>
+                    
+                    <!-- 検索ボックス -->
+                    <div class="mb-4">
+                        <input 
+                            type="text" 
+                            id="area-search" 
+                            placeholder="🔍 市区町村を入力（例：町田、横浜、青葉）" 
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-base focus:border-blue-500 focus:outline-none transition-all"
+                            onkeyup="searchByArea()"
+                        >
+                    </div>
+                    
+                    <p class="text-center text-sm text-gray-500 mb-3">または</p>
+                    
+                    <!-- ドロップダウン -->
+                    <div class="mb-4">
+                        <select 
+                            id="area-select" 
+                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-base focus:border-blue-500 focus:outline-none transition-all bg-white"
+                            onchange="filterByArea()"
+                        >
+                            <option value="all">▼ 地域を選択してください</option>
+                            <optgroup label="東京都（13件）">
+                                <option value="町田市">町田市（5件）</option>
+                                <option value="日野市">日野市（3件）</option>
+                                <option value="稲城市">稲城市（2件）</option>
+                                <option value="調布市">調布市（1件）</option>
+                                <option value="多摩市">多摩市（1件）</option>
+                                <option value="八王子市">八王子市（1件）</option>
+                            </optgroup>
+                            <optgroup label="神奈川県（9件）">
+                                <option value="横浜市青葉区">横浜市青葉区（5件）</option>
+                                <option value="横浜市港北区">横浜市港北区（1件）</option>
+                                <option value="横浜市都筑区">横浜市都筑区（1件）</option>
+                                <option value="川崎市麻生区">川崎市麻生区（1件）</option>
+                                <option value="相模原市南区">相模原市南区（1件）</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    
+                    <!-- 表示件数 -->
+                    <div class="text-center">
+                        <p class="text-lg font-bold text-blue-600">
+                            表示中：<span id="visible-count">22</span>件
+                        </p>
+                    </div>
+                </div>
+            </div>
 
             <!-- ページネーション -->
             <div id="pagination" class="flex justify-center items-center gap-4 mb-8 p-6 bg-white rounded-2xl shadow-lg">
@@ -108,7 +160,7 @@
 
             <div id="cases-container" class="space-y-8 mb-10">
                 <!-- 事例1: 緊急対応で大規模改修を防いだケース -->
-                <div class="case-item" data-page="1" data-categories='["roof","emergency"]'>
+                <div class="case-item" data-page="1" data-categories='["roof","emergency"]' data-area="横浜市青葉区">
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -192,7 +244,7 @@
                 </div>
 
                 <!-- 事例2: 訪問販売と比較して220万円削減 -->
-                <div class="case-item" data-page="1" data-categories='["roof"]\'>
+                <div class="case-item" data-page="1" data-categories='["roof"]\' data-area="町田市">
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all border-4 border-yellow-400">
                     <div class="bg-yellow-400 px-6 py-3 text-center">
                         <p class="font-black text-gray-800 text-lg">
@@ -283,7 +335,7 @@
                 </div>
 
                 <!-- 事例3: サイディングからの雨漏り -->
-                <div class="case-item" data-page="1" data-categories='["wall"]\'>
+                <div class="case-item" data-page="1" data-categories='["wall"]\' data-area="相模原市南区">
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -367,7 +419,7 @@
                 </div>
 
                 <!-- 事例4: 緊急対応・屋根からの雨漏り -->
-                <div class="case-item" data-page="1" data-categories='["roof","emergency"]\'>
+                <div class="case-item" data-page="1" data-categories='["roof","emergency"]\' data-area="町田市">
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -451,7 +503,7 @@
                 </div>
 
                 <!-- 事例5: サイディング張替（日野市） -->
-                <div class="case-item" data-page="1" data-categories='["wall"]\'>
+                <div class="case-item" data-page="1" data-categories='["wall"]\' data-area="日野市">
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -535,7 +587,7 @@
                 </div>
 
                 <!-- 事例6: 雨樋新設（町田市） -->
-                <div class="case-item" data-page="1" data-categories='["gutter"]\'>
+                <div class="case-item" data-page="1" data-categories='["gutter"]\' data-area="町田市">
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -619,7 +671,7 @@
             </div>
 
                 <!-- 事例7: 屋根カバー工法（横浜市青葉区） -->
-            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["roof"]'>
+            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["roof"]' data-area="横浜市青葉区">
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー部分 -->
@@ -710,7 +762,7 @@
             </div>
                 </div>
                 <!-- 事例8: 屋根カバー工法・天井張り替え（稲城市） -->
-            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["complex"]'>
+            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["complex"]' data-area="稲城市">
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー部分 -->
@@ -796,7 +848,7 @@
                 </div>
 
                 <!-- 事例9: 瓦差し替え（八王子市） -->
-            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["roof"]'>
+            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["roof"]' data-area="八王子市">
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー部分 -->
@@ -870,7 +922,7 @@
                 </div>
 
                 <!-- 事例10: 柱継ぎ工事（横浜市青葉区） -->
-            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["complex","emergency"]'>
+            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["complex","emergency"]' data-area="横浜市青葉区">
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 border-4 border-yellow-400">
                     <div class="bg-yellow-400 px-6 py-3 text-center">
                         <p class="font-black text-gray-800 text-lg">
@@ -960,7 +1012,7 @@
                 </div>
 
                 <!-- 事例11: 屋根・外壁塗装（築30年メンテナンス）（東京都日野市） -->
-                <div class="case-item" data-page="2" data-categories='["roof","wall","complex"]'>
+                <div class="case-item" data-page="2" data-categories='["roof","wall","complex"]' data-area="日野市">
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -1044,7 +1096,7 @@
                 </div>
 
                 <!-- 事例12: コーキング撤去打ち替え（東京都多摩市） -->
-                <div class="case-item" data-page="2" data-categories='["wall","complex","roof"]'>
+                <div class="case-item" data-page="2" data-categories='["wall","complex","roof"]' data-area="多摩市">
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -1128,7 +1180,7 @@
                 </div>
 
                 <!-- 事例13: 築20年の屋根全面葺き替え（東京都町田市） -->
-                <div class="case-item" data-page="3" data-categories='["roof"]'>
+                <div class="case-item" data-page="3" data-categories='["roof"]' data-area="町田市">
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -1212,7 +1264,7 @@
                 </div>
 
                 <!-- 事例14: 屋根・外壁塗装工事（築36年・予防メンテナンス）（東京都稲城市） -->
-                <div class="case-item" data-page="3" data-categories='["roof","wall","complex"]'>
+                <div class="case-item" data-page="3" data-categories='["roof","wall","complex"]' data-area="稲城市">
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -1297,7 +1349,7 @@
             </div>
 
                 <!-- 事例15: 屋根・外壁塗装工事（築25年・コーキング劣化対応）（東京都調布市） -->
-                <div class="case-item" data-page="3" data-categories='["roof","wall","complex"]'>
+                <div class="case-item" data-page="3" data-categories='["roof","wall","complex"]' data-area="調布市">
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -1382,7 +1434,7 @@
             </div>
 
                 <!-- 事例16: 屋根・外壁塗装工事（築27年・訪問販売比較で230万円削減）（東京都町田市） -->
-                <div class="case-item" data-page="3" data-categories='["roof","wall","complex"]'>
+                <div class="case-item" data-page="3" data-categories='["roof","wall","complex"]' data-area="町田市">
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -1484,7 +1536,7 @@
             </div>
 
                 <!-- 事例17: ベランダ防水改修工事（築18年・ひび割れ補修）（神奈川県横浜市港北区） -->
-                <div class="case-item" data-page="3" data-categories='["veranda"]'>
+                <div class="case-item" data-page="3" data-categories='["veranda"]' data-area="横浜市港北区">
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -1555,7 +1607,7 @@
                 </div>
 
                 <!-- 事例18: 軒交換（築37年・老朽化対応）（神奈川県横浜市青葉区） -->
-                <div class="case-item" data-page="3" data-categories='["complex"]'>
+                <div class="case-item" data-page="3" data-categories='["complex"]' data-area="横浜市青葉区">
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -1688,7 +1740,7 @@
                 </div>
 
                 <!-- 事例19: 雨樋・軒交換（築31年・老朽化対応）（神奈川県川崎市麻生区） -->
-                <div class="case-item" data-page="4" data-categories='["gutter", "complex"]'>
+                <div class="case-item" data-page="4" data-categories='["gutter", "complex"]' data-area="川崎市麻生区">
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -1825,7 +1877,7 @@
                 </div>
 
                 <!-- 事例20: 棟板金交換（築11年・釘抜け対応）（神奈川県横浜市都筑区） -->
-                <div class="case-item" data-page="4" data-categories='["roof", "complex"]'>
+                <div class="case-item" data-page="4" data-categories='["roof", "complex"]' data-area="横浜市都筑区">
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -1963,7 +2015,7 @@
 
 
                 <!-- 事例21: 下屋からの雨漏り・床全面改修（築38年）（東京都町田市） -->
-                <div class="case-item" data-page="4" data-categories='["roof","emergency","complex"]'>
+                <div class="case-item" data-page="4" data-categories='["roof","emergency","complex"]' data-area="町田市">
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
@@ -2062,7 +2114,7 @@
                 </div>
 
                 <!-- 事例22: 瓦葺き直し（築48年・下地全面改修）（神奈川県横浜市青葉区） -->
-                <div class="case-item" data-page="5" data-categories='["roof"]'>
+                <div class="case-item" data-page="5" data-categories='["roof"]' data-area="横浜市青葉区">
                 <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->

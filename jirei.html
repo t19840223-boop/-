@@ -2338,7 +2338,69 @@
             if (pagination) {
                 pagination.style.display = 'none';
             }
+            
+            updateVisibleCount();
         });
+
+        // 地域検索機能
+        function searchByArea() {
+            const searchText = document.getElementById('area-search').value.toLowerCase();
+            const select = document.getElementById('area-select');
+            select.value = 'all'; // リセット
+            
+            const allCases = document.querySelectorAll('.case-item');
+            
+            allCases.forEach(caseItem => {
+                const area = (caseItem.dataset.area || '').toLowerCase();
+                
+                if (searchText === '' || area.includes(searchText)) {
+                    caseItem.style.display = 'block';
+                } else {
+                    caseItem.style.display = 'none';
+                }
+            });
+            
+            updateVisibleCount();
+        }
+
+        // ドロップダウンで絞り込み
+        function filterByArea() {
+            const selectedArea = document.getElementById('area-select').value;
+            const searchBox = document.getElementById('area-search');
+            searchBox.value = ''; // リセット
+            
+            const allCases = document.querySelectorAll('.case-item');
+            
+            allCases.forEach(caseItem => {
+                const area = caseItem.dataset.area || '';
+                
+                if (selectedArea === 'all' || area === selectedArea) {
+                    caseItem.style.display = 'block';
+                } else {
+                    caseItem.style.display = 'none';
+                }
+            });
+            
+            updateVisibleCount();
+        }
+
+        // 表示件数を更新
+        function updateVisibleCount() {
+            const allCases = document.querySelectorAll('.case-item');
+            let count = 0;
+            
+            allCases.forEach(caseItem => {
+                const style = window.getComputedStyle(caseItem);
+                if (style.display !== 'none') {
+                    count++;
+                }
+            });
+            
+            const countElement = document.getElementById('visible-count');
+            if (countElement) {
+                countElement.textContent = count;
+            }
+        }
     </script>
 
     <style>

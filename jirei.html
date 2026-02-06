@@ -2303,7 +2303,8 @@
 
         // Initialize: Show page 1 on load
         document.addEventListener('DOMContentLoaded', function() {
-            showPage(1);
+            // 初期表示：全事例を表示
+            filterCategory('all');
         });
 
         // カテゴリフィルタ機能

@@ -77,7 +77,7 @@
                     「本当に直るのか？」「費用は適正なのか？」
                 </p>
                 <h1 class="text-3xl md:text-5xl font-black text-gray-800 mb-4">
-                    📸 施工事例（全29件）
+                    📸 施工事例（全22件）
                 </h1>
                 <p class="text-base md:text-lg text-gray-700 max-w-3xl mx-auto">
                     同じような不安を抱えていたお客様が、<span class="text-blue-600 font-black">どのように解決したのか</span>をご覧ください。<br>
@@ -92,76 +92,195 @@
                 </p>
             </div>
 
-            <!-- 地域検索機能 -->
-            <div class="max-w-4xl mx-auto mb-8">
-                <div class="bg-white rounded-2xl shadow-lg p-6">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">🔍 地域で探す</h3>
-                    
-                    <!-- 検索ボックス -->
-                    <div class="mb-4">
-                        <input 
-                            type="text" 
-                            id="area-search" 
-                            placeholder="🔍 市区町村を入力（例：町田、横浜、青葉）" 
-                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-base focus:border-blue-500 focus:outline-none transition-all"
-                            onkeyup="searchByArea()"
-                        >
-                    </div>
-                    
-                    <p class="text-center text-sm text-gray-500 mb-3">または</p>
-                    
-                    <!-- ドロップダウン -->
-                    <div class="mb-4">
-                        <select 
-                            id="area-select" 
-                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-base focus:border-blue-500 focus:outline-none transition-all bg-white"
-                            onchange="filterByArea()"
-                        >
-                            <option value="all">✨ 全て（26件）</option>
-                            <optgroup label="東京都（17件）">
-                                <option value="町田市">町田市（6件）</option>
-                                <option value="日野市">日野市（3件）</option>
-                                <option value="稲城市">稲城市（2件）</option>
-                                <option value="八王子市">八王子市（3件）</option>
-                                <option value="調布市">調布市（2件）</option>
-                                <option value="多摩市">多摩市（1件）</option>
-                            </optgroup>
-                            <optgroup label="神奈川県（12件）">
-                                <option value="横浜市青葉区">横浜市青葉区（5件）</option>
-                                <option value="川崎市麻生区">川崎市麻生区（3件）</option>
-                                <option value="横浜市港北区">横浜市港北区（1件）</option>
-                                <option value="横浜市都筑区">横浜市都筑区（1件）</option>
-                                <option value="相模原市南区">相模原市南区（2件）</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                    
-                    <!-- 表示件数 -->
-                    <div class="text-center">
-                        <p class="text-lg font-bold text-blue-600">
-                            表示中：<span id="visible-count">29</span>件
-                        </p>
-                    </div>
+            <!-- カテゴリフィルタ -->
+            <div class="mb-8 px-2">
+                <p class="text-center text-sm md:text-lg font-bold text-gray-700 mb-2">🏷️ カテゴリで絞り込む</p>
+                <div class="flex flex-wrap justify-center gap-1.5 max-w-xl mx-auto">
+                    <button onclick="filterCategory('all')" class="category-btn active px-2.5 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-base font-bold" data-category="all">
+                        ✨ 全て <span class="text-xs">(21)</span>
+                    </button>
+                    <button onclick="filterCategory('roof')" class="category-btn px-2.5 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-base font-bold" data-category="roof">
+                        🏠 屋根 <span class="text-xs">(12)</span>
+                    </button>
+                    <button onclick="filterCategory('wall')" class="category-btn px-2.5 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-base font-bold" data-category="wall">
+                        🧱 外壁系 <span class="text-xs">(9)</span>
+                    </button>
+                    <button onclick="filterCategory('veranda')" class="category-btn px-2.5 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-base font-bold" data-category="veranda">
+                        🏡 ベランダ <span class="text-xs">(1)</span>
+                    </button>
+                    <button onclick="filterCategory('gutter')" class="category-btn px-2.5 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-base font-bold" data-category="gutter">
+                        💧 雨樋 <span class="text-xs">(2)</span>
+                    </button>
+                    <button onclick="filterCategory('complex')" class="category-btn px-2.5 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-base font-bold" data-category="complex">
+                        🔧 複合 <span class="text-xs">(11)</span>
+                    </button>
+                    <button onclick="filterCategory('emergency')" class="category-btn px-2.5 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-base font-bold" data-category="emergency">
+                        ⚡ 緊急 <span class="text-xs">(4)</span>
+                    </button>
                 </div>
             </div>
 
+
+                <!-- 事例21: 窓周りコーキング打ち替え（築18年・マンション雨漏り）（神奈川県川崎市多摩区） -->
+                <div class="case-item" data-page="4" data-categories='["wall", "complex"]'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="p-6 md:p-8">
+                        <!-- ヘッダー: タイトルとバッジ -->
+                        <div class="flex flex-wrap items-center justify-between mb-6">
+                            <div class="flex-1">
+                                <h3 class="text-2xl md:text-3xl font-black text-gray-800 mb-2">
+                                    事例21: 窓周りコーキング打ち替え（築18年・マンション雨漏り）
+                                </h3>
+                                <p class="text-lg text-gray-600">
+                    神奈川県川崎市多摩区 J様
+                                </p>
+                            </div>
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-bold">
+                                    築18年
+                                </span>
+                                <span class="px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-bold">
+                                    🧱 外壁系
+                                </span>
+                                <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-bold">
+                                    🔧 複合工事
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Before / After 画像 -->
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
+                            <div class="relative group">
+                                <img src="images/case12/01-before-crack.jpg" alt="窓周りコーキング打ち替え前" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
+                                <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
+                            </div>
+                            <div class="relative group">
+                                <img src="images/case12/02-removal.jpg" alt="コーキング撤去中" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
+                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">撤去中</span>
+                            </div>
+                            <div class="relative group">
+                                <img src="images/case12/03-completed.jpg" alt="窓周りコーキング打ち替え完了" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
+                                <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
+                            </div>
+                        </div>
+
+                        <!-- 症状 -->
+                        <div class="mb-6 p-5 bg-red-50 border-2 border-red-300 rounded-lg">
+                            <h4 class="text-lg font-black text-red-700 mb-3 flex items-center">
+                                <span class="text-2xl mr-2">⚠️</span> 症状
+                            </h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start">
+                                    <span class="text-red-600 mr-2 mt-1">●</span>
+                                    <span><strong>マンションの窓周りから雨漏り:</strong> 雨が降るたびに窓周りから室内に水が染み込んでいた</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-600 mr-2 mt-1">●</span>
+                                    <span><strong>窓周りコーキングの劣化:</strong> 築18年の経年劣化で、窓サッシ周りのコーキングにひび割れが発生</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-600 mr-2 mt-1">●</span>
+                                    <span><strong>室内への浸水:</strong> 雨水が窓枠から室内に侵入し、カーテンや床が濡れていた</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 原因 -->
+                        <div class="mb-6 p-5 bg-orange-50 border-2 border-orange-300 rounded-lg">
+                            <h4 class="text-lg font-black text-orange-700 mb-3 flex items-center">
+                                <span class="text-2xl mr-2">🔍</span> 原因
+                            </h4>
+                            <p class="text-gray-700 leading-relaxed">
+                                築18年の経年劣化により、窓サッシ周りのコーキングが紫外線や雨水で硬化・収縮し、ひび割れが発生。
+                                窓周りは外壁の中でも特に雨水の影響を受けやすく、コーキングの劣化が進みやすい箇所。
+                                マンションの場合、足場設置が難しいため、部分的な施工で費用を抑える提案が重要。
+                            </p>
+                        </div>
+
+                        <!-- 施工内容 -->
+                        <div class="mb-6 p-5 bg-blue-50 border-2 border-blue-300 rounded-lg">
+                            <h4 class="text-lg font-black text-blue-700 mb-3 flex items-center">
+                                <span class="text-2xl mr-2">🔧</span> 施工内容
+                            </h4>
+                            <ol class="space-y-3 text-gray-700">
+                                <li class="flex items-start">
+                                    <span class="font-bold text-blue-600 mr-3 mt-0.5">1.</span>
+                                    <div>
+                                        <strong class="text-blue-700">部分足場の設置:</strong> 雨漏りが発生している窓周りのみに足場を設置し、費用を抑制
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="font-bold text-blue-600 mr-3 mt-0.5">2.</span>
+                                    <div>
+                                        <strong class="text-blue-700">既存コーキングの撤去:</strong> 劣化したコーキングを専用カッターで丁寧に撤去
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="font-bold text-blue-600 mr-3 mt-0.5">3.</span>
+                                    <div>
+                                        <strong class="text-blue-700">プライマー塗布:</strong> 新しいコーキングの密着性を高めるためプライマーを塗布
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="font-bold text-blue-600 mr-3 mt-0.5">4.</span>
+                                    <div>
+                                        <strong class="text-blue-700">新規コーキング打設:</strong> 耐久性の高い変成シリコン系コーキングを打設
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="font-bold text-blue-600 mr-3 mt-0.5">5.</span>
+                                    <div>
+                                        <strong class="text-blue-700">仕上げ・清掃:</strong> コーキング表面を平滑に仕上げ、周辺を清掃
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="font-bold text-blue-600 mr-3 mt-0.5">6.</span>
+                                    <div>
+                                        <strong class="text-blue-700">経過観察:</strong> 一度様子を見て、必要に応じて追加施工を検討
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <!-- 費用・工期・ポイント・お客様の声 -->
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border-2 border-orange-200">
+                                <p class="text-xs text-gray-600 mb-1">💴 費用</p>
+                                <p class="text-3xl font-black text-orange-600">11万円</p>
+                                <p class="text-xs text-gray-600 mt-2">⏰ 工期: 2日間</p>
+                            </div>
+                            
+                            <div class="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-400 p-4 rounded-lg">
+                                <p class="text-xs font-bold text-green-700 mb-1">✨ ポイント</p>
+                                <p class="text-xs text-gray-700">インターネットから連絡をいただき、マンションの窓周りのみ部分足場を組んで施工。雨漏りの可能性がある箇所のみに絞り、一度様子を見ることで費用を11万円に抑制。追加施工が必要な場合も対応可能。</p>
+                            </div>
+
+                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border-2 border-blue-200">
+                                <p class="text-xs font-bold text-blue-700 mb-1">💬 お客様の声</p>
+                                <p class="text-xs text-gray-700">「マンションの窓から雨漏りしてネットで調べて連絡しました。全体を直すと高額になると思っていましたが、問題のある箇所だけ施工してもらい11万円で済んで助かりました。様子を見て必要なら追加でお願いします。」</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
             <!-- ページネーション -->
-            <div id="pagination" class="flex justify-center items-center gap-4 mb-8 p-6 bg-white rounded-2xl shadow-lg">
-                <button onclick="changePage('prev')" id="prev-btn" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-bold text-lg hover:bg-gray-300 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md">
+            <div id="pagination" class="flex justify-center items-center gap-4 mb-8 p-6 bg-yellow-100 border-4 border-red-500 rounded-2xl shadow-lg" style="min-height: 100px;">
+                <button onclick="changePage('prev')" id="prev-btn" class="px-8 py-5 bg-gray-200 text-gray-700 rounded-lg font-bold text-2xl hover:bg-gray-300 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md border-2 border-gray-400">
                     ← 前へ
                 </button>
-                <div id="page-numbers" class="flex gap-2">
+                <div id="page-numbers" class="flex gap-3" style="min-width: 300px; min-height: 60px; background: rgba(255,255,255,0.5); padding: 10px; border-radius: 8px;">
                     <!-- Page buttons will be generated by JavaScript -->
                 </div>
-                <button onclick="changePage('next')" id="next-btn" class="px-6 py-3 bg-blue-600 text-white rounded-lg font-bold text-lg hover:bg-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md">
+                <button onclick="changePage('next')" id="next-btn" class="px-8 py-5 bg-blue-600 text-white rounded-lg font-bold text-2xl hover:bg-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md border-2 border-blue-800">
                     次へ →
                 </button>
             </div>
 
             <div id="cases-container" class="space-y-8 mb-10">
                 <!-- 事例1: 緊急対応で大規模改修を防いだケース -->
-                <div class="case-item" data-page="1" data-categories='["roof","emergency"]' data-area="横浜市青葉区">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+                <div class="case-item" data-page="1" data-categories='["roof","emergency"]'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -244,8 +363,8 @@
                 </div>
 
                 <!-- 事例2: 訪問販売と比較して220万円削減 -->
-                <div class="case-item" data-page="1" data-categories='["roof"]\' data-area="町田市">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all border-4 border-yellow-400">
+                <div class="case-item" data-page="1" data-categories='["roof"]\'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border-4 border-yellow-400">
                     <div class="bg-yellow-400 px-6 py-3 text-center">
                         <p class="font-black text-gray-800 text-lg">
                             ⚡ 訪問販売 480万円 → 当社 260万円（220万円削減！）
@@ -335,8 +454,8 @@
                 </div>
 
                 <!-- 事例3: サイディングからの雨漏り -->
-                <div class="case-item" data-page="1" data-categories='["wall"]\' data-area="相模原市南区">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+                <div class="case-item" data-page="1" data-categories='["wall"]\'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -419,8 +538,8 @@
                 </div>
 
                 <!-- 事例4: 緊急対応・屋根からの雨漏り -->
-                <div class="case-item" data-page="1" data-categories='["roof","emergency"]\' data-area="町田市">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+                <div class="case-item" data-page="1" data-categories='["roof","emergency"]\'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -503,8 +622,8 @@
                 </div>
 
                 <!-- 事例5: サイディング張替（日野市） -->
-                <div class="case-item" data-page="1" data-categories='["wall"]\' data-area="日野市">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+                <div class="case-item" data-page="1" data-categories='["wall"]\'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -587,8 +706,8 @@
                 </div>
 
                 <!-- 事例6: 雨樋新設（町田市） -->
-                <div class="case-item" data-page="1" data-categories='["gutter"]\' data-area="町田市">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+                <div class="case-item" data-page="1" data-categories='["gutter"]\'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -671,8 +790,8 @@
             </div>
 
                 <!-- 事例7: 屋根カバー工法（横浜市青葉区） -->
-            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["roof"]' data-area="横浜市青葉区">
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["roof"]'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー部分 -->
                         <div class="flex flex-wrap items-center gap-3 mb-6">
@@ -762,8 +881,8 @@
             </div>
                 </div>
                 <!-- 事例8: 屋根カバー工法・天井張り替え（稲城市） -->
-            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["complex"]' data-area="稲城市">
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["complex"]'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー部分 -->
                         <div class="flex flex-wrap items-center gap-3 mb-6">
@@ -848,8 +967,8 @@
                 </div>
 
                 <!-- 事例9: 瓦差し替え（八王子市） -->
-            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["roof"]' data-area="八王子市">
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["roof"]'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー部分 -->
                         <div class="flex flex-wrap items-center gap-3 mb-6">
@@ -922,8 +1041,8 @@
                 </div>
 
                 <!-- 事例10: 柱継ぎ工事（横浜市青葉区） -->
-            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["complex","emergency"]' data-area="横浜市青葉区">
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 border-4 border-yellow-400">
+            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["complex","emergency"]'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden border-4 border-yellow-400">
                     <div class="bg-yellow-400 px-6 py-3 text-center">
                         <p class="font-black text-gray-800 text-lg">
                             ⚡ 訪問販売 380万円 → 当社 58万円（322万円削減！）
@@ -1012,8 +1131,8 @@
                 </div>
 
                 <!-- 事例11: 屋根・外壁塗装（築30年メンテナンス）（東京都日野市） -->
-                <div class="case-item" data-page="2" data-categories='["roof","wall","complex"]' data-area="日野市">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+                <div class="case-item" data-page="2" data-categories='["roof","wall","complex"]'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -1096,8 +1215,8 @@
                 </div>
 
                 <!-- 事例12: コーキング撤去打ち替え（東京都多摩市） -->
-                <div class="case-item" data-page="2" data-categories='["wall","complex","roof"]' data-area="多摩市">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+                <div class="case-item" data-page="2" data-categories='["wall","complex","roof"]'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -1180,8 +1299,8 @@
                 </div>
 
                 <!-- 事例13: 築20年の屋根全面葺き替え（東京都町田市） -->
-                <div class="case-item" data-page="3" data-categories='["roof"]' data-area="町田市">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+                <div class="case-item" data-page="3" data-categories='["roof"]'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -1264,8 +1383,8 @@
                 </div>
 
                 <!-- 事例14: 屋根・外壁塗装工事（築36年・予防メンテナンス）（東京都稲城市） -->
-                <div class="case-item" data-page="3" data-categories='["roof","wall","complex"]' data-area="稲城市">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+                <div class="case-item" data-page="3" data-categories='["roof","wall","complex"]'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -1349,8 +1468,8 @@
             </div>
 
                 <!-- 事例15: 屋根・外壁塗装工事（築25年・コーキング劣化対応）（東京都調布市） -->
-                <div class="case-item" data-page="3" data-categories='["roof","wall","complex"]' data-area="調布市">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+                <div class="case-item" data-page="3" data-categories='["roof","wall","complex"]'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -1434,8 +1553,8 @@
             </div>
 
                 <!-- 事例16: 屋根・外壁塗装工事（築27年・訪問販売比較で230万円削減）（東京都町田市） -->
-                <div class="case-item" data-page="3" data-categories='["roof","wall","complex"]' data-area="町田市">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+                <div class="case-item" data-page="3" data-categories='["roof","wall","complex"]'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -1536,8 +1655,8 @@
             </div>
 
                 <!-- 事例17: ベランダ防水改修工事（築18年・ひび割れ補修）（神奈川県横浜市港北区） -->
-                <div class="case-item" data-page="3" data-categories='["veranda"]' data-area="横浜市港北区">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+                <div class="case-item" data-page="3" data-categories='["veranda"]'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -1557,23 +1676,15 @@
                         <!-- Before / After 画像 -->
                         <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
                             <div class="relative group">
-                                <img src="images/case17/01-before.jpg" alt="施工前：ベランダ劣化" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
+                                <img src="images/case17/01-before-crack.jpg" alt="ベランダひび割れ" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
                                 <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
                             </div>
                             <div class="relative group">
-                                <img src="images/case17/05-before2.jpg" alt="施工前：ひび割れ詳細" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
+                                <img src="images/case17/02-repair.jpg" alt="補修作業" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
+                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
                             </div>
                             <div class="relative group">
-                                <img src="images/case17/02-after.jpg" alt="施工後：防水完了" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case17/03-after2.jpg" alt="施工後：別角度" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case17/04-after3.jpg" alt="施工後：全体" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
+                                <img src="images/case17/03-completed1.jpg" alt="防水完了" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
                                 <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
                             </div>
                         </div>
@@ -1615,8 +1726,8 @@
                 </div>
 
                 <!-- 事例18: 軒交換（築37年・老朽化対応）（神奈川県横浜市青葉区） -->
-                <div class="case-item" data-page="3" data-categories='["complex"]' data-area="横浜市青葉区">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+                <div class="case-item" data-page="3" data-categories='["complex"]'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -1639,17 +1750,17 @@
                         </div>
 
                         <!-- Before / After 画像 -->
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
                             <div class="relative group">
-                                <img src="images/case18/01-before-eaves.jpg" alt="施工前：軒天井の劣化" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
+                                <img src="images/case10/02-before.jpg" alt="軒交換前の状態" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
                                 <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
                             </div>
                             <div class="relative group">
-                                <img src="images/case18/02-repair-work.jpg" alt="施工中：軒天井交換作業" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
+                                <img src="images/case10/01-completed.jpg" alt="軒交換中" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
                                 <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
                             </div>
                             <div class="relative group">
-                                <img src="images/case18/03-completed.jpg" alt="施工後：軒天井交換完了" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
+                                <img src="images/case10/01-completed.jpg" alt="軒交換完了" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
                                 <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
                             </div>
                         </div>
@@ -1748,8 +1859,8 @@
                 </div>
 
                 <!-- 事例19: 雨樋・軒交換（築31年・老朽化対応）（神奈川県川崎市麻生区） -->
-                <div class="case-item" data-page="4" data-categories='["gutter", "complex"]' data-area="川崎市麻生区">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+                <div class="case-item" data-page="4" data-categories='["gutter", "complex"]'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -1775,30 +1886,18 @@
                         </div>
 
                         <!-- Before / After 画像 -->
-                        <div class="grid grid-cols-2 md:grid-cols-6 gap-3 mb-6">
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
                             <div class="relative group">
-                                <img src="images/case19/01-before-damage.jpg" alt="施工前：軒天井の損傷" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
+                                <img src="images/case6/01-before.jpg" alt="雨樋・軒交換前" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
                                 <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
                             </div>
                             <div class="relative group">
-                                <img src="images/case19/02-before-eaves.jpg" alt="施工前：軒天井の劣化" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case19/03-after-eaves.jpg" alt="施工後：軒天井修復" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case19/04-gutter-detail.jpg" alt="雨樋詳細" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
+                                <img src="images/case6/02-during.jpg" alt="雨樋・軒交換中" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
                                 <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
                             </div>
                             <div class="relative group">
-                                <img src="images/case19/05-gutter-completed.jpg" alt="雨樋交換完了" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
+                                <img src="images/case6/03-after.jpg" alt="雨樋・軒交換完了" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
                                 <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case19/06-adhesive.jpg" alt="雨樋用接着剤" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full">材料</span>
                             </div>
                         </div>
 
@@ -1897,8 +1996,8 @@
                 </div>
 
                 <!-- 事例20: 棟板金交換（築11年・釘抜け対応）（神奈川県横浜市都筑区） -->
-                <div class="case-item" data-page="4" data-categories='["roof", "complex"]' data-area="横浜市都筑区">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+                <div class="case-item" data-page="4" data-categories='["roof", "complex"]'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -1926,23 +2025,15 @@
                         <!-- Before / After 画像 -->
                         <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
                             <div class="relative group">
-                                <img src="images/case20/01-completed-roof.jpg" alt="施工後：屋根完成" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
+                                <img src="images/case7/01-completed.jpg" alt="棟板金交換前" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
+                                <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
                             </div>
                             <div class="relative group">
-                                <img src="images/case20/02-ridge-detail.jpg" alt="棟板金詳細" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
+                                <img src="images/case7/02-balcony.jpg" alt="棟板金交換中" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
                                 <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
                             </div>
                             <div class="relative group">
-                                <img src="images/case20/03-during-work.jpg" alt="施工中：作業風景" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case20/04-painting-progress.jpg" alt="塗装作業中" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case20/05-wide-view.jpg" alt="施工後：広角ビュー" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
+                                <img src="images/case7/01-completed.jpg" alt="棟板金交換完了" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
                                 <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
                             </div>
                         </div>
@@ -2043,8 +2134,8 @@
 
 
                 <!-- 事例21: 下屋からの雨漏り・床全面改修（築38年）（東京都町田市） -->
-                <div class="case-item" data-page="4" data-categories='["roof","emergency","complex"]' data-area="町田市">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+                <div class="case-item" data-page="4" data-categories='["roof","emergency","complex"]'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -2074,33 +2165,33 @@
                         <!-- Before / After 画像（7枚） -->
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
                             <div class="relative group">
-                                <img src="images/case21/01-before-damage.jpg" alt="雨漏り被害前" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
+                                <img src="images/case21/01-before-damage.jpg" alt="雨漏り被害前" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
                                 <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
                             </div>
                             <div class="relative group">
-                                <img src="images/case21/02-floor-repair.jpg" alt="床下地改修" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
+                                <img src="images/case21/02-floor-repair.jpg" alt="床下地改修" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
                                 <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">床撤去</span>
                             </div>
                             <div class="relative group">
-                                <img src="images/case21/03-ceiling-stain.jpg" alt="天井シミ" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
+                                <img src="images/case21/03-ceiling-stain.jpg" alt="天井シミ" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
                                 <span class="absolute top-2 left-2 px-3 py-1 bg-orange-600 text-white text-xs font-bold rounded-full">天井被害</span>
                             </div>
                             <div class="relative group">
-                                <img src="images/case21/04-floor-progress.jpg" alt="床施工中" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
+                                <img src="images/case21/04-floor-progress.jpg" alt="床施工中" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
                                 <span class="absolute top-2 left-2 px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full">施工中</span>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
                             <div class="relative group">
-                                <img src="images/case21/05-framing.jpg" alt="骨組み" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
+                                <img src="images/case21/05-framing.jpg" alt="骨組み" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
                                 <span class="absolute top-2 left-2 px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full">骨組み</span>
                             </div>
                             <div class="relative group">
-                                <img src="images/case21/06-insulation.jpg" alt="断熱材" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
+                                <img src="images/case21/06-insulation.jpg" alt="断熱材" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
                                 <span class="absolute top-2 left-2 px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full">断熱材</span>
                             </div>
                             <div class="relative group">
-                                <img src="images/case21/07-completed.jpg" alt="完成" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
+                                <img src="images/case21/07-completed.jpg" alt="完成" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
                                 <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
                             </div>
                         </div>
@@ -2142,8 +2233,8 @@
                 </div>
 
                 <!-- 事例22: 瓦葺き直し（築48年・下地全面改修）（神奈川県横浜市青葉区） -->
-                <div class="case-item" data-page="5" data-categories='["roof"]' data-area="横浜市青葉区">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
+                <div class="case-item" data-page="5" data-categories='["roof"]'>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー: タイトルとバッジ -->
                         <div class="flex flex-wrap items-center justify-between mb-6">
@@ -2166,30 +2257,26 @@
                         </div>
 
                         <!-- Before / After 画像 -->
-                        <div class="grid grid-cols-2 md:grid-cols-6 gap-3 mb-6">
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
                             <div class="relative group">
-                                <img src="images/case22/01-before-tiles.jpg" alt="施工前：瓦屋根全体" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
+                                <img src="images/case22/01-hagashi.jpg" alt="瓦葺き直し前" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
                                 <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
                             </div>
                             <div class="relative group">
-                                <img src="images/case22/02-ridge-detail.jpg" alt="施工前：棟部詳細" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
+                                <img src="images/case22/02-bousui-sheet1.jpg" alt="下地劣化" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
+                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">下地劣化</span>
                             </div>
                             <div class="relative group">
-                                <img src="images/case22/06-before-removal.jpg" alt="施工前：瓦劣化状態" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
+                                <img src="images/case22/03-bousui-sheet2.jpg" alt="下地改修中" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
+                                <span class="absolute top-2 left-2 px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full">施工中</span>
                             </div>
                             <div class="relative group">
-                                <img src="images/case22/03-waterproof-sheet.jpg" alt="施工中：防水シート施工" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
+                                <img src="images/case22/05-completed.jpg" alt="葺き直し完了1" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
+                                <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
                             </div>
                             <div class="relative group">
-                                <img src="images/case22/04-base-preparation.jpg" alt="施工中：下地準備" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case22/05-framing.jpg" alt="施工中：木組み作業" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
+                                <img src="images/case22/05-completed.jpg" alt="葺き直し完了2" class="w-full h-48 object-cover rounded-lg shadow-md  transition">
+                                <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
                             </div>
                         </div>
 
@@ -2287,703 +2374,8 @@
                 </div>
                 </div>
 
-                <!-- 事例23: サッシ水漏れ対応・コーキング打ち替え＋塗装工事 -->
-                <div class="case-item" data-page="5" data-categories='["wall","complex"]' data-area="川崎市麻生区">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
-                    <div class="p-6 md:p-8">
-                        <!-- ヘッダー: タイトルとバッジ -->
-                        <div class="flex flex-wrap items-center justify-between mb-6">
-                            <div class="flex-1">
-                                <h3 class="text-2xl md:text-3xl font-black text-gray-800 mb-2">
-                                    事例23: サッシ水漏れ対応・コーキング打ち替え＋塗装工事
-                                </h3>
-                                <p class="text-lg text-gray-600">
-                                    川崎市麻生区 N様
-                                </p>
-                            </div>
-                            <div class="flex gap-2 flex-wrap">
-                                <span class="bg-blue-100 text-blue-700 rounded-full text-sm font-bold px-4 py-2">
-                                    🔧 複合工事
-                                </span>
-                                <span class="bg-purple-100 text-purple-700 rounded-full text-sm font-bold px-4 py-2">
-                                    築15年
-                                </span>
-                            </div>
-                        </div>
 
-                        <!-- Before/After画像 -->
-                        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
-                            <div class="col-span-1">
-                                <p class="text-xs font-bold text-gray-600 mb-2">施工前</p>
-                                <div class="bg-gray-200 rounded-lg overflow-hidden aspect-[4/3]">
-                                    <img src="images/case23/01-before.jpg" alt="施工前：外壁の劣化状態" class="w-full h-full object-cover">
-                                </div>
-                            </div>
-                            <div class="col-span-1">
-                                <p class="text-xs font-bold text-gray-600 mb-2">施工後</p>
-                                <div class="bg-gray-200 rounded-lg overflow-hidden aspect-[4/3]">
-                                    <img src="images/case23/04-after.jpg" alt="施工後：塗装完成" class="w-full h-full object-cover">
-                                </div>
-                            </div>
-                            <div class="col-span-2 md:grid-cols-3">
-                                <p class="text-xs font-bold text-gray-600 mb-2">施工過程</p>
-                                <div class="grid grid-cols-3 gap-2">
-                                    <img src="images/case23/02-before2.jpg" alt="施工前：別角度" class="w-full rounded aspect-video object-cover">
-                                    <img src="images/case23/05-after2.jpg" alt="施工後：別角度" class="w-full rounded aspect-video object-cover">
-                                    <img src="images/case23/06-after3.jpg" alt="施工後：詳細" class="w-full rounded aspect-video object-cover">
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- 詳細情報 -->
-                        <div class="grid md:grid-cols-3 gap-4 mb-6">
-                            <div class="border-l-4 border-red-500 pl-4 bg-red-50 p-3 rounded">
-                                <p class="font-bold text-red-600 mb-1 text-sm">❌ 症状</p>
-                                <p class="text-gray-700 text-sm">サッシ周辺から水漏れ。外壁のコーキングが劣化し、塗装も色褪せが目立つ状態。</p>
-                            </div>
-                            
-                            <div class="border-l-4 border-blue-500 pl-4 bg-blue-50 p-3 rounded">
-                                <p class="font-bold text-blue-600 mb-1 text-sm">🔍 原因</p>
-                                <p class="text-gray-700 text-sm">築15年でコーキングが劣化し、サッシ周辺の防水性能が低下。塗装も経年劣化で保護機能が失われていた。</p>
-                            </div>
-                            
-                            <div class="border-l-4 border-green-500 pl-4 bg-green-50 p-3 rounded">
-                                <p class="font-bold text-green-600 mb-1 text-sm">✅ 工事内容</p>
-                                <p class="text-gray-700 text-sm">コーキング全面打ち替え・外壁塗装（下塗り・中塗り・上塗り3回塗り）</p>
-                            </div>
-                        </div>
-
-                        <!-- 費用・工期・お客様の声 -->
-                        <div class="grid md:grid-cols-3 gap-4">
-                            <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border-2 border-orange-200">
-                                <p class="text-xs text-gray-600 mb-1">💴 費用</p>
-                                <p class="text-3xl font-black text-orange-600">130万円</p>
-                                <p class="text-xs text-gray-600 mt-2">⏰ 工期: 10日間</p>
-                            </div>
-                            
-                            <div class="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-400 p-4 rounded-lg">
-                                <p class="text-xs font-bold text-green-700 mb-1">✨ ポイント</p>
-                                <p class="text-xs text-gray-700">サッシ周辺のコーキングを全て打ち替え、外壁塗装で保護機能を回復。今後10年以上の耐久性を確保。</p>
-                            </div>
-
-                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border-2 border-blue-200">
-                                <p class="text-xs font-bold text-blue-700 mb-1">💬 お客様の声</p>
-                                <p class="text-xs text-gray-700">「サッシからの水漏れが心配でしたが、コーキングを全て打ち替えてもらい安心しました。塗装も綺麗になり、新築のようです。」</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-                <!-- 事例24: コーキング打ち替え（八王子市） -->
-                <div class="case-item" data-page="5" data-categories='["wall"]' data-area="八王子市">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
-                    <div class="p-6 md:p-8">
-                        <!-- ヘッダー: タイトルとバッジ -->
-                        <div class="flex flex-wrap items-center justify-between mb-6">
-                            <div class="flex-1">
-                                <h3 class="text-2xl md:text-3xl font-black text-gray-800 mb-2">
-                                    事例24: コーキング打ち替え
-                                </h3>
-                                <p class="text-lg text-gray-600">
-                                    東京都八王子市 H様
-                                </p>
-                            </div>
-                            <div class="flex gap-2 flex-wrap">
-                                <span class="bg-orange-100 text-orange-700 rounded-full text-sm font-bold px-4 py-2">
-                                    🏠 外壁系
-                                </span>
-                                <span class="bg-purple-100 text-purple-700 rounded-full text-sm font-bold px-4 py-2">
-                                    部分施工
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- Before/After画像 -->
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-                            <div class="relative group">
-                                <img src="images/case24/01-primer.jpg" alt="プライマー塗布" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case24/02-sealing-application.jpg" alt="シール打ち込み" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case24/03-primer2.jpg" alt="プライマー塗布2" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case24/04-completed.jpg" alt="シール仕上げ完了" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
-                            </div>
-                        </div>
-
-                        <!-- 詳細情報 -->
-                        <div class="grid md:grid-cols-3 gap-4 mb-6">
-                            <div class="border-l-4 border-red-500 pl-4 bg-red-50 p-3 rounded">
-                                <p class="font-bold text-red-600 mb-1 text-sm">❌ 症状</p>
-                                <p class="text-gray-700 text-sm">サッシ周りから雨漏りが発生。コーキングの劣化が原因。</p>
-                            </div>
-                            
-                            <div class="border-l-4 border-blue-500 pl-4 bg-blue-50 p-3 rounded">
-                                <p class="font-bold text-blue-600 mb-1 text-sm">🔍 原因</p>
-                                <p class="text-gray-700 text-sm">経年劣化でコーキングがひび割れ、防水性能が低下していた。</p>
-                            </div>
-                            
-                            <div class="border-l-4 border-green-500 pl-4 bg-green-50 p-3 rounded">
-                                <p class="font-bold text-green-600 mb-1 text-sm">✅ 工事内容</p>
-                                <p class="text-gray-700 text-sm">部分的に足場を設置し、サッシ周りのコーキングを打ち替え。様子を見ながら対応。</p>
-                            </div>
-                        </div>
-
-                        <!-- 費用・工期・お客様の声 -->
-                        <div class="grid md:grid-cols-3 gap-4">
-                            <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border-2 border-orange-200">
-                                <p class="text-xs text-gray-600 mb-1">💴 費用</p>
-                                <p class="text-3xl font-black text-orange-600">11万円</p>
-                                <p class="text-xs text-gray-600 mt-2">⏰ 工期: 2日間</p>
-                            </div>
-                            
-                            <div class="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-400 p-4 rounded-lg">
-                                <p class="text-xs font-bold text-green-700 mb-1">✨ ポイント</p>
-                                <p class="text-xs text-gray-700">サッシ周りの雨漏りに対して、部分的な足場で低コスト対応。様子を見ながら追加対応も可能。</p>
-                            </div>
-
-                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border-2 border-blue-200">
-                                <p class="text-xs font-bold text-blue-700 mb-1">💬 お客様の声</p>
-                                <p class="text-xs text-gray-700">「サッシからの雨漏りが心配でしたが、部分的な打ち替えで11万円と良心的。今は様子を見ています。」</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-                <!-- 事例25: 塗装（日野市） -->
-                <div class="case-item" data-page="5" data-categories='["wall"]' data-area="日野市">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
-                    <div class="p-6 md:p-8">
-                        <!-- ヘッダー: タイトルとバッジ -->
-                        <div class="flex flex-wrap items-center justify-between mb-6">
-                            <div class="flex-1">
-                                <h3 class="text-2xl md:text-3xl font-black text-gray-800 mb-2">
-                                    事例25: 塗装
-                                </h3>
-                                <p class="text-lg text-gray-600">
-                                    東京都日野市 A様
-                                </p>
-                            </div>
-                            <div class="flex gap-2 flex-wrap">
-                                <span class="bg-orange-100 text-orange-700 rounded-full text-sm font-bold px-4 py-2">
-                                    🏠 外壁系
-                                </span>
-                                <span class="bg-purple-100 text-purple-700 rounded-full text-sm font-bold px-4 py-2">
-                                    外壁塗装
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- Before/After画像 -->
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-                            <div class="relative group">
-                                <img src="images/case25/01-before.jpg" alt="施工前：外壁の劣化" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case25/02-before2.jpg" alt="施工前：別角度" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case25/03-after.jpg" alt="施工後：外壁塗装完了" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case25/04-after2.jpg" alt="施工後：別角度" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
-                            </div>
-                        </div>
-
-                        <!-- 詳細情報 -->
-                        <div class="grid md:grid-cols-3 gap-4 mb-6">
-                            <div class="border-l-4 border-red-500 pl-4 bg-red-50 p-3 rounded">
-                                <p class="font-bold text-red-600 mb-1 text-sm">❌ 症状</p>
-                                <p class="text-gray-700 text-sm">訪問販売業者から屋根の雨漏りを指摘されたが、実際は外壁の劣化が主な問題だった。</p>
-                            </div>
-                            
-                            <div class="border-l-4 border-blue-500 pl-4 bg-blue-50 p-3 rounded">
-                                <p class="font-bold text-blue-600 mb-1 text-sm">🔍 原因</p>
-                                <p class="text-gray-700 text-sm">経年劣化により外壁塗装が色褪せ、塗膜が劣化。訪問販売の指摘は誇張だった。</p>
-                            </div>
-                            
-                            <div class="border-l-4 border-green-500 pl-4 bg-green-50 p-3 rounded">
-                                <p class="font-bold text-green-600 mb-1 text-sm">✅ 工事内容</p>
-                                <p class="text-gray-700 text-sm">外壁塗装のみを実施（下塗り・中塗り・上塗り3回塗り）。屋根は問題なしと判断。</p>
-                            </div>
-                        </div>
-
-                        <!-- 費用・工期・お客様の声 -->
-                        <div class="grid md:grid-cols-3 gap-4">
-                            <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border-2 border-orange-200">
-                                <p class="text-xs text-gray-600 mb-1">💴 費用</p>
-                                <p class="text-3xl font-black text-orange-600">98万円</p>
-                                <p class="text-xs text-gray-600 mt-2">⏰ 工期: 10日間</p>
-                            </div>
-                            
-                            <div class="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-400 p-4 rounded-lg">
-                                <p class="text-xs font-bold text-green-700 mb-1">✨ ポイント</p>
-                                <p class="text-xs text-gray-700">訪問販売の過剰な指摘を適切に見極め、必要な外壁塗装のみを実施。無駄な費用を削減。</p>
-                            </div>
-
-                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border-2 border-blue-200">
-                                <p class="text-xs font-bold text-blue-700 mb-1">💬 お客様の声</p>
-                                <p class="text-xs text-gray-700">「訪問販売では200万以上と言われましたが、適正診断で外壁塗装だけで済み、98万円で済みました。」</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-                <!-- 事例26: 内装リノベーション（川崎市麻生区） -->
-                <div class="case-item" data-page="5" data-categories='["complex"]' data-area="川崎市麻生区">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
-                    <div class="p-6 md:p-8">
-                        <!-- ヘッダー: タイトルとバッジ -->
-                        <div class="flex flex-wrap items-center justify-between mb-6">
-                            <div class="flex-1">
-                                <h3 class="text-2xl md:text-3xl font-black text-gray-800 mb-2">
-                                    事例26: 内装リノベーション
-                                </h3>
-                                <p class="text-lg text-gray-600">
-                                    神奈川県川崎市麻生区 W様
-                                </p>
-                            </div>
-                            <div class="flex gap-2 flex-wrap">
-                                <span class="bg-blue-100 text-blue-700 rounded-full text-sm font-bold px-4 py-2">
-                                    🔧 複合工事
-                                </span>
-                                <span class="bg-purple-100 text-purple-700 rounded-full text-sm font-bold px-4 py-2">
-                                    築31年
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- Before/After画像 -->
-                        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
-                            <div class="relative group">
-                                <img src="images/case26/01-before.jpg" alt="施工前：和室の様子" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case26/02-during.jpg" alt="施工中：準備作業" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case26/03-ceiling-progress.jpg" alt="施工中：天井張替え" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case26/04-wall-progress.jpg" alt="施工中：壁・床改修" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case26/05-completed.jpg" alt="施工後：完成した内装" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
-                            </div>
-                        </div>
-
-                        <!-- 詳細情報 -->
-                        <div class="grid md:grid-cols-3 gap-4 mb-6">
-                            <div class="border-l-4 border-red-500 pl-4 bg-red-50 p-3 rounded">
-                                <p class="font-bold text-red-600 mb-1 text-sm">❌ 症状</p>
-                                <p class="text-gray-700 text-sm">雨漏りによる天井・壁の損傷。築31年の経年劣化で内装全体が老朽化。</p>
-                            </div>
-                            
-                            <div class="border-l-4 border-blue-500 pl-4 bg-blue-50 p-3 rounded">
-                                <p class="font-bold text-blue-600 mb-1 text-sm">🔍 原因</p>
-                                <p class="text-gray-700 text-sm">雨漏りが原因で室内が劣化。早急な修理と内装リノベーションが必要な状態。</p>
-                            </div>
-                            
-                            <div class="border-l-4 border-green-500 pl-4 bg-green-50 p-3 rounded">
-                                <p class="font-bold text-green-600 mb-1 text-sm">✅ 工事内容</p>
-                                <p class="text-gray-700 text-sm">雨漏り修理・天井張替え・壁補修・床改修・内装全面リノベーション</p>
-                            </div>
-                        </div>
-
-                        <!-- 費用・工期・お客様の声 -->
-                        <div class="grid md:grid-cols-3 gap-4">
-                            <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border-2 border-orange-200">
-                                <p class="text-xs text-gray-600 mb-1">💴 費用</p>
-                                <p class="text-3xl font-black text-orange-600">82万円</p>
-                                <p class="text-xs text-gray-600 mt-2">⏰ 工期: 10日間</p>
-                            </div>
-                            
-                            <div class="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-400 p-4 rounded-lg">
-                                <p class="text-xs font-bold text-green-700 mb-1">✨ ポイント</p>
-                                <p class="text-xs text-gray-700">雨漏りを修理し、内装全体をリノベーション。築31年の和室を快適な空間に改修。</p>
-                            </div>
-
-                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border-2 border-blue-200">
-                                <p class="text-xs font-bold text-blue-700 mb-1">💬 お客様の声</p>
-                                <p class="text-xs text-gray-700">「雨漏りで困っていましたが、すぐに来てくれて助かりました。内装工事も丁寧で、新しい部屋に生まれ変わりました。」</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-                <!-- 事例27: 棟板金交換（相模原市） -->
-                <div class="case-item" data-page="5" data-categories='["roof"]' data-area="相模原市南区">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
-                    <div class="p-6 md:p-8">
-                        <!-- ヘッダー: タイトルとバッジ -->
-                        <div class="flex flex-wrap items-center justify-between mb-6">
-                            <div class="flex-1">
-                                <h3 class="text-2xl md:text-3xl font-black text-gray-800 mb-2">
-                                    事例27: 棟板金交換
-                                </h3>
-                                <p class="text-lg text-gray-600">
-                                    神奈川県相模原市南区 Y様
-                                </p>
-                            </div>
-                            <div class="flex gap-2 flex-wrap">
-                                <span class="bg-blue-100 text-blue-700 rounded-full text-sm font-bold px-4 py-2">
-                                    🏠 屋根
-                                </span>
-                                <span class="bg-purple-100 text-purple-700 rounded-full text-sm font-bold px-4 py-2">
-                                    築27年
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 画像ギャラリー -->
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-                            <div class="relative group">
-                                <img src="images/case27/01-before-roof.jpg" alt="施工前：棟板金の状態" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case27/02-ridge-detail.jpg" alt="棟板金詳細" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case27/03-during-work.jpg" alt="施工中：板金交換作業" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case27/04-completed.jpg" alt="施工後：棟板金交換完了" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
-                            </div>
-                        </div>
-
-                        <!-- 症状 -->
-                        <div class="mb-6 p-5 bg-red-50 border-2 border-red-300 rounded-lg">
-                            <h4 class="text-lg font-black text-red-700 mb-3 flex items-center">
-                                <span class="text-2xl mr-2">⚠️</span> 症状
-                            </h4>
-                            <p class="text-sm text-gray-700 leading-relaxed">
-                                訪問販売業者から「釘が変だ」と指摘を受けたことがきっかけでした。不安になり、インターネットで当社を見つけてご連絡いただきました。
-                            </p>
-                        </div>
-
-                        <!-- 原因 -->
-                        <div class="mb-6 p-5 bg-yellow-50 border-2 border-yellow-300 rounded-lg">
-                            <h4 class="text-lg font-black text-yellow-700 mb-3 flex items-center">
-                                <span class="text-2xl mr-2">🔍</span> 原因
-                            </h4>
-                            <p class="text-sm text-gray-700 leading-relaxed">
-                                築27年で棟板金の固定釘が経年劣化により浮いており、早急な交換が必要な状態でした。
-                            </p>
-                        </div>
-
-                        <!-- 工事内容 -->
-                        <div class="mb-6 p-5 bg-green-50 border-2 border-green-300 rounded-lg">
-                            <h4 class="text-lg font-black text-green-700 mb-3 flex items-center">
-                                <span class="text-2xl mr-2">🔧</span> 工事内容
-                            </h4>
-                            <ul class="space-y-2 text-sm text-gray-700">
-                                <li class="flex items-start">
-                                    <span class="mr-2 text-green-600">✅</span>
-                                    <span>既存の棟板金を撤去</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="mr-2 text-green-600">✅</span>
-                                    <span>下地の点検と補修</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="mr-2 text-green-600">✅</span>
-                                    <span>新しい棟板金の取り付け</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="mr-2 text-green-600">✅</span>
-                                    <span>ビス固定による耐久性向上</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- 費用・工期・お客様の声 -->
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border-2 border-orange-200">
-                                <p class="text-xs text-gray-600 mb-1">💴 費用</p>
-                                <p class="text-3xl font-black text-orange-600">17万円</p>
-                                <p class="text-xs text-gray-600 mt-2">⏰ 工期: 2日間</p>
-                            </div>
-                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border-2 border-purple-200">
-                                <p class="text-xs font-bold text-purple-700 mb-1">💡 ポイント</p>
-                                <p class="text-xs text-gray-700">訪問販売では40万円と言われましたが、適正価格での施工で約23万円のコスト削減を実現しました。</p>
-                            </div>
-                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border-2 border-blue-200">
-                                <p class="text-xs font-bold text-blue-700 mb-1">💬 お客様の声</p>
-                                <p class="text-xs text-gray-700">「訪問販売で不安でしたが、ネットで調べて正解でした。費用も大幅に抑えられて安心しました。」</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-                <!-- 事例28: 内装リノベーション（八王子市） -->
-                <div class="case-item" data-page="5" data-categories='["complex"]' data-area="八王子市">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
-                    <div class="p-6 md:p-8">
-                        <!-- ヘッダー: タイトルとバッジ -->
-                        <div class="flex flex-wrap items-center justify-between mb-6">
-                            <div class="flex-1">
-                                <h3 class="text-2xl md:text-3xl font-black text-gray-800 mb-2">
-                                    事例28: 内装リノベーション
-                                </h3>
-                                <p class="text-lg text-gray-600">
-                                    東京都八王子市 U様
-                                </p>
-                            </div>
-                            <div class="flex gap-2 flex-wrap">
-                                <span class="bg-blue-100 text-blue-700 rounded-full text-sm font-bold px-4 py-2">
-                                    🔧 複合工事
-                                </span>
-                                <span class="bg-purple-100 text-purple-700 rounded-full text-sm font-bold px-4 py-2">
-                                    築33年
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 画像ギャラリー -->
-                        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
-                            <div class="relative group">
-                                <img src="images/case28/01-before-hallway.jpg" alt="施工前：廊下天井の劣化" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case28/02-before-ceiling.jpg" alt="施工前：天井の雨漏り跡" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case28/03-before-room.jpg" alt="施工前：室内全体" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case28/07-during-framing.jpg" alt="施工中：天井下地組み" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case28/08-during-floor.jpg" alt="施工中：床下地作業" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
-                            <div class="relative group">
-                                <img src="images/case28/09-during-insulation.jpg" alt="施工中：断熱材設置" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case28/10-during-wall-frame.jpg" alt="施工中：壁下地作業" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case28/04-after-hallway.jpg" alt="施工後：廊下天井完成" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case28/05-after-ceiling.jpg" alt="施工後：天井完成" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case28/06-after-room.jpg" alt="施工後：室内完成" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
-                            </div>
-                        </div>
-
-                        <!-- 症状 -->
-                        <div class="mb-6 p-5 bg-red-50 border-2 border-red-300 rounded-lg">
-                            <h4 class="text-lg font-black text-red-700 mb-3 flex items-center">
-                                <span class="text-2xl mr-2">⚠️</span> 症状
-                            </h4>
-                            <p class="text-sm text-gray-700 leading-relaxed">
-                                長年の雨漏りにより、天井や内装が著しく劣化していました。築33年で雨漏りが原因で内装全体が傷んでおり、全面的なリノベーションが必要な状態でした。
-                            </p>
-                        </div>
-
-                        <!-- 原因 -->
-                        <div class="mb-6 p-5 bg-yellow-50 border-2 border-yellow-300 rounded-lg">
-                            <h4 class="text-lg font-black text-yellow-700 mb-3 flex items-center">
-                                <span class="text-2xl mr-2">🔍</span> 原因
-                            </h4>
-                            <p class="text-sm text-gray-700 leading-relaxed">
-                                屋根からの雨漏りが長期間続き、天井や壁の内部構造まで水が浸透して腐食が進行していました。
-                            </p>
-                        </div>
-
-                        <!-- 工事内容 -->
-                        <div class="mb-6 p-5 bg-green-50 border-2 border-green-300 rounded-lg">
-                            <h4 class="text-lg font-black text-green-700 mb-3 flex items-center">
-                                <span class="text-2xl mr-2">🔧</span> 工事内容
-                            </h4>
-                            <ul class="space-y-2 text-sm text-gray-700">
-                                <li class="flex items-start">
-                                    <span class="mr-2 text-green-600">✅</span>
-                                    <span>雨漏り箇所の修理（屋根・外壁）</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="mr-2 text-green-600">✅</span>
-                                    <span>劣化した天井・壁の解体撤去</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="mr-2 text-green-600">✅</span>
-                                    <span>下地の補強と断熱材の設置</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="mr-2 text-green-600">✅</span>
-                                    <span>新規天井・壁材の施工</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="mr-2 text-green-600">✅</span>
-                                    <span>床のリフォームと仕上げ</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- 費用・工期・お客様の声 -->
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border-2 border-orange-200">
-                                <p class="text-xs text-gray-600 mb-1">💴 費用</p>
-                                <p class="text-3xl font-black text-orange-600">210万円</p>
-                                <p class="text-xs text-gray-600 mt-2">⏰ 工期: 30日間</p>
-                            </div>
-                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border-2 border-purple-200">
-                                <p class="text-xs font-bold text-purple-700 mb-1">💡 ポイント</p>
-                                <p class="text-xs text-gray-700">雨漏り修理と内装リノベーションを一括施工することで、全体的なコストを抑えながら快適な住環境を実現しました。</p>
-                            </div>
-                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border-2 border-blue-200">
-                                <p class="text-xs font-bold text-blue-700 mb-1">💬 お客様の声</p>
-                                <p class="text-xs text-gray-700">「長年の雨漏りが解決し、内装も新しくなって快適です。丁寧な工事で安心しました。」</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-                <!-- 事例29: 樋交換（調布市） -->
-                <div class="case-item" data-page="5" data-categories='["gutter"]' data-area="調布市">
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all">
-                    <div class="p-6 md:p-8">
-                        <!-- ヘッダー: タイトルとバッジ -->
-                        <div class="flex flex-wrap items-center justify-between mb-6">
-                            <div class="flex-1">
-                                <h3 class="text-2xl md:text-3xl font-black text-gray-800 mb-2">
-                                    事例29: 樋交換
-                                </h3>
-                                <p class="text-lg text-gray-600">
-                                    東京都調布市 S様
-                                </p>
-                            </div>
-                            <div class="flex gap-2 flex-wrap">
-                                <span class="bg-blue-100 text-blue-700 rounded-full text-sm font-bold px-4 py-2">
-                                    🚰 雨樋
-                                </span>
-                                <span class="bg-purple-100 text-purple-700 rounded-full text-sm font-bold px-4 py-2">
-                                    築36年
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- 画像ギャラリー -->
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
-                            <div class="relative group">
-                                <img src="images/case29/01-before-gutter.jpg" alt="施工前：雨樋の劣化" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-full">Before</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case29/02-during-work.jpg" alt="施工中：雨樋交換作業" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-yellow-600 text-white text-xs font-bold rounded-full">施工中</span>
-                            </div>
-                            <div class="relative group">
-                                <img src="images/case29/03-completed.jpg" alt="施工後：雨樋交換完了" class="w-full h-48 object-cover rounded-lg shadow-md group-hover:scale-105 transition">
-                                <span class="absolute top-2 left-2 px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full">After</span>
-                            </div>
-                        </div>
-
-                        <!-- 症状 -->
-                        <div class="mb-6 p-5 bg-red-50 border-2 border-red-300 rounded-lg">
-                            <h4 class="text-lg font-black text-red-700 mb-3 flex items-center">
-                                <span class="text-2xl mr-2">⚠️</span> 症状
-                            </h4>
-                            <p class="text-sm text-gray-700 leading-relaxed">
-                                訪問販売業者から雨樋の劣化を指摘されました。築36年で雨樋が傷んでおり、雨水の排水がうまくできていませんでした。
-                            </p>
-                        </div>
-
-                        <!-- 原因 -->
-                        <div class="mb-6 p-5 bg-yellow-50 border-2 border-yellow-300 rounded-lg">
-                            <h4 class="text-lg font-black text-yellow-700 mb-3 flex items-center">
-                                <span class="text-2xl mr-2">🔍</span> 原因
-                            </h4>
-                            <p class="text-sm text-gray-700 leading-relaxed">
-                                築36年の経年劣化により、雨樋が変形・破損し、雨水の流れが悪くなっていました。
-                            </p>
-                        </div>
-
-                        <!-- 工事内容 -->
-                        <div class="mb-6 p-5 bg-green-50 border-2 border-green-300 rounded-lg">
-                            <h4 class="text-lg font-black text-green-700 mb-3 flex items-center">
-                                <span class="text-2xl mr-2">🔧</span> 工事内容
-                            </h4>
-                            <ul class="space-y-2 text-sm text-gray-700">
-                                <li class="flex items-start">
-                                    <span class="mr-2 text-green-600">✅</span>
-                                    <span>既存の雨樋を撤去</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="mr-2 text-green-600">✅</span>
-                                    <span>新しい雨樋の取り付け</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="mr-2 text-green-600">✅</span>
-                                    <span>雨水の排水確認</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="mr-2 text-green-600">✅</span>
-                                    <span>金具の固定確認</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- 費用・工期・お客様の声 -->
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border-2 border-orange-200">
-                                <p class="text-xs text-gray-600 mb-1">💴 費用</p>
-                                <p class="text-3xl font-black text-orange-600">40万円</p>
-                                <p class="text-xs text-gray-600 mt-2">⏰ 工期: 4日間</p>
-                            </div>
-                            <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg border-2 border-purple-200">
-                                <p class="text-xs font-bold text-purple-700 mb-1">💡 ポイント</p>
-                                <p class="text-xs text-gray-700">訪問販売業者からの指摘を受け、迅速に対応しました。雨樋全体を新しくすることで、長期的な安心を確保しました。</p>
-                            </div>
-                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border-2 border-blue-200">
-                                <p class="text-xs font-bold text-blue-700 mb-1">💬 お客様の声</p>
-                                <p class="text-xs text-gray-700">「訪問販売からの指摘でしたが、すぐに来てくれて助かりました。丁寧な対応に感謝しています。」</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
 
 
             </div>
@@ -2999,6 +2391,7 @@
         const totalPages = 5; // Page 1: 6件, Page 2: 6件, Page 3: 6件, Page 4: 3件, Page 5: 1件（全22件）
 
         function showPage(page) {
+            console.log('📄 showPage called with page:', page);
             currentPage = page;
             
             // Hide all cases
@@ -3019,6 +2412,7 @@
         }
 
         function updatePagination() {
+            console.log('📄 updatePagination called - currentPage:', currentPage, 'totalPages:', totalPages);
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
             const pageNumbers = document.getElementById('page-numbers');
@@ -3031,14 +2425,15 @@
             
             // Generate page number buttons
             pageNumbers.innerHTML = '';
+            console.log('📄 Generating', totalPages, 'page buttons');
             for (let i = 1; i <= totalPages; i++) {
                 const btn = document.createElement('button');
                 btn.textContent = i;
                 btn.onclick = () => showPage(i);
-                btn.className = `px-4 py-2 rounded-lg font-bold transition-all text-lg shadow-md ${
+                btn.className = `px-8 py-5 rounded-lg font-bold transition-all text-2xl shadow-lg border-4 ${
                     i === currentPage 
-                        ? 'bg-blue-600 text-white' 
-                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                        ? 'bg-blue-600 text-white border-blue-800' 
+                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300 border-gray-400'
                 }`;
                 pageNumbers.appendChild(btn);
             }
@@ -3052,85 +2447,51 @@
             }
         }
 
-        // Initialize: Show all cases on load
+        // Initialize: Show page 1 on load
         document.addEventListener('DOMContentLoaded', function() {
-            // 全事例を表示
-            const allCases = document.querySelectorAll('.case-item');
-            allCases.forEach(caseItem => {
-                caseItem.style.display = 'block';
-            });
-            
-            // ページネーションを非表示
-            const pagination = document.getElementById('pagination');
-            if (pagination) {
-                pagination.style.display = 'none';
-            }
-            
-            updateVisibleCount();
+            showPage(1);
         });
 
-        // 地域検索機能
-        function searchByArea() {
-            const searchText = document.getElementById('area-search').value.toLowerCase();
-            const select = document.getElementById('area-select');
-            select.value = 'all'; // リセット
-            
+        // カテゴリフィルタ機能
+        function filterCategory(category) {
             const allCases = document.querySelectorAll('.case-item');
+            const buttons = document.querySelectorAll('.category-btn');
             
+            // ボタンのアクティブ状態を更新
+            buttons.forEach(btn => {
+                if (btn.dataset.category === category) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // 事例の表示/非表示を切り替え
             allCases.forEach(caseItem => {
-                const area = (caseItem.dataset.area || '').toLowerCase();
+                const categories = JSON.parse(caseItem.dataset.categories || '[]');
                 
-                if (searchText === '' || area.includes(searchText)) {
+                if (category === 'all' || categories.includes(category)) {
                     caseItem.style.display = 'block';
                 } else {
                     caseItem.style.display = 'none';
                 }
             });
-            
-            updateVisibleCount();
-        }
-
-        // ドロップダウンで絞り込み
-        function filterByArea() {
-            const selectedArea = document.getElementById('area-select').value;
-            const searchBox = document.getElementById('area-search');
-            searchBox.value = ''; // リセット
-            
-            const allCases = document.querySelectorAll('.case-item');
-            
-            allCases.forEach(caseItem => {
-                const area = caseItem.dataset.area || '';
-                
-                if (selectedArea === 'all' || area === selectedArea) {
-                    caseItem.style.display = 'block';
-                } else {
-                    caseItem.style.display = 'none';
-                }
-            });
-            
-            updateVisibleCount();
-        }
-
-        // 表示件数を更新
-        function updateVisibleCount() {
-            const allCases = document.querySelectorAll('.case-item');
-            let count = 0;
-            
-            allCases.forEach(caseItem => {
-                const style = window.getComputedStyle(caseItem);
-                if (style.display !== 'none') {
-                    count++;
-                }
-            });
-            
-            const countElement = document.getElementById('visible-count');
-            if (countElement) {
-                countElement.textContent = count;
-            }
         }
     </script>
 
     <style>
+        /* カテゴリボタンのスタイル */
+        .category-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: 2px solid transparent;
+        }
+        
+        .category-btn.active {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-color: #f5576c;
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+        }
     </style>
 
 </body>

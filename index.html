@@ -1294,14 +1294,81 @@
             <!-- 代表者メッセージ（女性代表） -->
             <div class="bg-gradient-to-br from-pink-50 via-white to-blue-50 p-6 md:p-8 rounded-xl shadow-2xl mb-10 border-2 border-pink-200">
                 <div class="flex flex-col md:flex-row items-center gap-6 md:gap-8">
-                    <!-- 代表者の顔写真プレースホルダー -->
-                    <div class="w-48 h-48 bg-gradient-to-br from-pink-200 to-blue-200 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
-                        <div class="text-center p-6">
-                            <p class="text-sm font-bold text-gray-700">代表</p>
-                            <p class="text-xs text-gray-600">33歳・女性</p>
-                            <!-- 実際の画像に差し替え: <img src="images/representative.jpg" alt="代表" loading="lazy" class="w-full h-full object-cover rounded-full"> -->
+                    <!-- 代表者の写真スライドショー -->
+                    <div class="w-64 h-64 relative flex-shrink-0 rounded-xl overflow-hidden shadow-2xl">
+                        <!-- スライド画像 -->
+                        <div class="slide-container relative w-full h-full">
+                            <img src="images/representative/slide-01.jpg" alt="お客様との打ち合わせ" class="slide-image absolute w-full h-full object-cover transition-opacity duration-500" loading="lazy">
+                            <img src="images/representative/slide-02.jpg" alt="現場での説明" class="slide-image absolute w-full h-full object-cover transition-opacity duration-500 opacity-0" loading="lazy">
+                            <img src="images/representative/slide-03.jpg" alt="お客様との記念撮影" class="slide-image absolute w-full h-full object-cover transition-opacity duration-500 opacity-0" loading="lazy">
+                            <img src="images/representative/slide-04.jpg" alt="現場調査の様子" class="slide-image absolute w-full h-full object-cover transition-opacity duration-500 opacity-0" loading="lazy">
+                            <img src="images/representative/slide-05.jpg" alt="オフィスでの様子" class="slide-image absolute w-full h-full object-cover transition-opacity duration-500 opacity-0" loading="lazy">
+                        </div>
+                        
+                        <!-- 左右の矢印 -->
+                        <button onclick="changeSlide(-1)" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white px-3 py-2 rounded-full transition-all z-10">
+                            ‹
+                        </button>
+                        <button onclick="changeSlide(1)" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white px-3 py-2 rounded-full transition-all z-10">
+                            ›
+                        </button>
+                        
+                        <!-- インジケーター -->
+                        <div class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+                            <span class="slide-indicator w-2 h-2 rounded-full bg-white cursor-pointer" onclick="goToSlide(0)"></span>
+                            <span class="slide-indicator w-2 h-2 rounded-full bg-white bg-opacity-50 cursor-pointer" onclick="goToSlide(1)"></span>
+                            <span class="slide-indicator w-2 h-2 rounded-full bg-white bg-opacity-50 cursor-pointer" onclick="goToSlide(2)"></span>
+                            <span class="slide-indicator w-2 h-2 rounded-full bg-white bg-opacity-50 cursor-pointer" onclick="goToSlide(3)"></span>
+                            <span class="slide-indicator w-2 h-2 rounded-full bg-white bg-opacity-50 cursor-pointer" onclick="goToSlide(4)"></span>
                         </div>
                     </div>
+                    
+                    <script>
+                    // スライドショーの制御
+                    let currentSlide = 0;
+                    const slides = document.querySelectorAll('.slide-image');
+                    const indicators = document.querySelectorAll('.slide-indicator');
+                    let slideInterval;
+                    
+                    function showSlide(index) {
+                        slides.forEach((slide, i) => {
+                            slide.style.opacity = i === index ? '1' : '0';
+                        });
+                        indicators.forEach((indicator, i) => {
+                            if (i === index) {
+                                indicator.classList.remove('bg-opacity-50');
+                            } else {
+                                indicator.classList.add('bg-opacity-50');
+                            }
+                        });
+                    }
+                    
+                    function changeSlide(direction) {
+                        currentSlide = (currentSlide + direction + slides.length) % slides.length;
+                        showSlide(currentSlide);
+                        resetInterval();
+                    }
+                    
+                    function goToSlide(index) {
+                        currentSlide = index;
+                        showSlide(currentSlide);
+                        resetInterval();
+                    }
+                    
+                    function autoSlide() {
+                        currentSlide = (currentSlide + 1) % slides.length;
+                        showSlide(currentSlide);
+                    }
+                    
+                    function resetInterval() {
+                        clearInterval(slideInterval);
+                        slideInterval = setInterval(autoSlide, 3000);
+                    }
+                    
+                    // 初期化：3秒ごとに自動スライド
+                    slideInterval = setInterval(autoSlide, 3000);
+                    showSlide(0);
+                    </script>
                     
                     <!-- 代表者メッセージ -->
                     <div class="flex-1">

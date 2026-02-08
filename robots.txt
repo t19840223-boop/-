@@ -1,0 +1,31 @@
+# robots.txt for https://nextone-co.jp/
+
+User-agent: *
+Allow: /
+
+# 主要ページ
+Allow: /index.html
+Allow: /jirei.html
+Allow: /blog.html
+Allow: /blog/
+
+# サイトマップ
+Sitemap: https://nextone-co.jp/sitemap.xml
+Sitemap: https://nextone-co.jp/sitemap.html
+
+# クロール最適化
+Crawl-delay: 0
+
+# 画像のクロール許可
+User-agent: Googlebot-Image
+Allow: /images/
+
+# よくあるボットの設定
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /

@@ -13,6 +13,96 @@
     <meta property="og:title" content="【緊急】雨漏り修理｜今すぐ止める｜オンライン診断無料">
     <meta property="og:description" content="雨漏り発生！最短1時間で駆けつけ。オンライン診断無料・訪問販売の見積もり確認も対応。">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nextone-site.pages.dev/">
+    <meta property="og:image" content="https://nextone-site.pages.dev/images/ogp-image.jpg">
+    <meta property="og:site_name" content="株式会社NEXTone｜雨漏り修理専門">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://nextone-site.pages.dev/">
+    
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="7kvH8ExcG4B0pHKJzlE01C1N5x4-YAcLRBsFlWo5xx4" />
+    
+    <!-- 構造化データ：LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "株式会社NEXTone",
+      "description": "神奈川県・東京都・埼玉県で雨漏り修理を専門に行う、創業10年の実績ある企業。33歳女性代表が率いる、女性目線の安心サービスを提供。",
+      "image": "https://nextone-site.pages.dev/images/ogp-image.jpg",
+      "telephone": "0120-773-743",
+      "email": "info@nextone-co.jp",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "JP",
+        "addressRegion": "神奈川県"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 35.5666,
+        "longitude": 139.3833
+      },
+      "url": "https://nextone-site.pages.dev/",
+      "priceRange": "¥¥",
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "areaServed": [
+        {"@type": "City", "name": "横浜市"},
+        {"@type": "City", "name": "相模原市"},
+        {"@type": "City", "name": "町田市"},
+        {"@type": "City", "name": "川崎市"},
+        {"@type": "City", "name": "八王子市"}
+      ]
+    }
+    </script>
+    
+    <!-- 構造化データ：Service -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "雨漏り修理",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "株式会社NEXTone"
+      },
+      "areaServed": {
+        "@type": "State",
+        "name": "神奈川県・東京都・埼玉県"
+      },
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceRange": "¥¥"
+      }
+    }
+    </script>
+    
+    <!-- 構造化データ：FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "雨漏り修理の費用はどのくらいですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "雨漏り修理の費用は、被害の程度や修理箇所によって異なります。簡易補修で5万円〜、本格的な屋根修理で30万円〜が目安です。まずは無料のオンライン診断でお見積りをご確認ください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "オンライン診断は本当に無料ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい、オンライン診断は完全無料です。LINEで写真を送るだけで、専門スタッフが診断結果と概算費用をお伝えします。強引な営業は一切ございません。"
+          }
+        }
+      ]
+    }
+    </script>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
@@ -93,6 +183,33 @@
       
       .animate-pulse-slow {
         animation: pulse 3s ease-in-out infinite;
+      }
+      
+      /* スライドショーのスタイル */
+      .mySlides {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+      
+      .mySlides.active {
+        display: block;
+        opacity: 1;
+      }
+      
+      .fade {
+        animation-name: fade;
+        animation-duration: 0.5s;
+      }
+      
+      @keyframes fade {
+        from {opacity: 0.4}
+        to {opacity: 1}
+      }
+      
+      .dot.active {
+        background-color: white !important;
+        transform: scale(1.2);
       }
     </style>
 </head>
@@ -1323,6 +1440,99 @@
                 </div>
             </div>
 
+            <!-- 代表者からのメッセージ -->
+            <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-6 md:p-10 rounded-2xl shadow-2xl mb-10 border-4 border-blue-300">
+                <h2 class="text-3xl md:text-4xl font-black text-center text-gray-800 mb-8">
+                    👩 代表者からのメッセージ
+                </h2>
+                
+                <div class="max-w-5xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <!-- 代表者の写真スライドショー -->
+                        <div class="relative w-full h-80 md:h-96 rounded-xl overflow-hidden shadow-xl">
+                            <div class="slideshow-container relative w-full h-full">
+                                <div class="mySlides fade absolute w-full h-full">
+                                    <img src="images/representative/slide-01.jpg" alt="お客様との打ち合わせ風景" class="w-full h-full object-cover">
+                                </div>
+                                <div class="mySlides fade absolute w-full h-full">
+                                    <img src="images/representative/slide-02.jpg" alt="現場での説明風景" class="w-full h-full object-cover">
+                                </div>
+                                <div class="mySlides fade absolute w-full h-full">
+                                    <img src="images/representative/slide-03.jpg" alt="お客様との記念撮影" class="w-full h-full object-cover">
+                                </div>
+                                <div class="mySlides fade absolute w-full h-full">
+                                    <img src="images/representative/slide-04.jpg" alt="現場調査の様子" class="w-full h-full object-cover">
+                                </div>
+                                <div class="mySlides fade absolute w-full h-full">
+                                    <img src="images/representative/slide-05.jpg" alt="オフィスでの様子" class="w-full h-full object-cover">
+                                </div>
+                                
+                                <!-- 左右の矢印ボタン -->
+                                <a class="prev absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 font-bold py-2 px-4 rounded-full cursor-pointer transition-all duration-200 shadow-lg z-10" onclick="plusSlides(-1)">❮</a>
+                                <a class="next absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 font-bold py-2 px-4 rounded-full cursor-pointer transition-all duration-200 shadow-lg z-10" onclick="plusSlides(1)">❯</a>
+                            </div>
+                            
+                            <!-- インジケーター -->
+                            <div class="text-center absolute bottom-4 left-0 right-0 z-10">
+                                <span class="dot inline-block w-3 h-3 mx-1 bg-white/70 rounded-full cursor-pointer transition-all duration-200 hover:bg-white" onclick="currentSlide(1)"></span>
+                                <span class="dot inline-block w-3 h-3 mx-1 bg-white/70 rounded-full cursor-pointer transition-all duration-200 hover:bg-white" onclick="currentSlide(2)"></span>
+                                <span class="dot inline-block w-3 h-3 mx-1 bg-white/70 rounded-full cursor-pointer transition-all duration-200 hover:bg-white" onclick="currentSlide(3)"></span>
+                                <span class="dot inline-block w-3 h-3 mx-1 bg-white/70 rounded-full cursor-pointer transition-all duration-200 hover:bg-white" onclick="currentSlide(4)"></span>
+                                <span class="dot inline-block w-3 h-3 mx-1 bg-white/70 rounded-full cursor-pointer transition-all duration-200 hover:bg-white" onclick="currentSlide(5)"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- 代表者メッセージ本文 -->
+                        <div>
+                            <div class="mb-6">
+                                <p class="text-2xl font-bold text-gray-800 mb-2">代表 〇〇（33歳）</p>
+                                <p class="text-lg text-blue-600 font-semibold">雨漏り診断士 / 創業10年</p>
+                            </div>
+                            
+                            <div class="space-y-4 text-gray-700">
+                                <p class="text-base md:text-lg leading-relaxed">
+                                    「雨漏りでお困りの方に、安心と確かな技術をお届けしたい」
+                                </p>
+                                <p class="text-sm md:text-base leading-relaxed">
+                                    私たちは創業10年、数百件の雨漏り修理を手がけてまいりました。お客様満足度98%を誇る当社の強みは、<strong class="text-blue-600">女性ならではの細やかな配慮</strong>と<strong class="text-blue-600">LINEでの気軽な相談体制</strong>です。
+                                </p>
+                                <p class="text-sm md:text-base leading-relaxed">
+                                    <strong class="text-purple-600">「見積もりが不透明」「押し売りされないか不安」</strong>──そんなお悩みを解消するため、私たちは徹底的な透明性を重視しています。すべての工程を写真付きでご報告し、追加費用は一切発生させません。
+                                </p>
+                                <p class="text-sm md:text-base leading-relaxed font-semibold text-blue-700">
+                                    まずは無料のオンライン診断でお気軽にご相談ください。あなたの大切なお住まいをお守りします。
+                                </p>
+                            </div>
+                            
+                            <!-- 3つの安心ポイント -->
+                            <div class="mt-6 space-y-3">
+                                <div class="flex items-start gap-3 bg-white p-3 rounded-lg shadow-sm">
+                                    <span class="text-2xl">👩</span>
+                                    <div>
+                                        <p class="font-bold text-sm text-gray-800">女性ならではの配慮</p>
+                                        <p class="text-xs text-gray-600">お客様目線の丁寧な対応を心がけています</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 bg-white p-3 rounded-lg shadow-sm">
+                                    <span class="text-2xl">📱</span>
+                                    <div>
+                                        <p class="font-bold text-sm text-gray-800">LINEで気軽に相談</p>
+                                        <p class="text-xs text-gray-600">写真を送るだけでオンライン診断が可能です</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3 bg-white p-3 rounded-lg shadow-sm">
+                                    <span class="text-2xl">💰</span>
+                                    <div>
+                                        <p class="font-bold text-sm text-gray-800">透明な見積もり・押し売りなし</p>
+                                        <p class="text-xs text-gray-600">明朗会計で安心してご依頼いただけます</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- 6つの約束 -->
             <div class="bg-white p-6 md:p-8 rounded-xl shadow-2xl mb-10">
                 <h3 class="text-2xl md:text-3xl font-black text-center text-gray-800 mb-8">
@@ -1956,6 +2166,72 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
         </svg>
     </button>
+
+    <!-- スライドショーのJavaScript -->
+    <script>
+        let slideIndex = 1;
+        let slideTimer;
+        
+        // 初期化
+        document.addEventListener('DOMContentLoaded', function() {
+            showSlides(slideIndex);
+            startAutoSlide();
+        });
+        
+        // 自動スライド開始
+        function startAutoSlide() {
+            slideTimer = setInterval(function() {
+                plusSlides(1);
+            }, 3000); // 3秒ごとに自動切替
+        }
+        
+        // 自動スライド停止
+        function stopAutoSlide() {
+            clearInterval(slideTimer);
+        }
+        
+        // 次/前のスライドへ
+        function plusSlides(n) {
+            stopAutoSlide();
+            showSlides(slideIndex += n);
+            startAutoSlide();
+        }
+        
+        // 特定のスライドへ
+        function currentSlide(n) {
+            stopAutoSlide();
+            showSlides(slideIndex = n);
+            startAutoSlide();
+        }
+        
+        // スライド表示
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+                slides[i].classList.remove("active");
+            }
+            
+            for (i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            
+            if (slides[slideIndex-1]) {
+                slides[slideIndex-1].style.display = "block";
+                slides[slideIndex-1].classList.add("active");
+            }
+            
+            if (dots[slideIndex-1]) {
+                dots[slideIndex-1].classList.add("active");
+            }
+        }
+    </script>
 
 </body>
 </html>

@@ -589,7 +589,7 @@
                 article.setAttribute('data-category', post.category);
                 
                 article.innerHTML = `
-                    <div class="flex flex-col md:flex-row gap-4 p-6">
+                    <a href="blog/${post.slug}.html" class="flex flex-col md:flex-row gap-4 p-6">
                         <div class="flex-shrink-0 md:w-48">
                             <div class="bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg h-32 md:h-full flex items-center justify-center">
                                 <span class="text-4xl">${post.categoryName.split(' ')[0]}</span>
@@ -604,14 +604,17 @@
                                     📅 ${post.date}
                                 </span>
                             </div>
-                            <h2 class="text-xl font-bold text-gray-900 mb-2">
+                            <h2 class="text-xl font-bold text-gray-900 mb-2 hover:text-blue-600">
                                 ${post.title}
                             </h2>
                             <p class="text-sm text-gray-600 mb-3">
                                 ${post.excerpt}
                             </p>
+                            <span class="inline-flex items-center text-blue-600 font-bold text-sm hover:text-blue-800">
+                                続きを読む →
+                            </span>
                         </div>
-                    </div>
+                    </a>
                 `;
                 
                 blogList.appendChild(article);

@@ -9,6 +9,42 @@
     })(window,document,'script','dataLayer','GTM-TPXG7KLL');</script>
     <!-- End Google Tag Manager -->
     
+    <!-- 電話クリック測定スクリプト -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // すべてのtel:リンクを取得
+        var phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+        
+        phoneLinks.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                // 電話番号を取得
+                var phoneNumber = this.getAttribute('href').replace('tel:', '');
+                
+                // GTM dataLayerにイベントを送信
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'phone_click',
+                    'phone_number': phoneNumber,
+                    'page_url': window.location.href,
+                    'page_title': document.title
+                });
+                
+                // GA4に直接送信（GTMが動作しない場合のバックアップ）
+                if (typeof gtag === 'function') {
+                    gtag('event', 'phone_click', {
+                        'phone_number': phoneNumber,
+                        'page_url': window.location.href,
+                        'page_title': document.title
+                    });
+                }
+                
+                console.log('電話クリックイベント送信:', phoneNumber);
+            });
+        });
+    });
+    </script>
+    <!-- End 電話クリック測定スクリプト -->
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     

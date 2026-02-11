@@ -1,6 +1,5 @@
-# .html付きのURLを優先
+# Cloudflare Pages: 正しいファイルを表示
+# トップレベルページのリダイレクト
 /blog   /blog.html   200
 /jirei  /jirei.html  200
-
-# その他のページも同様に設定
 /faq    /faq.html    200

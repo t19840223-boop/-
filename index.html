@@ -81,6 +81,180 @@
     </script>
     <!-- End LINEクリック測定スクリプト -->
     
+    <!-- 包括的なイベント測定スクリプト -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // ========== 1. フォーム送信測定 ==========
+        var forms = document.querySelectorAll('form');
+        forms.forEach(function(form) {
+            form.addEventListener('submit', function(e) {
+                var formId = this.id || this.name || 'unknown_form';
+                
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'form_submit',
+                    'form_id': formId,
+                    'page_url': window.location.href,
+                    'page_title': document.title
+                });
+                
+                if (typeof gtag === 'function') {
+                    gtag('event', 'form_submit', {
+                        'form_id': formId,
+                        'page_url': window.location.href
+                    });
+                }
+                
+                console.log('フォーム送信イベント:', formId);
+            });
+        });
+        
+        // ========== 2. スクロール深度測定 ==========
+        var scrollDepths = [25, 50, 75, 100];
+        var scrollTriggered = {};
+        
+        window.addEventListener('scroll', function() {
+            var scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            
+            scrollDepths.forEach(function(depth) {
+                if (scrollPercent >= depth && !scrollTriggered[depth]) {
+                    scrollTriggered[depth] = true;
+                    
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        'event': 'scroll_depth',
+                        'scroll_percentage': depth,
+                        'page_url': window.location.href,
+                        'page_title': document.title
+                    });
+                    
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'scroll_depth', {
+                            'scroll_percentage': depth,
+                            'page_url': window.location.href
+                        });
+                    }
+                    
+                    console.log('スクロール深度:', depth + '%');
+                }
+            });
+        });
+        
+        // ========== 3. 外部リンククリック測定 ==========
+        var links = document.querySelectorAll('a');
+        links.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                var href = this.getAttribute('href');
+                var currentDomain = window.location.hostname;
+                
+                // 外部リンクかどうか判定
+                if (href && (href.startsWith('http://') || href.startsWith('https://')) && !href.includes(currentDomain)) {
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        'event': 'external_click',
+                        'link_url': href,
+                        'link_text': this.innerText.substring(0, 100),
+                        'page_url': window.location.href
+                    });
+                    
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'external_click', {
+                            'link_url': href,
+                            'page_url': window.location.href
+                        });
+                    }
+                    
+                    console.log('外部リンククリック:', href);
+                }
+            });
+        });
+        
+        // ========== 4. 滞在時間測定 ==========
+        var engagementTime = 0;
+        var engagementInterval = setInterval(function() {
+            if (document.visibilityState === 'visible') {
+                engagementTime += 10; // 10秒ごとに記録
+                
+                // 30秒、60秒、120秒、300秒のタイミングで送信
+                if ([30, 60, 120, 300].includes(engagementTime)) {
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({
+                        'event': 'engagement_time',
+                        'engagement_seconds': engagementTime,
+                        'page_url': window.location.href,
+                        'page_title': document.title
+                    });
+                    
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'engagement_time', {
+                            'engagement_seconds': engagementTime,
+                            'page_url': window.location.href
+                        });
+                    }
+                    
+                    console.log('滞在時間:', engagementTime + '秒');
+                }
+            }
+        }, 10000); // 10秒ごとにチェック
+        
+        // ========== 5. 画像拡大表示測定 ==========
+        var images = document.querySelectorAll('img');
+        images.forEach(function(img) {
+            img.addEventListener('click', function(e) {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'image_click',
+                    'image_src': this.src,
+                    'image_alt': this.alt || 'no_alt',
+                    'page_url': window.location.href
+                });
+                
+                if (typeof gtag === 'function') {
+                    gtag('event', 'image_click', {
+                        'image_src': this.src,
+                        'page_url': window.location.href
+                    });
+                }
+                
+                console.log('画像クリック:', this.src);
+            });
+        });
+        
+        // ========== 6. ページタイプ自動判定と送信 ==========
+        var pageType = 'other';
+        var pagePath = window.location.pathname;
+        
+        if (pagePath.includes('jirei')) {
+            pageType = 'case_study';
+        } else if (pagePath.includes('blog')) {
+            pageType = 'blog';
+        } else if (pagePath.includes('voice')) {
+            pageType = 'voice';
+        } else if (pagePath === '/' || pagePath === '/index.html') {
+            pageType = 'home';
+        }
+        
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'page_view',
+            'page_type': pageType,
+            'page_url': window.location.href,
+            'page_title': document.title
+        });
+        
+        if (typeof gtag === 'function') {
+            gtag('event', 'page_view', {
+                'page_type': pageType,
+                'page_url': window.location.href
+            });
+        }
+        
+        console.log('ページタイプ:', pageType);
+    });
+    </script>
+    <!-- End 包括的なイベント測定スクリプト -->
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     

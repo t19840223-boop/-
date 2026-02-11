@@ -589,7 +589,7 @@
                 article.setAttribute('data-category', post.category);
                 
                 article.innerHTML = `
-                    <a href="blog/${post.slug}.html" class="flex flex-col md:flex-row gap-4 p-6">
+                    <a href="${post.slug}.html" class="flex flex-col md:flex-row gap-4 p-6">
                         <div class="flex-shrink-0 md:w-48">
                             <div class="bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg h-32 md:h-full flex items-center justify-center">
                                 <span class="text-4xl">${post.categoryName.split(' ')[0]}</span>

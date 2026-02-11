@@ -1,0 +1,6 @@
+# .html付きのURLを優先
+/blog   /blog.html   200
+/jirei  /jirei.html  200
+
+# その他のページも同様に設定
+/faq    /faq.html    200

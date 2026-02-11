@@ -45,6 +45,42 @@
     </script>
     <!-- End 電話クリック測定スクリプト -->
     
+    <!-- LINEクリック測定スクリプト -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // すべてのLINEリンクを取得（lin.ee を含むリンク）
+        var lineLinks = document.querySelectorAll('a[href*="lin.ee"], a[href*="line.me"]');
+        
+        lineLinks.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                // LINE URLを取得
+                var lineUrl = this.getAttribute('href');
+                
+                // GTM dataLayerにイベントを送信
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'line_click',
+                    'line_url': lineUrl,
+                    'page_url': window.location.href,
+                    'page_title': document.title
+                });
+                
+                // GA4に直接送信（GTMが動作しない場合のバックアップ）
+                if (typeof gtag === 'function') {
+                    gtag('event', 'line_click', {
+                        'line_url': lineUrl,
+                        'page_url': window.location.href,
+                        'page_title': document.title
+                    });
+                }
+                
+                console.log('LINEクリックイベント送信:', lineUrl);
+            });
+        });
+    });
+    </script>
+    <!-- End LINEクリック測定スクリプト -->
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     

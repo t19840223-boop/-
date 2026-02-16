@@ -57,6 +57,25 @@
         transform: translateY(-8px);
         box-shadow: 0 20px 40px rgba(0,0,0,0.15);
       }
+      
+      /* モバイル最適化 */
+      @media (max-width: 640px) {
+        .area-card {
+          border-radius: 1rem;
+        }
+        .area-card > div:first-child {
+          padding: 0.75rem;
+        }
+        .area-card > div:last-child {
+          padding: 1rem;
+        }
+        .area-card h3 {
+          font-size: 1.25rem;
+        }
+        .area-card:hover {
+          transform: translateY(-4px);
+        }
+      }
     </style>
 </head>
 <body>
@@ -70,7 +89,7 @@
         <div class="max-w-7xl mx-auto px-4 py-3">
             <div class="flex items-center justify-between">
                 <!-- ロゴ -->
-                <a href="index.html" class="text-xl md:text-2xl font-black text-blue-600">
+                <a href="index.html" class="text-lg sm:text-xl md:text-2xl font-black text-blue-600">
                     🏠 雨漏り修理専門
                 </a>
                 
@@ -86,8 +105,9 @@
                 </nav>
                 
                 <!-- モバイルメニュー -->
-                <div class="md:hidden">
-                    <a href="https://lin.ee/MO1aIyk" target="_blank" class="bg-green-500 text-white px-3 py-2 rounded text-sm font-bold">LINE相談</a>
+                <div class="md:hidden flex gap-2">
+                    <a href="https://lin.ee/MO1aIyk" target="_blank" class="bg-green-500 text-white px-3 py-2 rounded text-xs sm:text-sm font-bold whitespace-nowrap">LINE相談</a>
+                    <a href="tel:0120773743" class="bg-blue-600 text-white px-3 py-2 rounded text-xs sm:text-sm font-bold whitespace-nowrap">📞 電話</a>
                 </div>
             </div>
         </div>
@@ -111,19 +131,19 @@
             </div>
 
             <!-- 東京/神奈川タブ -->
-            <div class="flex justify-center mb-8">
-                <div class="inline-flex rounded-lg border-2 border-blue-600 overflow-hidden">
-                    <button onclick="showPrefecture('tokyo')" id="tab-tokyo" class="px-8 py-3 font-bold text-white bg-blue-600 hover:bg-blue-700 transition-all">
+            <div class="flex justify-center mb-8 px-2">
+                <div class="inline-flex rounded-lg border-2 border-blue-600 overflow-hidden w-full max-w-md">
+                    <button onclick="showPrefecture('tokyo')" id="tab-tokyo" class="flex-1 px-4 sm:px-8 py-3 font-bold text-sm sm:text-base text-white bg-blue-600 hover:bg-blue-700 transition-all">
                         🗼 東京都
                     </button>
-                    <button onclick="showPrefecture('kanagawa')" id="tab-kanagawa" class="px-8 py-3 font-bold text-gray-700 bg-white hover:bg-gray-50 transition-all">
+                    <button onclick="showPrefecture('kanagawa')" id="tab-kanagawa" class="flex-1 px-4 sm:px-8 py-3 font-bold text-sm sm:text-base text-gray-700 bg-white hover:bg-gray-50 transition-all">
                         🗻 神奈川県
                     </button>
                 </div>
             </div>
 
             <!-- 東京都エリア -->
-            <div id="prefecture-tokyo" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <div id="prefecture-tokyo" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12">
                 
                 <!-- 世田谷区 -->
                 <a href="blog/setagaya-contractors.html" class="area-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all">
@@ -443,7 +463,7 @@
             </div>
 
             <!-- 神奈川県エリア -->
-            <div id="prefecture-kanagawa" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" style="display:none;">
+            <div id="prefecture-kanagawa" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12" style="display:none;">
                 
                 <!-- 横浜市18区 -->
                 

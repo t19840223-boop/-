@@ -1,0 +1,172 @@
+<!-- 新しい施工事例を追加するためのテンプレート -->
+<!-- このコードブロックを jirei.html の適切な位置（ケース28の後）にコピーして使用してください -->
+
+<div class="case-item" 
+     data-page="3" 
+     data-categories='["roof","emergency"]' 
+     data-area="町田市">
+    
+    <!-- ヘッダー部分 -->
+    <div class="bg-gradient-to-r from-blue-600 to-blue-500 text-white p-6 rounded-t-xl">
+        <h3 class="text-2xl md:text-3xl font-black mb-3">
+            事例29: 【タイトル】例: 天井からの雨漏り→屋根板金交換
+        </h3>
+        <p class="text-lg md:text-xl mb-3 flex items-center">
+            <i class="fas fa-map-marker-alt mr-2"></i>
+            📍 【地域】例: 町田市 A様
+        </p>
+        
+        <!-- バッジ -->
+        <div class="flex flex-wrap gap-2">
+            <span class="bg-red-600 text-white px-4 py-2 rounded-full text-sm md:text-base font-bold">
+                緊急対応
+            </span>
+            <span class="bg-yellow-500 text-gray-900 px-4 py-2 rounded-full text-sm md:text-base font-bold">
+                築15年
+            </span>
+            <!-- 必要に応じてバッジを追加 -->
+        </div>
+    </div>
+    
+    <!-- Before/After 画像グリッド -->
+    <div class="grid grid-cols-2 gap-4 p-6 bg-white">
+        <div class="relative">
+            <img src="images/case29/before.jpg" 
+                 alt="修理前の雨漏り被害" 
+                 class="w-full h-64 object-cover rounded-lg shadow-lg">
+            <div class="absolute top-4 left-4 bg-red-600 text-white px-4 py-2 rounded-full font-bold">
+                Before
+            </div>
+        </div>
+        <div class="relative">
+            <img src="images/case29/after.jpg" 
+                 alt="修理後の完成状態" 
+                 class="w-full h-64 object-cover rounded-lg shadow-lg">
+            <div class="absolute top-4 left-4 bg-green-600 text-white px-4 py-2 rounded-full font-bold">
+                After
+            </div>
+        </div>
+        
+        <!-- 工程写真（必要に応じて追加） -->
+        <div class="col-span-2 grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
+            <img src="images/case29/process1.jpg" 
+                 alt="工程1" 
+                 class="w-full h-32 object-cover rounded-lg shadow">
+            <img src="images/case29/process2.jpg" 
+                 alt="工程2" 
+                 class="w-full h-32 object-cover rounded-lg shadow">
+            <img src="images/case29/process3.jpg" 
+                 alt="工程3" 
+                 class="w-full h-32 object-cover rounded-lg shadow">
+            <img src="images/case29/process4.jpg" 
+                 alt="工程4" 
+                 class="w-full h-32 object-cover rounded-lg shadow">
+        </div>
+    </div>
+    
+    <!-- 3つの詳細カード -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 px-6 pb-6 bg-white">
+        <!-- 症状カード -->
+        <div class="bg-red-50 border-l-4 border-red-600 p-5 rounded-lg shadow-sm">
+            <h4 class="text-xl font-black text-red-700 mb-3 flex items-center">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                🔍 症状
+            </h4>
+            <p class="text-gray-800">
+                【症状の詳細】<br>
+                例: 天井に茶色いシミが発生し、雨の日に水滴が落ちてくる状態が続いていました。
+            </p>
+        </div>
+        
+        <!-- 原因カード -->
+        <div class="bg-orange-50 border-l-4 border-orange-600 p-5 rounded-lg shadow-sm">
+            <h4 class="text-xl font-black text-orange-700 mb-3 flex items-center">
+                <i class="fas fa-search mr-2"></i>
+                ⚠️ 原因
+            </h4>
+            <p class="text-gray-800">
+                【原因の詳細】<br>
+                例: 屋根の板金部分が経年劣化により浮き上がり、雨水が侵入していました。
+            </p>
+        </div>
+        
+        <!-- 工事内容カード -->
+        <div class="bg-blue-50 border-l-4 border-blue-600 p-5 rounded-lg shadow-sm">
+            <h4 class="text-xl font-black text-blue-700 mb-3 flex items-center">
+                <i class="fas fa-tools mr-2"></i>
+                🔨 工事内容
+            </h4>
+            <ul class="text-gray-800 space-y-2">
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
+                    <span>【作業1】例: 屋根板金交換</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
+                    <span>【作業2】例: 防水シート補強</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-green-600 mr-2 mt-1"></i>
+                    <span>【作業3】例: 天井の修復</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- 費用・期間カード -->
+    <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 mx-6 mb-6 rounded-lg shadow-lg">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <p class="text-gray-600 text-sm mb-1">💰 費用（税込）</p>
+                <p class="text-4xl font-black text-green-600">【金額】例: 85万円</p>
+                <p class="text-sm text-gray-600 mt-2">
+                    ※ 訪問販売見積もり: 【比較金額】例: 150万円 → 
+                    <span class="text-red-600 font-bold">【削減額】例: 65万円削減</span>
+                </p>
+            </div>
+            <div>
+                <p class="text-gray-600 text-sm mb-1">📅 工期</p>
+                <p class="text-4xl font-black text-blue-600">【日数】例: 7日間</p>
+                <p class="text-sm text-gray-600 mt-2">
+                    検査・準備含む
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ポイントカード -->
+    <div class="bg-yellow-50 border-2 border-yellow-400 p-6 mx-6 mb-6 rounded-lg shadow-lg">
+        <h4 class="text-2xl font-black text-gray-800 mb-3 flex items-center">
+            <i class="fas fa-star text-yellow-500 mr-2"></i>
+            ✨ ポイント
+        </h4>
+        <p class="text-gray-800 leading-relaxed">
+            【工事のポイント】<br>
+            例: 屋根全体を点検し、板金だけでなく防水シートも補強することで、長期的な再発防止を実現しました。
+        </p>
+    </div>
+    
+    <!-- お客様の声カード -->
+    <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 mx-6 mb-6 rounded-lg shadow-lg">
+        <h4 class="text-2xl font-black text-gray-800 mb-3 flex items-center">
+            <i class="fas fa-comments text-purple-600 mr-2"></i>
+            💬 お客様の声
+        </h4>
+        <blockquote class="text-gray-800 italic leading-relaxed border-l-4 border-purple-600 pl-4">
+            「【お客様の声】例: 訪問販売で150万円と言われて困っていたところ、NEXToneさんに相談したら85万円で対応してくれました。工事も丁寧で大満足です！」
+        </blockquote>
+        <p class="text-right text-gray-600 mt-3 font-bold">
+            - 【地域】例: 町田市 A様
+        </p>
+    </div>
+    
+    <!-- LINE誘導ボタン -->
+    <div class="px-6 pb-6 bg-white rounded-b-xl">
+        <a href="https://lin.ee/MO1aIyk" 
+           class="block w-full bg-gradient-to-r from-green-500 to-green-600 text-white text-center py-4 rounded-full text-xl font-black hover:scale-105 transition-all shadow-xl">
+            <i class="fab fa-line mr-2"></i>
+            📱 同じような症状でお悩みですか？無料相談はこちら
+        </a>
+    </div>
+</div>
+<!-- END OF TEMPLATE -->

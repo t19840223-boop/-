@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINEリッチメニュー画像</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .controls {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        button {
+            background: #06c755;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #05b04c;
+        }
+        #canvas-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        canvas {
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            max-width: 100%;
+            height: auto;
+        }
+        .info {
+            background: #fff7ed;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border-left: 4px solid #f59e0b;
+        }
+    </style>
+</head>
+<body>
+    <div class="info">
+        <h2>🏠 雨漏り修理専門 NEXTone - LINEリッチメニュー画像</h2>
+        <p><strong>サイズ:</strong> 2500px × 1686px</p>
+        <p><strong>用途:</strong> LINE公式アカウントのリッチメニュー背景画像</p>
+    </div>
+
+    <div class="controls">
+        <button onclick="downloadImage()">📥 画像をダウンロード（PNG形式）</button>
+    </div>
+
+    <div id="canvas-container">
+        <canvas id="richMenuCanvas" width="2500" height="1686"></canvas>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('richMenuCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        const width = 2500;
+        const height = 1686;
+        const cols = 3;
+        const rows = 2;
+        const cellWidth = width / cols;
+        const cellHeight = height / rows;
+        
+        // 背景グラデーション（明るいオレンジから青へ - 雨漏り工事会社らしく）
+        const gradient = ctx.createLinearGradient(0, 0, width, height);
+        gradient.addColorStop(0, '#fffbeb');
+        gradient.addColorStop(0.5, '#dbeafe');
+        gradient.addColorStop(1, '#e0f2fe');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, width, height);
+        
+        // セクションデータ（明るいカラフルな配色）
+        const sections = [
+            { emoji: '📸', title: '無料診断', subtitle: '写真を送るだけ', col: 0, row: 0, bg: '#fef3c7', color: '#92400e', border: '#fbbf24' },
+            { emoji: '📞', title: '電話相談', subtitle: '0120-773-743', col: 1, row: 0, bg: '#dcfce7', color: '#166534', border: '#4ade80' },
+            { emoji: '💰', title: '費用相場', subtitle: '適正価格確認', col: 2, row: 0, bg: '#dbeafe', color: '#1e40af', border: '#60a5fa' },
+            { emoji: '🏠', title: '施工事例', subtitle: '実績28件公開', col: 0, row: 1, bg: '#fce7f3', color: '#9f1239', border: '#f472b6' },
+            { emoji: '🛡️', title: '火災保険', subtitle: '自己負担0円も', col: 1, row: 1, bg: '#e0e7ff', color: '#3730a3', border: '#818cf8' },
+            { emoji: '❓', title: 'よくある質問', subtitle: '疑問を解決', col: 2, row: 1, bg: '#fef9c3', color: '#854d0e', border: '#facc15' }
+        ];
+        
+        // グリッド線（オレンジ系で目立つ）
+        ctx.strokeStyle = '#fb923c';
+        ctx.lineWidth = 6;
+        for (let i = 1; i < cols; i++) {
+            ctx.beginPath();
+            ctx.moveTo(i * cellWidth, 0);
+            ctx.lineTo(i * cellWidth, height);
+            ctx.stroke();
+        }
+        for (let i = 1; i < rows; i++) {
+            ctx.beginPath();
+            ctx.moveTo(0, i * cellHeight);
+            ctx.lineTo(width, i * cellHeight);
+            ctx.stroke();
+        }
+        
+        // セクション描画
+        sections.forEach(section => {
+            const x = section.col * cellWidth;
+            const y = section.row * cellHeight;
+            const centerX = x + cellWidth / 2;
+            const centerY = y + cellHeight / 2;
+            
+            // 背景（明るい色）
+            ctx.fillStyle = section.bg;
+            ctx.fillRect(x + 15, y + 15, cellWidth - 30, cellHeight - 30);
+            
+            // 内側の白い枠（半透明）
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+            ctx.fillRect(x + 40, y + 40, cellWidth - 80, cellHeight - 80);
+            
+            // ボーダー（各セクションの色で囲む）
+            ctx.strokeStyle = section.border;
+            ctx.lineWidth = 5;
+            ctx.strokeRect(x + 15, y + 15, cellWidth - 30, cellHeight - 30);
+            
+            // 絵文字（大きく）
+            ctx.font = 'bold 200px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(section.emoji, centerX, centerY - 180);
+            
+            // タイトル（濃い色で太字）
+            ctx.font = 'bold 110px "Noto Sans JP", sans-serif';
+            ctx.fillStyle = section.color;
+            ctx.fillText(section.title, centerX, centerY + 50);
+            
+            // サブタイトル（濃い色で太字）
+            ctx.font = 'bold 70px "Noto Sans JP", sans-serif';
+            ctx.fillStyle = section.color;
+            ctx.fillText(section.subtitle, centerX, centerY + 160);
+        });
+        
+        // 外枠（オレンジ系で雨漏り工事らしく）
+        ctx.strokeStyle = '#f59e0b';
+        ctx.lineWidth = 15;
+        ctx.strokeRect(0, 0, width, height);
+        
+        // 内側の枠（濃いオレンジ）
+        ctx.strokeStyle = '#ea580c';
+        ctx.lineWidth = 8;
+        ctx.strokeRect(8, 8, width - 16, height - 16);
+        
+        function downloadImage() {
+            const link = document.createElement('a');
+            link.download = 'line-richmenu-nextone-2500x1686.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+    </script>
+</body>
+</html>

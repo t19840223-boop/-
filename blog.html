@@ -367,8 +367,9 @@ const blogPosts = [
             }
         }
 
-        // GTMへの検索イベント送信
+        // GTMへの検索イベント送信（デバッグ情報付き）
         function trackSearchEvent(keyword, resultCount) {
+            // GTMのdataLayerに送信
             if (window.dataLayer) {
                 window.dataLayer.push({
                     event: 'blog_search',
@@ -378,6 +379,21 @@ const blogPosts = [
                     page_url: window.location.href,
                     page_title: document.title
                 });
+                console.log('✅ GTMに検索イベント送信:', {
+                    keyword: keyword,
+                    resultCount: resultCount
+                });
+            } else {
+                console.warn('⚠️ GTMのdataLayerが見つかりません');
+            }
+            
+            // gtagが利用可能な場合は直接GA4にも送信（バックアップ）
+            if (typeof gtag === 'function') {
+                gtag('event', 'search', {
+                    search_term: keyword,
+                    search_result_count: resultCount
+                });
+                console.log('✅ GA4に直接送信（gtagバックアップ）');
             }
         }
 

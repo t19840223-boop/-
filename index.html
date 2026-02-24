@@ -9,6 +9,16 @@
     })(window,document,'script','dataLayer','GTM-TPXG7KLL');</script>
     <!-- End Google Tag Manager -->
     
+    <!-- Google Ads Conversion Tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-CONVERSION_ID"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-CONVERSION_ID');
+    </script>
+    <!-- End Google Ads Conversion Tracking -->
+    
     <!-- 電話クリック測定スクリプト -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -29,12 +39,20 @@
                     'page_title': document.title
                 });
                 
-                // GA4に直接送信（GTMが動作しない場合のバックアップ）
+                // GA4とGoogle広告に送信
                 if (typeof gtag === 'function') {
+                    // GA4イベント
                     gtag('event', 'phone_click', {
                         'phone_number': phoneNumber,
                         'page_url': window.location.href,
                         'page_title': document.title
+                    });
+                    
+                    // Google広告コンバージョン
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-CONVERSION_ID/PHONE_CONVERSION_LABEL',
+                        'value': 1.0,
+                        'currency': 'JPY'
                     });
                 }
                 
@@ -65,12 +83,20 @@
                     'page_title': document.title
                 });
                 
-                // GA4に直接送信（GTMが動作しない場合のバックアップ）
+                // GA4とGoogle広告に送信
                 if (typeof gtag === 'function') {
+                    // GA4イベント
                     gtag('event', 'line_click', {
                         'line_url': lineUrl,
                         'page_url': window.location.href,
                         'page_title': document.title
+                    });
+                    
+                    // Google広告コンバージョン
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-CONVERSION_ID/LINE_CONVERSION_LABEL',
+                        'value': 1.0,
+                        'currency': 'JPY'
                     });
                 }
                 
@@ -100,9 +126,17 @@
                 });
                 
                 if (typeof gtag === 'function') {
+                    // GA4イベント
                     gtag('event', 'form_submit', {
                         'form_id': formId,
                         'page_url': window.location.href
+                    });
+                    
+                    // Google広告コンバージョン
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-CONVERSION_ID/FORM_CONVERSION_LABEL',
+                        'value': 1.0,
+                        'currency': 'JPY'
                     });
                 }
                 

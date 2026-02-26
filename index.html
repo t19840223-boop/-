@@ -285,6 +285,72 @@
         }
         
         console.log('ページタイプ:', pageType);
+        
+        // ========== 7. セクション閲覧測定（マイクロコンバージョン） ==========
+        var sectionObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !entry.target.dataset.tracked) {
+                    entry.target.dataset.tracked = 'true';
+                    var sectionId = entry.target.id || entry.target.className;
+                    
+                    // 施工事例セクション閲覧
+                    if (sectionId.includes('jirei')) {
+                        window.dataLayer = window.dataLayer || [];
+                        window.dataLayer.push({
+                            'event': 'section_view',
+                            'section_name': 'case_study',
+                            'page_url': window.location.href
+                        });
+                        
+                        if (typeof gtag === 'function') {
+                            gtag('event', 'view_item_list', {
+                                'items': [{'item_category': 'case_study'}]
+                            });
+                        }
+                        console.log('施工事例セクション閲覧');
+                    }
+                    
+                    // 料金セクション閲覧
+                    if (sectionId.includes('price') || sectionId.includes('ryoukin')) {
+                        window.dataLayer = window.dataLayer || [];
+                        window.dataLayer.push({
+                            'event': 'section_view',
+                            'section_name': 'pricing',
+                            'page_url': window.location.href
+                        });
+                        
+                        if (typeof gtag === 'function') {
+                            gtag('event', 'view_item', {
+                                'items': [{'item_category': 'pricing'}]
+                            });
+                        }
+                        console.log('料金セクション閲覧');
+                    }
+                    
+                    // 赤外線カメラセクション閲覧
+                    if (sectionId.includes('infrared')) {
+                        window.dataLayer = window.dataLayer || [];
+                        window.dataLayer.push({
+                            'event': 'section_view',
+                            'section_name': 'infrared_camera',
+                            'page_url': window.location.href
+                        });
+                        
+                        if (typeof gtag === 'function') {
+                            gtag('event', 'view_promotion', {
+                                'promotion_name': 'infrared_camera'
+                            });
+                        }
+                        console.log('赤外線カメラセクション閲覧');
+                    }
+                }
+            });
+        }, {threshold: 0.5});
+        
+        // 監視対象のセクションを追加
+        document.querySelectorAll('section[id], div[id]').forEach(function(section) {
+            sectionObserver.observe(section);
+        });
     });
     </script>
     <!-- End 包括的なイベント測定スクリプト -->
@@ -518,7 +584,7 @@
                         <i class="fab fa-line text-lg"></i>
                         <span>LINE</span>
                     </a>
-                    <a href="tel:0120773743" class="flex-1 bg-yellow-400 text-red-900 px-3 py-2.5 rounded-lg text-sm font-black hover:bg-yellow-300 transition-all shadow-lg flex items-center justify-center gap-1.5 whitespace-nowrap">
+                    <a href="tel:0120773743" class="flex-1 bg-red-600 text-white px-3 py-2.5 rounded-lg text-sm font-black hover:bg-red-700 transition-all shadow-lg flex items-center justify-center gap-1.5 whitespace-nowrap">
                         <i class="fas fa-phone text-lg"></i>
                         <span>電話</span>
                     </a>
@@ -528,7 +594,7 @@
                     <a href="jirei.html" class="flex-1 bg-blue-600 text-white px-2.5 py-2 rounded-lg text-xs font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-1 whitespace-nowrap">
                         📸 事例
                     </a>
-                    <a href="blog.html" class="flex-1 bg-purple-600 text-white px-2.5 py-2 rounded-lg text-xs font-bold hover:bg-purple-700 transition-all flex items-center justify-center gap-1 whitespace-nowrap">
+                    <a href="blog.html" class="flex-1 bg-blue-600 text-white px-2.5 py-2 rounded-lg text-xs font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-1 whitespace-nowrap">
                         📝 記事
                     </a>
                     <a href="area.html" class="flex-1 bg-orange-600 text-white px-2.5 py-2 rounded-lg text-xs font-bold hover:bg-orange-700 transition-all flex items-center justify-center gap-1 whitespace-nowrap">
@@ -547,7 +613,7 @@
                     <i class="fab fa-line text-xl"></i>
                     <span>LINE相談</span>
                 </a>
-                <a href="tel:0120773743" class="bg-yellow-400 text-red-900 px-5 py-3 rounded-full text-lg font-black hover:bg-yellow-300 transition-all shadow-xl hover:scale-105 flex items-center gap-2 whitespace-nowrap">
+                <a href="tel:0120773743" class="bg-red-600 text-white px-5 py-3 rounded-full text-lg font-black hover:bg-red-700 transition-all shadow-xl hover:scale-105 flex items-center gap-2 whitespace-nowrap">
                     <i class="fas fa-phone text-xl"></i>
                     <span>0120-773-743</span>
                 </a>
@@ -555,7 +621,7 @@
                     <span class="text-lg">📸</span>
                     <span>施工事例</span>
                 </a>
-                <a href="blog.html" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-3 rounded-full text-base font-black hover:scale-105 transition-all shadow-xl flex items-center gap-1 whitespace-nowrap">
+                <a href="blog.html" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-full text-base font-black hover:scale-105 transition-all shadow-xl flex items-center gap-1 whitespace-nowrap">
                     <span class="text-lg">📝</span>
                     <span>ブログ</span>
                 </a>
@@ -576,10 +642,11 @@
             <div class="text-center mb-8">
                 <!-- メインメッセージ -->
                 <h1 class="text-xl md:text-5xl lg:text-6xl font-black text-gray-800 mb-4 leading-tight px-2">
-                    <span class="text-blue-600 block whitespace-nowrap">【地域実績多数　雨漏り緊急対応】</span>
+                    <span class="text-red-600 block">最短1時間で駆けつけ</span>
+                    <span class="text-blue-600 block mt-2">赤外線カメラで原因を正確に特定</span>
                 </h1>
                 <h2 class="text-3xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-                    <span class="text-blue-800">株式会社NEXTone<span class="text-orange-500">へ！</span></span>
+                    <span class="text-blue-800">株式会社NEXTone</span>
                 </h2>
                 
                 <!-- 電話番号（大きく） -->
@@ -619,12 +686,38 @@
                 </div>
             </div>
             
-            <!-- 下部バナー：無料対応 -->
-            <div class="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white py-6 px-8 rounded-2xl shadow-2xl text-center">
-                <p class="text-2xl md:text-4xl font-black mb-2">
-                    <i class="fas fa-check-circle text-yellow-300"></i> 現地調査・お見積作成は<span class="text-yellow-300">無料対応！</span>
-                </p>
-                <p class="text-sm md:text-lg opacity-90">神奈川・東京・埼玉南部 最短即日対応可能</p>
+            <!-- 3つの強み -->
+            <div class="grid md:grid-cols-3 gap-4 mb-8">
+                <div class="bg-white rounded-2xl shadow-xl p-6 text-center hover:shadow-2xl transition-all">
+                    <div class="text-blue-600 text-5xl mb-3">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-gray-800 mb-2">無料診断</h3>
+                    <p class="text-sm text-gray-600">赤外線カメラでの診断が完全無料</p>
+                </div>
+                <div class="bg-white rounded-2xl shadow-xl p-6 text-center hover:shadow-2xl transition-all">
+                    <div class="text-blue-600 text-5xl mb-3">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-gray-800 mb-2">24時間対応</h3>
+                    <p class="text-sm text-gray-600">LINE・電話で24時間受付中</p>
+                </div>
+                <div class="bg-white rounded-2xl shadow-xl p-6 text-center hover:shadow-2xl transition-all">
+                    <div class="text-blue-600 text-5xl mb-3">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-gray-800 mb-2">火災保険対応</h3>
+                    <p class="text-sm text-gray-600">自己負担0円になる場合も</p>
+                </div>
+            </div>
+            
+            <!-- LINEボタン（大きく・緑色・目立つ） -->
+            <div class="text-center mb-8">
+                <a href="https://lin.ee/MO1aIyk" class="inline-block bg-green-500 hover:bg-green-600 text-white px-12 py-6 rounded-full text-2xl md:text-3xl font-black shadow-2xl hover:scale-110 transition-all">
+                    <i class="fab fa-line text-4xl mr-3"></i>
+                    今すぐLINEで無料相談
+                </a>
+                <p class="text-gray-600 mt-3 text-sm">※24時間以内に返信します</p>
             </div>
         </div>
     </section>
@@ -642,6 +735,56 @@
             </div>
         </div>
     </div>
+
+    <!-- 😰 こんなお悩みありませんか？セクション -->
+    <section class="bg-gradient-to-b from-orange-50 to-white py-12 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-5xl font-black text-gray-800 mb-4">
+                    <i class="fas fa-exclamation-circle text-orange-500"></i> こんなお悩みありませんか？
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-all">
+                    <div class="text-6xl text-center mb-4">😨</div>
+                    <h3 class="text-xl font-black text-gray-800 mb-3 text-center">天井にシミができた</h3>
+                    <p class="text-sm text-gray-600 text-center">2階の天井に茶色いシミが広がってきて、雨の日にひどくなる...</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-all">
+                    <div class="text-6xl text-center mb-4">💧</div>
+                    <h3 class="text-xl font-black text-gray-800 mb-3 text-center">雨の日に天井から水滴が落ちる</h3>
+                    <p class="text-sm text-gray-600 text-center">大雨の時、天井からポタポタと水が落ちてきて床が濡れる...</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-all">
+                    <div class="text-6xl text-center mb-4">🦠</div>
+                    <h3 class="text-xl font-black text-gray-800 mb-3 text-center">壁にカビが生えてきた</h3>
+                    <p class="text-sm text-gray-600 text-center">壁の角や窓周りに黒いカビが発生。健康被害が心配...</p>
+                </div>
+            </div>
+            
+            <div class="mt-10 text-center">
+                <div class="bg-red-100 border-4 border-red-500 rounded-2xl p-6 inline-block">
+                    <p class="text-2xl md:text-3xl font-black text-red-600 mb-2">
+                        ⚠️ 放置すると被害が拡大します！
+                    </p>
+                    <p class="text-sm md:text-lg text-gray-700">
+                        雨漏りは時間が経つほど修理費用が高額に。<br>
+                        早期発見・早期対応が被害を最小限に抑えます。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <a href="https://lin.ee/MO1aIyk" class="inline-block bg-green-500 hover:bg-green-600 text-white px-10 py-5 rounded-full text-xl md:text-2xl font-black shadow-2xl hover:scale-110 transition-all">
+                    <i class="fab fa-line text-3xl mr-2"></i>
+                    今すぐ無料診断を申し込む
+                </a>
+            </div>
+        </div>
+    </section>
 
     <!-- 📑 目次ナビゲーション（ジャンプリンク） -->
     <nav class="sticky top-0 z-50 bg-white shadow-lg border-b-4 border-blue-600">

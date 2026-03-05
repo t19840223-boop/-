@@ -565,6 +565,128 @@
         background-color: white !important;
         transform: scale(1.2);
       }
+      
+      /* 🎯 滞在時間延長のための追加スタイル */
+      
+      /* スクロールアニメーション */
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      
+      .scroll-reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      /* カウントアップアニメーション */
+      @keyframes countUp {
+        from { opacity: 0; transform: scale(0.5); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      
+      .count-up {
+        animation: countUp 0.6s ease-out;
+      }
+      
+      /* 読み進捗バー */
+      .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 4px;
+        background: linear-gradient(90deg, #3b82f6, #10b981);
+        z-index: 9999;
+        transition: width 0.1s ease;
+      }
+      
+      /* スクロール誘導矢印 */
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(10px); }
+      }
+      
+      .scroll-indicator {
+        animation: bounce 2s infinite;
+      }
+      
+      /* ホバーエフェクト強化 */
+      .hover-lift {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .hover-lift:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      }
+      
+      /* 視線誘導の光る効果 */
+      @keyframes shine {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+      }
+      
+      .shine-effect {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .shine-effect::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        animation: shine 3s infinite;
+      }
+      
+      /* 緊急性を示すパルス */
+      @keyframes urgentPulse {
+        0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+        50% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); }
+      }
+      
+      .urgent-pulse {
+        animation: urgentPulse 2s infinite;
+      }
+      
+      /* テキストグラデーション */
+      .text-gradient {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      /* スムーズなページ遷移 */
+      .page-transition {
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+      
+      /* 見出しの下線アニメーション */
+      .underline-animate {
+        position: relative;
+      }
+      
+      .underline-animate::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        width: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #3b82f6, #10b981);
+        transition: width 0.5s ease, left 0.5s ease;
+      }
+      
+      .underline-animate.visible::after {
+        width: 100%;
+        left: 0;
+      }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -650,7 +772,7 @@
                 </h2>
                 
                 <!-- 電話番号（大きく） -->
-                <div class="bg-gradient-to-r from-red-600 to-red-700 text-white inline-block px-8 py-4 rounded-2xl shadow-2xl mb-6 mt-4">
+                <div class="bg-gradient-to-r from-red-600 to-red-700 text-white inline-block px-8 py-4 rounded-2xl shadow-2xl mb-6 mt-4 urgent-pulse">
                     <p class="text-sm md:text-base font-bold mb-1">土日祝も無料で即対応するお約束</p>
                     <a href="tel:0120773743" class="flex items-center gap-3 hover:scale-105 transition-all">
                         <i class="fas fa-phone text-3xl md:text-4xl animate-pulse"></i>
@@ -733,11 +855,17 @@
                     ⬇️ スクロールして確認してください
                 </p>
             </div>
+            <!-- スクロール誘導矢印 -->
+            <div class="scroll-indicator mt-6 flex justify-center">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
         </div>
     </div>
 
     <!-- 😰 こんなお悩みありませんか？セクション -->
-    <section class="bg-gradient-to-b from-orange-50 to-white py-12 px-4">
+    <section class="bg-gradient-to-b from-orange-50 to-white py-12 px-4 scroll-reveal">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-8">
                 <h2 class="text-3xl md:text-5xl font-black text-gray-800 mb-4">
@@ -778,7 +906,7 @@
             </div>
             
             <div class="mt-8 text-center">
-                <a href="https://lin.ee/MO1aIyk" class="inline-block bg-green-500 hover:bg-green-600 text-white px-10 py-5 rounded-full text-xl md:text-2xl font-black shadow-2xl hover:scale-110 transition-all">
+                <a href="https://lin.ee/MO1aIyk" class="inline-block bg-green-500 hover:bg-green-600 text-white px-10 py-5 rounded-full text-xl md:text-2xl font-black shadow-2xl hover:scale-110 transition-all shine-effect">
                     <i class="fab fa-line text-3xl mr-2"></i>
                     今すぐ無料診断を申し込む
                 </a>
@@ -817,7 +945,7 @@
     </nav>
 
     <!-- 🏠 施工事例セクション（Before/After大きく）-->
-    <section id="jirei" class="bg-white py-16 md:py-24 px-4">
+    <section id="jirei" class="bg-white py-16 md:py-24 px-4 scroll-reveal">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-12">
                 <h2 class="text-4xl md:text-6xl font-black text-gray-800 mb-4">
@@ -911,7 +1039,7 @@
     </div>
 
     <!-- ⚠️ 放置の危険セクション: カビ/腐食/漏電の3軸 -->
-    <section id="houchi-kiken" class="bg-gradient-to-b from-red-50 to-orange-50 py-12 md:py-16 px-4">
+    <section id="houchi-kiken" class="bg-gradient-to-b from-red-50 to-orange-50 py-12 md:py-16 px-4 scroll-reveal">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-2xl md:text-5xl font-black text-center mb-4 text-red-700">
                 <span class="whitespace-nowrap">⚠️ 「まだ大丈夫」が命取りです</span>
@@ -1078,7 +1206,7 @@
     </section>
 
     <!-- 🔍 赤外線カメラ診断セクション -->
-    <section id="infrared" class="bg-gradient-to-b from-purple-50 to-blue-50 py-16 md:py-24 px-4">
+    <section id="infrared" class="bg-gradient-to-b from-purple-50 to-blue-50 py-16 md:py-24 px-4 scroll-reveal">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-12">
                 <span class="inline-block bg-purple-600 text-white px-6 py-2 rounded-full text-sm font-bold mb-4">
@@ -1206,7 +1334,7 @@
     </section>
 
     <!-- 🎯 雨漏り特化の強み -->
-    <section id="senmon" class="relative bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 py-16 md:py-24 px-4 overflow-hidden">
+    <section id="senmon" class="relative bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 py-16 md:py-24 px-4 overflow-hidden scroll-reveal">
         <!-- 背景パターン -->
         <div class="absolute inset-0 opacity-10">
             <div class="absolute inset-0" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px);"></div>
@@ -1272,7 +1400,7 @@
     </section>
 
     <!-- 🔥 火災保険セクション -->
-    <section id="hoken" class="bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50 py-16 md:py-24 px-4 relative overflow-hidden">
+    <section id="hoken" class="bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50 py-16 md:py-24 px-4 relative overflow-hidden scroll-reveal">
         <!-- 背景パターン -->
         <div class="absolute inset-0 opacity-5">
             <i class="fas fa-fire absolute top-10 left-10 text-9xl text-red-600"></i>
@@ -1362,7 +1490,7 @@
     </section>
 
     <!-- 💳 リフォームローンセクション（取りこぼし完全防止） -->
-    <section id="loan" class="bg-gradient-to-b from-green-50 to-blue-50 py-12 md:py-16 px-4">
+    <section id="loan" class="bg-gradient-to-b from-green-50 to-blue-50 py-12 md:py-16 px-4 scroll-reveal">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-10">
                 <h2 class="text-3xl md:text-5xl font-black text-green-700 mb-4">
@@ -2798,6 +2926,161 @@
                 dots[slideIndex-1].classList.add("active");
             }
         }
+    </script>
+    
+    <!-- 🎯 滞在時間延長スクリプト -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // ========== 1. 読み進捗バー ==========
+        const progressBar = document.createElement('div');
+        progressBar.className = 'reading-progress';
+        document.body.prepend(progressBar);
+        
+        window.addEventListener('scroll', function() {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight - windowHeight;
+            const scrolled = window.scrollY;
+            const progress = (scrolled / documentHeight) * 100;
+            progressBar.style.width = progress + '%';
+        });
+        
+        // ========== 2. スクロールアニメーション ==========
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // scroll-revealクラスを持つ要素を監視
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // ========== 3. 数字カウントアップアニメーション ==========
+        function animateCount(element, start, end, duration) {
+            const range = end - start;
+            const increment = range / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(function() {
+                current += increment;
+                if (current >= end) {
+                    current = end;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current).toLocaleString();
+            }, 16);
+        }
+        
+        // 数字要素を監視してカウントアップ
+        const numberObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.counted) {
+                    entry.target.dataset.counted = 'true';
+                    const targetNumber = parseInt(entry.target.dataset.count || entry.target.textContent.replace(/[^0-9]/g, ''));
+                    if (!isNaN(targetNumber)) {
+                        animateCount(entry.target, 0, targetNumber, 1500);
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        document.querySelectorAll('.count-number').forEach(el => {
+            numberObserver.observe(el);
+        });
+        
+        // ========== 4. ホバーエフェクトの追加 ==========
+        document.querySelectorAll('section').forEach(section => {
+            if (!section.classList.contains('hover-lift')) {
+                // 特定のセクションにホバーエフェクトを追加
+                const cards = section.querySelectorAll('.bg-white, .bg-gradient-to-br');
+                cards.forEach(card => {
+                    if (card.offsetHeight > 100) { // 一定サイズ以上のカードのみ
+                        card.classList.add('hover-lift');
+                    }
+                });
+            }
+        });
+        
+        // ========== 5. 滞在時間トラッキング ==========
+        let timeOnPage = 0;
+        const timeInterval = setInterval(function() {
+            timeOnPage++;
+            
+            // 30秒滞在でイベント送信
+            if (timeOnPage === 30) {
+                if (typeof gtag === 'function') {
+                    gtag('event', 'engagement_30s', {
+                        'page_url': window.location.href,
+                        'page_title': document.title
+                    });
+                }
+            }
+            
+            // 60秒滞在でイベント送信
+            if (timeOnPage === 60) {
+                if (typeof gtag === 'function') {
+                    gtag('event', 'engagement_60s', {
+                        'page_url': window.location.href,
+                        'page_title': document.title
+                    });
+                }
+            }
+            
+            // 120秒滞在でイベント送信
+            if (timeOnPage === 120) {
+                if (typeof gtag === 'function') {
+                    gtag('event', 'engagement_120s', {
+                        'page_url': window.location.href,
+                        'page_title': document.title
+                    });
+                }
+                clearInterval(timeInterval);
+            }
+        }, 1000);
+        
+        // ========== 6. スムーズスクロール強化 ==========
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // ========== 7. 見出しアニメーション ==========
+        document.querySelectorAll('h2, h3').forEach(heading => {
+            heading.classList.add('underline-animate');
+        });
+        
+        const headingObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        document.querySelectorAll('.underline-animate').forEach(el => {
+            headingObserver.observe(el);
+        });
+    });
     </script>
 
 </body>

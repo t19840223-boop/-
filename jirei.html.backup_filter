@@ -4076,6 +4076,75 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             updateVisibleCount();
         });
 
+        // 地域検索機能（カテゴリフィルターと連動）
+        function searchByArea() {
+            const searchText = document.getElementById('area-search').value.toLowerCase();
+            const select = document.getElementById('area-select');
+            select.value = 'all'; // リセット
+            
+            // カテゴリフィルターの状態を取得
+            const activeCategories = Array.from(document.querySelectorAll('.filter-btn.active'))
+                .map(btn => btn.dataset.category)
+                .filter(cat => cat !== 'all');
+            
+            const allCases = document.querySelectorAll('.case-item');
+            
+            allCases.forEach(caseItem => {
+                const area = (caseItem.dataset.area || '').toLowerCase();
+                const categories = JSON.parse(caseItem.dataset.categories || '[]');
+                
+                // 地域フィルター
+                const areaMatch = searchText === '' || area.includes(searchText);
+                
+                // カテゴリフィルター
+                const categoryMatch = activeCategories.length === 0 || 
+                    activeCategories.some(cat => categories.includes(cat));
+                
+                // 両方の条件を満たす場合のみ表示
+                if (areaMatch && categoryMatch) {
+                    caseItem.style.display = 'block';
+                } else {
+                    caseItem.style.display = 'none';
+                }
+            });
+            
+            updateVisibleCount();
+        }
+
+        // ドロップダウンで絞り込み（カテゴリフィルターと連動）
+        function filterByArea() {
+            const selectedArea = document.getElementById('area-select').value;
+            const searchBox = document.getElementById('area-search');
+            searchBox.value = ''; // リセット
+            
+            // カテゴリフィルターの状態を取得
+            const activeCategories = Array.from(document.querySelectorAll('.filter-btn.active'))
+                .map(btn => btn.dataset.category)
+                .filter(cat => cat !== 'all');
+            
+            const allCases = document.querySelectorAll('.case-item');
+            
+            allCases.forEach(caseItem => {
+                const area = caseItem.dataset.area || '';
+                const categories = JSON.parse(caseItem.dataset.categories || '[]');
+                
+                // 地域フィルター
+                const areaMatch = selectedArea === 'all' || area === selectedArea;
+                
+                // カテゴリフィルター
+                const categoryMatch = activeCategories.length === 0 || 
+                    activeCategories.some(cat => categories.includes(cat));
+                
+                // 両方の条件を満たす場合のみ表示
+                if (areaMatch && categoryMatch) {
+                    caseItem.style.display = 'block';
+                } else {
+                    caseItem.style.display = 'none';
+                }
+            });
+            
+            updateVisibleCount();
+        }
 
         // 表示件数を更新
         function updateVisibleCount() {

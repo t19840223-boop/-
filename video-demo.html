@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【デモ】動画埋め込みイメージ - 雨漏り修理LP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        
+        /* パルスアニメーション */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        /* バウンスアニメーション */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+        
+        /* 光る効果 */
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shine-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shine 3s infinite;
+        }
+        
+        /* 動画コンテナ */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .video-container iframe,
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* 動画セクションのグラデーション背景 */
+        .video-section-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        /* カウントアップアニメーション */
+        @keyframes countUp {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .count-up {
+            animation: countUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- デモバナー -->
+    <div class="bg-yellow-400 text-black py-3 px-4 text-center font-bold sticky top-0 z-50">
+        ⚠️ これはデモ版です（実際のサイトにはデプロイされていません）
+    </div>
+    
+    <!-- 🚨 緊急対応バナー -->
+    <div class="bg-gradient-to-r from-red-700 via-red-600 to-red-700 text-white py-3 px-2 text-center sticky top-12 z-40 shadow-2xl">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-center justify-center gap-4">
+                <span class="text-xl animate-pulse">🚨</span>
+                <span class="text-lg font-black">雨漏り緊急対応 LINE24時間受付</span>
+                <a href="tel:0120773743" class="bg-white text-red-600 px-6 py-2 rounded-full text-lg font-black hover:scale-105 transition-all shadow-xl">
+                    <i class="fas fa-phone mr-2"></i>
+                    0120-773-743
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 🎯 ヒーローセクション -->
+    <section class="relative bg-gradient-to-b from-blue-50 to-white py-8 md:py-12 overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-64 h-64 bg-blue-500 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4">
+            <div class="text-center mb-6">
+                <h1 class="text-2xl md:text-5xl lg:text-6xl font-black text-gray-800 mb-4 leading-tight">
+                    <span class="text-red-600 block">最短1時間で駆けつけ</span>
+                    <span class="text-blue-600 block mt-2">赤外線カメラで原因を正確に特定</span>
+                </h1>
+                <h2 class="text-3xl md:text-6xl lg:text-7xl font-black mb-4 leading-tight">
+                    <span class="text-blue-800">株式会社NEXTone</span>
+                </h2>
+                
+                <div class="bg-gradient-to-r from-red-600 to-red-700 text-white inline-block px-8 py-4 rounded-2xl shadow-2xl mb-4">
+                    <p class="text-sm md:text-base font-bold mb-1">土日祝も無料で即対応するお約束</p>
+                    <a href="tel:0120773743" class="flex items-center gap-3 hover:scale-105 transition-all">
+                        <i class="fas fa-phone text-3xl md:text-4xl" style="animation: pulse 2s infinite;"></i>
+                        <div class="text-left">
+                            <p class="text-4xl md:text-6xl font-black tracking-wider">0120-773-743</p>
+                            <p class="text-xs md:text-sm font-normal opacity-90">24時間対応</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- スクロール誘導 -->
+            <div class="text-center mt-4">
+                <p class="text-gray-600 font-bold mb-2">👇 30秒の動画で施工の流れをチェック</p>
+                <div style="animation: bounce 2s infinite;">
+                    <svg class="w-8 h-8 mx-auto text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 🎬 動画セクション（メイン） -->
+    <section class="video-section-bg py-16 md:py-20 px-4 relative overflow-hidden">
+        <!-- 装飾的な背景 -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-pink-300 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-6xl mx-auto">
+            <!-- タイトル -->
+            <div class="text-center mb-8">
+                <div class="inline-block bg-white/20 backdrop-blur-sm px-6 py-2 rounded-full mb-4">
+                    <span class="text-white font-bold text-sm">🎬 実際の施工現場を公開</span>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-black text-white mb-4">
+                    30秒で分かる！<br class="md:hidden">
+                    プロの雨漏り修理
+                </h2>
+                <p class="text-white/90 text-lg md:text-xl font-bold">
+                    赤外線カメラ診断から完了までの流れをご覧ください
+                </p>
+            </div>
+            
+            <!-- 動画エリア -->
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <!-- 左側：動画 -->
+                <div class="bg-white/10 backdrop-blur-sm p-4 rounded-2xl">
+                    <div class="video-container mb-4">
+                        <!-- サンプル動画：建設・修理関連のYouTube動画 -->
+                        <iframe 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ&controls=1&modestbranding=1&rel=0"
+                            allow="autoplay; encrypted-media"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-sm rounded-lg p-3 text-center">
+                        <p class="text-white text-sm font-bold">
+                            🔊 タップで音声ON │ 自動ループ再生中
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 右側：特徴＋CTA -->
+                <div class="space-y-6">
+                    <!-- 特徴リスト -->
+                    <div class="space-y-4">
+                        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 hover:bg-white/30 transition-all">
+                            <div class="flex items-start gap-3">
+                                <div class="text-3xl">🔍</div>
+                                <div>
+                                    <h3 class="text-white font-black text-lg mb-1">赤外線カメラで原因特定</h3>
+                                    <p class="text-white/80 text-sm">目に見えない水の流れを可視化。確実に原因を突き止めます</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 hover:bg-white/30 transition-all">
+                            <div class="flex items-start gap-3">
+                                <div class="text-3xl">⚡</div>
+                                <div>
+                                    <h3 class="text-white font-black text-lg mb-1">最短1時間で駆けつけ</h3>
+                                    <p class="text-white/80 text-sm">町田・青葉・麻生エリア。緊急の雨漏りにも即対応</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 hover:bg-white/30 transition-all">
+                            <div class="flex items-start gap-3">
+                                <div class="text-3xl">🎁</div>
+                                <div>
+                                    <h3 class="text-white font-black text-lg mb-1">火災保険で自己負担0円も</h3>
+                                    <p class="text-white/80 text-sm">保険申請サポート無料。実質負担なしで修理できるケースも</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA -->
+                    <div class="space-y-3">
+                        <a href="tel:0120773743" class="block bg-red-600 hover:bg-red-700 text-white px-8 py-5 rounded-full text-xl font-black shadow-2xl hover:scale-105 transition-all text-center shine-effect">
+                            <i class="fas fa-phone text-2xl mr-2"></i>
+                            今すぐ無料診断を予約
+                        </a>
+                        
+                        <a href="https://lin.ee/MO1aIyk" class="block bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full text-lg font-black shadow-xl hover:scale-105 transition-all text-center">
+                            <i class="fab fa-line text-xl mr-2"></i>
+                            LINEで24時間相談
+                        </a>
+                    </div>
+                    
+                    <!-- 実績カウンター -->
+                    <div class="grid grid-cols-3 gap-4 mt-6">
+                        <div class="bg-white/20 backdrop-blur-sm rounded-lg p-3 text-center">
+                            <p class="text-4xl font-black text-white count-up">3,000</p>
+                            <p class="text-white/80 text-xs font-bold mt-1">累計施工</p>
+                        </div>
+                        <div class="bg-white/20 backdrop-blur-sm rounded-lg p-3 text-center">
+                            <p class="text-4xl font-black text-white count-up">11</p>
+                            <p class="text-white/80 text-xs font-bold mt-1">年の実績</p>
+                        </div>
+                        <div class="bg-white/20 backdrop-blur-sm rounded-lg p-3 text-center">
+                            <p class="text-4xl font-black text-white count-up">350</p>
+                            <p class="text-white/80 text-xs font-bold mt-1">昨年施工</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 視聴特典 -->
+            <div class="mt-12 bg-yellow-400 rounded-2xl p-6 text-center shadow-2xl">
+                <p class="text-2xl md:text-3xl font-black text-gray-800 mb-2">
+                    🎁 動画を最後までご覧いただいた方限定
+                </p>
+                <p class="text-lg md:text-xl font-bold text-gray-700">
+                    「雨漏り診断チェックリスト」を無料プレゼント！
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 😰 こんなお悩みありませんか？セクション -->
+    <section class="bg-gradient-to-b from-orange-50 to-white py-12 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-5xl font-black text-gray-800 mb-4">
+                    <i class="fas fa-exclamation-circle text-orange-500"></i> こんなお悩みありませんか？
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-all">
+                    <div class="text-6xl text-center mb-4">😨</div>
+                    <h3 class="text-xl font-black text-gray-800 mb-3 text-center">天井にシミができた</h3>
+                    <p class="text-sm text-gray-600 text-center">2階の天井に茶色いシミが広がってきて、雨の日にひどくなる...</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-all">
+                    <div class="text-6xl text-center mb-4">💧</div>
+                    <h3 class="text-xl font-black text-gray-800 mb-3 text-center">雨の日に天井から水滴が落ちる</h3>
+                    <p class="text-sm text-gray-600 text-center">大雨の時、天井からポタポタと水が落ちてきて床が濡れる...</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-all">
+                    <div class="text-6xl text-center mb-4">🦠</div>
+                    <h3 class="text-xl font-black text-gray-800 mb-3 text-center">壁にカビが生えてきた</h3>
+                    <p class="text-sm text-gray-600 text-center">壁の角や窓周りに黒いカビが発生。健康被害が心配...</p>
+                </div>
+            </div>
+            
+            <div class="mt-10 text-center">
+                <div class="bg-red-100 border-4 border-red-500 rounded-2xl p-6 inline-block">
+                    <p class="text-2xl md:text-3xl font-black text-red-600 mb-2">
+                        ⚠️ 放置すると被害が拡大します！
+                    </p>
+                    <p class="text-sm md:text-lg text-gray-700">
+                        雨漏りは時間が経つほど修理費用が高額に。<br>
+                        早期発見・早期対応が被害を最小限に抑えます。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- フッター -->
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        <p class="text-sm mb-2">⚠️ これはデモ版です</p>
+        <p class="text-xs text-gray-400">実際のサイトには動画セクションが追加されます</p>
+    </footer>
+    
+    <script>
+        // カウントアップアニメーション
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.querySelectorAll('.count-up');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace(/,/g, ''));
+                const duration = 1500;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.textContent = Math.floor(current).toLocaleString();
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target.toLocaleString();
+                    }
+                };
+                
+                // Intersection Observer で画面に入ったら開始
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateCounter();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(counter);
+            });
+        });
+    </script>
+</body>
+</html>

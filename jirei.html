@@ -90,7 +90,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     「本当に直るのか？」「費用は適正なのか？」
                 </p>
                 <h1 class="text-3xl md:text-5xl font-black text-gray-800 mb-4">
-                    📸 施工事例（全33件）
+                    📸 施工事例（全34件）
                 </h1>
                 <p class="text-base md:text-lg text-gray-700 max-w-3xl mx-auto">
                     同じような不安を抱えていたお客様が、<span class="text-blue-600 font-black">どのように解決したのか</span>をご覧ください。<br>
@@ -684,7 +684,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
                 <!-- 事例7: 屋根カバー工法（横浜市青葉区） -->
-            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["roof"]' data-area="横浜市青葉区">
+                <div class="case-item" data-page="2" data-categories='["roof"]' data-area="横浜市青葉区">
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー部分 -->
@@ -775,7 +775,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
                 </div>
                 <!-- 事例8: 屋根カバー工法・天井張り替え（稲城市） -->
-            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["complex"]' data-area="稲城市">
+                <div class="case-item" data-page="2" data-categories='["complex"]' data-area="稲城市">
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー部分 -->
@@ -861,7 +861,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <!-- 事例9: 瓦差し替え（八王子市） -->
-            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["roof"]' data-area="八王子市">
+                <div class="case-item" data-page="2" data-categories='["roof"]' data-area="八王子市">
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
                     <div class="p-6 md:p-8">
                         <!-- ヘッダー部分 -->
@@ -935,7 +935,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <!-- 事例10: 柱継ぎ工事（横浜市青葉区） -->
-            <div class="max-w-6xl mx-auto mb-10 case-item" data-page="2" data-categories='["complex","emergency"]' data-area="横浜市青葉区">
+                <div class="case-item" data-page="2" data-categories='["complex","emergency"]' data-area="横浜市青葉区">
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 border-4 border-yellow-400">
                     <div class="bg-yellow-400 px-6 py-3 text-center">
                         <p class="font-black text-gray-800 text-lg">
@@ -3991,18 +3991,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             updateVisibleCount();
         });
 
-        // 地域検索機能
+        // 地域検索機能（カテゴリフィルターと連動）
         function searchByArea() {
             const searchText = document.getElementById('area-search').value.toLowerCase();
             const select = document.getElementById('area-select');
             select.value = 'all'; // リセット
             
+            // カテゴリフィルターの状態を取得
+            const activeCategories = Array.from(document.querySelectorAll('.filter-btn.active'))
+                .map(btn => btn.dataset.category)
+                .filter(cat => cat !== 'all');
+            
             const allCases = document.querySelectorAll('.case-item');
             
             allCases.forEach(caseItem => {
                 const area = (caseItem.dataset.area || '').toLowerCase();
+                const categories = JSON.parse(caseItem.dataset.categories || '[]');
                 
-                if (searchText === '' || area.includes(searchText)) {
+                // 地域フィルター
+                const areaMatch = searchText === '' || area.includes(searchText);
+                
+                // カテゴリフィルター
+                const categoryMatch = activeCategories.length === 0 || 
+                    activeCategories.some(cat => categories.includes(cat));
+                
+                // 両方の条件を満たす場合のみ表示
+                if (areaMatch && categoryMatch) {
                     caseItem.style.display = 'block';
                 } else {
                     caseItem.style.display = 'none';
@@ -4012,18 +4026,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             updateVisibleCount();
         }
 
-        // ドロップダウンで絞り込み
+        // ドロップダウンで絞り込み（カテゴリフィルターと連動）
         function filterByArea() {
             const selectedArea = document.getElementById('area-select').value;
             const searchBox = document.getElementById('area-search');
             searchBox.value = ''; // リセット
             
+            // カテゴリフィルターの状態を取得
+            const activeCategories = Array.from(document.querySelectorAll('.filter-btn.active'))
+                .map(btn => btn.dataset.category)
+                .filter(cat => cat !== 'all');
+            
             const allCases = document.querySelectorAll('.case-item');
             
             allCases.forEach(caseItem => {
                 const area = caseItem.dataset.area || '';
+                const categories = JSON.parse(caseItem.dataset.categories || '[]');
                 
-                if (selectedArea === 'all' || area === selectedArea) {
+                // 地域フィルター
+                const areaMatch = selectedArea === 'all' || area === selectedArea;
+                
+                // カテゴリフィルター
+                const categoryMatch = activeCategories.length === 0 || 
+                    activeCategories.some(cat => categories.includes(cat));
+                
+                // 両方の条件を満たす場合のみ表示
+                if (areaMatch && categoryMatch) {
                     caseItem.style.display = 'block';
                 } else {
                     caseItem.style.display = 'none';

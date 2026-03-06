@@ -285,72 +285,6 @@
         }
         
         console.log('ページタイプ:', pageType);
-        
-        // ========== 7. セクション閲覧測定（マイクロコンバージョン） ==========
-        var sectionObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting && !entry.target.dataset.tracked) {
-                    entry.target.dataset.tracked = 'true';
-                    var sectionId = entry.target.id || entry.target.className;
-                    
-                    // 施工事例セクション閲覧
-                    if (sectionId.includes('jirei')) {
-                        window.dataLayer = window.dataLayer || [];
-                        window.dataLayer.push({
-                            'event': 'section_view',
-                            'section_name': 'case_study',
-                            'page_url': window.location.href
-                        });
-                        
-                        if (typeof gtag === 'function') {
-                            gtag('event', 'view_item_list', {
-                                'items': [{'item_category': 'case_study'}]
-                            });
-                        }
-                        console.log('施工事例セクション閲覧');
-                    }
-                    
-                    // 料金セクション閲覧
-                    if (sectionId.includes('price') || sectionId.includes('ryoukin')) {
-                        window.dataLayer = window.dataLayer || [];
-                        window.dataLayer.push({
-                            'event': 'section_view',
-                            'section_name': 'pricing',
-                            'page_url': window.location.href
-                        });
-                        
-                        if (typeof gtag === 'function') {
-                            gtag('event', 'view_item', {
-                                'items': [{'item_category': 'pricing'}]
-                            });
-                        }
-                        console.log('料金セクション閲覧');
-                    }
-                    
-                    // 赤外線カメラセクション閲覧
-                    if (sectionId.includes('infrared')) {
-                        window.dataLayer = window.dataLayer || [];
-                        window.dataLayer.push({
-                            'event': 'section_view',
-                            'section_name': 'infrared_camera',
-                            'page_url': window.location.href
-                        });
-                        
-                        if (typeof gtag === 'function') {
-                            gtag('event', 'view_promotion', {
-                                'promotion_name': 'infrared_camera'
-                            });
-                        }
-                        console.log('赤外線カメラセクション閲覧');
-                    }
-                }
-            });
-        }, {threshold: 0.5});
-        
-        // 監視対象のセクションを追加
-        document.querySelectorAll('section[id], div[id]').forEach(function(section) {
-            sectionObserver.observe(section);
-        });
     });
     </script>
     <!-- End 包括的なイベント測定スクリプト -->
@@ -565,128 +499,6 @@
         background-color: white !important;
         transform: scale(1.2);
       }
-      
-      /* 🎯 滞在時間延長のための追加スタイル */
-      
-      /* スクロールアニメーション */
-      .scroll-reveal {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.8s ease, transform 0.8s ease;
-      }
-      
-      .scroll-reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      
-      /* カウントアップアニメーション */
-      @keyframes countUp {
-        from { opacity: 0; transform: scale(0.5); }
-        to { opacity: 1; transform: scale(1); }
-      }
-      
-      .count-up {
-        animation: countUp 0.6s ease-out;
-      }
-      
-      /* 読み進捗バー */
-      .reading-progress {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 4px;
-        background: linear-gradient(90deg, #3b82f6, #10b981);
-        z-index: 9999;
-        transition: width 0.1s ease;
-      }
-      
-      /* スクロール誘導矢印 */
-      @keyframes bounce {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(10px); }
-      }
-      
-      .scroll-indicator {
-        animation: bounce 2s infinite;
-      }
-      
-      /* ホバーエフェクト強化 */
-      .hover-lift {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      
-      .hover-lift:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-      }
-      
-      /* 視線誘導の光る効果 */
-      @keyframes shine {
-        0% { transform: translateX(-100%); }
-        100% { transform: translateX(100%); }
-      }
-      
-      .shine-effect {
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .shine-effect::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-        animation: shine 3s infinite;
-      }
-      
-      /* 緊急性を示すパルス */
-      @keyframes urgentPulse {
-        0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
-        50% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); }
-      }
-      
-      .urgent-pulse {
-        animation: urgentPulse 2s infinite;
-      }
-      
-      /* テキストグラデーション */
-      .text-gradient {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-      
-      /* スムーズなページ遷移 */
-      .page-transition {
-        transition: opacity 0.3s ease, transform 0.3s ease;
-      }
-      
-      /* 見出しの下線アニメーション */
-      .underline-animate {
-        position: relative;
-      }
-      
-      .underline-animate::after {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 50%;
-        width: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #3b82f6, #10b981);
-        transition: width 0.5s ease, left 0.5s ease;
-      }
-      
-      .underline-animate.visible::after {
-        width: 100%;
-        left: 0;
-      }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -702,24 +514,24 @@
             <div class="md:hidden">
                 <!-- 1行目：メインアクション -->
                 <div class="flex items-center justify-center gap-2 mb-2">
-                    <a href="https://lin.ee/MO1aIyk" class="flex-1 bg-green-500 text-white px-4 py-4 rounded-lg text-base font-black hover:bg-green-600 transition-all shadow-lg flex items-center justify-center gap-2 whitespace-nowrap">
-                        <i class="fab fa-line text-xl"></i>
+                    <a href="https://lin.ee/MO1aIyk" class="flex-1 bg-green-500 text-white px-3 py-2.5 rounded-lg text-sm font-black hover:bg-green-600 transition-all shadow-lg flex items-center justify-center gap-1.5 whitespace-nowrap">
+                        <i class="fab fa-line text-lg"></i>
                         <span>LINE</span>
                     </a>
-                    <a href="tel:0120773743" class="flex-1 bg-red-600 text-white px-4 py-4 rounded-lg text-base font-black hover:bg-red-700 transition-all shadow-lg flex items-center justify-center gap-2 whitespace-nowrap">
-                        <i class="fas fa-phone text-xl"></i>
+                    <a href="tel:0120773743" class="flex-1 bg-yellow-400 text-red-900 px-3 py-2.5 rounded-lg text-sm font-black hover:bg-yellow-300 transition-all shadow-lg flex items-center justify-center gap-1.5 whitespace-nowrap">
+                        <i class="fas fa-phone text-lg"></i>
                         <span>電話</span>
                     </a>
                 </div>
                 <!-- 2行目：サブナビ -->
                 <div class="flex items-center justify-center gap-2">
-                    <a href="jirei.html" class="flex-1 bg-blue-600 text-white px-3 py-3 rounded-lg text-sm font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-1 whitespace-nowrap">
+                    <a href="jirei.html" class="flex-1 bg-blue-600 text-white px-2.5 py-2 rounded-lg text-xs font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-1 whitespace-nowrap">
                         📸 事例
                     </a>
-                    <a href="blog.html" class="flex-1 bg-blue-600 text-white px-3 py-3 rounded-lg text-sm font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-1 whitespace-nowrap">
+                    <a href="blog.html" class="flex-1 bg-purple-600 text-white px-2.5 py-2 rounded-lg text-xs font-bold hover:bg-purple-700 transition-all flex items-center justify-center gap-1 whitespace-nowrap">
                         📝 記事
                     </a>
-                    <a href="area.html" class="flex-1 bg-orange-600 text-white px-3 py-3 rounded-lg text-sm font-bold hover:bg-orange-700 transition-all flex items-center justify-center gap-1 whitespace-nowrap">
+                    <a href="area.html" class="flex-1 bg-orange-600 text-white px-2.5 py-2 rounded-lg text-xs font-bold hover:bg-orange-700 transition-all flex items-center justify-center gap-1 whitespace-nowrap">
                         🗺️ 地域
                     </a>
                 </div>
@@ -735,7 +547,7 @@
                     <i class="fab fa-line text-xl"></i>
                     <span>LINE相談</span>
                 </a>
-                <a href="tel:0120773743" class="bg-red-600 text-white px-5 py-3 rounded-full text-lg font-black hover:bg-red-700 transition-all shadow-xl hover:scale-105 flex items-center gap-2 whitespace-nowrap">
+                <a href="tel:0120773743" class="bg-yellow-400 text-red-900 px-5 py-3 rounded-full text-lg font-black hover:bg-yellow-300 transition-all shadow-xl hover:scale-105 flex items-center gap-2 whitespace-nowrap">
                     <i class="fas fa-phone text-xl"></i>
                     <span>0120-773-743</span>
                 </a>
@@ -743,7 +555,7 @@
                     <span class="text-lg">📸</span>
                     <span>施工事例</span>
                 </a>
-                <a href="blog.html" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-full text-base font-black hover:scale-105 transition-all shadow-xl flex items-center gap-1 whitespace-nowrap">
+                <a href="blog.html" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-3 rounded-full text-base font-black hover:scale-105 transition-all shadow-xl flex items-center gap-1 whitespace-nowrap">
                     <span class="text-lg">📝</span>
                     <span>ブログ</span>
                 </a>
@@ -764,15 +576,14 @@
             <div class="text-center mb-8">
                 <!-- メインメッセージ -->
                 <h1 class="text-xl md:text-5xl lg:text-6xl font-black text-gray-800 mb-4 leading-tight px-2">
-                    <span class="text-red-600 block">最短1時間で駆けつけ</span>
-                    <span class="text-blue-600 block mt-2">赤外線カメラで原因を正確に特定</span>
+                    <span class="text-blue-600 block whitespace-nowrap">【地域実績多数　雨漏り緊急対応】</span>
                 </h1>
                 <h2 class="text-3xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-                    <span class="text-blue-800">株式会社NEXTone</span>
+                    <span class="text-blue-800">株式会社NEXTone<span class="text-orange-500">へ！</span></span>
                 </h2>
                 
                 <!-- 電話番号（大きく） -->
-                <div class="bg-gradient-to-r from-red-600 to-red-700 text-white inline-block px-8 py-4 rounded-2xl shadow-2xl mb-6 mt-4 urgent-pulse">
+                <div class="bg-gradient-to-r from-red-600 to-red-700 text-white inline-block px-8 py-4 rounded-2xl shadow-2xl mb-6 mt-4">
                     <p class="text-sm md:text-base font-bold mb-1">土日祝も無料で即対応するお約束</p>
                     <a href="tel:0120773743" class="flex items-center gap-3 hover:scale-105 transition-all">
                         <i class="fas fa-phone text-3xl md:text-4xl animate-pulse"></i>
@@ -808,38 +619,12 @@
                 </div>
             </div>
             
-            <!-- 3つの強み -->
-            <div class="grid md:grid-cols-3 gap-4 mb-8">
-                <div class="bg-white rounded-2xl shadow-xl p-6 text-center hover:shadow-2xl transition-all">
-                    <div class="text-blue-600 text-5xl mb-3">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                    <h3 class="text-xl font-black text-gray-800 mb-2">無料診断</h3>
-                    <p class="text-sm text-gray-600">赤外線カメラでの診断が完全無料</p>
-                </div>
-                <div class="bg-white rounded-2xl shadow-xl p-6 text-center hover:shadow-2xl transition-all">
-                    <div class="text-blue-600 text-5xl mb-3">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3 class="text-xl font-black text-gray-800 mb-2">24時間対応</h3>
-                    <p class="text-sm text-gray-600">LINE・電話で24時間受付中</p>
-                </div>
-                <div class="bg-white rounded-2xl shadow-xl p-6 text-center hover:shadow-2xl transition-all">
-                    <div class="text-blue-600 text-5xl mb-3">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="text-xl font-black text-gray-800 mb-2">火災保険対応</h3>
-                    <p class="text-sm text-gray-600">自己負担0円になる場合も</p>
-                </div>
-            </div>
-            
-            <!-- LINEボタン（大きく・緑色・目立つ） -->
-            <div class="text-center mb-8">
-                <a href="https://lin.ee/MO1aIyk" class="inline-block bg-green-500 hover:bg-green-600 text-white px-12 py-6 rounded-full text-2xl md:text-3xl font-black shadow-2xl hover:scale-110 transition-all">
-                    <i class="fab fa-line text-4xl mr-3"></i>
-                    今すぐLINEで無料相談
-                </a>
-                <p class="text-gray-600 mt-3 text-sm">※24時間以内に返信します</p>
+            <!-- 下部バナー：無料対応 -->
+            <div class="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white py-6 px-8 rounded-2xl shadow-2xl text-center">
+                <p class="text-2xl md:text-4xl font-black mb-2">
+                    <i class="fas fa-check-circle text-yellow-300"></i> 現地調査・お見積作成は<span class="text-yellow-300">無料対応！</span>
+                </p>
+                <p class="text-sm md:text-lg opacity-90">神奈川・東京・埼玉南部 最短即日対応可能</p>
             </div>
         </div>
     </section>
@@ -855,64 +640,8 @@
                     ⬇️ スクロールして確認してください
                 </p>
             </div>
-            <!-- スクロール誘導矢印 -->
-            <div class="scroll-indicator mt-6 flex justify-center">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                </svg>
-            </div>
         </div>
     </div>
-
-    <!-- 😰 こんなお悩みありませんか？セクション -->
-    <section class="bg-gradient-to-b from-orange-50 to-white py-12 px-4 scroll-reveal">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-8">
-                <h2 class="text-3xl md:text-5xl font-black text-gray-800 mb-4">
-                    <i class="fas fa-exclamation-circle text-orange-500"></i> こんなお悩みありませんか？
-                </h2>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-all">
-                    <div class="text-6xl text-center mb-4">😨</div>
-                    <h3 class="text-xl font-black text-gray-800 mb-3 text-center">天井にシミができた</h3>
-                    <p class="text-sm text-gray-600 text-center">2階の天井に茶色いシミが広がってきて、雨の日にひどくなる...</p>
-                </div>
-                
-                <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-all">
-                    <div class="text-6xl text-center mb-4">💧</div>
-                    <h3 class="text-xl font-black text-gray-800 mb-3 text-center">雨の日に天井から水滴が落ちる</h3>
-                    <p class="text-sm text-gray-600 text-center">大雨の時、天井からポタポタと水が落ちてきて床が濡れる...</p>
-                </div>
-                
-                <div class="bg-white rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-all">
-                    <div class="text-6xl text-center mb-4">🦠</div>
-                    <h3 class="text-xl font-black text-gray-800 mb-3 text-center">壁にカビが生えてきた</h3>
-                    <p class="text-sm text-gray-600 text-center">壁の角や窓周りに黒いカビが発生。健康被害が心配...</p>
-                </div>
-            </div>
-            
-            <div class="mt-10 text-center">
-                <div class="bg-red-100 border-4 border-red-500 rounded-2xl p-6 inline-block">
-                    <p class="text-2xl md:text-3xl font-black text-red-600 mb-2">
-                        ⚠️ 放置すると被害が拡大します！
-                    </p>
-                    <p class="text-sm md:text-lg text-gray-700">
-                        雨漏りは時間が経つほど修理費用が高額に。<br>
-                        早期発見・早期対応が被害を最小限に抑えます。
-                    </p>
-                </div>
-            </div>
-            
-            <div class="mt-8 text-center">
-                <a href="https://lin.ee/MO1aIyk" class="inline-block bg-green-500 hover:bg-green-600 text-white px-10 py-5 rounded-full text-xl md:text-2xl font-black shadow-2xl hover:scale-110 transition-all shine-effect">
-                    <i class="fab fa-line text-3xl mr-2"></i>
-                    今すぐ無料診断を申し込む
-                </a>
-            </div>
-        </div>
-    </section>
 
     <!-- 📑 目次ナビゲーション（ジャンプリンク） -->
     <nav class="sticky top-0 z-50 bg-white shadow-lg border-b-4 border-blue-600">
@@ -945,7 +674,7 @@
     </nav>
 
     <!-- 🏠 施工事例セクション（Before/After大きく）-->
-    <section id="jirei" class="bg-white py-16 md:py-24 px-4 scroll-reveal">
+    <section id="jirei" class="bg-white py-16 md:py-24 px-4">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-12">
                 <h2 class="text-4xl md:text-6xl font-black text-gray-800 mb-4">
@@ -1018,7 +747,7 @@
             <div class="text-center mt-12">
                 <a href="jirei.html" class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-5 rounded-full text-xl font-black shadow-2xl hover:scale-110 hover:shadow-3xl transition-all">
                     <i class="fas fa-images mr-2"></i>
-                    施工事例をもっと見る（全34件）
+                    施工事例をもっと見る（全32件）
                 </a>
             </div>
         </div>
@@ -1039,7 +768,7 @@
     </div>
 
     <!-- ⚠️ 放置の危険セクション: カビ/腐食/漏電の3軸 -->
-    <section id="houchi-kiken" class="bg-gradient-to-b from-red-50 to-orange-50 py-12 md:py-16 px-4 scroll-reveal">
+    <section id="houchi-kiken" class="bg-gradient-to-b from-red-50 to-orange-50 py-12 md:py-16 px-4">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-2xl md:text-5xl font-black text-center mb-4 text-red-700">
                 <span class="whitespace-nowrap">⚠️ 「まだ大丈夫」が命取りです</span>
@@ -1206,7 +935,7 @@
     </section>
 
     <!-- 🔍 赤外線カメラ診断セクション -->
-    <section id="infrared" class="bg-gradient-to-b from-purple-50 to-blue-50 py-16 md:py-24 px-4 scroll-reveal">
+    <section id="infrared" class="bg-gradient-to-b from-purple-50 to-blue-50 py-16 md:py-24 px-4">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-12">
                 <span class="inline-block bg-purple-600 text-white px-6 py-2 rounded-full text-sm font-bold mb-4">
@@ -1334,7 +1063,7 @@
     </section>
 
     <!-- 🎯 雨漏り特化の強み -->
-    <section id="senmon" class="relative bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 py-16 md:py-24 px-4 overflow-hidden scroll-reveal">
+    <section id="senmon" class="relative bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 py-16 md:py-24 px-4 overflow-hidden">
         <!-- 背景パターン -->
         <div class="absolute inset-0 opacity-10">
             <div class="absolute inset-0" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px);"></div>
@@ -1400,7 +1129,7 @@
     </section>
 
     <!-- 🔥 火災保険セクション -->
-    <section id="hoken" class="bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50 py-16 md:py-24 px-4 relative overflow-hidden scroll-reveal">
+    <section id="hoken" class="bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50 py-16 md:py-24 px-4 relative overflow-hidden">
         <!-- 背景パターン -->
         <div class="absolute inset-0 opacity-5">
             <i class="fas fa-fire absolute top-10 left-10 text-9xl text-red-600"></i>
@@ -1490,7 +1219,7 @@
     </section>
 
     <!-- 💳 リフォームローンセクション（取りこぼし完全防止） -->
-    <section id="loan" class="bg-gradient-to-b from-green-50 to-blue-50 py-12 md:py-16 px-4 scroll-reveal">
+    <section id="loan" class="bg-gradient-to-b from-green-50 to-blue-50 py-12 md:py-16 px-4">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-10">
                 <h2 class="text-3xl md:text-5xl font-black text-green-700 mb-4">
@@ -2301,7 +2030,7 @@
                     <p class="font-bold text-green-700">🏢 業者選びガイド</p>
                 </a>
                 <a href="jirei.html" class="bg-purple-100 hover:bg-purple-200 p-4 rounded-lg transition-all">
-                    <p class="font-bold text-purple-700">📸 施工事例（全34件）</p>
+                    <p class="font-bold text-purple-700">📸 施工事例（全32件）</p>
                 </a>
             </div>
         </div>
@@ -2667,6 +2396,51 @@
         </div>
     </section>
 
+    <!-- 🎯 最終プッシュセクション（NEW）-->
+    <section class="bg-gradient-to-b from-red-50 to-yellow-50 py-12 md:py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-black mb-6 text-red-700">
+                ⏰ 今すぐ行動してください
+            </h2>
+            <p class="text-lg md:text-xl text-gray-700 mb-8">
+                雨漏りは<span class="text-red-600 font-black text-2xl">1日ごとに悪化</span>します。<br>
+                明日、来週、来月…後回しにするほど<span class="text-red-600 font-black text-2xl">被害は拡大</span>し、<span class="text-red-600 font-black text-2xl">費用は増加</span>します。
+            </p>
+
+            <!-- 緊急性の演出 -->
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-2xl mb-10">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <p class="text-red-600 font-black text-4xl md:text-5xl mb-2">24時間</p>
+                        <p class="text-gray-700 font-bold">365日対応<br>夜間・休日もOK</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-blue-600 font-black text-4xl md:text-5xl mb-2">無料</p>
+                        <p class="text-gray-700 font-bold">オンライン診断<br>完全無料</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-orange-600 font-black text-4xl md:text-5xl mb-2">最短1時間</p>
+                        <p class="text-gray-700 font-bold">緊急時は<br>すぐ駆けつけ</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 最終CTA -->
+            <div class="space-y-4">
+                <a href="https://lin.ee/MO1aIyk" class="block bg-green-500 text-white px-10 py-5 rounded-full text-xl md:text-2xl font-black hover:bg-green-600 transition-all shadow-2xl hover:scale-105 max-w-md mx-auto">
+                    📱 LINEで今すぐ相談
+                </a>
+                <a href="tel:0120773743" class="block bg-red-600 text-white px-10 py-5 rounded-full text-xl md:text-2xl font-black hover:bg-red-700 transition-all shadow-2xl hover:scale-105 max-w-md mx-auto">
+                    📞 0120-773-743<br>
+                    <span class="text-sm font-normal">平日9時〜18時</span>
+                </a>
+                <p class="text-sm md:text-base text-gray-600">
+                    LINEは24時間受付・最短30分で折り返し・完全無料・営業一切なし
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- 📚 無料資料ダウンロードセクション -->
     <section class="bg-gradient-to-r from-purple-50 to-blue-50 py-12 md:py-16 px-4">
         <div class="max-w-4xl mx-auto">
@@ -2881,161 +2655,6 @@
                 dots[slideIndex-1].classList.add("active");
             }
         }
-    </script>
-    
-    <!-- 🎯 滞在時間延長スクリプト -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        
-        // ========== 1. 読み進捗バー ==========
-        const progressBar = document.createElement('div');
-        progressBar.className = 'reading-progress';
-        document.body.prepend(progressBar);
-        
-        window.addEventListener('scroll', function() {
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight - windowHeight;
-            const scrolled = window.scrollY;
-            const progress = (scrolled / documentHeight) * 100;
-            progressBar.style.width = progress + '%';
-        });
-        
-        // ========== 2. スクロールアニメーション ==========
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-        
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-        
-        // scroll-revealクラスを持つ要素を監視
-        document.querySelectorAll('.scroll-reveal').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // ========== 3. 数字カウントアップアニメーション ==========
-        function animateCount(element, start, end, duration) {
-            const range = end - start;
-            const increment = range / (duration / 16);
-            let current = start;
-            
-            const timer = setInterval(function() {
-                current += increment;
-                if (current >= end) {
-                    current = end;
-                    clearInterval(timer);
-                }
-                element.textContent = Math.floor(current).toLocaleString();
-            }, 16);
-        }
-        
-        // 数字要素を監視してカウントアップ
-        const numberObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.dataset.counted) {
-                    entry.target.dataset.counted = 'true';
-                    const targetNumber = parseInt(entry.target.dataset.count || entry.target.textContent.replace(/[^0-9]/g, ''));
-                    if (!isNaN(targetNumber)) {
-                        animateCount(entry.target, 0, targetNumber, 1500);
-                    }
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        document.querySelectorAll('.count-number').forEach(el => {
-            numberObserver.observe(el);
-        });
-        
-        // ========== 4. ホバーエフェクトの追加 ==========
-        document.querySelectorAll('section').forEach(section => {
-            if (!section.classList.contains('hover-lift')) {
-                // 特定のセクションにホバーエフェクトを追加
-                const cards = section.querySelectorAll('.bg-white, .bg-gradient-to-br');
-                cards.forEach(card => {
-                    if (card.offsetHeight > 100) { // 一定サイズ以上のカードのみ
-                        card.classList.add('hover-lift');
-                    }
-                });
-            }
-        });
-        
-        // ========== 5. 滞在時間トラッキング ==========
-        let timeOnPage = 0;
-        const timeInterval = setInterval(function() {
-            timeOnPage++;
-            
-            // 30秒滞在でイベント送信
-            if (timeOnPage === 30) {
-                if (typeof gtag === 'function') {
-                    gtag('event', 'engagement_30s', {
-                        'page_url': window.location.href,
-                        'page_title': document.title
-                    });
-                }
-            }
-            
-            // 60秒滞在でイベント送信
-            if (timeOnPage === 60) {
-                if (typeof gtag === 'function') {
-                    gtag('event', 'engagement_60s', {
-                        'page_url': window.location.href,
-                        'page_title': document.title
-                    });
-                }
-            }
-            
-            // 120秒滞在でイベント送信
-            if (timeOnPage === 120) {
-                if (typeof gtag === 'function') {
-                    gtag('event', 'engagement_120s', {
-                        'page_url': window.location.href,
-                        'page_title': document.title
-                    });
-                }
-                clearInterval(timeInterval);
-            }
-        }, 1000);
-        
-        // ========== 6. スムーズスクロール強化 ==========
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && href.length > 1) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
-            });
-        });
-        
-        // ========== 7. 見出しアニメーション ==========
-        document.querySelectorAll('h2, h3').forEach(heading => {
-            heading.classList.add('underline-animate');
-        });
-        
-        const headingObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        document.querySelectorAll('.underline-animate').forEach(el => {
-            headingObserver.observe(el);
-        });
-    });
     </script>
 
 </body>

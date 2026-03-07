@@ -3911,7 +3911,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         function showPage(page) {
             // Safety check: ensure allCases is initialized
             if (!allCases || allCases.length === 0) {
-                console.error('Cannot show page: allCases is not initialized');
                 return;
             }
             
@@ -3957,7 +3956,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             // Safety check: ensure allCases is initialized
             if (!allCases || allCases.length === 0) {
-                console.error('allCases is not initialized');
                 return;
             }
             
@@ -4003,8 +4001,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             // Get all case items and store in both arrays
             allCasesOriginal = Array.from(document.querySelectorAll('.case-item'));
             allCases = [...allCasesOriginal]; // Copy to allCases
-            
-            console.log(`Initialized: ${allCasesOriginal.length} cases found`);
             
             // Calculate total pages (5 items per page)
             totalPages = Math.ceil(allCases.length / itemsPerPage);

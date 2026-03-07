@@ -3918,21 +3918,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             currentPage = page;
             console.log(`[showPage] Showing page ${page}, total cases: ${allCases.length}`);
             
-            // Hide all cases
-            allCases.forEach(item => {
-                item.style.display = 'none';
-            });
-            
             // Calculate start and end index
             const startIndex = (page - 1) * itemsPerPage;
             const endIndex = startIndex + itemsPerPage;
             
             console.log(`[showPage] Start index: ${startIndex}, End index: ${endIndex}`);
             
-            // Show cases for current page
+            // Clear container and re-add only current page cases
+            const casesContainer = document.getElementById('cases-container');
+            if (!casesContainer) {
+                console.error('[showPage] cases-container not found');
+                return;
+            }
+            
+            // Remove all case items from DOM
+            casesContainer.innerHTML = '';
+            
+            // Add only the cases for current page
             let shownCount = 0;
             for (let i = startIndex; i < endIndex && i < allCases.length; i++) {
-                allCases[i].style.display = 'block';
+                casesContainer.appendChild(allCases[i]);
                 const title = allCases[i].querySelector('h3');
                 console.log(`[showPage]   Index ${i}: ${title ? title.textContent.trim().substring(0, 30) : 'NO TITLE'}`);
                 shownCount++;
@@ -3950,7 +3955,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
             
             // Scroll to top of cases
-            const casesContainer = document.getElementById('cases-container');
             if (casesContainer) {
                 casesContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }

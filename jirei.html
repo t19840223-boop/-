@@ -3904,10 +3904,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         // ページネーション機能（5件ずつ表示）
         let currentPage = 1;
         const itemsPerPage = 5; // 1ページあたり5件
-        let allCases = [];
+        let allCases = []; // 現在表示中のケース（検索でフィルタリングされる可能性あり）
+        let allCasesOriginal = []; // 全ケースの元データ（常に全34件を保持）
         let totalPages = 1;
 
         function showPage(page) {
+            // Safety check: ensure allCases is initialized
+            if (!allCases || allCases.length === 0) {
+                console.error('Cannot show page: allCases is not initialized');
+                return;
+            }
+            
             currentPage = page;
             
             // Hide all cases
@@ -3948,6 +3955,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             if (!prevBtn || !nextBtn || !pageNumbers) return;
             
+            // Safety check: ensure allCases is initialized
+            if (!allCases || allCases.length === 0) {
+                console.error('allCases is not initialized');
+                return;
+            }
+            
             // Update prev/next button states
             prevBtn.disabled = currentPage === 1;
             nextBtn.disabled = currentPage === totalPages;
@@ -3987,8 +4000,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         // Initialize: Show first page on load
         document.addEventListener('DOMContentLoaded', function() {
-            // Get all case items
-            allCases = Array.from(document.querySelectorAll('.case-item'));
+            // Get all case items and store in both arrays
+            allCasesOriginal = Array.from(document.querySelectorAll('.case-item'));
+            allCases = [...allCasesOriginal]; // Copy to allCases
+            
+            console.log(`Initialized: ${allCasesOriginal.length} cases found`);
             
             // Calculate total pages (5 items per page)
             totalPages = Math.ceil(allCases.length / itemsPerPage);
@@ -4007,16 +4023,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         // 統合検索機能（改善版：正確な情報抽出 + ページネーション統合）
         function searchCases() {
             const searchText = document.getElementById('unified-search').value.toLowerCase().trim();
-            const allCaseElements = document.querySelectorAll('.case-item');
+            
+            // If search is empty, restore all original cases
+            if (searchText === '') {
+                allCases = [...allCasesOriginal];
+                totalPages = Math.ceil(allCases.length / itemsPerPage);
+                currentPage = 1;
+                showPage(1);
+                return;
+            }
+            
+            // Filter cases based on search text
             const filteredCases = [];
             
-            allCaseElements.forEach(caseItem => {
-                // 検索テキストが空の場合は全て含める
-                if (searchText === '') {
-                    filteredCases.push(caseItem);
-                    return;
-                }
-                
+            allCasesOriginal.forEach(caseItem => {
                 // 1. 基本情報の抽出
                 const area = (caseItem.dataset.area || '').toLowerCase();
                 const categories = JSON.parse(caseItem.dataset.categories || '[]');

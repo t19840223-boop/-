@@ -3921,7 +3921,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         function showPage(page) {
             // Safety check
             if (!allCasesHTML || allCasesHTML.length === 0) {
-                console.error('[showPage] allCasesHTML is not initialized!');
                 return;
             }
             
@@ -3930,31 +3929,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             // Get container
             const casesContainer = document.getElementById('cases-container');
             if (!casesContainer) {
-                console.error('[showPage] cases-container not found!');
                 return;
             }
             
             // Calculate range (5 items per page)
-            const startIndex = (page - 1) * itemsPerPage;  // page 1: 0, page 2: 5, page 3: 10...
+            const startIndex = (page - 1) * itemsPerPage;
             const endIndex = Math.min(startIndex + itemsPerPage, allCasesHTML.length);
             
-            console.log(`[showPage] Page ${page}: showing items ${startIndex}-${endIndex-1} (${endIndex - startIndex} items)`);
-            
-            // CRITICAL: Clear ALL existing content first
+            // Clear container
             casesContainer.innerHTML = '';
             
-            // Build HTML string for ONLY this page's items
+            // Build HTML string for current page items
             let html = '';
             for (let i = startIndex; i < endIndex; i++) {
                 html += allCasesHTML[i];
             }
             
-            // Replace container content with only current page items
+            // Insert items
             casesContainer.innerHTML = html;
-            
-            // Verify what was rendered
-            const renderedItems = casesContainer.querySelectorAll('.case-item');
-            console.log(`[showPage] Actually rendered: ${renderedItems.length} items`);
             
             // Update pagination buttons
             updatePagination();
@@ -4020,31 +4012,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         // Initialize: Extract HTML strings and show first page
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('[Init] Starting initialization...');
-            
             // Get all case items as HTML strings
             const caseElements = document.querySelectorAll('.case-item');
-            console.log(`[Init] Found ${caseElements.length} case items in DOM`);
             
             // Store as HTML strings (outerHTML includes the element itself)
             allCasesOriginalHTML = Array.from(caseElements).map(el => el.outerHTML);
             allCasesHTML = [...allCasesOriginalHTML];
             
-            console.log(`[Init] Stored ${allCasesHTML.length} HTML strings`);
-            
-            // CRITICAL: Clear the container immediately to remove all 34 items
+            // Clear the container immediately
             const casesContainer = document.getElementById('cases-container');
             if (casesContainer) {
-                console.log('[Init] Clearing cases-container...');
                 casesContainer.innerHTML = '';
-                console.log('[Init] Container cleared. Items in DOM:', casesContainer.querySelectorAll('.case-item').length);
             }
             
             // Calculate total pages (5 items per page)
             totalPages = Math.ceil(allCasesHTML.length / itemsPerPage);
-            console.log(`[Init] Total pages: ${totalPages} (${itemsPerPage} items per page)`);
             
-            // Show first page (will render items 0-4)
+            // Show first page
             showPage(1);
             
             // Show pagination controls

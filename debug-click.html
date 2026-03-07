@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Debug</title></head><body>
+<script>
+// Simulate clicking page 5 after page loads
+setTimeout(() => {
+    fetch('https://amamoritokka0623.pages.dev/jirei.html')
+        .then(r => r.text())
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const allCases = doc.querySelectorAll('.case-item');
+            
+            console.log('Total cases in HTML:', allCases.length);
+            
+            // Check which cases are at index 20-24 (page 5)
+            for (let i = 20; i < 25 && i < allCases.length; i++) {
+                const title = allCases[i].querySelector('h3');
+                console.log(`Index ${i}:`, title ? title.textContent.trim() : 'NO TITLE');
+            }
+            
+            document.body.innerHTML = '<h1>Check Console</h1>';
+        });
+}, 100);
+</script>
+</body></html>

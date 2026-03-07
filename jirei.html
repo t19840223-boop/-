@@ -3901,16 +3901,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </footer>
 
     <script>
-        // ページネーション機能（5件ずつ表示）
+        // ページネーション機能（5件ずつ表示）- HTML文字列方式
         let currentPage = 1;
-        const itemsPerPage = 5; // 1ページあたり5件
-        let allCases = []; // 現在表示中のケース（検索でフィルタリングされる可能性あり）
-        let allCasesOriginal = []; // 全ケースの元データ（常に全34件を保持）
+        const itemsPerPage = 5;
+        let allCasesHTML = []; // HTML文字列として保存
+        let allCasesOriginalHTML = []; // 元データ（検索用）
         let totalPages = 1;
 
         function showPage(page) {
-            // Safety check: ensure allCases is initialized
-            if (!allCases || allCases.length === 0) {
+            // Safety check
+            if (!allCasesHTML || allCasesHTML.length === 0) {
                 return;
             }
             
@@ -3922,36 +3922,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 return;
             }
             
-            // CRITICAL: Clear container completely
-            while (casesContainer.firstChild) {
-                casesContainer.removeChild(casesContainer.firstChild);
-            }
-            
-            // Calculate start and end index
+            // Calculate range
             const startIndex = (page - 1) * itemsPerPage;
-            const endIndex = startIndex + itemsPerPage;
+            const endIndex = Math.min(startIndex + itemsPerPage, allCasesHTML.length);
             
-            // Add only the cases for current page (max 5)
-            const fragment = document.createDocumentFragment();
-            for (let i = startIndex; i < endIndex && i < allCases.length; i++) {
-                fragment.appendChild(allCases[i].cloneNode(true));
+            // Build HTML string for this page
+            let html = '';
+            for (let i = startIndex; i < endIndex; i++) {
+                html += allCasesHTML[i];
             }
-            casesContainer.appendChild(fragment);
+            
+            // Replace entire container content at once
+            casesContainer.innerHTML = html;
             
             // Update pagination buttons
             updatePagination();
             
             // Update visible count
-            const visibleCount = Math.min(itemsPerPage, allCases.length - startIndex);
+            const visibleCount = endIndex - startIndex;
             const searchResultCount = document.getElementById('search-result-count');
             if (searchResultCount) {
-                searchResultCount.textContent = `${startIndex + 1}-${startIndex + visibleCount}`;
+                searchResultCount.textContent = `${startIndex + 1}-${endIndex}`;
             }
             
             // Scroll to top of cases
-            if (casesContainer) {
-                casesContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+            casesContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function updatePagination() {
@@ -3961,8 +3956,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             if (!prevBtn || !nextBtn || !pageNumbers) return;
             
-            // Safety check: ensure allCases is initialized
-            if (!allCases || allCases.length === 0) {
+            // Safety check
+            if (!allCasesHTML || allCasesHTML.length === 0) {
                 return;
             }
             
@@ -3975,10 +3970,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             // Show page range info
             const startIndex = (currentPage - 1) * itemsPerPage + 1;
-            const endIndex = Math.min(currentPage * itemsPerPage, allCases.length);
+            const endIndex = Math.min(currentPage * itemsPerPage, allCasesHTML.length);
             const pageInfo = document.createElement('span');
             pageInfo.className = 'text-gray-700 font-bold mr-4';
-            pageInfo.textContent = `${startIndex}-${endIndex}件 / 全${allCases.length}件`;
+            pageInfo.textContent = `${startIndex}-${endIndex}件 / 全${allCasesHTML.length}件`;
             pageNumbers.appendChild(pageInfo);
             
             // Generate page number buttons
@@ -4003,23 +3998,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         }
 
-        // Initialize: Show first page on load
+        // Initialize: Extract HTML strings and show first page
         document.addEventListener('DOMContentLoaded', function() {
-            // Get all case items
+            // Get all case items as HTML strings
             const caseElements = document.querySelectorAll('.case-item');
             
-            // Store in arrays and remove from DOM
-            allCasesOriginal = Array.from(caseElements);
-            allCases = [...allCasesOriginal];
+            // Store as HTML strings (outerHTML includes the element itself)
+            allCasesOriginalHTML = Array.from(caseElements).map(el => el.outerHTML);
+            allCasesHTML = [...allCasesOriginalHTML];
             
-            // Remove all cases from DOM initially
+            // Clear the container now
             const casesContainer = document.getElementById('cases-container');
             if (casesContainer) {
                 casesContainer.innerHTML = '';
             }
             
             // Calculate total pages (5 items per page)
-            totalPages = Math.ceil(allCases.length / itemsPerPage);
+            totalPages = Math.ceil(allCasesHTML.length / itemsPerPage);
             
             // Show first page
             showPage(1);
@@ -4032,159 +4027,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
 
 
-        // 統合検索機能（改善版：正確な情報抽出 + ページネーション統合）
+        // 統合検索機能（HTML文字列方式対応版）
         function searchCases() {
             const searchText = document.getElementById('unified-search').value.toLowerCase().trim();
             
             // If search is empty, restore all original cases
             if (searchText === '') {
-                allCases = [...allCasesOriginal];
-                totalPages = Math.ceil(allCases.length / itemsPerPage);
+                allCasesHTML = [...allCasesOriginalHTML];
+                totalPages = Math.ceil(allCasesHTML.length / itemsPerPage);
                 currentPage = 1;
                 showPage(1);
                 return;
             }
             
-            // Filter cases based on search text
-            const filteredCases = [];
+            // Filter cases based on search text (simple text search in HTML)
+            const filteredHTML = [];
             
-            allCasesOriginal.forEach(caseItem => {
-                // 1. 基本情報の抽出
-                const area = (caseItem.dataset.area || '').toLowerCase();
-                const categories = JSON.parse(caseItem.dataset.categories || '[]');
+            allCasesOriginalHTML.forEach(htmlString => {
+                const lowerHTML = htmlString.toLowerCase();
                 
-                // 2. タイトル・地域・顧客情報
-                const title = (caseItem.querySelector('h3')?.textContent || '').toLowerCase();
-                const customerInfo = (caseItem.querySelector('.text-lg.text-gray-600')?.textContent || '').toLowerCase();
-                
-                // 3. バッジ情報（緊急対応、築年数など）
-                let badgeText = '';
-                caseItem.querySelectorAll('.rounded-full.font-bold').forEach(badge => {
-                    badgeText += ' ' + badge.textContent.toLowerCase();
-                });
-                
-                // 4. 詳細情報（症状、原因、工事内容）
-                let detailText = '';
-                
-                // 症状（❌ 症状）
-                const symptomElements = caseItem.querySelectorAll('.border-red-500, .text-red-600');
-                symptomElements.forEach(el => {
-                    const parent = el.closest('.border-l-4');
-                    if (parent) {
-                        const text = parent.textContent.replace(/❌\s*症状/g, '').trim();
-                        detailText += ' ' + text.toLowerCase();
-                    }
-                });
-                
-                // 原因（🔍 原因）
-                const causeElements = caseItem.querySelectorAll('.border-blue-500, .text-blue-600');
-                causeElements.forEach(el => {
-                    const parent = el.closest('.border-l-4');
-                    if (parent && parent.textContent.includes('原因')) {
-                        const text = parent.textContent.replace(/🔍\s*原因/g, '').trim();
-                        detailText += ' ' + text.toLowerCase();
-                    }
-                });
-                
-                // 工事内容（✅ 工事内容）
-                const workElements = caseItem.querySelectorAll('.border-green-500, .text-green-600');
-                workElements.forEach(el => {
-                    const parent = el.closest('.border-l-4');
-                    if (parent && parent.textContent.includes('工事内容')) {
-                        const text = parent.textContent.replace(/✅\s*工事内容/g, '').trim();
-                        detailText += ' ' + text.toLowerCase();
-                    }
-                });
-                
-                // 5. 費用情報
-                let priceText = '';
-                const priceElements = caseItem.querySelectorAll('.text-3xl, .text-4xl, .text-yellow-300, .font-black');
-                priceElements.forEach(el => {
-                    const text = el.textContent;
-                    if (text.includes('万円') || text.includes('円')) {
-                        priceText += ' ' + text.toLowerCase();
-                    }
-                });
-                
-                // 訪問販売との比較がある場合
-                if (caseItem.querySelector('.border-yellow-400')) {
-                    priceText += ' 訪問販売 比較 削減';
-                }
-                
-                // 火災保険適用の場合
-                const insuranceElements = caseItem.querySelectorAll('*');
-                insuranceElements.forEach(el => {
-                    if (el.textContent.includes('火災保険') || el.textContent.includes('0円') || el.textContent.includes('自己負担0円')) {
-                        priceText += ' 火災保険 0円 無料';
-                    }
-                });
-                
-                // 6. お客様の声
-                let voiceText = '';
-                const voiceElement = caseItem.querySelector('.text-blue-700');
-                if (voiceElement) {
-                    const voiceParent = voiceElement.closest('.bg-blue-50, .border-blue-200');
-                    if (voiceParent) {
-                        voiceText = voiceParent.textContent.replace(/💬\s*お客様の声/g, '').trim().toLowerCase();
-                    }
-                }
-                
-                // 7. カテゴリ名をテキスト化（拡張版）
-                const categoryMap = {
-                    'roof': '屋根工事 屋根 棟板金 瓦 スレート 葺き替え カバー工法',
-                    'wall': '外壁工事 外壁 ひび割れ 塗装 サイディング',
-                    'emergency': '緊急対応 緊急 即日 応急処置 24時間',
-                    'complex': '複合工事 複合 全面 大規模',
-                    'gutter': '雨樋 雨どい 詰まり 破損',
-                    'veranda': 'ベランダ防水 ベランダ 防水 バルコニー',
-                    'painting': '塗装 ペンキ'
-                };
-                
-                let categoryText = '';
-                categories.forEach(cat => {
-                    categoryText += ' ' + (categoryMap[cat] || '');
-                });
-                
-                // 8. 全ての検索対象テキストを結合
-                const allSearchableText = `
-                    ${area}
-                    ${title}
-                    ${customerInfo}
-                    ${badgeText}
-                    ${detailText}
-                    ${priceText}
-                    ${voiceText}
-                    ${categoryText}
-                `.toLowerCase();
-                
-                // 9. 複数キーワード検索（AND検索）
+                // Split search text into keywords
                 const keywords = searchText.split(/\s+/).filter(k => k.length > 0);
-                const matchAll = keywords.every(keyword => allSearchableText.includes(keyword));
+                
+                // Check if all keywords are present in HTML
+                const matchAll = keywords.every(keyword => lowerHTML.includes(keyword));
                 
                 if (matchAll) {
-                    filteredCases.push(caseItem);
+                    filteredHTML.push(htmlString);
                 }
             });
             
-            // Update global allCases with filtered results
-            allCases = filteredCases;
-            
-            // Calculate new total pages
-            totalPages = Math.ceil(allCases.length / itemsPerPage);
-            
-            // Reset to page 1 and show results
+            // Update with filtered results
+            allCasesHTML = filteredHTML;
+            totalPages = Math.ceil(allCasesHTML.length / itemsPerPage);
             currentPage = 1;
             showPage(1);
-            
-            // Update search result count display
-            const searchResultCount = document.getElementById('search-result-count');
-            if (searchResultCount) {
-                if (searchText === '') {
-                    searchResultCount.textContent = `1-${Math.min(itemsPerPage, allCases.length)}`;
-                } else {
-                    searchResultCount.textContent = `1-${Math.min(itemsPerPage, allCases.length)}`;
-                }
-            }
         }
     </script>
 

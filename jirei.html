@@ -3901,28 +3901,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </footer>
 
     <script>
-        // ページネーション機能
+        // ページネーション機能（5件ずつ表示）
         let currentPage = 1;
-        const totalPages = 6; // Page 1: 6件, Page 2: 6件, Page 3: 6件, Page 4: 6件, Page 5: 6件, Page 6: 4件（全34件）
+        const itemsPerPage = 5; // 1ページあたり5件
+        let allCases = [];
+        let totalPages = 1;
 
         function showPage(page) {
             currentPage = page;
             
             // Hide all cases
-            document.querySelectorAll('.case-item').forEach(item => {
+            allCases.forEach(item => {
                 item.style.display = 'none';
             });
             
+            // Calculate start and end index
+            const startIndex = (page - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            
             // Show cases for current page
-            document.querySelectorAll(`.case-item[data-page="${page}"]`).forEach(item => {
-                item.style.display = 'block';
-            });
+            for (let i = startIndex; i < endIndex && i < allCases.length; i++) {
+                allCases[i].style.display = 'block';
+            }
             
             // Update pagination buttons
             updatePagination();
             
+            // Update visible count
+            const visibleCount = Math.min(itemsPerPage, allCases.length - startIndex);
+            const searchResultCount = document.getElementById('search-result-count');
+            if (searchResultCount) {
+                searchResultCount.textContent = `${startIndex + 1}-${startIndex + visibleCount}`;
+            }
+            
             // Scroll to top of cases
-            document.getElementById('cases-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const casesContainer = document.getElementById('cases-container');
+            if (casesContainer) {
+                casesContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
 
         function updatePagination() {
@@ -3938,6 +3954,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             // Generate page number buttons
             pageNumbers.innerHTML = '';
+            
+            // Show page range info
+            const startIndex = (currentPage - 1) * itemsPerPage + 1;
+            const endIndex = Math.min(currentPage * itemsPerPage, allCases.length);
+            const pageInfo = document.createElement('span');
+            pageInfo.className = 'text-gray-700 font-bold mr-4';
+            pageInfo.textContent = `${startIndex}-${endIndex}件 / 全${allCases.length}件`;
+            pageNumbers.appendChild(pageInfo);
+            
+            // Generate page number buttons
             for (let i = 1; i <= totalPages; i++) {
                 const btn = document.createElement('button');
                 btn.textContent = i;
@@ -3959,35 +3985,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         }
 
-        // Initialize: Show all cases on load
+        // Initialize: Show first page on load
         document.addEventListener('DOMContentLoaded', function() {
-            // 全事例を表示
-            const allCases = document.querySelectorAll('.case-item');
-            allCases.forEach(caseItem => {
-                caseItem.style.display = 'block';
-            });
+            // Get all case items
+            allCases = Array.from(document.querySelectorAll('.case-item'));
             
-            // ページネーションを非表示
+            // Calculate total pages (5 items per page)
+            totalPages = Math.ceil(allCases.length / itemsPerPage);
+            
+            // Show first page
+            showPage(1);
+            
+            // Show pagination controls
             const pagination = document.getElementById('pagination');
             if (pagination) {
-                pagination.style.display = 'none';
+                pagination.style.display = 'flex';
             }
-            
-            updateVisibleCount();
         });
 
 
-        // 統合検索機能（改善版：正確な情報抽出）
+        // 統合検索機能（改善版：正確な情報抽出 + ページネーション統合）
         function searchCases() {
             const searchText = document.getElementById('unified-search').value.toLowerCase().trim();
-            const allCases = document.querySelectorAll('.case-item');
-            let visibleCount = 0;
+            const allCaseElements = document.querySelectorAll('.case-item');
+            const filteredCases = [];
             
-            allCases.forEach(caseItem => {
-                // 検索テキストが空の場合は全て表示
+            allCaseElements.forEach(caseItem => {
+                // 検索テキストが空の場合は全て含める
                 if (searchText === '') {
-                    caseItem.style.display = 'block';
-                    visibleCount++;
+                    filteredCases.push(caseItem);
                     return;
                 }
                 
@@ -4104,19 +4130,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 const matchAll = keywords.every(keyword => allSearchableText.includes(keyword));
                 
                 if (matchAll) {
-                    caseItem.style.display = 'block';
-                    visibleCount++;
-                } else {
-                    caseItem.style.display = 'none';
+                    filteredCases.push(caseItem);
                 }
             });
             
-            // 検索結果件数を更新
-            document.getElementById('search-result-count').textContent = visibleCount;
+            // Update global allCases with filtered results
+            allCases = filteredCases;
             
-            // ページネーションをリセット
+            // Calculate new total pages
+            totalPages = Math.ceil(allCases.length / itemsPerPage);
+            
+            // Reset to page 1 and show results
             currentPage = 1;
-            displayPage(currentPage);
+            showPage(1);
+            
+            // Update search result count display
+            const searchResultCount = document.getElementById('search-result-count');
+            if (searchResultCount) {
+                if (searchText === '') {
+                    searchResultCount.textContent = `1-${Math.min(itemsPerPage, allCases.length)}`;
+                } else {
+                    searchResultCount.textContent = `1-${Math.min(itemsPerPage, allCases.length)}`;
+                }
+            }
         }
     </script>
 

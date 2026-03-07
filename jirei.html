@@ -3910,6 +3910,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         function showPage(page) {
             currentPage = page;
             
+            console.log(`showPage called with page: ${page}`);
+            console.log(`Total cases available: ${allCases.length}`);
+            
             // Hide all cases
             allCases.forEach(item => {
                 item.style.display = 'none';
@@ -3919,9 +3922,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             const startIndex = (page - 1) * itemsPerPage;
             const endIndex = startIndex + itemsPerPage;
             
+            console.log(`Showing cases from index ${startIndex} to ${endIndex - 1}`);
+            
             // Show cases for current page
             for (let i = startIndex; i < endIndex && i < allCases.length; i++) {
                 allCases[i].style.display = 'block';
+                console.log(`Showing case ${i + 1}`);
             }
             
             // Update pagination buttons

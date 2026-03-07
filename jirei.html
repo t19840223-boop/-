@@ -3990,8 +3990,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             // Get all case items
             allCases = Array.from(document.querySelectorAll('.case-item'));
             
+            // Debug: Log total cases found
+            console.log(`Total cases found: ${allCases.length}`);
+            console.log(`Items per page: ${itemsPerPage}`);
+            
             // Calculate total pages (5 items per page)
             totalPages = Math.ceil(allCases.length / itemsPerPage);
+            console.log(`Total pages: ${totalPages}`);
             
             // Show first page
             showPage(1);

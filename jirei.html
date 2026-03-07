@@ -105,141 +105,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </p>
             </div>
 
-            <!-- 地域検索機能 -->
+            <!-- 🔍 統合検索ボックス -->
             <div class="max-w-4xl mx-auto mb-8">
                 <div class="bg-white rounded-2xl shadow-lg p-6">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">🔍 地域で探す</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">🔍 施工事例を検索</h3>
                     
-                    <!-- 検索ボックス -->
+                    <!-- 統合検索ボックス -->
                     <div class="mb-4">
                         <input 
                             type="text" 
-                            id="area-search" 
-                            placeholder="🔍 市区町村を入力（例：町田、横浜、青葉）" 
-                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-base focus:border-blue-500 focus:outline-none transition-all"
-                            onkeyup="searchByArea()"
+                            id="unified-search" 
+                            placeholder="🔍 地域・工事内容・築年数などで検索（例：町田、屋根、緊急対応、築20年）" 
+                            class="w-full px-6 py-4 border-2 border-gray-300 rounded-lg text-lg focus:border-blue-500 focus:outline-none transition-all shadow-md"
+                            onkeyup="searchCases()"
                         >
                     </div>
                     
-                    <p class="text-center text-sm text-gray-500 mb-3">または</p>
-                    
-                    <!-- ドロップダウン -->
-                    <div class="mb-4">
-                        <select 
-                            id="area-select" 
-                            class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-base focus:border-blue-500 focus:outline-none transition-all bg-white"
-                            onchange="filterByArea()"
-                        >
-                            <option value="all">✨ 全て（34件）</option>
-                            <optgroup label="東京都（16件）">
-                                <option value="町田市">町田市（6件）</option>
-                                <option value="日野市">日野市（4件）</option>
-                                <option value="稲城市">稲城市（2件）</option>
-                                <option value="八王子市">八王子市（3件）</option>
-                                <option value="調布市">調布市（1件）</option>
-                                <option value="多摩市">多摩市（1件）</option>
-                            </optgroup>
-                            <optgroup label="神奈川県（17件）">
-                                <option value="横浜市青葉区">横浜市青葉区（6件）</option>
-                                <option value="川崎市麻生区">川崎市麻生区（7件）</option>
-                                <option value="横浜市港北区">横浜市港北区（1件）</option>
-                                <option value="横浜市都筑区">横浜市都筑区（1件）</option>
-                                <option value="相模原市南区">相模原市南区（2件）</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                    
-                    <!-- 表示件数 -->
+                    <!-- 検索結果件数表示 -->
                     <div class="text-center">
                         <p class="text-lg font-bold text-blue-600">
-                            表示中：<span id="visible-count">34</span>件
+                            検索結果：<span id="search-result-count">34</span>件 / 全34件
                         </p>
                     </div>
-                </div>
-            </div>
-
-            <!-- カテゴリフィルター -->
-            <div class="max-w-4xl mx-auto mb-8">
-                <div class="bg-white rounded-2xl shadow-lg p-6">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">🏷️ カテゴリで絞り込む</h3>
                     
-                    <div class="flex flex-wrap justify-center gap-3">
-                        <!-- 全て表示ボタン -->
-                        <button 
-                            class="category-btn active px-4 py-2 rounded-full font-bold text-sm transition-all shadow-md hover:scale-105"
-                            data-category="all"
-                            onclick="filterByCategory('all')"
-                        >
-                            ✨ 全て表示
-                        </button>
-                        
-                        <!-- 屋根関連 -->
-                        <button 
-                            class="category-btn px-4 py-2 rounded-full font-bold text-sm transition-all shadow-md hover:scale-105"
-                            data-category="roof"
-                            onclick="filterByCategory('roof')"
-                        >
-                            🏠 屋根工事 (14件)
-                        </button>
-                        
-                        <!-- 外壁関連 -->
-                        <button 
-                            class="category-btn px-4 py-2 rounded-full font-bold text-sm transition-all shadow-md hover:scale-105"
-                            data-category="wall"
-                            onclick="filterByCategory('wall')"
-                        >
-                            🧱 外壁工事 (9件)
-                        </button>
-                        
-                        <!-- 緊急対応 -->
-                        <button 
-                            class="category-btn px-4 py-2 rounded-full font-bold text-sm transition-all shadow-md hover:scale-105"
-                            data-category="emergency"
-                            onclick="filterByCategory('emergency')"
-                        >
-                            🚨 緊急対応 (7件)
-                        </button>
-                        
-                        <!-- 複合工事 -->
-                        <button 
-                            class="category-btn px-4 py-2 rounded-full font-bold text-sm transition-all shadow-md hover:scale-105"
-                            data-category="complex"
-                            onclick="filterByCategory('complex')"
-                        >
-                            🔧 複合工事 (14件)
-                        </button>
-                        
-                        <!-- 雨樋 -->
-                        <button 
-                            class="category-btn px-4 py-2 rounded-full font-bold text-sm transition-all shadow-md hover:scale-105"
-                            data-category="gutter"
-                            onclick="filterByCategory('gutter')"
-                        >
-                            💧 雨樋 (3件)
-                        </button>
-                        
-                        <!-- ベランダ・防水 -->
-                        <button 
-                            class="category-btn px-4 py-2 rounded-full font-bold text-sm transition-all shadow-md hover:scale-105"
-                            data-category="veranda"
-                            onclick="filterByCategory('veranda')"
-                        >
-                            🏗️ ベランダ防水 (2件)
-                        </button>
-                        
-                        <!-- 塗装 -->
-                        <button 
-                            class="category-btn px-4 py-2 rounded-full font-bold text-sm transition-all shadow-md hover:scale-105"
-                            data-category="painting"
-                            onclick="filterByCategory('painting')"
-                        >
-                            🎨 塗装 (1件)
-                        </button>
+                    <!-- 検索のヒント -->
+                    <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                        <p class="text-sm text-gray-700 mb-2">
+                            <strong>💡 検索のヒント：</strong>
+                        </p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-gray-600">
+                            <div>📍 地域：町田、横浜、青葉区</div>
+                            <div>🏠 工事：屋根、外壁、雨樋</div>
+                            <div>🚨 対応：緊急、即日</div>
+                            <div>💰 費用：火災保険、0円</div>
+                        </div>
                     </div>
-                    
-                    <p class="text-center text-xs text-gray-500 mt-4">
-                        ※ 地域検索と組み合わせて絞り込みができます
-                    </p>
                 </div>
             </div>
 
@@ -4077,153 +3977,66 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
 
 
-        // 表示件数を更新
-        function updateVisibleCount() {
+        // 統合検索機能（blog.html形式）
+        function searchCases() {
+            const searchText = document.getElementById('unified-search').value.toLowerCase().trim();
             const allCases = document.querySelectorAll('.case-item');
-            let count = 0;
+            let visibleCount = 0;
             
             allCases.forEach(caseItem => {
-                const style = window.getComputedStyle(caseItem);
-                if (style.display !== 'none') {
-                    count++;
-                }
-            });
-            
-            const countElement = document.getElementById('visible-count');
-            if (countElement) {
-                countElement.textContent = count;
-            }
-        }
-
-        // カテゴリフィルター機能（完全版）
-        let selectedCategory = 'all'; // グローバル変数でカテゴリ状態を保持
-
-        function filterByCategory(category) {
-            selectedCategory = category;
-            
-            // カテゴリボタンのアクティブ状態を更新
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            // 地域検索の状態を取得
-            const searchText = document.getElementById('area-search').value.toLowerCase();
-            const selectedArea = document.getElementById('area-select').value;
-            
-            // 全事例をフィルタリング
-            const allCases = document.querySelectorAll('.case-item');
-            
-            allCases.forEach(caseItem => {
+                // 検索対象のテキストを収集
                 const area = (caseItem.dataset.area || '').toLowerCase();
                 const categories = JSON.parse(caseItem.dataset.categories || '[]');
+                const title = (caseItem.querySelector('h3')?.textContent || '').toLowerCase();
+                const customerInfo = (caseItem.querySelector('.text-lg.text-gray-600')?.textContent || '').toLowerCase();
+                const allText = caseItem.textContent.toLowerCase();
                 
-                // 地域フィルター（検索ボックスまたはドロップダウン）
-                let areaMatch = true;
-                if (searchText !== '') {
-                    areaMatch = area.includes(searchText);
-                } else if (selectedArea !== 'all') {
-                    areaMatch = caseItem.dataset.area === selectedArea;
+                // カテゴリ名をテキスト化
+                const categoryMap = {
+                    'roof': '屋根工事 屋根',
+                    'wall': '外壁工事 外壁',
+                    'emergency': '緊急対応 緊急 即日',
+                    'complex': '複合工事 複合',
+                    'gutter': '雨樋',
+                    'veranda': 'ベランダ防水 ベランダ 防水',
+                    'painting': '塗装'
+                };
+                
+                let categoryText = '';
+                categories.forEach(cat => {
+                    categoryText += ' ' + (categoryMap[cat] || '');
+                });
+                
+                // 検索テキストが空の場合は全て表示
+                if (searchText === '') {
+                    caseItem.style.display = 'block';
+                    visibleCount++;
+                    return;
                 }
                 
-                // カテゴリフィルター
-                const categoryMatch = category === 'all' || categories.includes(category);
+                // 複数キーワードに対応（スペース区切り）
+                const keywords = searchText.split(/\s+/).filter(k => k.length > 0);
+                const allSearchableText = `${area} ${title} ${customerInfo} ${categoryText} ${allText}`;
                 
-                // 両方の条件を満たす場合のみ表示
-                if (areaMatch && categoryMatch) {
+                // 全てのキーワードが含まれている場合に表示
+                const matchAll = keywords.every(keyword => allSearchableText.includes(keyword));
+                
+                if (matchAll) {
                     caseItem.style.display = 'block';
+                    visibleCount++;
                 } else {
                     caseItem.style.display = 'none';
                 }
             });
             
-            updateVisibleCount();
-        }
-
-        // 地域検索機能（カテゴリフィルターと完全連動）
-        function searchByArea() {
-            const searchText = document.getElementById('area-search').value.toLowerCase();
-            const select = document.getElementById('area-select');
-            select.value = 'all'; // ドロップダウンをリセット
+            // 検索結果件数を更新
+            document.getElementById('search-result-count').textContent = visibleCount;
             
-            const allCases = document.querySelectorAll('.case-item');
-            
-            allCases.forEach(caseItem => {
-                const area = (caseItem.dataset.area || '').toLowerCase();
-                const categories = JSON.parse(caseItem.dataset.categories || '[]');
-                
-                // 地域フィルター
-                const areaMatch = searchText === '' || area.includes(searchText);
-                
-                // カテゴリフィルター（現在選択中のカテゴリ）
-                const categoryMatch = selectedCategory === 'all' || categories.includes(selectedCategory);
-                
-                // 両方の条件を満たす場合のみ表示
-                if (areaMatch && categoryMatch) {
-                    caseItem.style.display = 'block';
-                } else {
-                    caseItem.style.display = 'none';
-                }
-            });
-            
-            updateVisibleCount();
-        }
-
-        // ドロップダウンで絞り込み（カテゴリフィルターと完全連動）
-        function filterByArea() {
-            const selectedArea = document.getElementById('area-select').value;
-            const searchBox = document.getElementById('area-search');
-            searchBox.value = ''; // 検索ボックスをリセット
-            
-            const allCases = document.querySelectorAll('.case-item');
-            
-            allCases.forEach(caseItem => {
-                const area = caseItem.dataset.area || '';
-                const categories = JSON.parse(caseItem.dataset.categories || '[]');
-                
-                // 地域フィルター
-                const areaMatch = selectedArea === 'all' || area === selectedArea;
-                
-                // カテゴリフィルター（現在選択中のカテゴリ）
-                const categoryMatch = selectedCategory === 'all' || categories.includes(selectedCategory);
-                
-                // 両方の条件を満たす場合のみ表示
-                if (areaMatch && categoryMatch) {
-                    caseItem.style.display = 'block';
-                } else {
-                    caseItem.style.display = 'none';
-                }
-            });
-            
-            updateVisibleCount();
+            // ページネーションをリセット
+            currentPage = 1;
+            displayPage(currentPage);
         }
     </script>
-
-    <style>
-        /* カテゴリフィルターボタンのスタイル */
-        .category-btn {
-            background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
-            color: #4b5563;
-            border: 2px solid #d1d5db;
-        }
-        
-        .category-btn:hover {
-            background: linear-gradient(135deg, #c7d2fe 0%, #e0e7ff 100%);
-            border-color: #3b82f6;
-            color: #1e40af;
-        }
-        
-        .category-btn.active {
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-            color: white;
-            border-color: #1e40af;
-            box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
-        }
-        
-        .category-btn.active:hover {
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-        }
-    </style>
 
 </body>
 </html>

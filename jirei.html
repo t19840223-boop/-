@@ -3933,6 +3933,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             let shownCount = 0;
             for (let i = startIndex; i < endIndex && i < allCases.length; i++) {
                 allCases[i].style.display = 'block';
+                const title = allCases[i].querySelector('h3');
+                console.log(`[showPage]   Index ${i}: ${title ? title.textContent.trim().substring(0, 30) : 'NO TITLE'}`);
                 shownCount++;
             }
             console.log(`[showPage] Shown ${shownCount} cases`);
@@ -3985,7 +3987,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             for (let i = 1; i <= totalPages; i++) {
                 const btn = document.createElement('button');
                 btn.textContent = i;
-                btn.onclick = () => showPage(i);
+                btn.onclick = () => {
+                    console.log(`[Button Click] Page ${i} button clicked`);
+                    showPage(i);
+                };
                 btn.className = `px-4 py-2 rounded-lg font-bold transition-all text-lg shadow-md ${
                     i === currentPage 
                         ? 'bg-blue-600 text-white' 

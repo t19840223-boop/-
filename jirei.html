@@ -3916,23 +3916,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             currentPage = page;
             
-            // Calculate start and end index
-            const startIndex = (page - 1) * itemsPerPage;
-            const endIndex = startIndex + itemsPerPage;
-            
-            // Clear container and re-add only current page cases
+            // Get container
             const casesContainer = document.getElementById('cases-container');
             if (!casesContainer) {
                 return;
             }
             
-            // Remove all case items from DOM
-            casesContainer.innerHTML = '';
-            
-            // Add only the cases for current page
-            for (let i = startIndex; i < endIndex && i < allCases.length; i++) {
-                casesContainer.appendChild(allCases[i]);
+            // CRITICAL: Clear container completely
+            while (casesContainer.firstChild) {
+                casesContainer.removeChild(casesContainer.firstChild);
             }
+            
+            // Calculate start and end index
+            const startIndex = (page - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            
+            // Add only the cases for current page (max 5)
+            const fragment = document.createDocumentFragment();
+            for (let i = startIndex; i < endIndex && i < allCases.length; i++) {
+                fragment.appendChild(allCases[i].cloneNode(true));
+            }
+            casesContainer.appendChild(fragment);
             
             // Update pagination buttons
             updatePagination();
@@ -4001,9 +4005,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         // Initialize: Show first page on load
         document.addEventListener('DOMContentLoaded', function() {
-            // Get all case items and store in both arrays
-            allCasesOriginal = Array.from(document.querySelectorAll('.case-item'));
-            allCases = [...allCasesOriginal]; // Copy to allCases
+            // Get all case items
+            const caseElements = document.querySelectorAll('.case-item');
+            
+            // Store in arrays and remove from DOM
+            allCasesOriginal = Array.from(caseElements);
+            allCases = [...allCasesOriginal];
+            
+            // Remove all cases from DOM initially
+            const casesContainer = document.getElementById('cases-container');
+            if (casesContainer) {
+                casesContainer.innerHTML = '';
+            }
             
             // Calculate total pages (5 items per page)
             totalPages = Math.ceil(allCases.length / itemsPerPage);

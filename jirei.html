@@ -52,6 +52,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           transform: translateY(0);
         }
       }
+      
+      /* CRITICAL FIX: Hide all case items by default, JavaScript will show only current page items */
+      .case-item {
+        display: none !important;
+      }
+      
+      /* Only show items that are direct children of cases-container (JavaScript-inserted) */
+      #cases-container > .case-item {
+        display: block !important;
+      }
     </style>
 </head>
 <body class="bg-gray-50">

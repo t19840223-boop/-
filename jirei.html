@@ -3977,36 +3977,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
 
 
-        // 統合検索機能（blog.html形式）
+        // 統合検索機能（改善版：正確な情報抽出）
         function searchCases() {
             const searchText = document.getElementById('unified-search').value.toLowerCase().trim();
             const allCases = document.querySelectorAll('.case-item');
             let visibleCount = 0;
             
             allCases.forEach(caseItem => {
-                // 検索対象のテキストを収集
-                const area = (caseItem.dataset.area || '').toLowerCase();
-                const categories = JSON.parse(caseItem.dataset.categories || '[]');
-                const title = (caseItem.querySelector('h3')?.textContent || '').toLowerCase();
-                const customerInfo = (caseItem.querySelector('.text-lg.text-gray-600')?.textContent || '').toLowerCase();
-                const allText = caseItem.textContent.toLowerCase();
-                
-                // カテゴリ名をテキスト化
-                const categoryMap = {
-                    'roof': '屋根工事 屋根',
-                    'wall': '外壁工事 外壁',
-                    'emergency': '緊急対応 緊急 即日',
-                    'complex': '複合工事 複合',
-                    'gutter': '雨樋',
-                    'veranda': 'ベランダ防水 ベランダ 防水',
-                    'painting': '塗装'
-                };
-                
-                let categoryText = '';
-                categories.forEach(cat => {
-                    categoryText += ' ' + (categoryMap[cat] || '');
-                });
-                
                 // 検索テキストが空の場合は全て表示
                 if (searchText === '') {
                     caseItem.style.display = 'block';
@@ -4014,11 +3991,116 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     return;
                 }
                 
-                // 複数キーワードに対応（スペース区切り）
-                const keywords = searchText.split(/\s+/).filter(k => k.length > 0);
-                const allSearchableText = `${area} ${title} ${customerInfo} ${categoryText} ${allText}`;
+                // 1. 基本情報の抽出
+                const area = (caseItem.dataset.area || '').toLowerCase();
+                const categories = JSON.parse(caseItem.dataset.categories || '[]');
                 
-                // 全てのキーワードが含まれている場合に表示
+                // 2. タイトル・地域・顧客情報
+                const title = (caseItem.querySelector('h3')?.textContent || '').toLowerCase();
+                const customerInfo = (caseItem.querySelector('.text-lg.text-gray-600')?.textContent || '').toLowerCase();
+                
+                // 3. バッジ情報（緊急対応、築年数など）
+                let badgeText = '';
+                caseItem.querySelectorAll('.rounded-full.font-bold').forEach(badge => {
+                    badgeText += ' ' + badge.textContent.toLowerCase();
+                });
+                
+                // 4. 詳細情報（症状、原因、工事内容）
+                let detailText = '';
+                
+                // 症状（❌ 症状）
+                const symptomElements = caseItem.querySelectorAll('.border-red-500, .text-red-600');
+                symptomElements.forEach(el => {
+                    const parent = el.closest('.border-l-4');
+                    if (parent) {
+                        const text = parent.textContent.replace(/❌\s*症状/g, '').trim();
+                        detailText += ' ' + text.toLowerCase();
+                    }
+                });
+                
+                // 原因（🔍 原因）
+                const causeElements = caseItem.querySelectorAll('.border-blue-500, .text-blue-600');
+                causeElements.forEach(el => {
+                    const parent = el.closest('.border-l-4');
+                    if (parent && parent.textContent.includes('原因')) {
+                        const text = parent.textContent.replace(/🔍\s*原因/g, '').trim();
+                        detailText += ' ' + text.toLowerCase();
+                    }
+                });
+                
+                // 工事内容（✅ 工事内容）
+                const workElements = caseItem.querySelectorAll('.border-green-500, .text-green-600');
+                workElements.forEach(el => {
+                    const parent = el.closest('.border-l-4');
+                    if (parent && parent.textContent.includes('工事内容')) {
+                        const text = parent.textContent.replace(/✅\s*工事内容/g, '').trim();
+                        detailText += ' ' + text.toLowerCase();
+                    }
+                });
+                
+                // 5. 費用情報
+                let priceText = '';
+                const priceElements = caseItem.querySelectorAll('.text-3xl, .text-4xl, .text-yellow-300, .font-black');
+                priceElements.forEach(el => {
+                    const text = el.textContent;
+                    if (text.includes('万円') || text.includes('円')) {
+                        priceText += ' ' + text.toLowerCase();
+                    }
+                });
+                
+                // 訪問販売との比較がある場合
+                if (caseItem.querySelector('.border-yellow-400')) {
+                    priceText += ' 訪問販売 比較 削減';
+                }
+                
+                // 火災保険適用の場合
+                const insuranceElements = caseItem.querySelectorAll('*');
+                insuranceElements.forEach(el => {
+                    if (el.textContent.includes('火災保険') || el.textContent.includes('0円') || el.textContent.includes('自己負担0円')) {
+                        priceText += ' 火災保険 0円 無料';
+                    }
+                });
+                
+                // 6. お客様の声
+                let voiceText = '';
+                const voiceElement = caseItem.querySelector('.text-blue-700');
+                if (voiceElement) {
+                    const voiceParent = voiceElement.closest('.bg-blue-50, .border-blue-200');
+                    if (voiceParent) {
+                        voiceText = voiceParent.textContent.replace(/💬\s*お客様の声/g, '').trim().toLowerCase();
+                    }
+                }
+                
+                // 7. カテゴリ名をテキスト化（拡張版）
+                const categoryMap = {
+                    'roof': '屋根工事 屋根 棟板金 瓦 スレート 葺き替え カバー工法',
+                    'wall': '外壁工事 外壁 ひび割れ 塗装 サイディング',
+                    'emergency': '緊急対応 緊急 即日 応急処置 24時間',
+                    'complex': '複合工事 複合 全面 大規模',
+                    'gutter': '雨樋 雨どい 詰まり 破損',
+                    'veranda': 'ベランダ防水 ベランダ 防水 バルコニー',
+                    'painting': '塗装 ペンキ'
+                };
+                
+                let categoryText = '';
+                categories.forEach(cat => {
+                    categoryText += ' ' + (categoryMap[cat] || '');
+                });
+                
+                // 8. 全ての検索対象テキストを結合
+                const allSearchableText = `
+                    ${area}
+                    ${title}
+                    ${customerInfo}
+                    ${badgeText}
+                    ${detailText}
+                    ${priceText}
+                    ${voiceText}
+                    ${categoryText}
+                `.toLowerCase();
+                
+                // 9. 複数キーワード検索（AND検索）
+                const keywords = searchText.split(/\s+/).filter(k => k.length > 0);
                 const matchAll = keywords.every(keyword => allSearchableText.includes(keyword));
                 
                 if (matchAll) {

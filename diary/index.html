@@ -81,29 +81,19 @@
         </div>
     </div>
 
-    <!-- 検索ボックス -->
+    <!-- 件数表示 -->
     <div class="container mx-auto px-4 mb-8">
         <div class="max-w-4xl mx-auto">
-            <div class="bg-white rounded-lg shadow-md p-4">
-                <label class="block text-gray-700 font-bold mb-2">
-                    🔍 キーワードで検索
-                </label>
-                <input 
-                    type="text" 
-                    id="diary-search" 
-                    placeholder="例：子育て、お客様の声、横浜市"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    onkeyup="searchDiaries()"
-                >
-                <p class="text-sm text-gray-500 mt-2">
-                    検索結果：<span id="search-result-count">4</span>件
+            <div class="bg-white rounded-lg shadow-md p-4 text-center">
+                <p class="text-gray-700 font-bold">
+                    📓 <span id="diary-result-count">1-4</span> / 全<span id="total-diaries">4</span>件
                 </p>
             </div>
         </div>
     </div>
 
     <!-- 記事一覧 -->
-    <div class="container mx-auto px-4 pb-16">
+    <div class="container mx-auto px-4 pb-8">
         <div class="max-w-4xl mx-auto space-y-6" id="diary-container">
             
             <!-- 記事4 -->
@@ -207,6 +197,21 @@
             </article>
 
         </div>
+
+        <!-- ページネーション -->
+        <div class="max-w-4xl mx-auto mt-12" id="pagination-controls" style="display: none;">
+            <div class="flex justify-center items-center gap-4">
+                <button id="prev-page" class="bg-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-400 transition disabled:opacity-50 disabled:cursor-not-allowed">
+                    ← 前へ
+                </button>
+                <div id="page-numbers" class="flex gap-2">
+                    <!-- ページ番号ボタンがここに生成される -->
+                </div>
+                <button id="next-page" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed">
+                    次へ →
+                </button>
+            </div>
+        </div>
     </div>
 
     <!-- フッター -->
@@ -220,32 +225,103 @@
     </footer>
 
     <script>
-        function searchDiaries() {
-            const query = document.getElementById('diary-search').value.toLowerCase().trim();
-            const entries = document.querySelectorAll('.diary-entry');
-            let visibleCount = 0;
+        // ページネーション設定
+        let currentPage = 1;
+        const itemsPerPage = 5;
+        let allDiariesHTML = [];
+        let totalPages = 1;
 
+        // 初期化
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('diary-container');
+            const entries = container.querySelectorAll('.diary-entry');
+            
+            // すべての記事のHTMLを保存
             entries.forEach(entry => {
-                if (query === '') {
-                    entry.style.display = 'block';
-                    visibleCount++;
-                } else {
-                    const keywords = entry.dataset.keywords.toLowerCase();
-                    const title = entry.querySelector('h2').textContent.toLowerCase();
-                    const content = entry.querySelector('p').textContent.toLowerCase();
-                    const allText = keywords + ' ' + title + ' ' + content;
-
-                    if (allText.includes(query)) {
-                        entry.style.display = 'block';
-                        visibleCount++;
-                    } else {
-                        entry.style.display = 'none';
-                    }
-                }
+                allDiariesHTML.push(entry.outerHTML);
             });
 
-            document.getElementById('search-result-count').textContent = visibleCount;
+            // 総ページ数を計算
+            totalPages = Math.ceil(allDiariesHTML.length / itemsPerPage);
+            document.getElementById('total-diaries').textContent = allDiariesHTML.length;
+
+            // コンテナをクリア
+            container.innerHTML = '';
+
+            // 最初のページを表示
+            showPage(1);
+
+            // ページネーション表示（2ページ以上の場合のみ）
+            if (totalPages > 1) {
+                document.getElementById('pagination-controls').style.display = 'block';
+            }
+        });
+
+        // ページ表示関数
+        function showPage(page) {
+            if (!allDiariesHTML || allDiariesHTML.length === 0) return;
+
+            currentPage = page;
+            const start = (page - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const container = document.getElementById('diary-container');
+
+            // コンテナをクリアして該当ページの記事を追加
+            container.innerHTML = '';
+            const pageItems = allDiariesHTML.slice(start, end);
+            pageItems.forEach(html => {
+                container.innerHTML += html;
+            });
+
+            // ページネーション更新
+            updatePagination();
+
+            // 表示範囲を更新
+            const displayStart = start + 1;
+            const displayEnd = Math.min(end, allDiariesHTML.length);
+            document.getElementById('diary-result-count').textContent = `${displayStart}-${displayEnd}`;
+
+            // ページトップにスクロール
+            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+
+        // ページネーション更新
+        function updatePagination() {
+            const prevBtn = document.getElementById('prev-page');
+            const nextBtn = document.getElementById('next-page');
+            const pageNumbers = document.getElementById('page-numbers');
+
+            if (!allDiariesHTML || allDiariesHTML.length === 0) return;
+
+            // 前へボタン
+            prevBtn.disabled = currentPage === 1;
+
+            // 次へボタン
+            nextBtn.disabled = currentPage === totalPages;
+
+            // ページ番号ボタン
+            pageNumbers.innerHTML = '';
+            for (let i = 1; i <= totalPages; i++) {
+                const btn = document.createElement('button');
+                btn.textContent = i;
+                btn.className = currentPage === i 
+                    ? 'bg-blue-600 text-white px-4 py-2 rounded-lg font-bold'
+                    : 'bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition';
+                btn.onclick = () => showPage(i);
+                pageNumbers.appendChild(btn);
+            }
+        }
+
+        // イベントリスナー設定
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('prev-page').addEventListener('click', () => {
+                if (currentPage > 1) showPage(currentPage - 1);
+            });
+
+            document.getElementById('next-page').addEventListener('click', () => {
+                if (currentPage < totalPages) showPage(currentPage + 1);
+            });
+        });
     </script>
 </body>
 </html>

@@ -1981,91 +1981,60 @@
         </div>
     </section>
 
-    <!-- 📱 オンライン診断フォーム -->
-    <section id="diagnosis-form" class="bg-gradient-to-b from-blue-50 to-white py-12 md:py-16 px-4">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-3xl md:text-5xl font-black text-center mb-4 text-gray-800">
-                📸 写真で無料診断
+    <!-- 📞 今すぐ相談OK -->
+    <section id="contact" class="bg-white border-4 border-green-400 rounded-3xl py-8 md:py-12 px-4 max-w-5xl mx-auto my-12 shadow-2xl">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl md:text-4xl font-black text-center mb-8 text-gray-800">
+                📞 今すぐ相談OK ｜ 写真・動画での事前相談も可能
             </h2>
-            <p class="text-center text-lg md:text-xl text-gray-600 mb-10">
-                写真を送るだけで<span class="text-blue-600 font-black">10分以内</span>に原因と対策をお伝えします
-            </p>
-
-            <!-- フォーム -->
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-2xl">
-                <form id="diagnosis-form-element" class="space-y-6">
-                    <!-- お名前 -->
-                    <div>
-                        <label for="name" class="block text-gray-700 font-bold mb-2">お名前 <span class="text-red-500">*</span></label>
-                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none">
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <!-- 電話で今すぐ相談 -->
+                <div class="bg-green-50 p-6 md:p-8 rounded-xl border-2 border-green-300 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-3">📞</span>
+                        <h3 class="text-xl md:text-2xl font-black text-gray-800">電話で今すぐ相談</h3>
                     </div>
-
-                    <!-- メールアドレス -->
-                    <div>
-                        <label for="email" class="block text-gray-700 font-bold mb-2">メールアドレス <span class="text-red-500">*</span></label>
-                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none">
-                    </div>
-
-                    <!-- 電話番号 -->
-                    <div>
-                        <label for="phone" class="block text-gray-700 font-bold mb-2">電話番号 <span class="text-red-500">*</span></label>
-                        <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none">
-                    </div>
-
-                    <!-- 住所 -->
-                    <div>
-                        <label for="address" class="block text-gray-700 font-bold mb-2">住所（市区町村まで）<span class="text-red-500">*</span></label>
-                        <input type="text" id="address" name="address" required placeholder="例：神奈川県相模原市" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none">
-                    </div>
-
-                    <!-- 症状 -->
-                    <div>
-                        <label for="symptom" class="block text-gray-700 font-bold mb-2">症状・ご相談内容 <span class="text-red-500">*</span></label>
-                        <textarea id="symptom" name="symptom" required rows="5" placeholder="例：天井から水が垂れている、壁にシミがある、など" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"></textarea>
-                    </div>
-
-                    <!-- 写真アップロード（説明のみ） -->
-                    <div class="bg-blue-50 p-6 rounded-lg border-2 border-blue-300">
-                        <p class="font-bold text-gray-800 mb-3">📸 写真の送り方</p>
-                        <p class="text-sm text-gray-700 mb-4">
-                            送信後、<strong class="text-blue-600">自動返信メール</strong>に写真アップロード用のリンクが記載されています。<br>
-                            そちらから以下の3枚の写真をお送りください：
-                        </p>
-                        <ul class="text-sm text-gray-700 space-y-2 ml-4">
-                            <li>① 雨漏りしている場所（室内）</li>
-                            <li>② 外壁または屋根（外観）</li>
-                            <li>③ その他気になる箇所</li>
-                        </ul>
-                    </div>
-
-                    <!-- 送信ボタン -->
-                    <button type="submit" class="w-full bg-orange-500 text-white px-8 py-5 rounded-full text-xl md:text-2xl font-black hover:bg-orange-600 transition-all shadow-2xl hover:scale-105">
-                        📧 無料診断を申し込む
-                    </button>
-
-                    <p class="text-xs text-gray-600 text-center">
-                        ※ 送信後、自動返信メールが届きます。そちらから写真をアップロードしてください。<br>
-                        ※ 個人情報は厳重に管理し、第三者に提供することはありません。
+                    <p class="text-gray-700 mb-4">
+                        <span class="font-bold">最短即日対応</span>｜見積だけでもOK
                     </p>
-                </form>
+                    <a href="tel:0120-773-743" class="block bg-green-600 text-white text-center px-8 py-5 rounded-full text-2xl md:text-3xl font-black hover:bg-green-700 transition-all shadow-xl hover:scale-105 mb-3">
+                        0120-773-743
+                    </a>
+                    <p class="text-sm text-gray-600 text-center">平日 9:00-18:00</p>
+                </div>
+                
+                <!-- 写真・動画で相談 -->
+                <div class="bg-blue-50 p-6 md:p-8 rounded-xl border-2 border-blue-300 shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <span class="text-4xl mr-3">📷</span>
+                        <h3 class="text-xl md:text-2xl font-black text-gray-800">写真・動画で相談</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        遠方の方や緊急時には、<span class="font-bold">応急対応のアドバイス</span>もできます
+                    </p>
+                    <a href="https://lin.ee/MO1aIyk" target="_blank" class="block bg-blue-600 text-white text-center px-8 py-5 rounded-full text-2xl md:text-3xl font-black hover:bg-blue-700 transition-all shadow-xl hover:scale-105 mb-3">
+                        LINEで相談
+                    </a>
+                    <p class="text-sm text-gray-600 text-center">24時間受付</p>
+                </div>
             </div>
-
+            
             <!-- 安心ポイント -->
-            <div class="mt-10 grid md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <span class="text-4xl mb-3 block">⏰</span>
-                    <p class="font-bold text-gray-800">10分以内に回答</p>
-                    <p class="text-sm text-gray-600">営業時間内なら即対応</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <span class="text-4xl mb-3 block">💯</span>
-                    <p class="font-bold text-gray-800">完全無料</p>
-                    <p class="text-sm text-gray-600">診断料・相談料0円</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                    <span class="text-4xl mb-3 block">🙅</span>
-                    <p class="font-bold text-gray-800">営業一切なし</p>
-                    <p class="text-sm text-gray-600">しつこい勧誘は絶対しません</p>
+            <div class="bg-yellow-100 border-2 border-yellow-400 p-6 rounded-xl">
+                <div class="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-center">
+                    <div class="flex items-center gap-2">
+                        <span class="text-green-600 text-2xl">✅</span>
+                        <span class="font-bold text-gray-800">無理な営業は一切ありません</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-green-600 text-2xl">✅</span>
+                        <span class="font-bold text-gray-800">見積だけでもOK</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-green-600 text-2xl">✅</span>
+                        <span class="font-bold text-gray-800">相談無料</span>
+                    </div>
                 </div>
             </div>
         </div>

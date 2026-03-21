@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Pagination Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-8 bg-gray-50">
+    <h1 class="text-3xl font-bold mb-6">Pagination Test - 34 Cases</h1>
+    
+    <!-- Pagination Controls -->
+    <div class="mb-6 flex gap-2" id="pagination"></div>
+    
+    <!-- Cases Container -->
+    <div id="cases-container" class="space-y-4"></div>
+    
+    <!-- Original Cases (Hidden Storage) -->
+    <div id="original-cases" style="display: none;">
+        <div class="case-item">Case 1</div>
+        <div class="case-item">Case 2</div>
+        <div class="case-item">Case 3</div>
+        <div class="case-item">Case 4</div>
+        <div class="case-item">Case 5</div>
+        <div class="case-item">Case 6</div>
+        <div class="case-item">Case 7</div>
+        <div class="case-item">Case 8</div>
+        <div class="case-item">Case 9</div>
+        <div class="case-item">Case 10</div>
+        <div class="case-item">Case 11</div>
+        <div class="case-item">Case 12</div>
+        <div class="case-item">Case 13</div>
+        <div class="case-item">Case 14</div>
+        <div class="case-item">Case 15</div>
+        <div class="case-item">Case 16</div>
+        <div class="case-item">Case 17</div>
+        <div class="case-item">Case 18</div>
+        <div class="case-item">Case 19</div>
+        <div class="case-item">Case 20</div>
+        <div class="case-item">Case 21</div>
+        <div class="case-item">Case 22</div>
+        <div class="case-item">Case 23</div>
+        <div class="case-item">Case 24</div>
+        <div class="case-item">Case 25</div>
+        <div class="case-item">Case 26</div>
+        <div class="case-item">Case 27</div>
+        <div class="case-item">Case 28</div>
+        <div class="case-item">Case 29</div>
+        <div class="case-item">Case 30</div>
+        <div class="case-item">Case 31</div>
+        <div class="case-item">Case 32</div>
+        <div class="case-item">Case 33</div>
+        <div class="case-item">Case 34</div>
+    </div>
+    
+    <script>
+        const itemsPerPage = 5;
+        let currentPage = 1;
+        let allCasesHTML = [];
+        let totalPages = 1;
+        
+        function init() {
+            // Get HTML strings of all cases
+            const originalContainer = document.getElementById('original-cases');
+            const cases = originalContainer.querySelectorAll('.case-item');
+            
+            allCasesHTML = Array.from(cases).map(c => c.outerHTML);
+            totalPages = Math.ceil(allCasesHTML.length / itemsPerPage);
+            
+            console.log(`Total cases: ${allCasesHTML.length}, Total pages: ${totalPages}`);
+            
+            renderPagination();
+            showPage(1);
+        }
+        
+        function showPage(page) {
+            currentPage = page;
+            const container = document.getElementById('cases-container');
+            
+            // Clear container
+            container.innerHTML = '';
+            
+            // Calculate range
+            const start = (page - 1) * itemsPerPage;
+            const end = Math.min(start + itemsPerPage, allCasesHTML.length);
+            
+            console.log(`Page ${page}: Showing cases ${start + 1} to ${end}`);
+            
+            // Build HTML string
+            let html = '';
+            for (let i = start; i < end; i++) {
+                html += `<div class="p-4 bg-white rounded shadow">${allCasesHTML[i]}</div>`;
+            }
+            
+            // Insert all at once
+            container.innerHTML = html;
+            
+            renderPagination();
+        }
+        
+        function renderPagination() {
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+            
+            for (let i = 1; i <= totalPages; i++) {
+                const btn = document.createElement('button');
+                btn.textContent = i;
+                btn.className = `px-4 py-2 rounded ${i === currentPage ? 'bg-blue-600 text-white' : 'bg-gray-200'}`;
+                btn.onclick = () => showPage(i);
+                pagination.appendChild(btn);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
